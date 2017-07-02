@@ -1,13 +1,34 @@
 package com.arsoft.projects.common.logging;
 
 public class ArLogger implements ArLogger_IF{
-	
+
 	@Override
-	public ArLogger getClassLogger(Class<?> clazz) {
-		return null;
+	public void logInfo(String message) {
+		
 	}
+
 	@Override
-	public void logInfo(String infoMesasge) {
+	public void logDebug(String message) {
+		
+	}
+
+	@Override
+	public void logError(String message) {
+		
+	}
+
+	@Override
+	public void logTrace(String message) {
+		
+	}
+
+	@Override
+	public void logWarn(String message) {
+		
+	}
+
+	@Override
+	public void logFatal(String message) {
 		
 	}
 

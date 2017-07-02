@@ -1,0 +1,16 @@
+#appenders references
+appenders=ArAppender
+
+#defining ArAppender
+appender.ArAppender.type = Console
+appender.ArAppender.name = ArAppenderOutput
+appender.ArAppender.layout.type = PatternLayout
+appender.ArAppender.layout.pattern = %d{yy-MM-dd HH:mm:ss:SSS} %-5p %c{1}:%L - %m%n
+
+rootLogger.level = info
+
+#rootLogger.appenderReferences 
+rootLogger.appenderRefs = ArAppenderRefs
+
+#assigning rootLogger appender to ArAppenderOutput
+rootLogger.appenderRef.ArAppenderRefs.ref = ArAppenderOutput

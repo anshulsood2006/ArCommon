@@ -2,9 +2,11 @@ package com.arsoft.projects.common.logging;
 
 public interface ArLogger_IF {
 	
-	//This method returns the logger associated with a class
-	public ArLogger getClassLogger(Class<?> clazz);
+	public void logInfo(String message);
+	public void logDebug(String message);
+	public void logError(String message);
+	public void logTrace(String message);
+	public void logWarn(String message);
+	public void logFatal(String message);
 	
-	//This methods logs the message of type info
-	public void logInfo(String infoMesasge);
 }
