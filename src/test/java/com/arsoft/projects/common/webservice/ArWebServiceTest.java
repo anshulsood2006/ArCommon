@@ -45,7 +45,7 @@ public class ArWebServiceTest {
 	@Test
 	public void getValue() throws MalformedURLException, ArException{
 		String str = "";
-		String[] asset = {"RPOWER","JSWENERGY","COALINDIA","NATIONALUM","IDEA","ASHOKLEY","NMDC","BHEL","PFC","DIVISLAB","JINDALSTEL","GMRINFRA","TATAPOWER","NETWORK18","HATHWAY","SAIL","IFCI","VIDEOIND","HINDCOMPOS","IDFC","SINTEX","TATASTEEL", "ITC", "SCHAND"}; 
+		String[] asset = {"RPOWER","JSWENERGY","COALINDIA","NATIONALUM","IDEA","ASHOKLEY","NMDC","BHEL","PFC","DIVISLAB","JINDALSTEL","GMRINFRA","TATAPOWER","NETWORK18","HATHWAY","SAIL","IFCI","VIDEOIND","HINDCOMPOS","IDFC","SINTEX","TATASTEEL","ITC","SCHAND","TATAPOWER","IBVENTURES"}; 
 		List<String> assetList = Arrays.asList(asset); 
 		Map<String, String> map = new LinkedHashMap<>();
 		for (String myAsset: assetList){
