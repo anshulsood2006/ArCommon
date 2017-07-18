@@ -34,7 +34,7 @@ public class ArWebServiceUtil {
 		JSONObject  jsonObject = null;
 		logger.info("Web url is "+webServiceUrl);
 		logger.info("Http method is "+httpMethod);
-		logger.info("Requets property map is "+requestPropertyMap);
+		logger.info("Request property map is "+requestPropertyMap);
 		if (webServiceUrl == null)
 		{
 			logger.severe("URL can not be entry.");
