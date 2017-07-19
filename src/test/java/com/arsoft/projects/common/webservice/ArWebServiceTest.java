@@ -1,6 +1,7 @@
 package com.arsoft.projects.common.webservice;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import java.net.MalformedURLException;
 import java.util.Arrays;
@@ -9,7 +10,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.Test;
 
@@ -18,8 +18,6 @@ import com.arsoft.projects.common.equity.ArEquityHelper;
 import com.arsoft.projects.common.equity.ArEquityTransaction;
 import com.arsoft.projects.common.exception.ArException;
 import com.arsoft.projects.common.json.ArJsonUtil;
-import com.arsoft.projects.common.webservice.ArHttpMethod;
-import com.arsoft.projects.common.webservice.ArWebServiceUtil;
 
 public class ArWebServiceTest {
 	@Test
@@ -70,6 +68,7 @@ public class ArWebServiceTest {
 	@Test
 	public void getStockPrice(){
 		ArEquityTransaction arEquityTransaction = ArEquityHelper.getArEquityTransaction(620f, ArEquityAction.BUY);
+		System.out.println(arEquityTransaction);
 	}
 				
 }
