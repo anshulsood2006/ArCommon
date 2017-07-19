@@ -4,7 +4,10 @@ import static org.junit.Assert.assertNotNull;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -52,6 +55,7 @@ public class ArScripPrice implements Callable<String>{
 	}
 	
 	public static void main(String[] args) throws JSONException, ArException {
+		Map<String, String> map = new LinkedHashMap<>();
 		String[] asset = {"RPOWER","JSWENERGY","COALINDIA","NATIONALUM","IDEA","ASHOKLEY","NMDC","BHEL","PFC","DIVISLAB","JINDALSTEL","GMRINFRA","TATAPOWER","NETWORK18","HATHWAY","SAIL","IFCI","VIDEOIND","HINDCOMPOS","IDFC","SINTEX","TATASTEEL","ITC","SCHAND","TATAPOWER","IBVENTURES","VAKRANGEE"}; 
 		List<String> assetList = Arrays.asList(asset); 
 		ExecutorService exec = Executors.newFixedThreadPool(assetList.size());
@@ -64,10 +68,14 @@ public class ArScripPrice implements Callable<String>{
             for(Future<String> result: results) {
                 List<JSONObject> list = ArJsonUtil.getListOfJsonObject(result.get());
     			for (JSONObject jsonObject:list){
+    				String key = ArJsonUtil.getValue(jsonObject, "t");
     				String value = ArJsonUtil.getValue(jsonObject, "l");
-    				System.out.println(value);
+    				map.put(key, value);
     			}
             }
+            for (Map.Entry<String, String> entryMap: map.entrySet()){
+    			System.out.println(entryMap.getValue());
+    		}
         } catch (InterruptedException ex) {
             ex.printStackTrace();
         } catch (ExecutionException ex) {
