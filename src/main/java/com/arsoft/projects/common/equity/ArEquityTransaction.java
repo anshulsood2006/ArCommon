@@ -38,9 +38,9 @@ public class ArEquityTransaction {
 	}
 	
 	public String toString(){
-		return "\nBuy Price: "+this.getTriggerPrice()+"\nBrokerage: "+this.getBrokerage()+"\nTotal Before Levies: "+this.getTotalBeforeLevies()+"\nGST: "+this.getGoodsAndServicesTax()
+		return "\nInitial Price: "+this.getTriggerPrice()+"\nBrokerage: "+this.getBrokerage()+"\nTotal Before Levies: "+this.getTotalBeforeLevies()+"\nGST: "+this.getGoodsAndServicesTax()
 				+"\nSTT: "+this.getSecuritiesTransactionCharges()+"\nTransaction Charges: "+this.getNseTransactionCharges()+"\nStamp Duty: "+
-				this.getStampDuty()+"\nCost Price: "+this.getActualPrice();
+				this.getStampDuty()+"\nFinal Price: "+this.getActualPrice();
 	}
 	
 	public float getTriggerPrice() {

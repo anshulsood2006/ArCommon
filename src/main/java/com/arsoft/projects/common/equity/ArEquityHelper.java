@@ -58,5 +58,26 @@ public class ArEquityHelper {
 		arEquityTransaction.setActualPrice(actualPrice);
 		return arEquityTransaction;
 	}
+	
+	public static ArEquityTransaction getArEquityTransactionForProfit(float costPrice, float requiredProfit){
+		ArEquityTransaction arEquityTransaction = new ArEquityTransaction();
+		float triggerPrice = costPrice + ( requiredProfit / 100 ) * costPrice;
+		arEquityTransaction.setTriggerPrice(costPrice);
+		float actualPrice = triggerPrice / (1f - 0.007126338f);  //TODO: Fix this hard coding here
+		arEquityTransaction.setActualPrice(actualPrice);
+		float brokerage = getBrokerage(actualPrice);
+		arEquityTransaction.setBrokerage(brokerage);
+		float goodsAndServicesTax = getGoodsAndServicesTax(brokerage);
+		arEquityTransaction.setGoodsAndServicesTax(goodsAndServicesTax);
+		float totalBeforeLevies = triggerPrice + brokerage;
+		arEquityTransaction.setTotalBeforeLevies(totalBeforeLevies);
+		float securitiesTransactionCharges = getSecuritiesTransactionCharges(totalBeforeLevies);
+		arEquityTransaction.setSecuritiesTransactionCharges(securitiesTransactionCharges);
+		float nseTransactionCharges = getNseTransactionCharges(totalBeforeLevies);
+		arEquityTransaction.setNseTransactionCharges(nseTransactionCharges);
+		float stampDuty = getStampDuty(totalBeforeLevies);
+		arEquityTransaction.setStampDuty(stampDuty);
+		return arEquityTransaction;
+	}
 
 }
