@@ -1,15 +1,9 @@
 package com.arsoft.projects.common.string;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
+import java.util.StringTokenizer;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -17,8 +11,6 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import org.xml.sax.InputSource;
 
 public class ArStringUtil {
-	
-	private static final Logger logger = Logger.getLogger(ArStringUtil.class.getName());
 	
 	public static String removeFromStartIndex(String actualString, String stringToBeRemovedFromStart){
 		if (actualString == null || actualString.length() == 0){
@@ -47,5 +39,21 @@ public class ArStringUtil {
             return false;
         } 
     }
+	
+	public static List<String> getStringAsListAfterTokenization(String string, String tokenizer){
+		List<String> listOfString = new ArrayList<>();
+		if (string == null){
+			return listOfString;
+		}
+		if (tokenizer == null){
+			listOfString.add(string);
+			return listOfString;
+		}
+		StringTokenizer stringTokenizer = new StringTokenizer(string, tokenizer) ;
+		while (stringTokenizer.hasMoreTokens()){
+			listOfString.add(stringTokenizer.nextToken());
+		}
+		return listOfString;
+	}
 	
 }

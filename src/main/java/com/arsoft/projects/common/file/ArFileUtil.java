@@ -9,6 +9,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -70,5 +71,31 @@ public class ArFileUtil {
 		    }
 		}
 		return fileList;
+	}
+	
+	public static String getProperty(String propertyFile, String propertyName) throws ArException{
+		String propertyValue = null;
+		InputStream  inputStream = null;
+		Properties prop = new Properties();
+		try {
+			inputStream = ArFileUtil.class.getClassLoader().getResourceAsStream(propertyFile);
+			prop.load(inputStream);
+			propertyValue = prop.getProperty(propertyName);
+			if (propertyValue == null){
+				throw new ArException("Property "+propertyName +" not found in the file "+ propertyFile+".");
+			}
+		} catch (IOException io) {
+			io.printStackTrace();
+			throw new ArException("Error opening properties file "+propertyFile +". Check if the file is on the classpath.");
+		} finally {
+			if (inputStream != null) {
+				try {
+					inputStream.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return propertyValue;
 	}
 }

@@ -10,9 +10,6 @@ import java.net.URL;
 import java.util.Map;
 import java.util.logging.Logger;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-
 import com.arsoft.projects.common.exception.ArException;
 
 public class ArWebServiceUtil {
@@ -31,7 +28,6 @@ public class ArWebServiceUtil {
 		BufferedReader br = null;
 		URL url = null;
 		String output = "";
-		JSONObject  jsonObject = null;
 		logger.info("Web url is "+webServiceUrl);
 		logger.info("Http method is "+httpMethod);
 		logger.info("Request property map is "+requestPropertyMap);

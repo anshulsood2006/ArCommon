@@ -3,8 +3,6 @@ package com.arsoft.projects.common.webservice;
 import static org.junit.Assert.assertNotNull;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,16 +16,17 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.arsoft.projects.common.exception.ArException;
+import com.arsoft.projects.common.file.ArFileUtil;
 import com.arsoft.projects.common.json.ArJsonUtil;
+import com.arsoft.projects.common.string.ArStringConstant;
+import com.arsoft.projects.common.string.ArStringUtil;
 
 public class ArScripPrice implements Callable<String>{
 
 	private String myAsset;
-	private int threadId;
 	
-	public ArScripPrice(String myAsset, int threadId){
+	public ArScripPrice(String myAsset){
 		this.myAsset = myAsset;
-		this.threadId = threadId;
 	}
 	
 	@Override
@@ -37,14 +36,12 @@ public class ArScripPrice implements Callable<String>{
 		try {
 			output = ArWebServiceUtil.excecute(url, null, null);
 		} catch (ArException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		List<JSONObject> list = null;
 		try {
 			list = ArJsonUtil.getListOfJsonObject(output);
 		} catch (JSONException | ArException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		for (JSONObject jsonObject:list){
@@ -55,13 +52,15 @@ public class ArScripPrice implements Callable<String>{
 	}
 	
 	public static void main(String[] args) throws JSONException, ArException {
+		String propertyFile ="stocks.properties";
+		String propertyName = "stocks";
+		String propertyValue = ArFileUtil.getProperty(propertyFile, propertyName);
+		List<String> assetList = ArStringUtil.getStringAsListAfterTokenization(propertyValue, ArStringConstant.COMMA);
 		Map<String, String> map = new LinkedHashMap<>();
-		String[] asset = {"RPOWER","JSWENERGY","COALINDIA","NATIONALUM","IDEA","ASHOKLEY","NMDC","BHEL","PFC","DIVISLAB","JINDALSTEL","GMRINFRA","TATAPOWER","NETWORK18","HATHWAY","SAIL","IFCI","VIDEOIND","HINDCOMPOS","IDFC","SINTEX","TATASTEEL","ITC","SCHAND","TATAPOWER","IBVENTURES","VAKRANGEE","AUROPHARMA","RELIANCE"}; 
-		List<String> assetList = Arrays.asList(asset); 
 		ExecutorService exec = Executors.newFixedThreadPool(assetList.size());
 		List<Callable<String>> callables =  new ArrayList<Callable<String>>();
         for(int i=0; i< assetList.size(); i++) {
-            callables.add(new ArScripPrice(assetList.get(i), i+1));
+            callables.add(new ArScripPrice(assetList.get(i)));
         }	
         try {
             List<Future<String>> results =  exec.invokeAll(callables);
