@@ -56,7 +56,7 @@ public class ArScripPrice implements Callable<String>{
 	
 	public static void main(String[] args) throws JSONException, ArException {
 		Map<String, String> map = new LinkedHashMap<>();
-		String[] asset = {"RPOWER","JSWENERGY","COALINDIA","NATIONALUM","IDEA","ASHOKLEY","NMDC","BHEL","PFC","DIVISLAB","JINDALSTEL","GMRINFRA","TATAPOWER","NETWORK18","HATHWAY","SAIL","IFCI","VIDEOIND","HINDCOMPOS","IDFC","SINTEX","TATASTEEL","ITC","SCHAND","TATAPOWER","IBVENTURES","VAKRANGEE"}; 
+		String[] asset = {"RPOWER","JSWENERGY","COALINDIA","NATIONALUM","IDEA","ASHOKLEY","NMDC","BHEL","PFC","DIVISLAB","JINDALSTEL","GMRINFRA","TATAPOWER","NETWORK18","HATHWAY","SAIL","IFCI","VIDEOIND","HINDCOMPOS","IDFC","SINTEX","TATASTEEL","ITC","SCHAND","TATAPOWER","IBVENTURES","VAKRANGEE","AUROPHARMA","RELIANCE"}; 
 		List<String> assetList = Arrays.asList(asset); 
 		ExecutorService exec = Executors.newFixedThreadPool(assetList.size());
 		List<Callable<String>> callables =  new ArrayList<Callable<String>>();

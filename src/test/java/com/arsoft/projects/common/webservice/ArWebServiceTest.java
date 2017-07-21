@@ -66,15 +66,20 @@ public class ArWebServiceTest {
 	}
 	
 	@Test
-	public void getStockPrice(){
-		ArEquityTransaction arEquityTransaction = ArEquityHelper.getArEquityTransaction(764.40f, ArEquityAction.BUY);
+	public void getStockBuyPrice(){
+		ArEquityTransaction arEquityTransaction = ArEquityHelper.getArEquityTransaction(1583f, ArEquityAction.BUY);
 		System.out.println(arEquityTransaction);
 	}
 	
+	@Test
+	public void getStockSellPrice(){
+		ArEquityTransaction arEquityTransaction = ArEquityHelper.getArEquityTransaction(1650f, ArEquityAction.SELL);
+		System.out.println(arEquityTransaction);
+	}
 	
 	@Test
 	public void getStockPricePrfit(){
-		ArEquityTransaction arEquityTransaction = ArEquityHelper.getArEquityTransactionForProfit(770F, 1f);
+		ArEquityTransaction arEquityTransaction = ArEquityHelper.getArEquityTransactionForProfit(1595F, 5f);
 		System.out.println(arEquityTransaction);
 	}
 	
