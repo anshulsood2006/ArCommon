@@ -75,6 +75,10 @@ public class ArScripPrice implements Callable<String>{
             for (Map.Entry<String, String> entryMap: map.entrySet()){
     			System.out.println(entryMap.getValue());
     		}
+            System.out.println("#############################################################");
+    		for (Map.Entry<String, String> entryMap: map.entrySet()){
+    			System.out.println(entryMap.getKey()+"="+entryMap.getValue());
+    		}
         } catch (InterruptedException ex) {
             ex.printStackTrace();
         } catch (ExecutionException ex) {

@@ -63,11 +63,15 @@ public class ArWebServiceTest {
 		for (Map.Entry<String, String> entryMap: map.entrySet()){
 			System.out.println(entryMap.getValue());
 		}
+		System.out.println("#############################################################");
+		for (Map.Entry<String, String> entryMap: map.entrySet()){
+			System.out.println(entryMap.getKey()+"="+entryMap.getValue());
+		}
 	}
 	
 	@Test
 	public void getStockBuyPrice(){
-		ArEquityTransaction arEquityTransaction = ArEquityHelper.getArEquityTransaction(119.90f, ArEquityAction.BUY);
+		ArEquityTransaction arEquityTransaction = ArEquityHelper.getArEquityTransaction(34.00f, ArEquityAction.BUY);
 		System.out.println(arEquityTransaction);
 	}
 	
