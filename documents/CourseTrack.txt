@@ -1,0 +1,15 @@
+The project is simple gradle build project. 
+
+31/08/2017: Convert it to a web project that uses an embedded tomcat server
+
+Removed the untracked git files
+1. git clean -nf
+
+Cannot lstat in git means the file is not accessible. Delete it forcibly. 
+Use winzip to zip the file and select option "delete the file after zipping". Delete the zip file later.
+
+ 
+
+
+
+
