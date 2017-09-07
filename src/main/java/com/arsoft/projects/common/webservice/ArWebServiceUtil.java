@@ -55,7 +55,7 @@ public class ArWebServiceUtil {
 					(httpConnection.getInputStream())));
 			String line;
 			while ((line = br.readLine()) != null) {
-				output += line;
+				output = output + "\n" +line ;
 			}
 			httpConnection.disconnect();
 			
