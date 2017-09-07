@@ -29,5 +29,6 @@ dependencies {
     compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.8.2'
     compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.8.2'
     compile group: 'org.json', name: 'json', version: '20170516'
+    compile group: 'com.yahoofinance-api', name: 'YahooFinanceAPI', version: '3.9.0'
 }
 
