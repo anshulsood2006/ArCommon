@@ -9,7 +9,6 @@ Cannot lstat in git means the file is not accessible. Delete it forcibly.
 Use winzip to zip the file and select option "delete the file after zipping". Delete the zip file later.
 
  
-
-
+System.out.println(null); gives an error "The method println(char[]) is ambiguous for the type PrintStream"
 
 
