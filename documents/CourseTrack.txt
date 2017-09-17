@@ -11,6 +11,14 @@ Use winzip to zip the file and select option "delete the file after zipping". De
  
 System.out.println(null); gives an error "The method println(char[]) is ambiguous for the type PrintStream".
 
+Generics was introduced on 1.5 to provide compile-time type checking and removing risk of ClassCastException during run time.
+
+ A generic type is a class or interface that is parameterized over types.
+
+Autoboxing convert primitive data types to corresponding Wrapper classes
+
+Unboxing convert  Wrapper classes to corresponding primitive data types 
+
 
 
 
