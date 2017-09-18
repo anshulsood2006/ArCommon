@@ -27,7 +27,7 @@ public class ArScripPriceNew implements Callable<String>{
 	
 	@Override
 	public String call() {
-		String url = "https://www.google.com/finance/getprices?q="+myAsset+"&i=3600&p=1d&x=NSE&f=c";
+		String url = "https://finance.google.com/finance/getprices?q="+myAsset+"&x=NSE&p=15&i=1&f=c";
 		String output = null;
 		try {
 			output = ArWebServiceUtil.excecute(url, null, null);
