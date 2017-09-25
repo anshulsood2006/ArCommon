@@ -10,28 +10,28 @@ import java.util.Date;
 public class ArScrip {
 	
 	/**
-	 * This variable stores the abbreviated name of scrip
+	 * This variable stores the abbreviated name of the scrip
 	 */
 	public String name;
 	
 	/**
-	 * This variable stores the complete name of scrip
+	 * This variable stores the complete name of the scrip
 	 */
 	
 	public String completeName;
 	
 	/**
-	 * This variable stores the name of bourse on which scrip is being trade
+	 * This variable stores the name of bourse on which the scrip is being trade
 	 */
 	public ArBourse bourse;
 	
 	/**
-	 * This variable stores the current on which scrip is being trade
+	 * This variable stores the current price on which the scrip is being traded
 	 */
 	public String price;
 	
 	/**
-	 * This variable stores the timestamp on which scrip is being trade
+	 * This variable stores the timestamp on which the scrip is being trade
 	 */
 	
 	public Date timeStamp;
