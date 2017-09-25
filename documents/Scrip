@@ -1,0 +1,15 @@
+The data structure
+We should be able to get the name of the scrip.
+We should be able to get the current price of the scrip.
+We should be able to get the price of scrip at the start of the day.
+We should be able to get the price of scrip at the end of the day.
+We should be able to get the price of scrip at a particular time of the day.
+We should be able to get the all time low price of scrip with date.
+We should be able to get the all time high price of the scrip with date.
+
+
+
+Name
+CurrentPrice
+PriceAsOnDate
+CurrentMovementUpwardOrDownward
