@@ -11,9 +11,9 @@ public interface ArDefaultMethodInterface {
 		return 0;
 	}
 	
-	private int getPrivateInteger(){
+	/*private int getPrivateInteger(){
 		System.out.println("Static method");
 		return 0;
-	}
+	}*/
 	
 }
