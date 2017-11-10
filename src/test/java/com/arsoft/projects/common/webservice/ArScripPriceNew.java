@@ -32,7 +32,7 @@ public class ArScripPriceNew implements Callable<String>{
 		try {
 			output = ArWebServiceUtil.excecute(url, null, null);
 		} catch (ArException e) {
-			e.printStackTrace();
+			output = "0";
 		}
 		int index = -1;
 		for (int i = output.length()-1; i > 0 ; i--){
