@@ -1,0 +1,92 @@
+20/12/2017
+
+Components of Linux:
+Kernel
+System Libraries
+System Tools
+Development Tools
+End User Tools
+
+Kernel is the core of the operating system. It establishes communication between devices and software. Moreover, it manages the system resources. Basically it has four responsibilities:
+	Device management: Kernel stores all the data related to all the devices in device driver.
+	Memory management: Kernel keeps a track of used and unused memory and make sure that processes shouldn't manipulate data of each other using virtual memory address.
+	Process management: Kernel assigns time and gives priorities to processes before handling CPU to other process.
+	Handling system calls: Handling system calls means a programmer can write a query or ask the kernel to perform a task.
+
+System libraries: Special programs that helps in accessing the kernel's features e.g. glibc (GNU C library).
+
+System Tools: Linux OS has a set of utility tools which are usually simple commands.With the help of commands you can access your files, edit and manipulate data in your directories or files, change location of files or anything.
+
+Development Tools/A tool chain is a vital development tool used by the developers to produce a working application.
+
+End User Tools: They are not required for the operating system but are necessary for a user e.g. graphic design tools, office suites, browsers, multimedia players, etc.
+
+GNU stands for GNU's Not UNIX. It is a UNIX like computer operating system, but unlike UNIX, it is free software and contains no UNIX code. It is pronounced as guh-noo. Components
+GNU Compiler Collection (GCC)
+GNU C Library (glibc)
+GNU Core Utilities (coreutils)
+GNU Debugger (GDB)
+GNU Binary Utilities (binutils)
+GNU Bash shell
+Genome desktop environment etc.
+
+In 1969, a team of developers of Bell Labs created UNIX.
+In 1991, Linus Torvalds a student at the university of Helsinki, Finland, created Linux
+
+Linux Distributions are called Distros
+
+Shell is a method for the user to interact with the system viz. terminal. Default shell in Linux is called bash (Bourne-Again Shell).
+
+There are two types of shell commands:
+
+Built-in shell commands: They are part of a shell. Each shell has some built in commands.
+External/Linux commands: Each external command is a separate executable program written in C or other programming languages.
+
+pwd print working directorys
+ls list out all the files and directories in the directed folder.
+	ls -d */ list only directories
+	ls -p list only directories
+	ls -a list all the files including the hidden ones
+	ls -l 	It will show the list in a long list format.
+	ls -lh  This command will show you the file sizes in human readable format. The command will give you the data in terms of Mb, Gb, Tb, etc.
+	ls -lhS descending order of size
+	ls -lg exclude column of group information and owner.
+	ls -n print group ID and owner ID instead of their names.
+	ls -li prints the index number of file in the first column.
+	ls -r reverse the order
+	ls -R display the content of the sub-directories also.
+	ls -lX Group the files with same extensions together in the list.
+	ls -lt sort the list by displaying recently modified filed at top.
+	ls ~ contents of home directory
+	ls -version checks the version of ls command.	
+cd change directory
+	cd ~ takes to home directory
+	cd.. takes to parent directory
+	cd / takes to root directory of entire system.
+mkdir make directory
+	mkdir -v Gives verbose info
+rmdir remove directory
+	rmdir -p deletes all the subdirectories
+file	Determines file type.
+	file * list types of all the files.
+	file [a-b]* list out only those files which starts from the alphabets present in the given range.
+touch	Used to create a file.
+	touch <filename>
+rm	To remove a file.
+cp	To copy a file.
+mv	To rename or to move a file.
+rename	To rename file.
+man <command name> gives the manual for the command
+	
+	
+Linux files
+In Linux system, everything is a file and if it is not a file, it is a process. A file doesn't include only text files, images and compiled programs but also include partitions, hardware device drivers and directories. Linux consider everything as as file.
+	Regular files (-): It contain programs, executable files and text files.
+	Directory files (d): It is shown in blue color. It contain list of files.
+	Special files
+		Block file (b)
+		Character device file (c)
+		Named pipe file (p)
+		Symbolic link file (l)
+		Socket file (s)
+
