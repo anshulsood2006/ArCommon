@@ -20,7 +20,7 @@ import com.arsoft.projects.common.exception.ArException;
 import com.arsoft.projects.common.json.ArJsonUtil;
 
 public class ArWebServiceTest {
-	@Test
+	/*@Test
 	public void excecuteWebService() throws MalformedURLException, ArException{
 		String url = "http://finance.google.com/finance/info?q=NSE:RPOWER";
 		Map<String, String> map = new HashMap<>();
@@ -67,7 +67,7 @@ public class ArWebServiceTest {
 		for (Map.Entry<String, String> entryMap: map.entrySet()){
 			System.out.println(entryMap.getKey()+"="+entryMap.getValue());
 		}
-	}
+	}*/
 	
 	@Test
 	public void getStockBuyPrice(){
