@@ -1,23 +1,30 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	
+
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.arsoft.projects</groupId>
 	<artifactId>arcommon</artifactId>
 	<version>1.0</version>
+
+	<!-- This tag is used to specify that the project is a web project -->
 	<packaging>war</packaging>
-	
+
+	<!-- All the constants can be declared inside properties tag and can be 
+		used later using ${property_name} -->
 	<properties>
 		<json.version>20171018</json.version>
 		<log4j-api.version>2.10.0</log4j-api.version>
-		<log4j-core.version>2.10.0</log4j-core.version>
 		<junit.version>4.12</junit.version>
 		<maven-compiler-plugin.version>3.6.1</maven-compiler-plugin.version>
 		<java.version>1.8</java.version>
-		<servlet-api.version>3.0-alpha-1</servlet-api.version>
 		<maven-war-plugin.version>2.6</maven-war-plugin.version>
+		<maven-dependency-plugin.version>3.0.2</maven-dependency-plugin.version>
+		<tomcat-maven-plugin.version>2.1</tomcat-maven-plugin.version>
+		<application.port>8080</application.port>
+		<application.path>/arcommon</application.path>
 	</properties>
-	
+
+	<!-- All the dependencies are declared inside dependencies tag -->
 	<dependencies>
 		<dependency>
 			<groupId>org.json</groupId>
@@ -30,26 +37,20 @@
 			<version>${log4j-api.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-core</artifactId>
-			<version>${log4j-core.version}</version>
-		</dependency>
-		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>${servlet-api.version}</version>
-			<scope>provided</scope>
-		</dependency>
 	</dependencies>
-	
+
 	<build>
-	
+
+		<!-- Below two directories are necessary for web project. Otherwise there 
+			will be compilation issues -->
+		<sourceDirectory>src/main/java</sourceDirectory>
+		<testSourceDirectory>src/test/java</testSourceDirectory> 
+
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -60,6 +61,9 @@
 					<target>${java.version}</target>
 				</configuration>
 			</plugin>
+
+			<!-- This plug-in is used to create war file. Called using command 'maven 
+				clean install' -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
@@ -69,7 +73,37 @@
 					<failOnMissingWebXml>false</failOnMissingWebXml>
 				</configuration>
 			</plugin>
+
+			<!-- This plug-in is used to verify if all the dependencies are correct. 
+				Called using command 'maven verify' -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>${maven-dependency-plugin.version}</version>
+				<executions>
+					<execution>
+						<id>analyze</id>
+						<goals>
+							<goal>analyze-only</goal>
+						</goals>
+						<configuration>
+							<failOnWarning>true</failOnWarning>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- This plug-in is used to deploy embedded tomcat-->
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>${tomcat-maven-plugin.version}</version>
+				<configuration>
+	                <port>${application.port}</port>  
+	                <path>${application.path}</path>
+            	</configuration>
+			</plugin>
 		</plugins>
-	
+
 	</build>
 </project>
