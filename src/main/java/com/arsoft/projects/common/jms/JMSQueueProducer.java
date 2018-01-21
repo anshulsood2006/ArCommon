@@ -18,12 +18,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(urlPatterns = "/send")
-public class JMSProducer extends HttpServlet {
+@WebServlet(urlPatterns = "/sendToQueue")
+public class JMSQueueProducer extends HttpServlet {
 
 	private static final long serialVersionUID = 5043312908505867934L;
 
-	@Resource(lookup = JMSConstant.JMS_QUEUE_CONNECTION_FACTORY)
+	@Resource(lookup = JMSConstant.JMS_CONNECTION_FACTORY)
 	ConnectionFactory connectionFactory;
 
 	@Resource(lookup = JMSConstant.JMS_QUEUE_ADDRESS)
@@ -33,7 +33,7 @@ public class JMSProducer extends HttpServlet {
 	QueueSession session = null;
 	TextMessage message = null;
 	MessageProducer producer = null;
-	String messageToSend = "Hello, world! ^__^";
+	String messageToSend = "Hello, world sent!";
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -45,7 +45,7 @@ public class JMSProducer extends HttpServlet {
 			producer =  session.createProducer(destination);
 			message =  session.createTextMessage(messageToSend);
 			producer.send(message);
-            writer.println("Message sent! " + messageToSend);
+            writer.println("Message sent is " + messageToSend);
 		} catch (JMSException e) {
 			e.printStackTrace();
 		}finally {

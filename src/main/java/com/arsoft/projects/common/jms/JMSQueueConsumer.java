@@ -18,12 +18,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(urlPatterns = "/receive")
-public class JMSConsumer extends HttpServlet {
+@WebServlet(urlPatterns = "/receiveFromQueue")
+public class JMSQueueConsumer extends HttpServlet {
 
 	private static final long serialVersionUID = -8947771123245679449L;
 
-	@Resource(lookup = JMSConstant.JMS_QUEUE_CONNECTION_FACTORY)
+	@Resource(lookup = JMSConstant.JMS_CONNECTION_FACTORY)
 	ConnectionFactory connectionFactory;
 
 	@Resource(lookup = JMSConstant.JMS_QUEUE_ADDRESS)
@@ -44,7 +44,7 @@ public class JMSConsumer extends HttpServlet {
 			consumer = session.createConsumer(destination);
 			connection.start();
 			message = (TextMessage) consumer.receive();
-			writer.println("Message received! " + message.getText());
+			writer.println("Message received is: " + message.getText());
 		} catch (JMSException e) {
 			e.printStackTrace();
 		} finally {
