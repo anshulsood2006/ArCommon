@@ -33,7 +33,6 @@ public class JMSQueueProducer extends HttpServlet {
 	QueueSession session = null;
 	TextMessage message = null;
 	MessageProducer producer = null;
-	String messageToSend = "Hello, world sent!";
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -43,9 +42,9 @@ public class JMSQueueProducer extends HttpServlet {
 					JMSConstant.JMS_PASSWORD);
 			session = connection.createQueueSession(false, Session.AUTO_ACKNOWLEDGE);
 			producer =  session.createProducer(destination);
-			message =  session.createTextMessage(messageToSend);
+			message =  session.createTextMessage(JMSConstant.MESSAGE_TO_PUBLISH);
 			producer.send(message);
-            writer.println("Message sent is " + messageToSend);
+            writer.println("Message sent is " + message.getText());
 		} catch (JMSException e) {
 			e.printStackTrace();
 		}finally {

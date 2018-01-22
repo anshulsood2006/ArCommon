@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(urlPatterns = "/sendToTopic")
-public class JMSTopicProducer  extends HttpServlet  {
+public class JMSTopicProducer extends HttpServlet {
 
 	private static final long serialVersionUID = 7074446247418924792L;
 
@@ -28,13 +28,12 @@ public class JMSTopicProducer  extends HttpServlet  {
 
 	@Resource(lookup = JMSConstant.JMS_TOPIC_ADDRESS)
 	Topic topic;
-	
+
 	TopicConnection connection;
 	TopicSession session;
 	TextMessage textMessage = null;
 	TopicPublisher publisher = null;
-	String messageToPublish = "Hello, world published!";
-	
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		PrintWriter writer = resp.getWriter();
@@ -42,13 +41,13 @@ public class JMSTopicProducer  extends HttpServlet  {
 			connection = (TopicConnection) connectionFactory.createConnection(JMSConstant.JMS_USERNAME,
 					JMSConstant.JMS_PASSWORD);
 			session = connection.createTopicSession(false, Session.AUTO_ACKNOWLEDGE);
-			publisher =  session.createPublisher(topic);
-			textMessage =  session.createTextMessage(messageToPublish);
+			publisher = session.createPublisher(topic);
+			textMessage = session.createTextMessage(JMSConstant.MESSAGE_TO_PUBLISH);
 			publisher.send(textMessage);
-            writer.println("Message published is: " + textMessage);
+			writer.println("Message published is: " + textMessage);
 		} catch (JMSException e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			try {
 				publisher.close();
 				session.close();
