@@ -10,16 +10,16 @@ import javax.naming.NamingException;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 
-public class ApacheMQQueueConsumer {
+public class ApacheMQTopicConsumer {
 
-	public ApacheMQQueueConsumer() throws NamingException, JMSException {
+	public ApacheMQTopicConsumer() throws NamingException, JMSException {
         Message message = null;
         while (message == null){
         	ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory(JMSConstant.ACTIVE_MQ_URL);
         	Connection connection = connectionFactory.createConnection();
     		connection.start();
     		Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
-            Destination destination = session.createQueue(JMSConstant.JMS_QUEUE_ADDRESS);
+            Destination destination = session.createTopic(JMSConstant.JMS_TOPIC_ADDRESS);
             MessageConsumer consumer = session.createConsumer(destination);
         	message = consumer.receive(1000);
         	if (message != null){
@@ -34,7 +34,7 @@ public class ApacheMQQueueConsumer {
 
 	public static void main(String[] args) throws JMSException {
 		try {
-			new ApacheMQQueueConsumer();
+			new ApacheMQTopicConsumer();
 		} catch (NamingException e) {
 			e.printStackTrace();
 		}
