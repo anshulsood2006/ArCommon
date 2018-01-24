@@ -5,4 +5,29 @@
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
+	
+	<!--  DispatcherServlet Defined for springs . For each servlet make sure that there is a corresponding file 
+	{ServletName}-servlet.xml inside WEB-INF folder-->
+	<servlet>
+	    <servlet-name>ArCommonBaseServlet</servlet-name>
+	    <servlet-class>
+	       org.springframework.web.servlet.DispatcherServlet
+	    </servlet-class>
+	    <load-on-startup>1</load-on-startup>
+	 </servlet>
+   
+	<servlet-mapping>
+	     <servlet-name>ArCommonBaseServlet</servlet-name>
+	     <url-pattern>/</url-pattern>
+  	</servlet-mapping>
+  	
+  	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/ArCommonBaseServlet-servlet.xml</param-value>
+	</context-param>
+  	
+  	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+  	
 </web-app>
