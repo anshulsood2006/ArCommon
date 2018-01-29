@@ -7,6 +7,6 @@
 <title>Welcome to the index page</title>
 </head>
 <body>
-Hello India
+home.do is called
 </body>
 </html>

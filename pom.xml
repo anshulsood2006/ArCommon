@@ -100,7 +100,7 @@
 	</dependencies>
 
 	<build>
-
+		<finalName>arcommon</finalName>
 		<!-- Below two directories are necessary for web project. Otherwise there 
 			will be compilation issues -->
 		<sourceDirectory>src/main/java</sourceDirectory>
@@ -138,7 +138,7 @@
 							<goal>analyze-only</goal>
 						</goals>
 						<configuration>
-							<failOnWarning>true</failOnWarning>
+							<failOnWarning>false</failOnWarning>
 						</configuration>
 					</execution>
 				</executions>

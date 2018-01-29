@@ -8,12 +8,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class ArCommonBaseController {
 	
-	private static final String VIEW_INDEX = "index";
+	private static final String VIEW_INDEX = "home_page";
 	
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "home", method = RequestMethod.GET)
 	public String welcome(ModelMap model) {
 		return VIEW_INDEX;
-
 	}
-
+	
 }
