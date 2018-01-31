@@ -30,6 +30,7 @@
 		<wildfly-embedded.version>9.0.2.Final</wildfly-embedded.version>
 		<spring.version>5.0.3.RELEASE</spring.version>
 		<jackson-databind.version>2.9.3</jackson-databind.version>
+		<bcprov-jdk16.version>1.46</bcprov-jdk16.version>
 	</properties>
 
 	<!-- All the dependencies are declared inside dependencies tag -->
@@ -55,7 +56,7 @@
 			<artifactId>javax.servlet-api</artifactId>
 			<version>${javax.servlet-api.version}</version>
 		</dependency>
-		
+
 		<!-- Dependencies for Java Mailing Service -->
 		<dependency>
 			<groupId>javax.jms</groupId>
@@ -73,30 +74,36 @@
 			<version>${activemq-core.version}</version>
 		</dependency>
 		<!-- Dependencies for Java Mailing Service -->
-		
+
 		<!-- Dependencies for Spring Framework -->
 		<dependency>
-		    <groupId>org.springframework</groupId>
-		    <artifactId>spring-webmvc</artifactId>
-		    <version>${spring.version}</version>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
 		</dependency>
 		<dependency>
-		    <groupId>org.springframework</groupId>
-		    <artifactId>spring-web</artifactId>
-		    <version>${spring.version}</version>
-		</dependency>
-				<dependency>
-		    <groupId>org.springframework</groupId>
-		    <artifactId>spring-context</artifactId>
-		    <version>${spring.version}</version>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
 		</dependency>
 		<dependency>
-		    <groupId>com.fasterxml.jackson.core</groupId>
-		    <artifactId>jackson-databind</artifactId>
-		    <version>${jackson-databind.version}</version>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson-databind.version}</version>
 		</dependency>
 		<!-- Dependencies for Spring Framework -->
-		
+
+		<dependency>
+		    <groupId>org.bouncycastle</groupId>
+    		<artifactId>bcprov-jdk16</artifactId>
+    		<version>${bcprov-jdk16.version}</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -154,19 +161,19 @@
 					<path>${application.path}</path>
 				</configuration>
 			</plugin>
-			
+
 			<!-- This plug-in is used to deploy embedded jboss -->
 			<plugin>
-			    <groupId>org.jboss.as</groupId>
-			    <artifactId>jboss-as-embedded</artifactId>
-			    <version>${jboss-as-embedded.version}</version>
+				<groupId>org.jboss.as</groupId>
+				<artifactId>jboss-as-embedded</artifactId>
+				<version>${jboss-as-embedded.version}</version>
 			</plugin>
-			
+
 			<!-- This plug-in is used to deploy embedded wildfly server -->
 			<plugin>
-			    <groupId>org.wildfly</groupId>
-			    <artifactId>wildfly-embedded</artifactId>
-			    <version>${wildfly-embedded.version}</version>
+				<groupId>org.wildfly</groupId>
+				<artifactId>wildfly-embedded</artifactId>
+				<version>${wildfly-embedded.version}</version>
 			</plugin>
 		</plugins>
 
