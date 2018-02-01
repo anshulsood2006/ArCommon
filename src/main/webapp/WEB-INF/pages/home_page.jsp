@@ -1,12 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Welcome to the index page</title>
 </head>
 <body>
-home.do is called
+<div data-ng-app="">
+	<p>Name Here: <input type="text" data-ng-model="name" placeholder="Enter Name Here"></p>
+	<h1>Hello {{name}}</h1>
+	<h1>home.do is called</h1>
+</div>
 </body>
 </html>
