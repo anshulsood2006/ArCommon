@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+<body>
+	<div data-ng-app="myApp" data-ng-init="firstName2='John New'">
+		<p>
+			The name is <span data-ng-bind="firstName2"></span>
+		</p>
+		<p>
+			Name Here: <input type="text" data-ng-model="name"
+				placeholder="Enter Name Here">
+		</p>
+		<p>Hello {{name}}</p>
+		<p>Angular JS Expression: {{ 5 + 5 }}</p>
+
+		First Name: <input type="text" data-ng-model="firstName"><br>
+		Last Name: <input type="text" data-ng-model="lastName"><br> <br>
+		Full Name: {{firstName + " " + lastName}}
+	</div>
+	<script>
+		angular.module('myApp', []);
+	</script>
+</body>
+</html>
