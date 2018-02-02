@@ -1,26 +1,43 @@
 <!DOCTYPE html>
 <html>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-
-<body>
-	<div data-ng-app="myApp" data-ng-init="firstName2='John New'">
-		<p>
-			The name is <span data-ng-bind="firstName2"></span>
-		</p>
-		<p>
-			Name Here: <input type="text" data-ng-model="name"
-				placeholder="Enter Name Here">
-		</p>
-		<p>Hello {{name}}</p>
-		<p>Angular JS Expression: {{ 5 + 5 }}</p>
-
-		First Name: <input type="text" data-ng-model="firstName"><br>
-		Last Name: <input type="text" data-ng-model="lastName"><br> <br>
-		Full Name: {{firstName + " " + lastName}}
-	</div>
+<head>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js">
+	</script>
 	<script>
 		angular.module('myApp', []);
 	</script>
+	<style>
+		input.ng-invalid {
+   			background-color: lightblue;
+		}
+	</style>
+</head>
+<body>
+	<div data-ng-app="myApp" data-ng-init="firstName='John Doe';myCol='orange';quantity=2.5;cost=5;person={firstName:'John',lastName:'Doe'};points=[1,15,19,2,40];email='anshul@sood'">
+		<p>	The name is <span data-ng-bind="firstName"></span></p>
+		<p>	Name Here:<input type="text" data-ng-model="name" placeholder="Enter Name Here" required></p>
+		<p>Hello {{name}}</p>
+		<p>Angular JS Expression: {{ 5 + 5 }}</p>
+		<p>First Name: <input type="text" data-ng-model="firstName" required></p>
+		<p>Last Name: <input type="text" data-ng-model="lastName" required></p>
+		<p>Full Name: {{firstName + " " + lastName}}</p>
+		<p><input style="background-color:{{myCol}}" value="{{myCol}}" required></p>
+		<p>Total in dollar: {{ quantity * cost }}</p>
+		<p>Total in dollar: <span data-ng-bind="quantity * cost"></span></p>
+		<p>The name is {{ person.firstName + " " + person.lastName }}</p>
+		<p>The third result is {{ points[2] }}</p>
+		<p>Quantity: <input type="number" data-ng-model="quantity"/></p>
+		<p>Costs:<input type="number" data-ng-model="cost"/></p>
+		<p>Total in dollar: {{ quantity * cost }}</p>
+		<form name="myForm">
+			<p>Edit the e-mail address, and try to change the status.</p>
+			<p>Email:<input type="email" name="myAddress" data-ng-model="email" required></p>
+			<p><span data-ng-show="myForm.myAddress.$error.email">Not a valid e-mail address</span></p>
+			<p>Valid: {{myForm.myAddress.$valid}} (if true, the value meets all criteria).</p>
+			<p>Dirty: {{myForm.myAddress.$dirty}} (if true, the value has been changed).</p>
+			<p>Touched: {{myForm.myAddress.$touched}} (if true, the field has been in focus).</p>
+		</form>
+	</div>
 </body>
 </html>
