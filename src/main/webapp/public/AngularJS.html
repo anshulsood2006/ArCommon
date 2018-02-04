@@ -4,40 +4,115 @@
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js">
 	</script>
-	<script>
-		angular.module('myApp', []);
-	</script>
+	<script	src="scripts/myApplication.js"></script>
+	<script	src="scripts/myController.js"></script>
 	<style>
 		input.ng-invalid {
    			background-color: lightblue;
 		}
+		table tr:nth-child(odd) {
+  			background-color: #f1f1f1;
+		}
+		table tr:nth-child(even) {
+  			background-color: #ffffff;
+		}
 	</style>
 </head>
 <body>
-	<div data-ng-app="myApp" data-ng-init="firstName='John Doe';myCol='orange';quantity=2.5;cost=5;person={firstName:'John',lastName:'Doe'};points=[1,15,19,2,40];email='anshul@sood'">
-		<p>	The name is <span data-ng-bind="firstName"></span></p>
-		<p>	Name Here:<input type="text" data-ng-model="name" placeholder="Enter Name Here" required></p>
-		<p>Hello {{name}}</p>
-		<p>Angular JS Expression: {{ 5 + 5 }}</p>
-		<p>First Name: <input type="text" data-ng-model="firstName" required></p>
-		<p>Last Name: <input type="text" data-ng-model="lastName" required></p>
-		<p>Full Name: {{firstName + " " + lastName}}</p>
-		<p><input style="background-color:{{myCol}}" value="{{myCol}}" required></p>
-		<p>Total in dollar: {{ quantity * cost }}</p>
-		<p>Total in dollar: <span data-ng-bind="quantity * cost"></span></p>
-		<p>The name is {{ person.firstName + " " + person.lastName }}</p>
-		<p>The third result is {{ points[2] }}</p>
-		<p>Quantity: <input type="number" data-ng-model="quantity"/></p>
-		<p>Costs:<input type="number" data-ng-model="cost"/></p>
-		<p>Total in dollar: {{ quantity * cost }}</p>
-		<form name="myForm">
-			<p>Edit the e-mail address, and try to change the status.</p>
-			<p>Email:<input type="email" name="myAddress" data-ng-model="email" required></p>
-			<p><span data-ng-show="myForm.myAddress.$error.email">Not a valid e-mail address</span></p>
-			<p>Valid: {{myForm.myAddress.$valid}} (if true, the value meets all criteria).</p>
-			<p>Dirty: {{myForm.myAddress.$dirty}} (if true, the value has been changed).</p>
-			<p>Touched: {{myForm.myAddress.$touched}} (if true, the field has been in focus).</p>
-		</form>
+	<div data-ng-app="myApp">
+	 	<p>The color in default scope is: {{color}}</p>
+		<div data-ng-init="firstNameF='';lastNameL='';firstName='First';myCol='orange';quantity=2.5;cost=5;person={firstName:'John',lastName:'Doe'};points=[1,15,19,2,40];email='anshul@sood'" data-ng-controller="myCtrl">
+			<p>	The first name is <span data-ng-bind="firstName"></span></p>
+			<p>	First Name Here:<input type="text" data-ng-model="firstName" placeholder="Enter First Name Here" required></p>
+			<p data-ng-click="changeFirstName()">Click here to run the "changeFirstName" function.</p>
+			<p>Hello {{firstName + " "+ lastName}}</p>
+			<p>First Name: <input type="text" data-ng-model="firstNameF"></p>
+			<p>Last Name: <input type="text" data-ng-model="lastNameL"></p>
+			<p>Create full name using function: {{fullName()}} </p>
+			<p>Angular JS Expression: {{ 5 + 5 }}</p>
+			<p>First Name: <input type="text" data-ng-model="firstName" required></p>
+			<p>Last Name: <input type="text" data-ng-model="lastName" required></p>
+			<p>Full Name: {{firstName + " " + lastName}} </p>
+			<p><input style="background-color:{{myCol}}" value="{{myCol}}" required></p>
+			<p>Total in dollar: {{ quantity * cost | currency}}</p>
+			<p>Total in dollar: <span data-ng-bind="quantity * cost | currency"></span></p>
+			<p>The name is {{ person.firstName + " " + person.lastName }}</p>
+			<p>The third result is {{ points[2] }}</p>
+			<p>Quantity: <input type="number" data-ng-model="quantity"/></p>
+			<p>Costs:<input type="number" data-ng-model="cost"/></p>
+			<p>Total in dollar: {{ quantity * cost | currency}}</p>
+			<table border="1">
+				<tr>
+					<th>S. N.</th>
+					<th data-ng-click="orderBy('name')">Name</th>
+					<th data-ng-click="orderBy('country')">Country</th>
+				</tr>
+				<tr data-ng-repeat="x in addresses | orderBy:myOrderBy">
+					<td>{{ $index + 1 }}</td>
+					<td>{{x.name}}</td>
+					<td>{{x.country}}</td>
+				</tr>
+			</table>
+			<table border="1">
+				<tr data-ng-repeat="x in addresses">
+					<td data-ng-if="$odd" style="background-color:#f1f1f1">{{ x.name }}</td>
+					<td data-ng-if="$even">{{ x.name }}</td>
+					<td data-ng-if="$odd" style="background-color:#ffffff">{{ x.country }}</td>
+					<td data-ng-if="$even">{{ x.country }}</td>
+				</tr>
+			</table>
+			<select data-ng-model="selectedName" data-ng-options="x.name for x in addresses"></select>
+			<p>You selected: {{selectedName.name}}</p>
+			<select data-ng-model="selectedCountry">
+				<option data-ng-repeat="x in addresses">{{x.country}}</option>
+			</select>
+			<p>You selected: {{selectedCountry}}</p>
+			<ul>
+				<li data-ng-repeat="x in names">
+			        {{x | myCustomeFilter}}
+			    </li>
+		    </ul>
+			<ul>
+	    		<li data-ng-repeat="x in names">Name: {{x}}</li>
+			</ul>
+			<p>Filter data by:<input type="text" data-ng-model="test" ></p>
+			<p>Addresses ordered by name
+				<ul>
+		    		<li data-ng-repeat="x in addresses | orderBy:'name' | filter:test">Name: {{x}}</li>
+				</ul>
+			<form name="myForm">
+				<p>Edit the e-mail address, and try to change the status.</p>
+				<p>Email:<input type="email" name="myAddress" data-ng-model="email" required></p>
+				<p><span data-ng-show="myForm.myAddress.$error.email">Not a valid e-mail address</span></p>
+				<p>Valid: {{myForm.myAddress.$valid}} (if true, the value meets all criteria).</p>
+				<p>Dirty: {{myForm.myAddress.$dirty}} (if true, the value has been changed).</p>
+				<p>Touched: {{myForm.myAddress.$touched}} (if true, the field has been in focus).</p>
+			</form>
+			<p>The color in 'myCtrl' controller scope is: {{color}}</p>
+			<div data-ng-controller="myCtrl1">
+				<p>The color in 'myCtrl1' controller scope is: {{color}}</p>
+			</div>
+			<p>The first name in uppercase is {{ person.firstName | uppercase}}</p>
+			<p>The last name in lowercase is {{ person.lastName | lowercase}}</p>
+			<p>The url of this page is: {{myUrl}}</p>
+			<p>This header will change after two seconds: {{myHeader}}</p>
+			<p>The time is: {{theTime}}</p>
+			<p>Custom service has returned: {{customeReturn}}</p>
+			<p>Data : {{content}}</p>
+			<p>Status : {{statusCode}}</p>
+			<p>StatusText : {{statusText}}</p>
+			<ul>
+			  <li data-ng-repeat="x in myData">
+			    {{ x.Name + ', ' + x.Country }}
+			  </li>
+			</ul>
+			<div>
+				<select data-ng-model="scar" data-ng-options="x for (x, y) in cars"></select>
+				<p>You selected: {{scar.brand}}</p>
+				<p>Model: {{scar.model}}</p>
+				<p>Color: {{scar.color}}</p>
+			</div>
+		</div>
 	</div>
 </body>
 </html>
