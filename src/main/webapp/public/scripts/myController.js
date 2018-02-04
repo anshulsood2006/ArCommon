@@ -1,4 +1,10 @@
 app.controller('myCtrl', function($scope,$location,$timeout,$interval,customService,$http) {
+	$scope.mousemove = 0;
+	$scope.click = 0;
+	$scope.myFunc = function(myEvent){
+		$scope.xLoc = myEvent.clientX;
+		$scope.yLoc = myEvent.clientY;
+	}
 	$http.get("pages/welcome.html")
 	.then(function(response) {
 		$scope.content = response.data;

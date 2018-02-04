@@ -6,22 +6,59 @@
 	</script>
 	<script	src="scripts/myApplication.js"></script>
 	<script	src="scripts/myController.js"></script>
-	<style>
-		input.ng-invalid {
-   			background-color: lightblue;
-		}
-		table tr:nth-child(odd) {
-  			background-color: #f1f1f1;
-		}
-		table tr:nth-child(even) {
-  			background-color: #ffffff;
-		}
-	</style>
+	<link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
 	<div data-ng-app="myApp">
 	 	<p>The color in default scope is: {{color}}</p>
-		<div data-ng-init="firstNameF='';lastNameL='';firstName='First';myCol='orange';quantity=2.5;cost=5;person={firstName:'John',lastName:'Doe'};points=[1,15,19,2,40];email='anshul@sood'" data-ng-controller="myCtrl">
+		<div data-ng-init="hour=13;firstNameF='';lastNameL='';firstName='First';myCol='orange';quantity=2.5;cost=5;person={firstName:'John',lastName:'Doe'};points=[1,15,19,2,40];email='anshul@sood'" data-ng-controller="myCtrl">
+			<p><button data-ng-disabled="mySwitch">Click Me!</button></p>
+			<p><input type="checkbox" data-ng-model="mySwitch"/>{{mySwitch}}</p>
+			<p data-ng-show="true">I am visible because data-ng-show is set to true.</p>
+			<p data-ng-show="false">I am not visible.</p>
+			<p data-ng-show="hour > 12">I am visible because: {{hour}} > 12.</p>
+			<p data-ng-hide="true">I am not visible.</p>
+			<p data-ng-hide="false">I am visible because data-ng-hide is set to false.</p>
+			<button data-ng-mousemove="mousemove = mousemove + 1">Mouse came over me {{mousemove}} times!</button>
+			<button data-ng-click="click = click + 1">Mouse clicked over me {{click}} times!</button>
+			<p data-ng-mousemove="myFunc($event)">Mouse Coordinates are: {{xLoc + ', ' + yLoc}}</p>
+			<input type="checkbox" data-ng-model="myCheck"> 
+			<p data-ng-show="myCheck">Checkbox has been checked now</p>
+			<form>Pick a topic:
+			  <input type="radio" data-ng-model="myRadio" value="dogs">Dogs
+			  <input type="radio" data-ng-model="myRadio" value="tuts">Tutorials
+			  <input type="radio" data-ng-model="myRadio" value="cars">Cars
+			</form>
+			<div data-ng-switch="myRadio">
+				<div data-ng-switch-when="dogs">
+					<p>Dogs radio button has been checked now</p>
+				</div>
+				<div data-ng-switch-when="tuts">
+					<p>Tutorials radio button has been checked now</p>
+				</div>
+				<div data-ng-switch-when="cars">
+					<p>Cars radio button has been checked now</p>
+				</div>								
+			</div>
+			<form>Select a topic:
+				<select data-ng-model="mySelectTopic">
+				    <option value="">
+				    <option value="dogs">Dogs
+				    <option value="tuts">Tutorials
+				    <option value="cars">Cars
+				</select>
+			</form>
+			<div data-ng-switch="mySelectTopic">
+				<div data-ng-switch-when="dogs">
+					<p>Dogs option has been selected now</p>
+				</div>
+				<div data-ng-switch-when="tuts">
+					<p>Tutorials option has been selected now</p>
+				</div>
+				<div data-ng-switch-when="cars">
+					<p>Cars option has been selected now</p>
+				</div>								
+			</div>
 			<p>	The first name is <span data-ng-bind="firstName"></span></p>
 			<p>	First Name Here:<input type="text" data-ng-model="firstName" placeholder="Enter First Name Here" required></p>
 			<p data-ng-click="changeFirstName()">Click here to run the "changeFirstName" function.</p>
@@ -111,6 +148,12 @@
 				<p>You selected: {{scar.brand}}</p>
 				<p>Model: {{scar.model}}</p>
 				<p>Color: {{scar.color}}</p>
+			</div>
+			<div>
+				<select data-ng-model="scar1" data-ng-options="y.model for (x, y) in cars"></select>
+				<p>You selected: {{scar1.brand}}</p>
+				<p>Model: {{scar1.model}}</p>
+				<p>Color: {{scar1.color}}</p>
 			</div>
 		</div>
 	</div>
