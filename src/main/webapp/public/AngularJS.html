@@ -1,17 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js">
-	</script>
+	<script	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+	<script	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-route.js"></script>
 	<script	src="scripts/myApplication.js"></script>
 	<script	src="scripts/myController.js"></script>
-	<link rel="stylesheet" href="styles/style.css">
+	<link rel="stylesheet" href="styles/style.css"/>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
 </head>
 <body>
 	<div data-ng-app="myApp">
+		<p><a href="#!/">Main</a></p>
+		<a href="#!/red">Red</a>
+		<a href="#!/blue">Blue</a>
+		<a href="#!/black">Black</a>
+		<div data-ng-view></div>
 	 	<p>The color in default scope is: {{color}}</p>
 		<div data-ng-init="hour=13;firstNameF='';lastNameL='';firstName='First';myCol='orange';quantity=2.5;cost=5;person={firstName:'John',lastName:'Doe'};points=[1,15,19,2,40];email='anshul@sood'" data-ng-controller="myCtrl">
+			<div data-ng-include="'https://tryit.w3schools.com/angular_include.php'"></div>
+			<div data-ng-include="'pages/welcome.html'"></div>
+			<p >Original {{x1}}</p>
+			<p >Uppercase using API: {{x2}}</p>
+			<p>Lowercase using API: {{x3}}</p>
+			<form name="myValidationForm">
+				<input name="myInputField" data-ng-model="myInputModel" required data-my-directive>
+			</form>
+			<p>The myValidationForm's valid state is: {{myValidationForm.myInputField.$valid}} {Will be true only if text consists of 'e'}</p>
 			<p><button data-ng-disabled="mySwitch">Click Me!</button></p>
 			<p><input type="checkbox" data-ng-model="mySwitch"/>{{mySwitch}}</p>
 			<p data-ng-show="true">I am visible because data-ng-show is set to true.</p>

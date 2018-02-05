@@ -1,4 +1,11 @@
+app.run(function($rootScope) {
+    $rootScope.color = 'blue';
+});
+
 app.controller('myCtrl', function($scope,$location,$timeout,$interval,customService,$http) {
+	$scope.x1 = "StupenDOUS";
+	$scope.x2 = angular.lowercase($scope.x1);
+	$scope.x3 = angular.uppercase($scope.x1);
 	$scope.mousemove = 0;
 	$scope.click = 0;
 	$scope.myFunc = function(myEvent){
@@ -75,4 +82,40 @@ app.service('customService', function() {
     this.myFunc = function (x) {
         return x.toString(21);
     }
+});
+app.directive('myDirective', function() {
+  return {
+    require: 'ngModel',
+    link: function(scope, element, attr, mCtrl) {
+      function myValidation(value) {
+        if (value.indexOf("e") > -1) {
+          mCtrl.$setValidity('charE', true);
+        } else {
+          mCtrl.$setValidity('charE', false);
+        }
+        return value;
+      }
+      mCtrl.$parsers.push(myValidation);
+    }
+  };
+});
+app.config(function($sceDelegateProvider) {
+    $sceDelegateProvider.resourceUrlWhitelist([
+        'https://tryit.w3schools.com/**'
+    ]);
+});
+app.config(function($routeProvider) {
+    $routeProvider
+    .when("/", {
+        templateUrl : "AngularJS.html"
+    })
+    .when("/red", {
+        templateUrl : "pages/page1.html"
+    })
+    .when("/blue", {
+        templateUrl : "pages/green.html"
+    })
+    .when("/black", {
+        templateUrl : "pages/blue.html"
+    });
 });
