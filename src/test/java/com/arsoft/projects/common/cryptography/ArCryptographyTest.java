@@ -12,7 +12,6 @@ import java.util.List;
 
 import javax.crypto.SecretKey;
 
-import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -21,10 +20,6 @@ import com.arsoft.projects.common.exception.ArException;
 
 public class ArCryptographyTest {
 	
-	@Before
-	public void run() {
-		System.out.println("Here");
-	}
 	@Rule
 	public ExpectedException expectedEx = ExpectedException.none();
 	
