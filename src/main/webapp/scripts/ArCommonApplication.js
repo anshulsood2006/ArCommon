@@ -5,19 +5,19 @@ arApp.config(function($routeProvider) {
     $routeProvider
         // route for the home page
         .when('/main', {
-            templateUrl : 'htmls/home.html',
+            templateUrl : 'pages/home.jsp',
             controller  : 'mainController'
         })
 
         // route for the about page
         .when('/about', {
-            templateUrl : 'htmls/about.html',
+            templateUrl : 'pages/about.jsp',
             controller  : 'aboutController'
         })
 
         // route for the contact page
         .when('/contact', {
-            templateUrl : 'htmls/contact.html',
+            templateUrl : 'pages/contact.jsp',
             controller  : 'contactController'
         })
         .otherwise({  

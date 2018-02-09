@@ -22,4 +22,14 @@
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
 	
+	<context-param>
+		<param-name>websiteNickName</param-name>
+		<param-value>MyFriendwa</param-value>
+	</context-param>
+	
+	<context-param>
+		<param-name>websiteFullName</param-name>
+		<param-value>www.myfriendwa.com</param-value>
+	</context-param>
+	
 </web-app>
