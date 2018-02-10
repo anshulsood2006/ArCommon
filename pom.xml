@@ -121,6 +121,9 @@
 				<configuration>
 					<source>${java.version}</source>
 					<target>${java.version}</target>
+					<excludes>
+				      	<exclude>**/com/arsoft/projects/common/jms/*.java</exclude>
+				    </excludes>
 				</configuration>
 			</plugin>
 
@@ -130,6 +133,9 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
 				<version>${maven-war-plugin.version}</version>
+				<configuration>
+					<packagingExcludes>src/main/java/com/arsoft/projects/common/jms/</packagingExcludes>
+				</configuration>
 			</plugin>
 
 			<!-- This plug-in is used to verify if all the dependencies are correct. 
