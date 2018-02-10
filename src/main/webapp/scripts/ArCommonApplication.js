@@ -8,11 +8,11 @@ arApp.config(function($routeProvider) {
             templateUrl : 'pages/home.jsp',
             controller  : 'mainController'
         })
-
+        
         // route for the about page
-        .when('/about', {
-            templateUrl : 'pages/about.jsp',
-            controller  : 'aboutController'
+        .when('/products', {
+            templateUrl : 'pages/products.jsp',
+            controller  : 'productsController'
         })
 
         // route for the contact page
@@ -28,13 +28,13 @@ arApp.config(function($routeProvider) {
 // create the controller and inject Angular's $scope
 arApp.controller('mainController', function($scope) {
     // create a message to display in our view
-    $scope.message = 'Look! I am a home page.';
 });
 
-arApp.controller('aboutController', function($scope) {
-    $scope.message = 'Look! I am an about page.';
+arApp.controller('productsController', function($scope) {
+    
 });
+
 
 arApp.controller('contactController', function($scope) {
-    $scope.message = 'Look! I am contact page.';
+
 });
