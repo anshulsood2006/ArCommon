@@ -1,1 +1,1 @@
-<jsp:forward page="pages/index.jsp"></jsp:forward>
+<jsp:forward page="index.do"></jsp:forward>

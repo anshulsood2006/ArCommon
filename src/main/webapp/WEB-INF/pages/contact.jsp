@@ -16,7 +16,7 @@ input.ng-valid, textarea.ng-valid{
 <body>
 <br/><br/><br/>
 <p><b>If you have any question/suggestion for us. Please use the contact form below.</b></p>
-<form name="contactForm" data-ng-app="contactFormApp" action="contactUs.do">
+<form name="contactForm" data-ng-app="contactFormApp">
     <table>
 		<tr><td><b>First Name</b></td><td><input type="text" name="firstName" data-ng-model="firstName" required maxlength="20" size="49"></td></tr>
 		<tr><td><b>Last Name</b></td><td><input type="text" name="lastName" data-ng-model="lastName" required maxlength="20" size="49"/></td><td></td></tr>
@@ -47,8 +47,5 @@ input.ng-valid, textarea.ng-valid{
 	</table>
 </form>
 
-<form action="/contactUs.do">
-	<input type="submit" />
-</form>
 </body>
 </html>
