@@ -33,4 +33,10 @@ public class ArCommonBaseController {
 		return VIEW_PRODUCTS;
 	}
 	
+	@RequestMapping(value = "emailQuery", method = RequestMethod.POST)
+	public String sendQuery(ModelMap model) {
+		System.out.println("email calle");
+		return VIEW_PRODUCTS;
+	}
+	
 }

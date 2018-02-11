@@ -1,12 +1,12 @@
 //Define an angular module for the application
-var arApp = angular.module('arApp', ['ngRoute']);
+var index = angular.module('indexApp', ['ngRoute']);
 //configure our routes
-arApp.config(function($routeProvider) {
+index.config(function($routeProvider) {
     $routeProvider
         // route for the home page
         .when('/main', {
             templateUrl : 'home.do',
-            controller  : 'mainController'
+            controller  : 'indexController'
         })
         
         // route for the about page
@@ -26,15 +26,20 @@ arApp.config(function($routeProvider) {
 });
 
 // create the controller and inject Angular's $scope
-arApp.controller('mainController', function($scope) {
+index.controller('indexController', function($scope) {
     // create a message to display in our view
 });
 
-arApp.controller('productsController', function($scope) {
+index.controller('productsController', function($scope) {
     
 });
 
+index.controller('contactController', function($scope) {
 
-arApp.controller('contactController', function($scope) {
+});
 
+index.controller('emailController', function($scope) {
+	$scope.submit = function(){
+		alert('Submitted');
+	}
 });

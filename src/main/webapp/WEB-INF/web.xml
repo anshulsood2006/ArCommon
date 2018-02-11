@@ -22,6 +22,7 @@
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
 	
+	<!-- Global parameters for application -->
 	<context-param>
 		<param-name>websiteNickName</param-name>
 		<param-value>MyFriendwa</param-value>
@@ -30,6 +31,16 @@
 	<context-param>
 		<param-name>websiteFullName</param-name>
 		<param-value>www.myfriendwa.com</param-value>
+	</context-param>
+	
+	<context-param>
+		<param-name>contactEmail</param-name>
+		<param-value>contact@myfriendwa.com</param-value>
+	</context-param>
+	
+	<context-param>
+		<param-name>adminEmail</param-name>
+		<param-value>admin@myfriendwa.com</param-value>
 	</context-param>
 	
 </web-app>
