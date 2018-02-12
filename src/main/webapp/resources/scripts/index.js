@@ -1,7 +1,7 @@
 //Define an angular module for the application
-var index = angular.module('indexApp', ['ngRoute']);
+var module = angular.module('indexApp', ['ngRoute']);
 //configure our routes
-index.config(function($routeProvider) {
+module.config(function($routeProvider) {
     $routeProvider
         // route for the home page
         .when('/main', {
@@ -25,21 +25,6 @@ index.config(function($routeProvider) {
         }); 
 });
 
-// create the controller and inject Angular's $scope
-index.controller('indexController', function($scope) {
-    // create a message to display in our view
-});
-
-index.controller('productsController', function($scope) {
-    
-});
-
-index.controller('contactController', function($scope) {
-
-});
-
-index.controller('emailController', function($scope) {
-	$scope.submit = function(){
-		alert('Submitted');
-	}
+module.controller('indexController', function($scope) {
+   
 });
