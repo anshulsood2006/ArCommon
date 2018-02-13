@@ -2,6 +2,8 @@
 <head>
 <style>
 input[type=text]{
+	font-size: 20px;
+	font-style: initial;
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -66,14 +68,18 @@ function validateName(){
 	return true;
 }
 
+function sendViaWatsapp(){
+	window.location = "whatsapp://send?text="+document.URL;
+}
+
 </script>
 </head>
 <body onLoad="scroll()">
-<form action="/arcommon/wishMe" method="post" onsubmit="return validateName();">
+<form action="/arcommon/wishes" method="get" onsubmit="return validateName();">
 	<table>
-		<tr><td colspan="2" align="center"><input type="text" size="70" id="message"></td></tr>
-		<tr><td colspan="2" align="center"><img src="http://myfriendwa.com/image.jpg" width="500" height="500"></img></td></tr>
-		<tr><td><b>Enter your name here:</b></td><td><input name="to" type="text" id="to"></input></td><td><input type="submit" value="Go" class="button"></input></td></tr>
+		<tr><td colspan="2" align="center"><input type="text" size="80" id="message"></td></tr>
+		<tr><td colspan="2" align="center"><img src="http://myfriendwa.com/image.jpg" width="700" height="700"></img></td></tr>
+		<tr><td><b>Enter your name here:</b></td><td><input name="from" type="text" id="to"></input></td><td><input type="submit" value="Go" class="button"></input></td></tr>
 	</table>
 </form>
 </body>
