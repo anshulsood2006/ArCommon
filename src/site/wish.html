@@ -1,0 +1,80 @@
+<html>
+<head>
+<style>
+input[type=text]{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.button {
+  padding: 10px 15px;
+  font-size: 20px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 3px #666;
+  transform: translateY(4px);
+}
+</style>
+<script type="text/javascript">
+var timerId = null;
+var msg = "$$ Happy Mahashivratri";
+var counter = 0;
+
+if (timerId != null)
+   clearTimeout(timerId);
+
+function pad() {
+  var padding  = "";
+  // Prepend 50 spaces to the message:
+  for (var n=0; n <= (80 + msg.length); n++)
+      padding += " ";
+  return(padding);
+}
+
+function scroll() {
+ newMsg = pad() + msg + " ";
+ document.getElementById("message").value = newMsg.substring(counter, newMsg.length);
+ if (counter == newMsg.length) {
+    counter = 0;
+ }
+ counter ++;
+ timerId = setTimeout("scroll()", 80);  
+ return true;
+}
+
+function validateName(){
+	if (document.getElementById("to").value == ""){
+		alert("Enter your name");
+		return false;
+	}
+	return true;
+}
+
+</script>
+</head>
+<body onLoad="scroll()">
+<form action="/arcommon/wishMe" method="post" onsubmit="return validateName();">
+	<table>
+		<tr><td colspan="2" align="center"><input type="text" size="70" id="message"></td></tr>
+		<tr><td colspan="2" align="center"><img src="http://myfriendwa.com/image.jpg" width="500" height="500"></img></td></tr>
+		<tr><td><b>Enter your name here:</b></td><td><input name="to" type="text" id="to"></input></td><td><input type="submit" value="Go" class="button"></input></td></tr>
+	</table>
+</form>
+</body>
+</html>

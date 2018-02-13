@@ -18,19 +18,19 @@ public class ArWisher extends HttpServlet {
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String to = request.getParameter("to");
-		String event = request.getParameter("event");
 		response.setContentType("text/html");// setting the content type
 		PrintWriter pw = response.getWriter();// get the stream to write the	
-		pw.println(to+" wishes you and your family \""+event+"\"");		
-		URL u = new URL("http://localhost:8080/index.html");
+		URL u = new URL("http://localhost:8080/wish.html");
 		InputStream ins = u.openStream();
 		try {
 			if (ins != null) {
 				InputStreamReader isr = new InputStreamReader(ins);
 				BufferedReader reader = new BufferedReader(isr);
-				int n = 0;
 				String word = "";
 				while ((word = reader.readLine()) != null) {
+					if (word.indexOf("$$") > 1) {
+						word = word.replace("$$", to+" wishes you and your family");
+					}
 					pw.println(word);
 				}
 			}
