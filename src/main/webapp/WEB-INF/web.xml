@@ -3,6 +3,19 @@
 	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" >
 	
+	<servlet>
+	    <servlet-name>ArWishesYou</servlet-name>
+	    <servlet-class>
+	       com.arsoft.projects.common.servlet.ArWisher
+	    </servlet-class>
+    	<load-on-startup>1</load-on-startup>
+	 </servlet>
+   
+	<servlet-mapping>
+	     <servlet-name>ArWishesYou</servlet-name>
+	     <url-pattern>/wishMe</url-pattern>
+  	</servlet-mapping>
+	
 	<!--  DispatcherServlet Defined for springs . For each servlet make sure that there is a corresponding file 
 	{ServletName}-servlet.xml inside WEB-INF folder-->
 	<servlet>
