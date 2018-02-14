@@ -1,6 +1,12 @@
-<html>
+<!DOCTYPE html>
 <head>
+
 <style>
+@font-face {
+   font-family: leagueGothicFont;
+   src: url(fonts/league-gothic.regular.ttf);
+}
+
 input[type=text]{
 	font-size: 20px;
 	font-style: initial;
@@ -13,16 +19,16 @@ input[type=text]{
     box-sizing: border-box;
 }
 .button {
-  padding: 10px 15px;
-  font-size: 20px;
-  text-align: center;
-  cursor: pointer;
-  outline: none;
-  color: #fff;
-  background-color: #4CAF50;
-  border: none;
-  border-radius: 10px;
-  box-shadow: 0 9px #999;
+  	padding: 10px 15px;
+  	font-size: 20px;
+  	text-align: center;
+  	cursor: pointer;
+  	outline: none;
+  	color: #fff;
+ 	background-color: #4CAF50;
+  	border: none;
+  	border-radius: 10px;
+  	box-shadow: 0 9px #999;
 }
 
 .button:hover {background-color: #3e8e41}
@@ -33,9 +39,10 @@ input[type=text]{
   transform: translateY(4px);
 }
 </style>
+
 <script type="text/javascript">
 var timerId = null;
-var msg = "$$ Happy Mahashivratri";
+var msg = "$$ Happy Valentine's Day";
 var counter = 0;
 
 if (timerId != null)
@@ -71,7 +78,6 @@ function validateName(){
 function sendViaWatsapp(){
 	window.location = "whatsapp://send?text="+document.URL;
 }
-
 </script>
 </head>
 <body onLoad="scroll()">
