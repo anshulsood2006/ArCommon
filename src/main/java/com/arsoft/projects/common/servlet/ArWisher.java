@@ -19,23 +19,29 @@ public class ArWisher extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			String to = request.getParameter("from");
+			to = (to == null) ? "": to;
+			String messageType = request.getParameter("messageType");
 			response.setContentType("text/html");// setting the content type
 			PrintWriter pw = response.getWriter();// get the stream to write the	
-			URL u = new URL("http://myfriendwa.com/wish.html");
-			InputStream ins = u.openStream();
 			try {
+				URL u = new URL("http://myfriendwa.com/wish.html");
+				InputStream ins = u.openStream();
 				if (ins != null) {
 					InputStreamReader isr = new InputStreamReader(ins);
 					BufferedReader reader = new BufferedReader(isr);
 					String word = "";
 					while ((word = reader.readLine()) != null) {
 						if (word.indexOf("$$") > 1) {
-							word = word.replace("$$", to+" wishes you and your family");
+							if (messageType.equals("1")) {
+								word = word.replace("$$", to +" wishes you and your family");
+							}else {
+								word = word.replace("$$", to +" wishes you");
+							}
 						}
 						pw.println(word);
 					}
 				}
-			pw.write("<center><a href=\"whatsapp://send?text=\" onClick=\"sendViaWatsapp(); return false;\" class=\"button\">Share via watsapp</a></center>");
+			pw.write("<center><a href=\"whatsapp://send?text=\" onClick=\"sendViaWatsapp(); return false;\" class=\"button\">Share via Watsapp</a></center>");
 			} finally {
 				pw.close();
 			}

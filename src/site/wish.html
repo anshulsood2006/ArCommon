@@ -1,14 +1,30 @@
 <!DOCTYPE html>
+<html>
 <head>
 
 <style>
 @font-face {
    font-family: leagueGothicFont;
-   src: url(fonts/league-gothic.regular.ttf);
+   src: url(http://myfriendwa.com/fonts/league-gothic.regular.ttf);
+}
+
+*{
+	font-family: leagueGothicFont;
+	font-size: 40px;
+}
+
+a{
+    width: 50%;
+    height: 75px;
+    font-size: 40px;
+}
+
+input[type=submit]{
+    width: 50%;
+    height: 75px;
 }
 
 input[type=text]{
-	font-size: 20px;
 	font-style: initial;
     width: 100%;
     padding: 12px 20px;
@@ -19,8 +35,9 @@ input[type=text]{
     box-sizing: border-box;
 }
 .button {
+	size: 100;
   	padding: 10px 15px;
-  	font-size: 20px;
+  	font-size: 40px;
   	text-align: center;
   	cursor: pointer;
   	outline: none;
@@ -31,12 +48,14 @@ input[type=text]{
   	box-shadow: 0 9px #999;
 }
 
-.button:hover {background-color: #3e8e41}
+.button:hover {
+	background-color: #3e8e41
+}
 
 .button:active {
-  background-color: #3e8e41;
-  box-shadow: 0 3px #666;
-  transform: translateY(4px);
+  	background-color: #3e8e41;
+  	box-shadow: 0 3px #666;
+  	transform: translateY(4px);
 }
 </style>
 
@@ -57,18 +76,19 @@ function pad() {
 }
 
 function scroll() {
- newMsg = pad() + msg + " ";
- document.getElementById("message").value = newMsg.substring(counter, newMsg.length);
- if (counter == newMsg.length) {
-    counter = 0;
- }
- counter ++;
- timerId = setTimeout("scroll()", 80);  
- return true;
+	newMsg = pad() + msg + " ";
+ 	document.getElementById("message").value = newMsg.substring(counter, newMsg.length);
+ 	if (counter == newMsg.length) {
+    	counter = 0;
+ 	}
+ 	counter ++;
+ 	timerId = setTimeout("scroll()", 80);  
+ 	return true;
 }
 
 function validateName(){
-	if (document.getElementById("to").value == ""){
+	var name = document.getElementById("to").value;
+	if (typeof name == "undefined" || name == ""){
 		alert("Enter your name");
 		return false;
 	}
@@ -76,17 +96,37 @@ function validateName(){
 }
 
 function sendViaWatsapp(){
-	window.location = "whatsapp://send?text="+document.URL;
+	var url = document.URL;
+	var urlParams = new URLSearchParams(window.location.search);
+	var str = encodeURIComponent(urlParams.get("from")+ " has sent you wishes. Click here: "+url);
+	window.location = "whatsapp://send?text="+str;
 }
+
 </script>
+
 </head>
+
 <body onLoad="scroll()">
 <form action="/arcommon/wishes" method="get" onsubmit="return validateName();">
 	<table>
-		<tr><td colspan="4" align="center"><input type="text" size="80" id="message"></td></tr>
-		<tr><td colspan="4" align="center"><img src="http://myfriendwa.com/image.jpg" width="100%" height="100%"></img></td></tr>
-		<tr><td><b>Enter your name here:</b></td><td><input name="from" type="text" id="to"></input></td><td><input type="submit" value="Go" class="button"></input></td></tr>
+		<tr><td colspan="2" align="center"><input type="text" size="80" id="message"></td></tr>
+		<tr><td colspan="2" align="center"><img src="http://myfriendwa.com/image.jpg" width="100%" height="100%"></img></td></tr>
+		<tr><td><b>Enter your name here:</b></td><td><input name="from" type="text" id="to"></input></td></tr>
+		<tr><td colspan="2"><center><input type="submit" value="Set Your Own Name" class="button"></input></center></td></tr>
+		<tr><td colspan="2"><input type="hidden" name="messageType" value="0"> <!-- 1 for family and 0 for all --></td></tr>
 	</table>
 </form>
+<div align="center">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<!-- My Ads -->
+	<ins class="adsbygoogle"
+	     style="display:block"
+	     data-ad-client="ca-pub-0952325864419872"
+	     data-ad-slot="9422275632"
+	     data-ad-format="auto"></ins>
+	<script>
+	(adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+</div>
 </body>
 </html>
