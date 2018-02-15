@@ -12,6 +12,7 @@ public class ArCommonBaseController {
 	private static final String VIEW_CONTACT = "contact";
 	private static final String VIEW_HOME = "home";
 	private static final String VIEW_PRODUCTS = "products";
+	private static final String WISH = "wish";
 	
 	@RequestMapping(value = "index", method = RequestMethod.GET)
 	public String index(ModelMap model) {
@@ -35,8 +36,12 @@ public class ArCommonBaseController {
 	
 	@RequestMapping(value = "emailQuery", method = RequestMethod.POST)
 	public String sendQuery(ModelMap model) {
-		System.out.println("email calle");
 		return VIEW_PRODUCTS;
+	}
+	
+	@RequestMapping(value = "wish", method = RequestMethod.GET)
+	public String createWishes(ModelMap model) {
+		return WISH;
 	}
 	
 }

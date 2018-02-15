@@ -31,6 +31,7 @@
 		<spring.version>5.0.3.RELEASE</spring.version>
 		<jackson-databind.version>2.9.3</jackson-databind.version>
 		<bcprov-jdk16.version>1.46</bcprov-jdk16.version>
+		<jstl-api.version>1.2</jstl-api.version>
 	</properties>
 
 	<!-- All the dependencies are declared inside dependencies tag -->
@@ -103,6 +104,14 @@
     		<artifactId>bcprov-jdk16</artifactId>
     		<version>${bcprov-jdk16.version}</version>
 		</dependency>
+		
+		<!-- Dependencies for JSTL -->
+		<dependency>
+    		<groupId>javax.servlet.jsp.jstl</groupId>
+    		<artifactId>jstl-api</artifactId>
+    		<version>${jstl-api.version}</version>
+		</dependency>
+		<!-- Dependencies for JSTL -->
 
 	</dependencies>
 

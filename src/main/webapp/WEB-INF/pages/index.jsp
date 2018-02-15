@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+
+<spring:url value="/resources/styles/index.css" var="style" />
+<spring:url value="/resources/scripts/index.js" var="index" />
+<spring:url value="/resources/scripts/products.js" var="products" />
+<spring:url value="/resources/scripts/contact.js" var="contact" />
+
 <html data-ng-app="indexApp">
 <head>
-	<spring:url value="/resources/styles/index.css" var="style" />
-	<spring:url value="/resources/scripts/index.js" var="index" />
-	<spring:url value="/resources/scripts/products.js" var="products" />
-	<spring:url value="/resources/scripts/contact.js" var="contact" />
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-route.min.js"></script>
 	<link href="${style}" rel="stylesheet">
