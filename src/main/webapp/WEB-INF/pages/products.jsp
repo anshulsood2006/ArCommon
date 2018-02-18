@@ -12,6 +12,7 @@
 	<li><a href=""><b>Stock Market</b></a></li>
 	<li><a href=""><b>Converters</b></a></li>
 	<li><a href=""><b>Traveller's Space</b></a></li>
+	<li><a href=""><b>Kids Pathshala</b></a></li>
 </ul>
 </body>
 </html>

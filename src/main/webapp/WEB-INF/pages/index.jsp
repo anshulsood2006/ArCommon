@@ -31,7 +31,6 @@
 			<div data-ng-view></div>
 		</div>
 		<div class="footerContainer">
-			Anshul Sood
 			<b>&copy; Copyright 2018 <a href="http://www.myfriendwa.com/arcommon"><i>${initParam.websiteFullName}</i></a></b>
 		</div>
 	</div>

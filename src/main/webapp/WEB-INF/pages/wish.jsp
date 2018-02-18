@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<spring:url value="/resources/fonts/league-gothic.regular.ttf" var="font" />
 <spring:url value="/resources/styles/wish.css" var="style" />
 <spring:url value="/resources/scripts/wish.js" var="script" />
 <spring:url value="/resources/images/image.jpg" var="image" />
