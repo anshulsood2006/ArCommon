@@ -1,7 +1,13 @@
 var module = angular.module('wishApp',[]); 
 
-module.controller('watsappController', function($scope, $location) {
-	
+module.config(['$locationProvider', function($locationProvider){
+	$locationProvider.html5Mode({
+		enabled: true,
+		requireBase: false
+	});
+}]);
+
+module.controller('watsappController', function($scope, $location, $window) {
 	var wisherName = $location.search().from;
 	var wishText = " wishing you Happy Holi";
 	if (typeof wisherName == "undefined" || wisherName == ""){
@@ -21,14 +27,9 @@ module.controller('watsappController', function($scope, $location) {
 		else{
 			$location.search ("from",wisherName);
 			$scope.wishMessage = wisherName +" is "+ wishText;
-			sendViaWatsapp();
+			var str = encodeURIComponent(wisherName+ " has sent you wishes. Click here: "+ $location.absUrl());
+			$window.location.href = "whatsapp://send?text="+str;
+			return true;
 		}
 	};
 });
-
-function sendViaWatsapp(){
-	var url = document.URL;
-	var urlParams = new URLSearchParams(window.location.search);
-	var str = encodeURIComponent(urlParams.get("from")+ " has sent you wishes. Click here: "+url);
-	window.location = "whatsapp://send?text="+str;
-}

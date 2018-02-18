@@ -18,7 +18,18 @@
 
 <body data-ng-controller="watsappController">
 <div class="container">
-	<div class="leftContainer"></div>
+	<div class="leftContainer">
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+			<!-- My Ads -->
+			<ins class="adsbygoogle"
+			     style="display:block"
+			     data-ad-client="ca-pub-0952325864419872"
+			     data-ad-slot="9422275632"
+			     data-ad-format="auto"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+	</div>
 	<div class="centerContainer">
 		<div class="headerContainer">
 			<marquee behavior="alternate" class="wish">{{wishMessage}}</marquee>
@@ -27,10 +38,21 @@
 			<img src="${image}" width="99%" height="95%">
 		</div>
 		<div class="footerContainer">
-			<a href="whatsapp://send?text=" data-ng-click="populateName()" class="button">Share via Watsapp</a>
+			<button data-ng-click="populateName()" class="myButton">Share your wishes via Watsapp</button>
 		</div>
 	</div>
-	<div class="rightContainer"></div>
+	<div class="rightContainer">
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+			<!-- My Ads -->
+			<ins class="adsbygoogle"
+			     style="display:block"
+			     data-ad-client="ca-pub-0952325864419872"
+			     data-ad-slot="9422275632"
+			     data-ad-format="auto"></ins>
+			<script>
+			(adsbygoogle = window.adsbygoogle || []).push({});
+		</script>
+	</div>
 </div>
 </body>
 </html>
