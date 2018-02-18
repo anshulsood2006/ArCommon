@@ -12,31 +12,25 @@
 
 <head>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
-	<script src="https://rawgit.com/dwmkerr/angular-modal-service/master/dst/angular-modal-service.js"></script>
 	<script src="${script}"></script>
 	<link href="${style}" rel="stylesheet">
 </head>
 
-<body onLoad="scroll()" data-ng-controller="watsappController">
-	<form action="/arcommon/wishesJSP" method="post">
-		<table>
-			<tr><td colspan="2" align="center"><input type="text" size="80" id="message" data-ng-model="message"></td></tr>
-			<tr><td colspan="2" align="center"><img src="${image}" width="100%" height="100%"></img></td></tr>
-			<tr><td colspan="2"><input type="hidden" name="messageType" value="0"> <!-- 1 for family and 0 for you only --></td></tr>
-			<tr><td colspan="2" align="center"><a href="whatsapp://send?text=" data-ng-click="promptForName();" class="button">Share via Watsapp</a></td></tr>
-		</table>
-	</form>
-	<div align="center">
-	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-		<!-- My Ads -->
-		<ins class="adsbygoogle"
-		     style="display:block"
-		     data-ad-client="ca-pub-0952325864419872"
-		     data-ad-slot="9422275632"
-		     data-ad-format="auto"></ins>
-		<script>
-		(adsbygoogle = window.adsbygoogle || []).push({});
-		</script>
+<body data-ng-controller="watsappController">
+<div class="container">
+	<div class="leftContainer"></div>
+	<div class="centerContainer">
+		<div class="headerContainer">
+			<marquee behavior="alternate" class="wish">{{wishMessage}}</marquee>
+		</div>
+		<div class="mainContainer">
+			<img src="${image}" width="99%" height="95%">
+		</div>
+		<div class="footerContainer">
+			<a href="whatsapp://send?text=" data-ng-click="populateName()" class="button">Share via Watsapp</a>
+		</div>
 	</div>
+	<div class="rightContainer"></div>
+</div>
 </body>
 </html>
