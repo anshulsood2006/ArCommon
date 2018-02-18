@@ -6,8 +6,6 @@
 <spring:url value="/resources/scripts/wish.js" var="script" />
 <spring:url value="/resources/images/image.jpg" var="image" />
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <html data-ng-app="wishApp">
 
 <head>

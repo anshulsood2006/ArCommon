@@ -17,18 +17,25 @@
 	<title>Welcome to ${initParam.websiteNickName}</title>
 </head>
 <body data-ng-controller="indexController">
-	<div id="header" class="header">
-		<nav>
-			<a href="#!/main" class="button">Home</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-			<a href="#!/products" class="button">We Offer</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<a href="#!/contact" class="button">Contact Us</a>
-		</nav>
+<div class="container">
+	<div class="leftContainer"></div>
+	<div class="centerContainer">
+		<div class="headerContainer">
+			<nav>
+				<a href="#!/main" class="button">Home</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+				<a href="#!/products" class="button">We Offer</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="#!/contact" class="button">Contact Us</a>
+			</nav>
+		</div>
+		<div class="mainContainer">
+			<div data-ng-view></div>
+		</div>
+		<div class="footerContainer">
+			Anshul Sood
+			<b>&copy; Copyright 2018 <a href="http://www.myfriendwa.com/arcommon"><i>${initParam.websiteFullName}</i></a></b>
+		</div>
 	</div>
-	<div id="main">
-		<div data-ng-view></div>
-	</div>
-	<div id="footer" class="footer">
-		<p><footer> <b>&copy; Copyright 2018 <a href="http://www.myfriendwa.com/arcommon"><i>${initParam.websiteFullName}</i></a></b></footer>
-	</div>
+	<div class="rightContainer"></div>
+</div>	
 </body>
 </html>

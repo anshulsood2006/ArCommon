@@ -1,11 +1,52 @@
-.footer {
-   position: fixed;
-   left: 0;
-   bottom: 0;
-   width: 100%;
-   //background-color: red;
-   color: black;
-   text-align: center;
+.container{
+	//border: solid black 2px;
+	width: 100%;
+}
+.leftContainer{
+	width:10%;
+	position: fixed;
+	left: 0%;
+	//border: 5px solid red;
+	height: 98%;
+}
+.rightContainer{
+	width:10%;
+	position: fixed;
+	right: -20px;
+	//border: 5px solid blue;
+	height: 98%;
+}
+.centerContainer{
+	width: 80%;
+	position: fixed;
+	left: 10%;
+	//border:solid yellow 5px; 
+	height: 98%;
+}
+.headerContainer{
+	width: 80%;
+	position: fixed;
+	left: 10%;
+	//border:solid green 5px; 
+	height: 5%;
+}
+.mainContainer{
+	width: 80%;
+	position: fixed;
+	left: 10%;
+	//border:solid red 5px; 
+	height: 76%;
+	top: 7%;
+	overflow: auto;
+}
+.footerContainer{
+	width: 80%;
+	position: fixed;
+	left: 10%;
+	//border:solid orange 5px; 
+	height: 15%;
+	bottom: 0%;
+	text-align: center;
 }
 
 .button {
