@@ -33,6 +33,7 @@
 		<bcprov-jdk16.version>1.46</bcprov-jdk16.version>
 		<jstl-api.version>1.2</jstl-api.version>
 		<standard.version>1.1.2</standard.version>
+		<jaxws-rt.version>2.3.0</jaxws-rt.version>
 	</properties>
 
 	<!-- All the dependencies are declared inside dependencies tag -->
@@ -118,6 +119,14 @@
 			<version>${standard.version}</version>
 		</dependency>
 		<!-- Dependencies for JSTL -->
+		
+		<!-- Dependencies for JAX-WS -->
+		<dependency>
+		    <groupId>com.sun.xml.ws</groupId>
+		    <artifactId>jaxws-rt</artifactId>
+		    <version>${jaxws-rt.version}</version>
+		</dependency>
+		<!-- Dependencies for JAX-WS -->
 
 	</dependencies>
 
