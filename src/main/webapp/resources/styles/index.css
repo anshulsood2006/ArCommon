@@ -5,12 +5,12 @@
 
 *{
 	font-family: leagueGothicFont;
-	font-size: 30px;
 }
 
 .container{
 	//border: solid black 2px;
 	width: 100%;
+	font-size: 30px;
 }
 .leftContainer{
 	width:10%;
@@ -45,18 +45,20 @@
 	position: fixed;
 	left: 10%;
 	//border:solid red 5px; 
-	height: 76%;
+	height: 91%;
 	top: 7%;
 	overflow: auto;
 }
 .footerContainer{
+	font-size: 1px;
 	width: 80%;
 	position: fixed;
 	left: 10%;
 	//border:solid orange 5px; 
-	height: 15%;
+	height: 5%;
 	bottom: 0%;
 	text-align: center;
+	font-size: 10px;
 }
 
 .button {

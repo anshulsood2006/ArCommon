@@ -25,11 +25,17 @@ module.controller('watsappController', function($scope, $location, $window) {
 			return false;
 		}
 		else{
-			$location.search ("from",wisherName);
-			$scope.wishMessage = wisherName +" is "+ wishText;
-			var str = encodeURIComponent(wisherName+ " has sent you wishes. Click here: "+ $location.absUrl());
-			$window.location.href = "whatsapp://send?text="+str;
-			return true;
+			if (wisherName == null){
+				$scope.wishMessage = wishText;
+				return true;
+			}
+			else{
+				$location.search ("from",wisherName);
+				$scope.wishMessage = wisherName +" is "+ wishText;
+				var str = encodeURIComponent(wisherName+ " has sent you wishes. Click here: "+ $location.absUrl());
+				$window.location.href = "whatsapp://send?text="+str;
+				return true;
+			}
 		}
 	};
 });
