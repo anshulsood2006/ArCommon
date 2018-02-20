@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html data-ng-app="myApp">
 
 <head>
 	<link href="template.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>	
+	<script src="template.js"></script>
 </head>
 
 <body>
@@ -13,7 +15,8 @@
 		Header Content Here
 		</div>
 		<div class="mainContainer">
-		Main Content Here
+			<div class="mainContainerHeader"></div>
+			<div class="mainContainerContent"></div>
 		</div>
 		<div class="footerContainer">
 		Footer Content Here

@@ -27,7 +27,7 @@
 	width: 80%;
 	position: fixed;
 	left: 10%;
-	border:solid green 5px; 
+	//border:solid green 5px; 
 	height: 5%;
 }
 .mainContainer{
@@ -39,11 +39,24 @@
 	top: 7%;
 	overflow: auto;
 }
+.mainContainerHeader{
+	width: 79%;
+	height: 16%;
+	position: fixed;
+	border:solid black 5px; 
+}
+.mainContainerContent{
+	top: 25%;
+	width: 79%;
+	height: 57%;
+	position: fixed;
+	border:solid blue 5px; 
+}
 .footerContainer{
 	width: 80%;
 	position: fixed;
 	left: 10%;
-	border:solid orange 5px; 
+	//border:solid orange 5px; 
 	height: 15%;
 	bottom: 0%;
 	text-align: center;
