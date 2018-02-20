@@ -7,6 +7,6 @@
 <title>Welcome to the home page of kids Pathshala</title>
 </head>
 <body>
-
+This is kids pathshala
 </body>
 </html>

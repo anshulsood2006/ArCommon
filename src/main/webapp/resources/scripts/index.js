@@ -20,6 +20,10 @@ module.config(function($routeProvider) {
             templateUrl : 'contact.do',
             controller  : 'contactController'
         })
+        .when('/kidsPathshala', {
+            templateUrl : 'kidsPathshala.do',
+            controller  : 'kidsPathshalaController'
+        })
         .otherwise({  
             redirectTo: '/main'  
         }); 

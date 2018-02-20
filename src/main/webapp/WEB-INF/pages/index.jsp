@@ -5,6 +5,7 @@
 <spring:url value="/resources/scripts/index.js" var="index" />
 <spring:url value="/resources/scripts/products.js" var="products" />
 <spring:url value="/resources/scripts/contact.js" var="contact" />
+<spring:url value="/resources/scripts/kids/pathshala/index.js" var="contact" />
 
 <html data-ng-app="indexApp">
 <head>
