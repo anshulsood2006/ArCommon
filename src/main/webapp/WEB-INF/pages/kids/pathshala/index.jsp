@@ -16,7 +16,7 @@
 		<div class="mainContainerHeader"><br/>Presidents of India</div>
 		<div class="mainContainerContent" data-ng-controller="imagesController">
 		<a href="" class="previous round" data-ng-click="previous()"><b>&lt;&lt; Previous</b></a>
-		<div class="content">{{rank}}<br/>{{name}}</div>
+		<div class="content">{{rank}}<br/><img onerror="this.src='${image}none.jpg;'" data-ng-src="${image}{{rank}}.jpg" width="300" height="300"/><br/>{{name}}</div>
 			<a href="" class="next round" data-ng-click="next()"><b>Next &gt;&gt;</b></a>
 		</div>
 	</div>
