@@ -24,7 +24,7 @@
 		<div class="headerContainer">
 			<nav>
 				<a href="#!/main" class="button">Home</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-				<a href="#!/products" class="button">We Offer</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="#!/products" class="button">Pathshala</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="#!/contact" class="button">Contact Us</a>
 			</nav>
 		</div>
