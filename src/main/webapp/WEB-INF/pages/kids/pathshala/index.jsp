@@ -1,12 +1,24 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<spring:url value="/resources/scripts/kids/pathshala/index.js" var="script" />
+<spring:url value="/resources/styles/kids/pathshala/index.css" var="style" />
+<spring:url value="/resources/images/kids/pathshala/" var="image" />
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+<link href="${style}" rel="stylesheet">
+	<script src="${script}"></script>
 <title>Welcome to the home page of kids Pathshala</title>
 </head>
 <body>
-This is kids pathshala
+	<div class="mainContainer">
+		<div class="mainContainerHeader"><br/>Presidents of India</div>
+		<div class="mainContainerContent" data-ng-controller="imagesController">
+		<a href="" class="previous round" data-ng-click="previous()"><b>&lt;&lt; Previous</b></a>
+		<div class="content">{{imageUrl}}</div>
+			<a href="" class="next round" data-ng-click="next()"><b>Next &gt;&gt;</b></a>
+		</div>
+	</div>
 </body>
 </html>

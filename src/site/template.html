@@ -9,24 +9,22 @@
 
 <body>
 <div class="container">
-	<div class="leftContainer">Adds here</div>
+	<div class="leftContainer"></div>
 	<div class="centerContainer">
 		<div class="headerContainer">
-		Header Content Here
 		</div>
 		<div class="mainContainer">
 			<div class="mainContainerHeader"></div>
-			<div class="mainContainerContent">
-			<a href="#" class="previous round"><b><b>&lt;&lt; Previous</b></a>
-			<img class="content" src="image.jpg"></img>
-			<a href="#" class="next round">Next &gt;&gt;</b></a>
+			<div class="mainContainerContent" data-ng-controller="imagesController">
+				<a href="#" class="previous round" data-ng-click="previous()"><b><b>&lt;&lt; Previous</b></a>
+					<img class="content" data-ng-src="{{imageUrl}}.jpg"></img>
+				<a href="#" class="next round" data-ng-click="next()">Next &gt;&gt;</b></a>
 			</div>
 		</div>
 		<div class="footerContainer">
-		Footer Content Here
 		</div>
 	</div>
-	<div class="rightContainer">Adds here</div>
+	<div class="rightContainer"></div>
 </div>
 </body>
 </html>
