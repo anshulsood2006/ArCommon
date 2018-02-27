@@ -34,6 +34,7 @@
 		<jstl-api.version>1.2</jstl-api.version>
 		<standard.version>1.1.2</standard.version>
 		<jaxws-rt.version>2.3.0</jaxws-rt.version>
+		<javax.mail.version>1.5.5</javax.mail.version>
 	</properties>
 
 	<!-- All the dependencies are declared inside dependencies tag -->
@@ -127,6 +128,13 @@
 		    <version>${jaxws-rt.version}</version>
 		</dependency>
 		<!-- Dependencies for JAX-WS -->
+		
+		<!-- Dependencies for Java Mailing Service -->
+		<dependency>
+			<groupId>com.sun.mail</groupId>
+			<artifactId>javax.mail</artifactId>
+			<version>${javax.mail.version}</version>
+		</dependency>
 
 	</dependencies>
 

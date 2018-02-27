@@ -1,0 +1,67 @@
+.mainContainer{
+	width: 80%;
+	position: fixed;
+	left: 10%;
+	//border:solid red 5px; 
+	height: 76%;
+	top: 7%;
+	overflow: auto;
+}
+.mainContainerHeader{
+	font-weight: bold;
+	width: 79%;
+	height: 16%;
+	position: fixed;
+	text-align: center;
+	//border:solid black 5px; 
+}
+.mainContainerContent{
+	top: 25%;
+	width: 79%;
+	height: 57%;
+	position: fixed;
+	//border:solid blue 5px; 
+}
+a{
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 16px;
+}
+
+a:hover {
+    background-color: #4CAF50;
+    color: black;
+}
+.previous {
+	position: fixed;
+	top: 50%;
+	left: 15%;
+    background-color: #f1f1f1;
+    color: black;
+}
+.next {
+	position: fixed;
+	top: 50%;
+	left: 78%;
+    background-color: #f1f1f1;
+    color: black;
+    float: right;
+}
+.round {
+    border-radius: 50%;
+}
+.content{
+	position: fixed;
+	top: 28%;
+	left: 40%;
+	width: 45%;
+	height: 53%;
+}
+
+textarea[name=address] {
+    resize: none;
+}
+
+textarea[name=order] {
+    resize: none;
+}
