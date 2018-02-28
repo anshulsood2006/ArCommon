@@ -12,7 +12,7 @@
 </head>
 <body data-ng-app="dukaanApp">
 	<div class="mainContainer">
-		<div class="mainContainerHeader"><br/>Your Order</div>
+		<div class="mainContainerHeader"><br/>Place Your Order Here</div>
 		<div class="mainContainerContent">
 			<div class="content">
 				<form data-ng-app="myApp" data-ng-controller="dukaanIndexController" name="myForm" novalidate>
@@ -48,8 +48,9 @@
 						</span>
 					</p>
 					<p>
-						<button data-ng-disabled="myForm.user.$invalid || myForm.email.$invalid || myForm.phone.$invalid || myForm.address.$invalid || myForm.order.$invalid" data-ng-click="sendMail()">Send Your Order</button>
+						<button data-ng-disabled="myForm.user.$invalid || myForm.email.$invalid || myForm.phone.$invalid || myForm.address.$invalid || myForm.order.$invalid || buttonPress" data-ng-click="sendMail()">Place Your Order</button>
 					</p>
+					<div style="color:red">{{message}}</div>
 				</form>
 			</div>
 		</div>
