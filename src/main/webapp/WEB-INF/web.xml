@@ -23,7 +23,7 @@
   	<servlet>
 	    <servlet-name>SendOrder</servlet-name>
 	    <servlet-class>
-	       com.arsoft.projects.common.servlet.SendEmailServlet
+	       com.arsoft.projects.common.servlet.ArEmailSenderServlet
 	    </servlet-class>
     	<load-on-startup>2</load-on-startup>
 	 </servlet>
