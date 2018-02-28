@@ -1,3 +1,14 @@
+@font-face {
+   font-family: leagueGothicFont;
+   src: url(http://myfriendwa.com/arcommon/resources/fonts/league-gothic.regular.ttf);
+   src: url(http://localhost:8080/arcommon/resources/fonts/league-gothic.regular.ttf);
+}
+
+*{
+	font-family: leagueGothicFont;
+	font-size: 22px;
+}
+
 .mainContainer{
 	width: 80%;
 	position: fixed;
@@ -10,17 +21,29 @@
 .mainContainerHeader{
 	font-weight: bold;
 	width: 79%;
-	height: 16%;
+	height: 8%;
 	position: fixed;
 	text-align: center;
 	//border:solid black 5px; 
 }
 .mainContainerContent{
-	top: 25%;
+	top: 0%;
 	width: 79%;
-	height: 57%;
+	height: 65%;
 	position: fixed;
 	//border:solid blue 5px; 
+	overflow: auto;
+}
+.footerContainer{
+	font-size: 1px;
+	width: 80%;
+	position: fixed;
+	left: 10%;
+	//border:solid orange 5px; 
+	height: 5%;
+	bottom: 0%;
+	text-align: center;
+	font-size: 10px;
 }
 a{
     text-decoration: none;
@@ -52,10 +75,11 @@ a:hover {
 }
 .content{
 	position: fixed;
-	top: 28%;
+	top: 15%;
 	left: 40%;
-	width: 45%;
-	height: 53%;
+	width: 55%;
+	height: 73%;
+	overflow: auto;
 }
 
 textarea[name=address] {
