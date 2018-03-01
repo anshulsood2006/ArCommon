@@ -42,7 +42,7 @@
 						</span>
 					</p>
 					<p><b>Order:</b>
-						<textarea name="order" data-ng-model="order" required rows="10" cols="50"></textarea>
+						<textarea name="order" data-ng-model="order" required rows="5" cols="50"></textarea>
 						<span style="color:red" data-ng-show="myForm.order.$dirty && myForm.order.$invalid">
 						<span data-ng-show="myForm.order.$error.required">Order is required.</span>
 						</span>

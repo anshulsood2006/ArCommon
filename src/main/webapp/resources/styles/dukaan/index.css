@@ -6,7 +6,7 @@
 
 *{
 	font-family: leagueGothicFont;
-	font-size: 22px;
+	font-size: 20px;
 }
 
 .mainContainer{
@@ -14,12 +14,13 @@
 	position: fixed;
 	left: 10%;
 	//border:solid red 5px; 
-	height: 76%;
-	top: 7%;
+	height: 90%;
+	//top: 1%;
 	overflow: auto;
 }
 .mainContainerHeader{
 	font-weight: bold;
+	top: 1%;
 	width: 79%;
 	height: 8%;
 	position: fixed;
@@ -27,9 +28,9 @@
 	//border:solid black 5px; 
 }
 .mainContainerContent{
-	top: 0%;
+	top: 11%;
 	width: 79%;
-	height: 65%;
+	height: 86%;
 	position: fixed;
 	//border:solid blue 5px; 
 	overflow: auto;
@@ -40,46 +41,31 @@
 	position: fixed;
 	left: 10%;
 	//border:solid orange 5px; 
-	height: 5%;
-	bottom: 0%;
+	height: 4%;
+	bottom: 1%;
 	text-align: center;
 	font-size: 10px;
 }
 a{
     text-decoration: none;
     display: inline-block;
-    padding: 8px 16px;
+    padding: 1px 8px;
 }
 
 a:hover {
     background-color: #4CAF50;
     color: black;
 }
-.previous {
-	position: fixed;
-	top: 50%;
-	left: 15%;
-    background-color: #f1f1f1;
-    color: black;
-}
-.next {
-	position: fixed;
-	top: 50%;
-	left: 78%;
-    background-color: #f1f1f1;
-    color: black;
-    float: right;
-}
-.round {
-    border-radius: 50%;
-}
 .content{
 	position: fixed;
-	top: 15%;
-	left: 40%;
+	text-align: center;
+	align-content: center;
+	top: 11%;
+	left: 25%;
 	width: 55%;
-	height: 73%;
+	height: 80%;
 	overflow: auto;
+	//border:solid green 5px; 
 }
 
 textarea[name=address] {
