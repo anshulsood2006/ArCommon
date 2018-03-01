@@ -1,5 +1,6 @@
 package com.arsoft.projects.common.email;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -11,6 +12,7 @@ import javax.mail.Transport;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.servlet.ServletException;
 
 import com.arsoft.projects.dukaan.ArDukaanUtil;
 
@@ -43,7 +45,7 @@ public class ArEmailUtil {
 	    }
 	}
 
-	public static void main(String[] args) throws AddressException {
+	public static void main(String[] args) throws AddressException, IOException, ServletException {
 		Map<String, String> order = new HashMap<>();
 		order.put("NAME", "Anshul");
 		order.put("PHONE", "987127577");

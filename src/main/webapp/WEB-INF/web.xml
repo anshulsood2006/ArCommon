@@ -8,6 +8,19 @@
 	</welcome-file-list>
   	
   	<servlet>
+	    <servlet-name>ArEnvironmentServlet</servlet-name>
+	    <servlet-class>
+	       com.arsoft.projects.common.servlet.ArEnvironmentServlet
+	    </servlet-class>
+    	<load-on-startup>1</load-on-startup>
+	 </servlet>
+   
+	<servlet-mapping>
+	     <servlet-name>ArEnvironmentServlet</servlet-name>
+	     <url-pattern>/test</url-pattern>
+  	</servlet-mapping>
+  	
+  	<servlet>
 	    <servlet-name>ArWishesYou</servlet-name>
 	    <servlet-class>
 	       com.arsoft.projects.common.servlet.ArWisher
@@ -57,6 +70,16 @@
 	</listener>	
 	
 	<!-- Global parameters for application -->
+	<context-param>
+		<param-name>environment</param-name>
+		<param-value>DEV</param-value>
+	</context-param>
+	
+	<context-param>
+		<param-name>arcommon.config.file.location</param-name>
+		<param-value>/WEB-INF/configuration/config.properties</param-value>
+	</context-param>
+	
 	<context-param>
 		<param-name>websiteNickName</param-name>
 		<param-value>MyFriendwa</param-value>

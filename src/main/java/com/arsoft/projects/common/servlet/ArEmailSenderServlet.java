@@ -12,6 +12,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import com.arsoft.projects.common.email.ArEmailUtil;
+import com.arsoft.projects.common.properties.ArPropertyHandler;
 import com.arsoft.projects.dukaan.ArDukaanUtil;
 
 public class ArEmailSenderServlet  extends HttpServlet {
@@ -35,7 +36,7 @@ public class ArEmailSenderServlet  extends HttpServlet {
 			String email = (String)jsonobject.get("email");
 			String order = (String)jsonobject.get("order");
 			String subject = "Order received from "+name;
-			String from = "Apki Apni Dukaan";
+			String from = ArPropertyHandler.getProperty("dukaan.name");
 			String messageBody = "Hello!! \n\nNew order received from: "+name+" ("+phone+").\n\nThe order needs to be "
 					+ "delivered at below address:\n\n"+address +"\n\nOrder is:\n\n"+order+ "\n\nClient can be contacted via E-MAIL at: "+email;
 			ArEmailUtil.sendEmail(subject, from, messageBody, ArDukaanUtil.getDefaultOrderReceivers());
