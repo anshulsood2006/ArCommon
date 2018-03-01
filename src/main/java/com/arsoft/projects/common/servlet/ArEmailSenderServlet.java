@@ -38,7 +38,8 @@ public class ArEmailSenderServlet  extends HttpServlet {
 			String subject = "Order received from "+name;
 			String from = ArPropertyHandler.getProperty("dukaan.name");
 			String messageBody = "Hello!! \n\nNew order received from: "+name+" ("+phone+").\n\nThe order needs to be "
-					+ "delivered at below address:\n\n"+address +"\n\nOrder is:\n\n"+order+ "\n\nClient can be contacted via E-MAIL at: "+email;
+					+ "delivered at below address:\n\n"+address +"\n\nOrder is:\n\n"+order+ "\n\nClient can be contacted via E-MAIL at: "
+					+email+ "\n\nFresh order can be placed at: http://myfriendwa.com/arcommon/dukaan.do\n\n";
 			ArEmailUtil.sendEmail(subject, from, messageBody, ArDukaanUtil.getDefaultOrderReceivers());
 		}catch(Exception e) {
 			e.printStackTrace();

@@ -1,18 +1,16 @@
 @font-face {
    font-family: leagueGothicFont;
    src: url(http://myfriendwa.com/arcommon/resources/fonts/league-gothic.regular.ttf);
-   src: url(http://localhost:8080/arcommon/resources/fonts/league-gothic.regular.ttf);
 }
 
 *{
 	font-family: leagueGothicFont;
-	font-size: 20px;
+	font-size: 35px;
 }
 
 .mainContainer{
-	width: 80%;
+	width: 100%;
 	position: fixed;
-	left: 10%;
 	//border:solid red 5px; 
 	height: 90%;
 	//top: 1%;
@@ -21,25 +19,25 @@
 .mainContainerHeader{
 	font-weight: bold;
 	top: 1%;
-	width: 79%;
+	width: 98%;
 	height: 8%;
 	position: fixed;
 	text-align: center;
 	//border:solid black 5px; 
 }
 .mainContainerContent{
+	align-content: center;
 	top: 11%;
-	width: 79%;
-	height: 86%;
+	width: 99%;
+	height: 85%;
 	position: fixed;
 	//border:solid blue 5px; 
 	overflow: auto;
 }
 .footerContainer{
 	font-size: 1px;
-	width: 80%;
+	width: 99%;
 	position: fixed;
-	left: 10%;
 	//border:solid orange 5px; 
 	height: 4%;
 	bottom: 1%;
@@ -59,12 +57,13 @@ a:hover {
 .content{
 	position: fixed;
 	//text-align: center;
-	//align-content: center;
+	align-content: center;
 	top: 11%;
-	left: 35%;
-	width: 55%;
-	height: 80%;
+	width: 98%;
+	height: 85%;
+	position: fixed;
 	overflow: auto;
+	align: center;
 	//border:solid green 5px; 
 }
 
