@@ -8,6 +8,32 @@
 	</welcome-file-list>
   	
   	<servlet>
+	    <servlet-name>ArFileReaderServlet</servlet-name>
+	    <servlet-class>
+	       com.arsoft.projects.common.servlet.ArFileReaderServlet
+	    </servlet-class>
+    	<load-on-startup>1</load-on-startup>
+	 </servlet>
+   
+	<servlet-mapping>
+	     <servlet-name>ArFileReaderServlet</servlet-name>
+	     <url-pattern>/readFile</url-pattern>
+  	</servlet-mapping>
+  	
+  	<servlet>
+	    <servlet-name>ArTemplateServlet</servlet-name>
+	    <servlet-class>
+	       com.arsoft.projects.common.servlet.ArTemplateServlet
+	    </servlet-class>
+    	<load-on-startup>1</load-on-startup>
+	 </servlet>
+   
+	<servlet-mapping>
+	     <servlet-name>ArTemplateServlet</servlet-name>
+	     <url-pattern>/template</url-pattern>
+  	</servlet-mapping>
+  	
+  	<servlet>
 	    <servlet-name>ArEnvironmentServlet</servlet-name>
 	    <servlet-class>
 	       com.arsoft.projects.common.servlet.ArEnvironmentServlet
@@ -17,7 +43,7 @@
    
 	<servlet-mapping>
 	     <servlet-name>ArEnvironmentServlet</servlet-name>
-	     <url-pattern>/test</url-pattern>
+	     <url-pattern>/environment</url-pattern>
   	</servlet-mapping>
   	
   	<servlet>

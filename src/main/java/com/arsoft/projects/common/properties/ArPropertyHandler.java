@@ -1,14 +1,13 @@
 package com.arsoft.projects.common.properties;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
 
 import javax.servlet.ServletException;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import com.arsoft.projects.common.servlet.ArEnvironmentServlet;
 
 /*
  * This is a Singleton class to hold the properties values at server startup.
@@ -24,30 +23,23 @@ public class ArPropertyHandler {
 	
 	private final static Logger logger = LogManager.getLogger(new Object().getClass().getEnclosingClass());
 	
-	private static ArPropertyHandler arPropertyHandler;
 	private static Properties arProperties;
 
-	private ArPropertyHandler() throws IOException, ServletException {
-		if (arProperties == null){
-			arProperties = new Properties();
-			arProperties.load(ArEnvironmentServlet.getPropertyFileAsInputStream());
-		}
+	public static String getProperty(String key) throws IOException, ServletException{
+		
+		return arProperties.getProperty(key);
 	}
-	
-	private static ArPropertyHandler loadProperties() throws IOException, ServletException{
-		if (arPropertyHandler == null){
+
+	public static Properties loadProperties(InputStream stream) throws IOException {
+		if (arProperties == null){
 			synchronized(ArPropertyHandler.class){
-				if(arPropertyHandler == null){
-					arPropertyHandler = new ArPropertyHandler();
+				if(arProperties == null){
+					arProperties = new Properties();
 				}
 			}
 		}
-		return arPropertyHandler;
-	}
-	
-	public static String getProperty(String key) throws IOException, ServletException{
-		loadProperties();
+		arProperties.load(stream);
 		logger.debug("Properties loaded successfully");
-		return arProperties.getProperty(key);
+		return arProperties;
 	}
 }

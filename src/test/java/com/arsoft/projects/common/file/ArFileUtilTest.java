@@ -15,7 +15,8 @@ public class ArFileUtilTest {
 	public void testGetNullFileContentAsString() throws Exception{
 		expectedEx.expect(ArException.class);
 		expectedEx.expectMessage("File location can not be null or empty");
-		ArFileUtil.getFileContentAsString(null);
+		String str = null;
+		ArFileUtil.getFileContentAsString(str);
 	}
 	
 	@Test

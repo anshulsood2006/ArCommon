@@ -21,26 +21,17 @@ public class ArFileUtil {
 	private final static Logger logger = LogManager.getLogger(new Object().getClass().getEnclosingClass());
 	
 	public static String getFileContentAsString(String filePath) throws IOException, ArException{
-		InputStream is = null;
+		InputStream inputStream = null;
 		if (filePath == null){
 			throw new ArException("File location can not be null or empty");
 		}
 		logger.info("Reading file at path "+ filePath);
 		try{
-			is = new FileInputStream(filePath); 
+			inputStream = new FileInputStream(filePath); 
 		}catch(FileNotFoundException e){
 			throw new ArException("Incorrect file location "+filePath);
 		}
-		BufferedReader buf = new BufferedReader(new InputStreamReader(is)); 
-		String line = buf.readLine(); 
-		StringBuilder sb = new StringBuilder(); 
-		while(line != null){ 
-			sb.append(line).append(ArFileConstant.NEW_LINE); 
-			line = buf.readLine(); 
-		} 
-		buf.close();
-		String fileAsString = sb.toString(); 
-		return fileAsString;
+		return getFileContentAsString(inputStream);
 	}
 	
 	public static List<File> getFoldersAtPath(String path){
@@ -97,5 +88,16 @@ public class ArFileUtil {
 			}
 		}
 		return propertyValue;
+	}
+
+	public static String getFileContentAsString(InputStream inputStream) throws IOException {
+		BufferedReader buf = new BufferedReader(new InputStreamReader(inputStream)); 
+		String line = ArFileConstant.EMPTY_STRING;
+		StringBuilder sb = new StringBuilder(); 
+		while ((line = buf.readLine()) != null) {
+			sb.append(line).append(ArFileConstant.NEW_LINE);
+	    }
+		buf.close();
+		return sb.toString().trim();
 	}
 }

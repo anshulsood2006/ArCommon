@@ -17,6 +17,7 @@ public class TestClassA implements ArDefaultMethodInterface{
 	TestClassB b = new TestClassB();
 	ArDefaultMethodInterface.getStaticInteger();
 	a.getInteger();
+	b.toString();
  }
  
  public static int getStaticInteger(){

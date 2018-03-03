@@ -10,10 +10,8 @@ public class PSIUtil {
 		String asciiString = convertHexStringToAsciiString(hexString);
 		System.out.println("Actual Value is: "+asciiString);
 		System.out.println("Length of actual value is: "+asciiString.length());
-		int z = convertByteToInt(hexString.getBytes());
 		hexString = "0x0000000f";
 		System.out.println("Integer value is: "+Integer.decode(hexString));
-		String psiApplyTariffRequest = "008701040000000f333830363738343530323236202020202020202020202020202020202020333830363732303534343735202020202020202020202020202020202020013338303637373637303932352020202020202020202020202020202020203030303030303030303030303030303030303030303030303030303030303030303230303030";
 	}
 
 	public static String convertByteArrayToString(byte[] byteArray) {

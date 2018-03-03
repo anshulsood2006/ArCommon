@@ -35,6 +35,10 @@
 		<standard.version>1.1.2</standard.version>
 		<jaxws-rt.version>2.3.0</jaxws-rt.version>
 		<javax.mail.version>1.5.5</javax.mail.version>
+		<mysql-connector-java.version>6.0.6</mysql-connector-java.version>
+		<hibernate-core.version>5.2.13.Final</hibernate-core.version>
+		<log4j-core.version>2.10.0</log4j-core.version>
+		<mockito-all.version>1.10.19</mockito-all.version>
 	</properties>
 
 	<!-- All the dependencies are declared inside dependencies tag -->
@@ -56,9 +60,21 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+		    <groupId>org.mockito</groupId>
+		    <artifactId>mockito-all</artifactId>
+		    <version>${mockito-all.version}</version>
+		    <scope>test</scope>
+		</dependency>
+		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 			<version>${javax.servlet-api.version}</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.apache.logging.log4j</groupId>
+		    <artifactId>log4j-core</artifactId>
+		    <version>${log4j-core.version}</version>
 		</dependency>
 
 		<!-- Dependencies for Java Mailing Service -->
@@ -135,6 +151,23 @@
 			<artifactId>javax.mail</artifactId>
 			<version>${javax.mail.version}</version>
 		</dependency>
+		<!-- Dependencies for Java Mailing Service -->
+		
+		<!-- Dependencies for Java MySQl Connection -->
+		<dependency>
+		    <groupId>mysql</groupId>
+		    <artifactId>mysql-connector-java</artifactId>
+		    <version>${mysql-connector-java.version}</version>
+		</dependency>
+		<!-- Dependencies for Java MySQl Connection -->
+		
+		<!-- Dependencies for hibernate -->
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-core</artifactId>
+		    <version>${hibernate-core.version}</version>
+		</dependency>
+		<!-- Dependencies for hibernate -->
 
 	</dependencies>
 

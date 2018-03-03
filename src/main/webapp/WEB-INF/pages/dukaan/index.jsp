@@ -15,6 +15,13 @@
 		<div class="mainContainerHeader" style="color:green;"><br/>Place Your Order Here</div>
 		<div class="mainContainerContent">
 			<div class="content">	
+				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+				<script>
+				     (adsbygoogle = window.adsbygoogle || []).push({
+				          google_ad_client: "ca-pub-0952325864419872",
+				          enable_page_level_ads: true
+				     });
+				</script>
 				<form data-ng-app="myApp" data-ng-controller="dukaanIndexController" name="myForm" novalidate>
 					<table align="center" >
 					<tr><td><b>Name:</b></td><td>
