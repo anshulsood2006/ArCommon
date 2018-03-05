@@ -55,7 +55,7 @@ public class ArFileReaderServletTest {
 		MockitoAnnotations.initMocks(this);
 	}
 
-	@Test
+	/*@Test
 	public void testExternalFile() throws Exception {
 		when(request.getParameter("path")).thenReturn("D:/configuration/config.properties");
 		StringWriter sw = new StringWriter();
@@ -79,5 +79,5 @@ public class ArFileReaderServletTest {
 		mock.doGet(request, response);
 		String result = sw.getBuffer().toString().trim();
 		//assertEquals(expected.replaceAll("\n", "").replaceAll("\r", ""), result.replaceAll("\n", "").replaceAll("\r", ""));
-	}
+	}*/
 }

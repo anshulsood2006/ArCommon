@@ -1,3 +1,13 @@
+@font-face {
+   font-family: leagueGothicFont;
+   src: url(http://myfriendwa.com/arcommon/resources/fonts/league-gothic.regular.ttf);
+}
+
+*{
+	font-family: leagueGothicFont;
+	font-size: 20px;
+}
+
 .mainContainer{
 	width: 80%;
 	position: fixed;

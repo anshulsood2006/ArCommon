@@ -95,6 +95,22 @@
     	<listener-class>com.sun.xml.ws.transport.http.servlet.WSServletContextListener</listener-class>
 	</listener>	
 	
+	<!-- Servlet Mapping for Jersey Rest Services -->
+	<servlet>
+		<servlet-name>Jersey REST Service</servlet-name>
+		<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+		<init-param>
+			<param-name>jersey.config.server.provider.packages</param-name>
+			<param-value>com.arsoft.projects.common.webservice.rest</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Jersey REST Service</servlet-name>
+		<url-pattern>/rest/*</url-pattern>
+	</servlet-mapping> 
+	<!-- Servlet Mapping for Jersey Rest Services --> 
+	
 	<!-- Global parameters for application -->
 	<context-param>
 		<param-name>environment</param-name>

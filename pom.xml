@@ -39,6 +39,8 @@
 		<hibernate-core.version>5.2.13.Final</hibernate-core.version>
 		<log4j-core.version>2.10.0</log4j-core.version>
 		<mockito-all.version>1.10.19</mockito-all.version>
+		<jersey2.version>2.26</jersey2.version>
+        <jaxrs.version>2.1</jaxrs.version>
 	</properties>
 
 	<!-- All the dependencies are declared inside dependencies tag -->
@@ -168,6 +170,34 @@
 		    <version>${hibernate-core.version}</version>
 		</dependency>
 		<!-- Dependencies for hibernate -->
+		
+		<!-- Dependencies for jersey rest web-services -->
+		<dependency>
+            <groupId>javax.ws.rs</groupId>
+            <artifactId>javax.ws.rs-api</artifactId>
+            <version>${jaxrs.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.containers</groupId>
+            <artifactId>jersey-container-servlet</artifactId>
+            <version>${jersey2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.core</groupId>
+            <artifactId>jersey-server</artifactId>
+            <version>${jersey2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.core</groupId>
+            <artifactId>jersey-client</artifactId>
+            <version>${jersey2.version}</version>
+        </dependency>
+        <dependency>
+		    <groupId>org.glassfish.jersey.inject</groupId>
+		    <artifactId>jersey-hk2</artifactId>
+     		<version>${jersey2.version}</version>
+		</dependency>
+		<!-- Dependencies for jersey rest web-services -->
 
 	</dependencies>
 
