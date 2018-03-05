@@ -1,25 +1,55 @@
 package com.arsoft.projects.common.database;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.internal.util.config.ConfigurationException;
+
+import com.arsoft.projects.common.exception.ArException;
 
 public class ArDatabaseUtil {
-	private static final SessionFactory sessionFactory = buildSessionFactory();
-
-	private static SessionFactory buildSessionFactory() {
-		try {
-			return new Configuration().configure("dukaan.cfg.xml").buildSessionFactory();
-		} catch (Throwable ex) {
-			System.err.println("Initial SessionFactory creation failed." + ex);
-			throw new ExceptionInInitializerError(ex);
+	
+	private final static Logger logger = LogManager.getLogger(new Object().getClass().getEnclosingClass());
+	
+	private static Map<String, SessionFactory> mapSessionFactory;
+	
+	private ArDatabaseUtil() {
+		
+	}
+		
+	public static SessionFactory getSessionFactory(String resource) throws ArException {
+		logger.debug("Getting session factory for "+resource);
+		if (mapSessionFactory == null) {
+			mapSessionFactory = new HashMap<>();
 		}
+		if(mapSessionFactory.get(resource) == null) {
+			SessionFactory sessionFactory = buildSessionFactory(resource);
+			mapSessionFactory.put(resource, sessionFactory);
+		}
+		return mapSessionFactory.get(resource);
 	}
 
-	public static SessionFactory getSessionFactory() {
-		return sessionFactory;
-	}
+		private static SessionFactory buildSessionFactory(String resource) throws ArException {
+			
+			Configuration configuration = null;
+			if (resource == null) {
+				String exceptionMessage = "Resource can not be null";
+				throw new ArException(exceptionMessage, logger);
+			}
+			 try {
+				configuration = new Configuration().configure("D:\\Important\\Projects\\ArCommon\\src\\main\\webapp\\WEB-INF\\configuration\\dukaan.cfg.xml");
+			 }catch (ConfigurationException e) {
+				throw new ArException("Resource "+resource+" not found on the classpath");
+			}
+			 
+			return configuration.buildSessionFactory();
+		}
 
-	public static void shutdown() {
-		getSessionFactory().close();
+	public static void shutdown(String resource) throws ArException {
+		getSessionFactory(resource).close();
 	}
 }

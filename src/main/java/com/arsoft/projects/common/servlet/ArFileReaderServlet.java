@@ -43,8 +43,8 @@ public class ArFileReaderServlet extends HttpServlet {
 				}
 			}
 			if (inputStream == null) {
-				logger.error("Unable to read file from path : "+path);
-				response.getWriter().write("Unable to read file from path : "+path);
+				logger.error("Unable to read file from context path : "+path);
+				response.getWriter().write("Unable to read file from context path : "+path);
 			}else {
 				String content = ArFileUtil.getFileContentAsString(inputStream);
 				response.getWriter().write(content);
