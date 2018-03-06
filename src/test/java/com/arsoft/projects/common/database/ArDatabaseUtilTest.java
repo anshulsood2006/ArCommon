@@ -59,11 +59,11 @@ public class ArDatabaseUtilTest {
 		ArDatabaseUtil.getSessionFactory(resource);
 	}
 	
-	/*@Test
+	@Test
 	public void getSessionFactoryValidResource() throws ArException {
-		String resource = "dukaan.cfg.xml";
+		String resource = "com/arsoft/projects/configuration/dukaan.cfg.xml";
 		SessionFactory sf = ArDatabaseUtil.getSessionFactory(resource);
 		assertNotNull(sf);
-	}*/
-
+	}
+	
 }

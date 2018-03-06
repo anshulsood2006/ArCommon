@@ -43,7 +43,7 @@
    
 	<servlet-mapping>
 	     <servlet-name>ArEnvironmentServlet</servlet-name>
-	     <url-pattern>/environment</url-pattern>
+	     <url-pattern>/getEnvironmentDetail</url-pattern>
   	</servlet-mapping>
   	
   	<servlet>

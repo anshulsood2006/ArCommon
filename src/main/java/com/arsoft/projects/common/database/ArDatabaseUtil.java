@@ -22,6 +22,10 @@ public class ArDatabaseUtil {
 	}
 		
 	public static SessionFactory getSessionFactory(String resource) throws ArException {
+		if (resource == null) {
+			String exceptionMessage = "Resource can not be null";
+			throw new ArException(exceptionMessage, logger);
+		}
 		logger.debug("Getting session factory for "+resource);
 		if (mapSessionFactory == null) {
 			mapSessionFactory = new HashMap<>();
@@ -34,14 +38,13 @@ public class ArDatabaseUtil {
 	}
 
 		private static SessionFactory buildSessionFactory(String resource) throws ArException {
-			
 			Configuration configuration = null;
 			if (resource == null) {
 				String exceptionMessage = "Resource can not be null";
 				throw new ArException(exceptionMessage, logger);
 			}
 			 try {
-				configuration = new Configuration().configure("D:\\Important\\Projects\\ArCommon\\src\\main\\webapp\\WEB-INF\\configuration\\dukaan.cfg.xml");
+				configuration = new Configuration().configure(resource);
 			 }catch (ConfigurationException e) {
 				throw new ArException("Resource "+resource+" not found on the classpath");
 			}
@@ -51,5 +54,6 @@ public class ArDatabaseUtil {
 
 	public static void shutdown(String resource) throws ArException {
 		getSessionFactory(resource).close();
+		logger.debug("Successfully shut down session factory for "+resource);
 	}
 }

@@ -4,7 +4,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Enumeration;
 import java.util.Properties;
 
 import javax.servlet.ServletException;
@@ -26,69 +25,73 @@ public class ArEnvironmentServlet extends HttpServlet  {
 	private static Properties arProperties;
 	
 	public void init() throws ServletException{
+		try {
+			arProperties = initializeProperties();
+			initializeTables();
+		}
+		catch(ServletException exception) {
+			throw new ServletException("Exception occurred inside ArEnvironmentServlet.init(): "+exception.getLocalizedMessage());
+		}
+		
+		
+	}
+	
+	private void initializeTables() {
+		
+	}
+
+	private Properties initializeProperties() throws ServletException {
 		String configFileLocation = null;
 		InputStream stream = null;
 		try{
 			configFileLocation = getServletContext().getInitParameter("arcommon.config.file.location");
 			if (configFileLocation == null){
-				throw new ServletException("ArEnvironmentServlet::Not able to get the property arcommon.config.file.location");
+				throw new ServletException("Not able to get the property arcommon.config.file.location");
 			}
 			else {
 				stream = getServletContext().getResourceAsStream(configFileLocation);
 				if (stream == null) {
-					throw new ServletException("ArEnvironmentServlet::Not able to get the default config.properties file at the location");
+					throw new ServletException("Not able to get the default config.properties file at the location");
 				}else {
 					arProperties = ArPropertyHandler.loadProperties(stream);
-					logger.debug("ArEnvironmentServlet::Properties read successfully from internal config file");
+					logger.debug("Properties read successfully from internal config file");
 				}
 			}
 			configFileLocation = System.getProperty("arcommon.config.file.location");
 			if (configFileLocation == null){
-				logger.error("ArEnvironmentServlet::No System property 'arcommon.config.file.location' defined. Getting the properties only from default config.properties file");
+				logger.error("No System property 'arcommon.config.file.location' defined. Getting the properties only from default config.properties file");
 			}else{
 				try {
 					stream = new FileInputStream(configFileLocation);
 					arProperties = ArPropertyHandler.loadProperties(stream);
-					logger.debug("ArEnvironmentServlet::Properties read successfully from external config file at location: "+configFileLocation);
+					logger.debug("Properties read successfully from external config file at location: "+configFileLocation);
 				}catch (FileNotFoundException e) {
-					logger.error("ArEnvironmentServlet::No config.properties File found at location : "+configFileLocation);
+					logger.error("No config.properties File found at location : "+configFileLocation);
 				}catch(SecurityException e) {
-					logger.error("ArEnvironmentServlet::Security Exception occurred for config.properties File found at location: "+configFileLocation);
+					logger.error("Security Exception occurred for config.properties File found at location: "+configFileLocation);
 				}
 			}
 		}catch(Exception exception){
-			throw new ServletException("ArEnvironmentServlet::Exception occurred inside ArEnvironmentServlet.doGet(): "+exception.getLocalizedMessage());
+			throw new ServletException("Exception occurred inside ArEnvironmentServlet.initializeProperties(): "+exception.getLocalizedMessage());
 		}
+		return null;
 	}
 	
+	public void help() {
+		String helpText = "The correct request format is:\n\n /environment?action={actionName}&\n\n\n\nValid Actions are:";
+	}
+
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String key = null;
+		String action = null;
 		String value = null;
-		try {
-			key = request.getParameter("key");
-			if (key == null) {
-				response.getWriter().write("Key is null");
-			}
-			if(key.equals("ALL")){
-				Enumeration<?> e = arProperties.propertyNames();
-			    while (e.hasMoreElements()) {
-			      key = (String) e.nextElement();
-			      response.getWriter().write(key + " -- " + arProperties.getProperty(key));
-			      response.getWriter().write("\n");
-			    }
-			}
-			else {
-				value = arProperties.getProperty(key);
-				response.getWriter().write("Value for key: "+key+" is: "+value);
-			}
-			
-		}catch(Exception e){
-			response.getWriter().write(e.getLocalizedMessage());
-		}
+		
 	}
 	
 	 public void destroy() {
-		 arProperties.clear();
+		 if(arProperties != null) {
+			 arProperties.clear();
+		 }
 	 }
+	 
 	
 }
