@@ -15,7 +15,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.arsoft.projects.common.annotation.ArAnnotationUtil;
-import com.arsoft.projects.common.environment.ArEnvironmentAction;
+import com.arsoft.projects.common.environment.ArEnvironmentActionEnum;
 import com.arsoft.projects.common.exception.ArException;
 import com.arsoft.projects.common.properties.ArPropertyHandler;
 import com.arsoft.projects.common.string.ArStringUtil;
@@ -35,7 +35,7 @@ public class ArEnvironmentService {
 		if (ArStringUtil.isNullOrEmptyString(entityName)){
 			return "Parameter 'entityName' is required in query string";
 		}
-		if (action.equals(ArEnvironmentAction.GET_PROPERTY_VALUE)){
+		if (ArEnvironmentActionEnum.isHavingEnumValue(action)){
 			Map<String, String> map = ArPropertyHandler.getPropertyAsMap(entityName);
 			StringBuffer bf = new StringBuffer();
 			for (String str : map.keySet()){
@@ -43,6 +43,9 @@ public class ArEnvironmentService {
 			}
 			return bf.toString();
 		}
-		return null;
+		else {
+			return "Invalid Value for parameter Action.\n\nValid Values are: "+ArEnvironmentActionEnum.getAllArEnvironmentActionEnum();
+		}
+		
 	}
 }

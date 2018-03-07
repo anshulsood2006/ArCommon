@@ -1,11 +1,6 @@
 package com.arsoft.projects.common.servlet;
 
-import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.when;
-
 import java.io.InputStream;
-import java.io.PrintWriter;
-import java.io.StringWriter;
 
 import javax.servlet.GenericServlet;
 import javax.servlet.ServletConfig;
@@ -14,9 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.junit.Before;
-import org.junit.Test;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 public class ArFileReaderServletTest {
