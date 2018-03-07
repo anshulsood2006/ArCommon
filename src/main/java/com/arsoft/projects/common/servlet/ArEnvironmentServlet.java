@@ -2,14 +2,11 @@ package com.arsoft.projects.common.servlet;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -22,11 +19,9 @@ public class ArEnvironmentServlet extends HttpServlet  {
 	
 	private static final long serialVersionUID = 2140876001035372352L;
 	
-	private static Properties arProperties;
-	
 	public void init() throws ServletException{
 		try {
-			arProperties = initializeProperties();
+			initializeProperties();
 			initializeTables();
 		}
 		catch(ServletException exception) {
@@ -53,7 +48,7 @@ public class ArEnvironmentServlet extends HttpServlet  {
 				if (stream == null) {
 					throw new ServletException("Not able to get the default config.properties file at the location");
 				}else {
-					arProperties = ArPropertyHandler.loadProperties(stream);
+					ArPropertyHandler.loadProperties(stream);
 					logger.debug("Properties read successfully from internal config file");
 				}
 			}
@@ -63,7 +58,7 @@ public class ArEnvironmentServlet extends HttpServlet  {
 			}else{
 				try {
 					stream = new FileInputStream(configFileLocation);
-					arProperties = ArPropertyHandler.loadProperties(stream);
+					ArPropertyHandler.loadProperties(stream);
 					logger.debug("Properties read successfully from external config file at location: "+configFileLocation);
 				}catch (FileNotFoundException e) {
 					logger.error("No config.properties File found at location : "+configFileLocation);
@@ -75,23 +70,6 @@ public class ArEnvironmentServlet extends HttpServlet  {
 			throw new ServletException("Exception occurred inside ArEnvironmentServlet.initializeProperties(): "+exception.getLocalizedMessage());
 		}
 		return null;
-	}
-	
-	public void help() {
-		String helpText = "The correct request format is:\n\n /environment?action={actionName}&\n\n\n\nValid Actions are:";
-	}
-
-	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String action = null;
-		String value = null;
-		
-	}
-	
-	 public void destroy() {
-		 if(arProperties != null) {
-			 arProperties.clear();
-		 }
-	 }
-	 
+	} 
 	
 }

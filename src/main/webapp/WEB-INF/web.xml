@@ -107,7 +107,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>Jersey REST Service</servlet-name>
-		<url-pattern>/rest/*</url-pattern>
+		<url-pattern>/services/*</url-pattern>
 	</servlet-mapping> 
 	<!-- Servlet Mapping for Jersey Rest Services --> 
 	

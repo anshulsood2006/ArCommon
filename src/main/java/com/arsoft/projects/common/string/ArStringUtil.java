@@ -56,4 +56,12 @@ public class ArStringUtil {
 		return listOfString;
 	}
 	
+	public static boolean isNullOrEmptyString(String string){
+		if (string == null || string.equals(ArStringConstant.EMPTY_STRING)){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
 }
