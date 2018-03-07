@@ -32,10 +32,21 @@ public class ArEnvironmentServiceTest {
 	}
 	
 	@Test
-	public void getDetail() {
+	public void getDetailInvalidAction() {
 		Response z = get("/arcommon/services/getEnvironmentDetail?action=GET_DATA&entityName=asd");
-		System.out.println(z.getBody().asString());
-		assertEquals("Invalid Value for parameter Action. Valid Values are: [GET_PROPERTY_VALUE, GET_DATABASE, GET_TABLE_NAME]", z.getBody().asString());
+		assertEquals("Invalid Value for parameter 'action'.\n\nValid Values are: [GET_PROPERTY_VALUE, GET_DATABASE, GET_TABLE_NAME]", z.getBody().asString());
+	}
+	
+	@Test
+	public void getDetailActionGetPropertyValueAll() {
+		Response z = get("/arcommon/services/getEnvironmentDetail?action=GET_PROPERTY_VALUE&entityName=ALL");
+		assertEquals("<table border=\"1\"><tr><th>Property Name</th><th>Property Value</th></tr><tr><td>test.extra.in.internal</td><td>/WEB-INF/configuration</td></tr><tr><td>environment</td><td>PROD</td></tr><tr><td>dukaan.name</td><td>Apki Apni Dukaan</td></tr><tr><td>dukaan.order.receiver.emails</td><td>anshulsood2006@gmail.com</td></tr><tr><td>dukaan.hibernate.file.location</td><td>/WEB-INF/configuration/dukaan.cfg.xml</td></tr><tr><td>dukaan.database.name</td><td>dukaan</td></tr><tr><td>test.overridden.in.external</td><td>overridden</td></tr><tr><td>test.only.in.internal</td><td>internal</td></tr><tr><td>class.creation.config</td><td>/WEB-INF/configuration/create_class.xml</td></tr></table>", z.getBody().asString());
+	}
+	
+	@Test
+	public void getDetailActionGetPropertyValue() {
+		Response z = get("/arcommon/services/getEnvironmentDetail?action=GET_PROPERTY_VALUE&entityName=test.overridden.in.external");
+		assertEquals("<table border=\"1\"><tr><th>Property Name</th><th>Property Value</th></tr><tr><td>test.overridden.in.external</td><td>overridden</td></tr></table>", z.getBody().asString());
 	}
 
 }

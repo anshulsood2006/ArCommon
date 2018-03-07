@@ -27,7 +27,7 @@ public class ArEnvironmentService {
 	
 	@GET
 	@Produces(MediaType.TEXT_HTML)
-	public String getDetail(@QueryParam("action") String action, @QueryParam("entityName") String entityName,  @Context ServletContext context) throws ArException {
+	public String getDetailInHTml(@QueryParam("action") String action, @QueryParam("entityName") String entityName,  @Context ServletContext context) throws ArException {
 		logger.debug("Service "+  ArAnnotationUtil.getAttributeValue(ArAnnotationUtil.getClassAnnotations(getClass()).get(0),"value") +" called with parameters: action: "+action+" and entityName: "+entityName);
 		if (ArStringUtil.isNullOrEmptyString(action)){
 			return "Parameter 'action' is required in query string";
@@ -38,14 +38,42 @@ public class ArEnvironmentService {
 		if (ArEnvironmentActionEnum.isHavingEnumValue(action)){
 			Map<String, String> map = ArPropertyHandler.getPropertyAsMap(entityName);
 			StringBuffer bf = new StringBuffer();
+			bf.append("<table border=\"1\">");
+			bf.append("<tr><th>Property Name</th><th>Property Value</th></tr>");
 			for (String str : map.keySet()){
-				bf.append("Property: "+str+" Value:"+map.get(str));
+				bf.append("<tr><td>"+str+"</td><td>"+map.get(str)+"</td></tr>");
 			}
+			bf.append("</table>");
 			return bf.toString();
 		}
 		else {
-			return "Invalid Value for parameter Action.\n\nValid Values are: "+ArEnvironmentActionEnum.getAllArEnvironmentActionEnum();
+			return "Invalid Value for parameter 'action'.\n\nValid Values are: "+ArEnvironmentActionEnum.getAllArEnvironmentActionEnum();
+		}	
+	}
+	
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public String getDetailInJson(@QueryParam("action") String action, @QueryParam("entityName") String entityName,  @Context ServletContext context) throws ArException {
+		logger.debug("Service "+  ArAnnotationUtil.getAttributeValue(ArAnnotationUtil.getClassAnnotations(getClass()).get(0),"value") +" called with parameters: action: "+action+" and entityName: "+entityName);
+		if (ArStringUtil.isNullOrEmptyString(action)){
+			return "Parameter 'action' is required in query string";
 		}
-		
+		if (ArStringUtil.isNullOrEmptyString(entityName)){
+			return "Parameter 'entityName' is required in query string";
+		}
+		if (ArEnvironmentActionEnum.isHavingEnumValue(action)){
+			Map<String, String> map = ArPropertyHandler.getPropertyAsMap(entityName);
+			StringBuffer bf = new StringBuffer();
+			bf.append("<table border=\"1\">");
+			bf.append("<tr><th>Property Name</th><th>Property Value</th></tr>");
+			for (String str : map.keySet()){
+				bf.append("<tr><td>"+str+"</td><td>"+map.get(str)+"</td></tr>");
+			}
+			bf.append("</table>");
+			return bf.toString();
+		}
+		else {
+			return "Invalid Value for parameter 'action'.\n\nValid Values are: "+ArEnvironmentActionEnum.getAllArEnvironmentActionEnum();
+		}	
 	}
 }
