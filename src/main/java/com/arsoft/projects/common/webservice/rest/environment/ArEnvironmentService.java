@@ -62,14 +62,7 @@ public class ArEnvironmentService {
 			return "Parameter 'entityName' is required in query string";
 		}
 		if (ArEnvironmentActionEnum.isHavingEnumValue(action)){
-			Map<String, String> map = ArPropertyHandler.getPropertyAsMap(entityName);
 			StringBuffer bf = new StringBuffer();
-			bf.append("<table border=\"1\">");
-			bf.append("<tr><th>Property Name</th><th>Property Value</th></tr>");
-			for (String str : map.keySet()){
-				bf.append("<tr><td>"+str+"</td><td>"+map.get(str)+"</td></tr>");
-			}
-			bf.append("</table>");
 			return bf.toString();
 		}
 		else {

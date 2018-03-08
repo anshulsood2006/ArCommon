@@ -25,5 +25,7 @@ public class ArException extends Exception{
 		logger.error(exceptionMessage);
 	}
 
-
+	public static createErrorJsonArray(String errorText){
+		
+	}
 }

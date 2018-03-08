@@ -49,7 +49,44 @@ public class ArScripPriceNew implements Callable<String>{
 		String propertyFile ="stocks.properties";
 		String propertyName = "stocks";
 		String propertyValue = ArFileUtil.getProperty(propertyFile, propertyName);
-		List<String> assetList = ArStringUtil.getStringAsListAfterTokenization(propertyValue, ArStringConstant.COMMA);
+		printSharePrice(propertyValue);
+	}
+	
+	public static String getSharePrice(String scrips){
+		List<String> assetList = ArStringUtil.getStringAsListAfterTokenization(scrips, ArStringConstant.COMMA);
+		Map<String, String> map = new LinkedHashMap<>();
+		ExecutorService exec = Executors.newFixedThreadPool(assetList.size());
+		List<Callable<String>> callables =  new ArrayList<Callable<String>>();
+		StringBuffer bf = null;
+        for(int i=0; i< assetList.size(); i++) {
+            callables.add(new ArScripPriceNew(assetList.get(i)));
+        }	
+        try {
+            List<Future<String>> results =  exec.invokeAll(callables);
+            int i = 0;
+            for(Future<String> result: results) {
+            	map.put(assetList.get(i), result.get());
+            	i++;
+            }
+            bf = new StringBuffer();
+			bf.append("<table border=\"1\">");
+			bf.append("<tr><th>Scrip Name</th><th>Scrip Value</th></tr>");
+			for (Map.Entry<String, String> entryMap: map.entrySet()){
+				bf.append("<tr><td>"+entryMap.getKey()+"</td><td>"+entryMap.getValue()+"</td></tr>");
+    		}
+			bf.append("</table>");
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        } catch (ExecutionException ex) {
+            ex.printStackTrace();
+        } finally {
+            exec.shutdownNow();
+        }
+		return bf.toString();
+	}
+	
+	public static String printSharePrice(String scrips){
+		List<String> assetList = ArStringUtil.getStringAsListAfterTokenization(scrips, ArStringConstant.COMMA);
 		Map<String, String> map = new LinkedHashMap<>();
 		ExecutorService exec = Executors.newFixedThreadPool(assetList.size());
 		List<Callable<String>> callables =  new ArrayList<Callable<String>>();
@@ -63,13 +100,13 @@ public class ArScripPriceNew implements Callable<String>{
             	map.put(assetList.get(i), result.get());
             	i++;
             }
-            for (Map.Entry<String, String> entryMap: map.entrySet()){
-    			System.out.println(entryMap.getValue());
-    		}
-            System.out.println("#############################################################");
-    		for (Map.Entry<String, String> entryMap: map.entrySet()){
+            StringBuffer bf = new StringBuffer();
+			bf.append("<table border=\"1\">");
+			bf.append("<tr><th>Scrip Name</th><th>Scrip Value</th></tr>");
+			for (Map.Entry<String, String> entryMap: map.entrySet()){
     			System.out.println(entryMap.getKey()+"="+entryMap.getValue());
     		}
+			bf.append("</table>");
         } catch (InterruptedException ex) {
             ex.printStackTrace();
         } catch (ExecutionException ex) {
@@ -77,6 +114,7 @@ public class ArScripPriceNew implements Callable<String>{
         } finally {
             exec.shutdownNow();
         }
+		return scrips;
 	}
 
 }
