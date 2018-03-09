@@ -36,35 +36,18 @@ public class ArScrip {
 	
 	public Date timeOfRecord;
 	
-	/**
-	 * This variable stored the all time low details for the scrip
-	 */
 	
-	public ArScrip allTimeLowDetail;
-	
-	/**
-	 * This variable stored the all time high details for the scrip
-	 */
-	
-	public ArScrip allTimeHighDetail;
-	
-	public ArScrip(String name, String completeName, ArBourse bourse, double price, Date timeOfRecord, ArScrip allTimeLowDetail, ArScrip allTimeHighDetail){
+	public ArScrip(String name, String completeName, ArBourse bourse, double price, Date timeOfRecord){
 		this.name = name;
 		this.completeName = completeName;
 		this.bourse = bourse;
 		this.price = price;
-		this.timeOfRecord = timeOfRecord;
-		if (allTimeLowDetail == null){
-			this.allTimeHighDetail = this;
-		}
-		if (allTimeLowDetail == null){
-			this.allTimeLowDetail = this;			
-		}		
+		this.timeOfRecord = timeOfRecord;		
 	}
 	
 	public String toString(){
 		return "Scrip [ Name: "+ this.name + " , Complete Name: "+this.completeName +", Bourse Name: "+this.bourse + " , Price: "+
-				this.price + " , Time: "+this.timeOfRecord + " , All Time High details: "+this.allTimeLowDetail + " , All Time Low details: "+this.allTimeHighDetail;
+				this.price + " , Time: "+this.timeOfRecord;
 	}
 
  
@@ -106,22 +89,6 @@ public class ArScrip {
 
 	public void setTimeOfRecord(Date timeOfRecord) {
 		this.timeOfRecord = timeOfRecord;
-	}
-
-	public ArScrip getAllTimeLowDetail() {
-		return allTimeLowDetail;
-	}
-
-	public void setAllTimeLowDetail(ArScrip allTimeLowDetail) {
-		this.allTimeLowDetail = allTimeLowDetail;
-	}
-
-	public ArScrip getAllTimeHighDetail() {
-		return allTimeHighDetail;
-	}
-
-	public void setAllTimeHighDetail(ArScrip allTimeHighDetail) {
-		this.allTimeHighDetail = allTimeHighDetail;
 	}
 	
 }

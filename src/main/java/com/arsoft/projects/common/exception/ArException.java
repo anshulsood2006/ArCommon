@@ -2,6 +2,8 @@ package com.arsoft.projects.common.exception;
 
 import org.apache.logging.log4j.Logger;
 
+import com.arsoft.projects.common.webservice.rest.environment.ArJsonError;
+
 public class ArException extends Exception{
 
 	private static final long serialVersionUID = 3548206157188383126L;
@@ -25,7 +27,11 @@ public class ArException extends Exception{
 		logger.error(exceptionMessage);
 	}
 
-	public static createErrorJsonArray(String errorText){
-		
+	public static ArJsonError createArErrorJson(String errorId, String errorMessage){
+		ArJsonError jsonObject = new ArJsonError();
+		jsonObject.setErrorId(errorId);
+		jsonObject.setErrorDescription(errorMessage);
+		return jsonObject;
 	}
+
 }

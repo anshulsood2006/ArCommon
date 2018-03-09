@@ -1,6 +1,7 @@
 package com.arsoft.projects.common.webservice;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,8 +11,11 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 
+import com.arsoft.projects.common.equity.ArBourse;
+import com.arsoft.projects.common.equity.ArScrip;
 import com.arsoft.projects.common.exception.ArException;
 import com.arsoft.projects.common.file.ArFileUtil;
 import com.arsoft.projects.common.string.ArStringConstant;
@@ -52,7 +56,7 @@ public class ArScripPriceNew implements Callable<String>{
 		printSharePrice(propertyValue);
 	}
 	
-	public static String getSharePrice(String scrips){
+	public static String getSharePriceHtml(String scrips){
 		List<String> assetList = ArStringUtil.getStringAsListAfterTokenization(scrips, ArStringConstant.COMMA);
 		Map<String, String> map = new LinkedHashMap<>();
 		ExecutorService exec = Executors.newFixedThreadPool(assetList.size());
@@ -83,6 +87,40 @@ public class ArScripPriceNew implements Callable<String>{
             exec.shutdownNow();
         }
 		return bf.toString();
+	}
+	
+	public static JSONArray getSharePriceJson(String scrips){
+		JSONArray jsonArray = null;
+		ArScrip jsonObject = null;
+		List<String> assetList = ArStringUtil.getStringAsListAfterTokenization(scrips, ArStringConstant.COMMA);
+		Map<String, String> map = new LinkedHashMap<>();
+		ExecutorService exec = Executors.newFixedThreadPool(assetList.size());
+		List<Callable<String>> callables =  new ArrayList<Callable<String>>();
+        for(int i=0; i< assetList.size(); i++) {
+            callables.add(new ArScripPriceNew(assetList.get(i)));
+        }	
+        try {
+            List<Future<String>> results =  exec.invokeAll(callables);
+            int i = 0;
+            for(Future<String> result: results) {
+            	map.put(assetList.get(i), result.get());
+            	i++;
+            }
+			for (Map.Entry<String, String> entryMap: map.entrySet()){
+				if (jsonArray == null){
+					jsonArray = new JSONArray();
+				}
+				jsonObject = new ArScrip(entryMap.getKey(), entryMap.getKey(), ArBourse.NSE, Double.parseDouble(entryMap.getValue()), new Date());
+				jsonArray.put(jsonObject);
+			}
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        } catch (ExecutionException ex) {
+            ex.printStackTrace();
+        } finally {
+            exec.shutdownNow();
+        }
+		return jsonArray;
 	}
 	
 	public static String printSharePrice(String scrips){

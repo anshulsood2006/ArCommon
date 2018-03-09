@@ -42,6 +42,8 @@
 		<jersey2.version>2.26</jersey2.version>
         <jaxrs.version>2.1</jaxrs.version>
         <rest-assured.version>3.0.7</rest-assured.version>
+        <jersey-json.version>1.19.4</jersey-json.version>
+        <jersey-media-json-jackson.version>2.26</jersey-media-json-jackson.version>
 	</properties>
 
 	<!-- All the dependencies are declared inside dependencies tag -->
@@ -202,6 +204,16 @@
 		    <groupId>org.glassfish.jersey.inject</groupId>
 		    <artifactId>jersey-hk2</artifactId>
      		<version>${jersey2.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-json</artifactId>
+			<version>${jersey-json.version}</version>
+		</dependency>
+		<dependency>
+		  	<groupId>org.glassfish.jersey.media</groupId>
+		  	<artifactId>jersey-media-json-jackson</artifactId>
+		 	<version>${jersey-media-json-jackson.version}</version>
 		</dependency>
 		<!-- Dependencies for jersey rest web-services -->
 
