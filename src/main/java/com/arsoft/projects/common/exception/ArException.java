@@ -2,7 +2,7 @@ package com.arsoft.projects.common.exception;
 
 import org.apache.logging.log4j.Logger;
 
-import com.arsoft.projects.common.webservice.rest.environment.ArJsonError;
+import com.arsoft.projects.common.webservice.rest.error.ArError;
 
 public class ArException extends Exception{
 
@@ -27,11 +27,11 @@ public class ArException extends Exception{
 		logger.error(exceptionMessage);
 	}
 
-	public static ArJsonError createArErrorJson(String errorId, String errorMessage){
-		ArJsonError jsonObject = new ArJsonError();
-		jsonObject.setErrorId(errorId);
-		jsonObject.setErrorDescription(errorMessage);
-		return jsonObject;
+	public static ArError createArError(String errorCode, String errorDescription){
+		ArError arError = new ArError();
+		arError.setErrorCode(errorCode);
+		arError.setErrorDescription(errorDescription);
+		return arError;
 	}
 
 }

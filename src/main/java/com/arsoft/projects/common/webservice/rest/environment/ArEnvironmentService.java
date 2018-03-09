@@ -1,6 +1,8 @@
 package com.arsoft.projects.common.webservice.rest.environment;
 
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletContext;
@@ -20,6 +22,9 @@ import com.arsoft.projects.common.environment.ArEnvironmentActionEnum;
 import com.arsoft.projects.common.exception.ArException;
 import com.arsoft.projects.common.properties.ArPropertyHandler;
 import com.arsoft.projects.common.string.ArStringUtil;
+import com.arsoft.projects.common.webservice.rest.ArList;
+import com.arsoft.projects.common.webservice.rest.error.ArError;
+import com.arsoft.projects.common.webservice.rest.error.ArErrorList;
 
 @Path("/getEnvironmentDetail")
 public class ArEnvironmentService{
@@ -61,17 +66,17 @@ public class ArEnvironmentService{
 		JSONArray jsonArray = null;
 		if (ArStringUtil.isNullOrEmptyString(action)){
 			jsonArray = new JSONArray();
-			jsonArray.put(ArException.createArErrorJson("1","Parameter 'action' is required in query string"));
+			jsonArray.put(ArException.createArError("1","Parameter 'action' is required in query string"));
 		}
 		if (ArStringUtil.isNullOrEmptyString(entityName)){
 			jsonArray = new JSONArray();
-			jsonArray.put(ArException.createArErrorJson("1","Parameter 'entityName' is required in query string"));
+			jsonArray.put(ArException.createArError("1","Parameter 'entityName' is required in query string"));
 		}
 		if (ArEnvironmentActionEnum.isHavingEnumValue(action)){
 			Map<String, String> map = ArPropertyHandler.getPropertyAsMap(entityName);
 			jsonArray = new JSONArray();
 			for (String key : map.keySet()){
-				ArJsonEnvironmentProperty jsObject = new ArJsonEnvironmentProperty();
+				ArEnvironmentProperty jsObject = new ArEnvironmentProperty();
 				jsObject.setName(key);
 				jsObject.setValue(map.get(key));
 				jsonArray.put(jsObject);
@@ -79,9 +84,55 @@ public class ArEnvironmentService{
 		}
 		else {
 			jsonArray = new JSONArray();
-			jsonArray.put(ArException.createArErrorJson("1","Invalid Value for parameter 'action'. Valid Values are: "+ArEnvironmentActionEnum.getAllArEnvironmentActionEnum()));
+			jsonArray.put(ArException.createArError("1","Invalid Value for parameter 'action'. Valid Values are: "+ArEnvironmentActionEnum.getAllArEnvironmentActionEnum()));
 		}	
 		return jsonArray;
+	}
+	
+	@GET
+	@Produces(MediaType.APPLICATION_XML)
+	@Path("/xml")
+	public ArList getResponseAsXml(@QueryParam("action") String action, @QueryParam("entityName") String entityName,  @Context ServletContext context) throws ArException {
+		logger.debug("Service "+  ArAnnotationUtil.getAttributeValue(ArAnnotationUtil.getClassAnnotations(getClass()).get(0),"value") +" called with parameters: action: "+action+" and entityName: "+entityName);
+		ArEnvironmentPropertyList arEnvironmentPropertyList = null;
+		ArEnvironmentProperty arEnvironmentProperty = null;
+		List<ArEnvironmentProperty> arEnvironmentProperties = null;
+		ArErrorList arErrorList = null;
+		List<ArError> arErrors = null;
+		if (ArStringUtil.isNullOrEmptyString(action)){
+			arErrorList = new ArErrorList();
+			arErrors = new ArrayList<>();
+			arErrors.add(ArException.createArError("1","Parameter 'action' is required in query string"));
+			arErrorList.setErrorList(arErrors);
+			return arErrorList;
+		}
+		if (ArStringUtil.isNullOrEmptyString(entityName)){
+			arErrorList = new ArErrorList();
+			arErrors = new ArrayList<>();
+			arErrors.add(ArException.createArError("1","Parameter 'entityName' is required in query string"));
+			arErrorList.setErrorList(arErrors);
+			return arErrorList;
+		}
+		if (ArEnvironmentActionEnum.isHavingEnumValue(action)){
+			Map<String, String> map = ArPropertyHandler.getPropertyAsMap(entityName);
+			arEnvironmentPropertyList = new ArEnvironmentPropertyList();
+			arEnvironmentProperties = new ArrayList<>();
+			for (String key : map.keySet()){
+				arEnvironmentProperty = new ArEnvironmentProperty();
+				arEnvironmentProperty.setName(key);
+				arEnvironmentProperty.setValue(map.get(key));
+				arEnvironmentProperties.add(arEnvironmentProperty);
+			}
+			arEnvironmentPropertyList.setArEnvironmentPropertyList(arEnvironmentProperties);
+			return arEnvironmentPropertyList;
+		}
+		else {
+			arErrorList = new ArErrorList();
+			arErrors = new ArrayList<>();
+			arErrors.add(ArException.createArError("1","Invalid Value for parameter 'action'. Valid Values are: "+ArEnvironmentActionEnum.getAllArEnvironmentActionEnum()));
+			arErrorList.setErrorList(arErrors);
+			return arErrorList;
+		}
 	}
 
 }

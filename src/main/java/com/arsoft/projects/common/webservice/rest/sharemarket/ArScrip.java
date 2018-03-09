@@ -1,12 +1,18 @@
-package com.arsoft.projects.common.equity;
+package com.arsoft.projects.common.webservice.rest.sharemarket;
 
 import java.util.Date;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import com.arsoft.projects.common.equity.ArBourse;
 
 /**
  * This class stores complete information about a particular scrip
  * @author anshulsood
  *
  */
+@XmlRootElement(name="Scrip")
 public class ArScrip {
 	
 	/**
@@ -55,6 +61,7 @@ public class ArScrip {
 		return name;
 	}
 
+	@XmlElement(name = "Name")
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -63,6 +70,7 @@ public class ArScrip {
 		return completeName;
 	}
 
+	@XmlElement(name = "CompleteName")
 	public void setCompleteName(String completeName) {
 		this.completeName = completeName;
 	}
@@ -71,6 +79,7 @@ public class ArScrip {
 		return bourse;
 	}
 
+	@XmlElement(name = "Bourse")
 	public void setBourse(ArBourse bourse) {
 		this.bourse = bourse;
 	}
@@ -79,6 +88,7 @@ public class ArScrip {
 		return price;
 	}
 
+	@XmlElement(name = "Price")
 	public void setPrice(double price) {
 		this.price = price;
 	}
@@ -87,6 +97,7 @@ public class ArScrip {
 		return timeOfRecord;
 	}
 
+	@XmlElement(name = "Time")
 	public void setTimeOfRecord(Date timeOfRecord) {
 		this.timeOfRecord = timeOfRecord;
 	}

@@ -1,6 +1,6 @@
 package com.arsoft.projects.common.json;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 

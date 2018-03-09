@@ -1,5 +1,6 @@
 package com.arsoft.projects.common.webservice.rest.environment;
 
+import static io.restassured.RestAssured.get;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.BeforeClass;
@@ -7,8 +8,6 @@ import org.junit.Test;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
-
-import static io.restassured.RestAssured.get;
 
 
 public class ArEnvironmentServiceTest {

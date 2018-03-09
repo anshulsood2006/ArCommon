@@ -15,11 +15,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 import com.arsoft.projects.common.equity.ArBourse;
-import com.arsoft.projects.common.equity.ArScrip;
 import com.arsoft.projects.common.exception.ArException;
 import com.arsoft.projects.common.file.ArFileUtil;
 import com.arsoft.projects.common.string.ArStringConstant;
 import com.arsoft.projects.common.string.ArStringUtil;
+import com.arsoft.projects.common.webservice.rest.sharemarket.ArScrip;
 
 public class ArScripPriceNew implements Callable<String>{
 
@@ -121,6 +121,31 @@ public class ArScripPriceNew implements Callable<String>{
             exec.shutdownNow();
         }
 		return jsonArray;
+	}
+	
+	public static Map<String, String> getSharePriceMap(String scrips){
+		List<String> assetList = ArStringUtil.getStringAsListAfterTokenization(scrips, ArStringConstant.COMMA);
+		Map<String, String> map = new LinkedHashMap<>();
+		ExecutorService exec = Executors.newFixedThreadPool(assetList.size());
+		List<Callable<String>> callables =  new ArrayList<Callable<String>>();
+        for(int i=0; i< assetList.size(); i++) {
+            callables.add(new ArScripPriceNew(assetList.get(i)));
+        }	
+        try {
+            List<Future<String>> results =  exec.invokeAll(callables);
+            int i = 0;
+            for(Future<String> result: results) {
+            	map.put(assetList.get(i), result.get());
+            	i++;
+            }
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        } catch (ExecutionException ex) {
+            ex.printStackTrace();
+        } finally {
+            exec.shutdownNow();
+        }
+		return map;
 	}
 	
 	public static String printSharePrice(String scrips){
