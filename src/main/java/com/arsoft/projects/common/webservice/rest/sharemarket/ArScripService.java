@@ -21,7 +21,6 @@ import com.arsoft.projects.common.annotation.ArAnnotationUtil;
 import com.arsoft.projects.common.equity.ArBourse;
 import com.arsoft.projects.common.exception.ArException;
 import com.arsoft.projects.common.string.ArStringUtil;
-import com.arsoft.projects.common.webservice.ArScripPriceNew;
 import com.arsoft.projects.common.webservice.rest.ArList;
 import com.arsoft.projects.common.webservice.rest.error.ArError;
 import com.arsoft.projects.common.webservice.rest.error.ArErrorList;
@@ -43,7 +42,7 @@ public class ArScripService{
 			return "Parameter 'scrips' is required in query string";
 		}
 		else{
-			return ArScripPriceNew.getSharePriceHtml(scrips);
+			return ArScripUtil.getSharePriceHtml(scrips);
 		}
 	}
 	
@@ -60,7 +59,7 @@ public class ArScripService{
 			return jsonArray;
 		}
 		else{
-			return ArScripPriceNew.getSharePriceJson(scrips);
+			return ArScripUtil.getSharePriceJson(scrips);
 		}
 	}
 	
@@ -80,12 +79,18 @@ public class ArScripService{
 			return arErrorList;
 		}
 		else{
-			Map<String, String> map = ArScripPriceNew.getSharePriceMap(scrips);
+			Map<String, String> map = ArScripUtil.getSharePriceMap(scrips);
 			arScrips = new ArrayList<>();
 			arScripList = new ArScripList();
 			for (Map.Entry<String, String> entryMap: map.entrySet()){
-				
-				ArScrip arScrip= new ArScrip(entryMap.getKey(), entryMap.getKey(), ArBourse.NSE, Double.parseDouble(entryMap.getValue()), new Date());
+				double value = 0f;
+				ArScrip arScrip = null;
+				try{
+					value = Double.parseDouble(entryMap.getValue());
+					arScrip= new ArScrip(entryMap.getKey(), entryMap.getKey(), ArBourse.NSE, value, new Date());
+				}catch(NumberFormatException e){
+					arScrip= new ArScrip(entryMap.getKey(), ArScripConstant.SCRIP_NOT_FOUND , ArBourse.NSE, value, new Date());
+				}
 				arScrips.add(arScrip);
 			}
 			arScripList.setArScripList(arScrips);

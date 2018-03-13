@@ -18,30 +18,33 @@ public class ArScrip {
 	/**
 	 * This variable stores the abbreviated name of the scrip
 	 */
-	public String name;
+	private String name;
 	
 	/**
 	 * This variable stores the complete name of the scrip
 	 */
 	
-	public String completeName;
+	private String completeName;
 	
 	/**
 	 * This variable stores the name of bourse on which the scrip is being trade
 	 */
-	public ArBourse bourse;
+	private ArBourse bourse;
 	
 	/**
 	 * This variable stores the current price on which the scrip is being traded
 	 */
-	public double price;
+	private double price;
 	
 	/**
 	 * This variable stores the timestamp on which the scrip is being trade
 	 */
 	
-	public Date timeOfRecord;
+	private Date timeOfRecord;
 	
+	public ArScrip(){
+		
+	}
 	
 	public ArScrip(String name, String completeName, ArBourse bourse, double price, Date timeOfRecord){
 		this.name = name;

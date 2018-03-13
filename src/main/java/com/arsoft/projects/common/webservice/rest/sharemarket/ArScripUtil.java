@@ -1,4 +1,4 @@
-package com.arsoft.projects.common.webservice;
+package com.arsoft.projects.common.webservice.rest.sharemarket;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -19,13 +19,13 @@ import com.arsoft.projects.common.exception.ArException;
 import com.arsoft.projects.common.file.ArFileUtil;
 import com.arsoft.projects.common.string.ArStringConstant;
 import com.arsoft.projects.common.string.ArStringUtil;
-import com.arsoft.projects.common.webservice.rest.sharemarket.ArScrip;
+import com.arsoft.projects.common.webservice.ArWebServiceUtil;
 
-public class ArScripPriceNew implements Callable<String>{
+public class ArScripUtil implements Callable<String>{
 
 	private String myAsset;
 	
-	public ArScripPriceNew(String myAsset){
+	public ArScripUtil(String myAsset){
 		this.myAsset = myAsset;
 	}
 	
@@ -63,7 +63,7 @@ public class ArScripPriceNew implements Callable<String>{
 		List<Callable<String>> callables =  new ArrayList<Callable<String>>();
 		StringBuffer bf = null;
         for(int i=0; i< assetList.size(); i++) {
-            callables.add(new ArScripPriceNew(assetList.get(i)));
+            callables.add(new ArScripUtil(assetList.get(i)));
         }	
         try {
             List<Future<String>> results =  exec.invokeAll(callables);
@@ -76,7 +76,7 @@ public class ArScripPriceNew implements Callable<String>{
 			bf.append("<table border=\"1\">");
 			bf.append("<tr><th>Scrip Name</th><th>Scrip Value</th></tr>");
 			for (Map.Entry<String, String> entryMap: map.entrySet()){
-				bf.append("<tr><td>"+entryMap.getKey()+"</td><td>"+entryMap.getValue()+"</td></tr>");
+				bf.append("<tr><td>"+entryMap.getKey()+"</td><td>"+ (entryMap.getValue().equals("DATA=") ? ArScripConstant.SCRIP_NOT_FOUND : entryMap.getValue())+"</td></tr>");
     		}
 			bf.append("</table>");
         } catch (InterruptedException ex) {
@@ -91,13 +91,13 @@ public class ArScripPriceNew implements Callable<String>{
 	
 	public static JSONArray getSharePriceJson(String scrips){
 		JSONArray jsonArray = null;
-		ArScrip jsonObject = null;
+		ArScrip arScrip = null;
 		List<String> assetList = ArStringUtil.getStringAsListAfterTokenization(scrips, ArStringConstant.COMMA);
 		Map<String, String> map = new LinkedHashMap<>();
 		ExecutorService exec = Executors.newFixedThreadPool(assetList.size());
 		List<Callable<String>> callables =  new ArrayList<Callable<String>>();
         for(int i=0; i< assetList.size(); i++) {
-            callables.add(new ArScripPriceNew(assetList.get(i)));
+            callables.add(new ArScripUtil(assetList.get(i)));
         }	
         try {
             List<Future<String>> results =  exec.invokeAll(callables);
@@ -110,8 +110,14 @@ public class ArScripPriceNew implements Callable<String>{
 				if (jsonArray == null){
 					jsonArray = new JSONArray();
 				}
-				jsonObject = new ArScrip(entryMap.getKey(), entryMap.getKey(), ArBourse.NSE, Double.parseDouble(entryMap.getValue()), new Date());
-				jsonArray.put(jsonObject);
+				double value = 0f;
+				try{
+					value = Double.parseDouble(entryMap.getValue());
+					arScrip= new ArScrip(entryMap.getKey(), entryMap.getKey(), ArBourse.NSE, value, new Date());
+				}catch(NumberFormatException e){
+					arScrip= new ArScrip(entryMap.getKey(), ArScripConstant.SCRIP_NOT_FOUND , ArBourse.NSE, value, new Date());
+				}
+				jsonArray.put(arScrip);
 			}
         } catch (InterruptedException ex) {
             ex.printStackTrace();
@@ -129,7 +135,7 @@ public class ArScripPriceNew implements Callable<String>{
 		ExecutorService exec = Executors.newFixedThreadPool(assetList.size());
 		List<Callable<String>> callables =  new ArrayList<Callable<String>>();
         for(int i=0; i< assetList.size(); i++) {
-            callables.add(new ArScripPriceNew(assetList.get(i)));
+            callables.add(new ArScripUtil(assetList.get(i)));
         }	
         try {
             List<Future<String>> results =  exec.invokeAll(callables);
@@ -154,7 +160,7 @@ public class ArScripPriceNew implements Callable<String>{
 		ExecutorService exec = Executors.newFixedThreadPool(assetList.size());
 		List<Callable<String>> callables =  new ArrayList<Callable<String>>();
         for(int i=0; i< assetList.size(); i++) {
-            callables.add(new ArScripPriceNew(assetList.get(i)));
+            callables.add(new ArScripUtil(assetList.get(i)));
         }	
         try {
             List<Future<String>> results =  exec.invokeAll(callables);

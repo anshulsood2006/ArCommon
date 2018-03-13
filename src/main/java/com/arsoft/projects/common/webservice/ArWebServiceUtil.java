@@ -8,13 +8,15 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Map;
-import java.util.logging.Logger;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import com.arsoft.projects.common.exception.ArException;
 
 public class ArWebServiceUtil {
 	
-	private static final Logger logger = Logger.getLogger(ArWebServiceUtil.class.getName());
+	private static final Logger logger = LogManager.getLogger(new Object().getClass().getEnclosingClass());
 	
 	/*
 	 * This method returns the response returned by the given web service url.
@@ -28,12 +30,12 @@ public class ArWebServiceUtil {
 		BufferedReader br = null;
 		URL url = null;
 		String output = "";
-		logger.info("Web url is "+webServiceUrl);
-		logger.info("Http method is "+httpMethod);
-		logger.info("Request property map is "+requestPropertyMap);
+		logger.debug("Web url is "+webServiceUrl);
+		logger.debug("Http method is "+httpMethod);
+		logger.debug("Request property map is "+requestPropertyMap);
 		if (webServiceUrl == null)
 		{
-			logger.severe("URL can not be entry.");
+			logger.error("URL can not be entry.");
 			throw new ArException("URL can not be entry.");
 		}
 		try {
@@ -60,16 +62,16 @@ public class ArWebServiceUtil {
 			httpConnection.disconnect();
 			
 		} catch (MalformedURLException e) {
-			logger.severe("URL is malformed.");
+			logger.error("URL is malformed.");
 			throw new ArException(e.getLocalizedMessage());
 		}catch (FileNotFoundException e) {
-			logger.severe("The URL "+webServiceUrl +" does not exist");
+			logger.error("The URL "+webServiceUrl +" does not exist");
 			throw new ArException("The URL "+webServiceUrl +" does not exist");
 		}  catch (IOException e) {
 			e.printStackTrace();
 			throw new ArException(e.getLocalizedMessage());
 		}
-		logger.info("Output is "+output);
+		logger.debug("Output is "+output);
 		if (output.equals("")){
 			output = null;
 		}
