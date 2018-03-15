@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import com.arsoft.projects.common.webservice.rest.ArList;
 
 @XmlRootElement(name="PropertyList")
-public class ArEnvironmentPropertyList implements ArList{
+public class ArEnvironmentPropertyList implements ArList<ArEnvironmentProperty>{
 
 	private List<ArEnvironmentProperty> arEnvironmentPropertyList;
 	

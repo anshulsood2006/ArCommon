@@ -94,7 +94,7 @@ public class ArEnvironmentService{
 	@GET
 	@Produces(MediaType.APPLICATION_XML)
 	@Path("/xml")
-	public ArList getResponseAsXml(@QueryParam("action") String action, @QueryParam("entityName") String entityName,  @Context ServletContext context) throws ArException {
+	public ArList<?> getResponseAsXml(@QueryParam("action") String action, @QueryParam("entityName") String entityName,  @Context ServletContext context) throws ArException {
 		logger.debug("Service "+  ArAnnotationUtil.getAttributeValue(ArAnnotationUtil.getClassAnnotations(getClass()).get(0),"value") +" called with parameters: action: "+action+" and entityName: "+entityName);
 		ArEnvironmentPropertyList arEnvironmentPropertyList = null;
 		ArEnvironmentProperty arEnvironmentProperty = null;

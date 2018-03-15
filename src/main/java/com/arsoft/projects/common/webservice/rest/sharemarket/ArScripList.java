@@ -13,7 +13,7 @@ import com.arsoft.projects.common.webservice.rest.ArList;
  *
  */
 @XmlRootElement(name="ScripList")
-public class ArScripList implements ArList{
+public class ArScripList implements ArList<ArScrip>{
 	
 	private List<ArScrip> arScripList;
 

@@ -66,7 +66,7 @@ public class ArScripService{
 	@GET
 	@Produces(MediaType.APPLICATION_XML)
 	@Path("/xml")
-	public ArList getResponseAsXml(@Context ServletContext context, @QueryParam("scrips") String scrips){
+	public ArList<?> getResponseAsXml(@Context ServletContext context, @QueryParam("scrips") String scrips){
 		ArScripList arScripList = null;
 		List<ArScrip> arScrips = null;
 		ArErrorList arErrorList = null;

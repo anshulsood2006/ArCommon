@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import com.arsoft.projects.common.webservice.rest.ArList;
 
 @XmlRootElement(name = "ErrorList")
-public class ArErrorList implements ArList{
+public class ArErrorList implements ArList<ArError>{
 	
 	private List<ArError> errorList;
 
