@@ -26,7 +26,7 @@ import com.arsoft.projects.common.webservice.rest.ArList;
 import com.arsoft.projects.common.webservice.rest.error.ArError;
 import com.arsoft.projects.common.webservice.rest.error.ArErrorList;
 
-@Path("/getEnvironmentDetail")
+@Path("/environment")
 public class ArEnvironmentService{
 
 	private static final Logger logger = LogManager.getLogger(new Object().getClass().getEnclosingClass());
@@ -67,10 +67,12 @@ public class ArEnvironmentService{
 		if (ArStringUtil.isNullOrEmptyString(action)){
 			jsonArray = new JSONArray();
 			jsonArray.put(ArException.createArError("1","Parameter 'action' is required in query string"));
+			return jsonArray;
 		}
 		if (ArStringUtil.isNullOrEmptyString(entityName)){
 			jsonArray = new JSONArray();
 			jsonArray.put(ArException.createArError("1","Parameter 'entityName' is required in query string"));
+			return jsonArray;
 		}
 		if (ArEnvironmentActionEnum.isHavingEnumValue(action)){
 			Map<String, String> map = ArPropertyHandler.getPropertyAsMap(entityName);

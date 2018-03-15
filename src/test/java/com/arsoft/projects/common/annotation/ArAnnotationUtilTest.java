@@ -40,7 +40,7 @@ public class ArAnnotationUtilTest {
 	@Test
 	public void getAnnotationAttributes() throws ArException{
 		Map<String, String> expectedAttributes = new HashMap<String, String>();
-		expectedAttributes.put("value", "/getEnvironmentDetail");
+		expectedAttributes.put("value", "/environment");
 		List<Annotation> annotations = ArAnnotationUtil.getClassAnnotations(ArEnvironmentService.class);
 		assertNotNull(annotations);
 		Map<String, String> attributes = ArAnnotationUtil.getAnnotationAttributes(annotations.get(0));
@@ -60,7 +60,7 @@ public class ArAnnotationUtilTest {
 		value = ArAnnotationUtil.getAttributeValue(annotations.get(0), "");
 		assertNull(value);
 		value = ArAnnotationUtil.getAttributeValue(annotations.get(0), "value");
-		assertEquals(value, "/getEnvironmentDetail");
+		assertEquals(value, "/environment");
 		value = ArAnnotationUtil.getAttributeValue(annotations.get(0), "invalid");
 		assertEquals(value, null);
 	}
