@@ -127,6 +127,18 @@
 	</filter-mapping>
 	<!-- Spring Security Filter -->
 	
+	<!-- Access-Control-Allow-Origin Filter -->
+	<filter>
+	    <filter-name>cors</filter-name>
+	    <filter-class>com.arsoft.projects.common.filter.ArCorsFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+	    <filter-name>cors</filter-name>
+	    <url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!-- Access-Control-Allow-Origin Filter Filter -->
+	
 	<!-- Global parameters for application -->
 	
 	<!-- Spring Security -->
@@ -157,6 +169,11 @@
 	</context-param>
 	
 	<context-param>
+		<param-name>websiteURL</param-name>
+		<param-value>http://www.myfriendwa.com/arcommon</param-value>
+	</context-param>	
+	
+	<context-param>
 		<param-name>contactEmail</param-name>
 		<param-value>contact@myfriendwa.com</param-value>
 	</context-param>
@@ -165,7 +182,7 @@
 		<param-name>adminEmail</param-name>
 		<param-value>admin@myfriendwa.com</param-value>
 	</context-param>
-	
+
 	<!-- Global parameters for application -->
 	
 </web-app>
