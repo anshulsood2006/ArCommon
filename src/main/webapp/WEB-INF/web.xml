@@ -149,6 +149,11 @@
 	<!-- Spring Security -->
 	
 	<context-param>
+		<param-name>angularJsURL</param-name>
+		<param-value>https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js</param-value>
+	</context-param>
+	
+	<context-param>
 		<param-name>environment</param-name>
 		<param-value>DEV</param-value>
 	</context-param>

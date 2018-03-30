@@ -15,6 +15,7 @@ public class ArCommonBaseController {
 	private static final String WISH = "wish";
 	private static final String KIDS_PATHSHALA = "kids/pathshala/index";
 	private static final String DUKAAN_NEW = "dukaan/home";
+	private static final String LEARNING = "learning/home";
 	private static final String DUKAAN = "dukaan/index";
 	
 	@RequestMapping(value = "index", method = RequestMethod.GET)
@@ -60,6 +61,11 @@ public class ArCommonBaseController {
 	@RequestMapping(value = "dukaanNew", method = RequestMethod.GET)
 	public String dukaanNew(ModelMap model) {
 		return DUKAAN_NEW;
+	}
+	
+	@RequestMapping(value = "learning", method = RequestMethod.GET)
+	public String learning(ModelMap model) {
+		return LEARNING;
 	}
 	
 }

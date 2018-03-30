@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<spring:url value="/resources/styles/dukaan/home.css" var="style" />
-<spring:url value="/resources/scripts/dukaan/home.js" var="script" />
-<html data-ng-app="dukaanApp">
+<spring:url value="/resources/styles/learning/home.css" var="style" />
+<spring:url value="/resources/scripts/learning/home.js" var="script" />
+<html data-ng-app="learningApp">
 	<head>
 		<link href="${style}" rel="stylesheet">
 		<script src="${initParam.angularJsURL}"></script>
@@ -19,7 +19,9 @@
 		
 		<div class = "main">
 			<div class="left"></div>
-			<div class = "content" data-ng-controller="dukaanHomeController">
+			<div class = "content" data-ng-controller="learningHomeController">
+				<button data-ng-click="getRequest()">Rest GET Request</button>
+				<button data-ng-click="postRequest()">Rest POST Request</button>
 			</div>
 			<div class="right">
 			</div>
