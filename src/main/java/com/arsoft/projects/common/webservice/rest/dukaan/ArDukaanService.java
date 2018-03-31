@@ -13,6 +13,8 @@ import javax.ws.rs.core.MediaType;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.arsoft.projects.common.business.entity.ArProduct;
+import com.arsoft.projects.common.business.entity.ArProductList;
 import com.arsoft.projects.common.webservice.rest.ArList;
 
 @Path("/dukaan/product")
@@ -24,8 +26,8 @@ public class ArDukaanService implements ArDukaanServiceIF{
 	@POST
 	@Path("/add")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public boolean addProduct(ArDukaanProductList arDukaanProductList) {
-		for (ArDukaanProduct arDukaanProduct: arDukaanProductList.getArDukaanProductList()) {
+	public boolean addProduct(ArProductList arDukaanProductList) {
+		for (ArProduct arDukaanProduct: arDukaanProductList.getArDukaanProductList()) {
 			logger.info("Going to add product "+arDukaanProduct);
 		}
 		return false;
@@ -36,21 +38,18 @@ public class ArDukaanService implements ArDukaanServiceIF{
 	@Path("/get")
 	@Produces(MediaType.APPLICATION_JSON)
 	public ArList<?> getProducts() {
-		ArDukaanProductList arDukaanProductList = null;
-		List<ArDukaanProduct> productList = null;
+		ArProductList arDukaanProductList = null;
+		List<ArProduct> productList = null;
 		for (int i = 0 ; i < 4; i++){
 			if (arDukaanProductList== null){
-				productList = new ArrayList<ArDukaanProduct>();
+				productList = new ArrayList<ArProduct>();
 			}
 			if (arDukaanProductList == null){
-				arDukaanProductList = new ArDukaanProductList();
+				arDukaanProductList = new ArProductList();
 			}
-			ArDukaanProduct arDukaanProduct = new ArDukaanProduct();
-			arDukaanProduct.setId(i+"");
+			ArProduct arDukaanProduct = new ArProduct();
 			arDukaanProduct.setName("Biscuit");
 			arDukaanProduct.setPrice(200);
-			arDukaanProduct.setMrp(210);
-			arDukaanProduct.setQuantity(10);
 			productList.add(arDukaanProduct);
 		}
 		arDukaanProductList.setArDukaanProductList(productList);

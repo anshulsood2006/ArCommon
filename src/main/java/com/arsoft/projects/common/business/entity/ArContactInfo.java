@@ -2,8 +2,10 @@ package com.arsoft.projects.common.business.entity;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name="Contact")
+@XmlType(propOrder= {"contactType","contactValue","primary"})
 public class ArContactInfo extends ArInfoBase{
 	
 	private ArContactTypeEnum contactType;

@@ -22,6 +22,7 @@ import com.arsoft.projects.common.business.entity.ArIdentificationTypeEnum;
 import com.arsoft.projects.common.business.entity.ArKycInfo;
 import com.arsoft.projects.common.business.entity.ArMonthEnum;
 import com.arsoft.projects.common.business.entity.ArOperationTimeInfo;
+import com.arsoft.projects.common.business.entity.ArProduct;
 import com.arsoft.projects.common.business.entity.ArTime;
 
 @Path("/business")
@@ -43,6 +44,14 @@ public class ArBusinessService {
 	
 	public ArBusinessEntityInfo get() {
 		ArBusinessEntityInfo arBusinessEntityInfo = new ArBusinessEntityInfo();
+		List<ArProduct> productList = new ArrayList<ArProduct>();
+		for (int i = 0 ; i < 4; i++){
+			ArProduct arDukaanProduct = new ArProduct();
+			arDukaanProduct.setName("Biscuit");
+			arDukaanProduct.setPrice(200);
+			productList.add(arDukaanProduct);
+		}
+		arBusinessEntityInfo.setProductList(productList);
 		arBusinessEntityInfo.setBusinessName("Grofers");
 		ArDate businessDateOfRegisteration = new ArDate(30, ArMonthEnum.MARCH, 2018);
 		arBusinessEntityInfo.setBusinessDateOfRegisteration(businessDateOfRegisteration);

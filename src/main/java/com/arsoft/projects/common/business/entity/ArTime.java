@@ -2,8 +2,10 @@ package com.arsoft.projects.common.business.entity;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name="Time")
+@XmlType(propOrder= {"hour", "minute", "second", "amPm", "timeZone"})
 public class ArTime {
 	
 	private int hour;

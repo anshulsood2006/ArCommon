@@ -2,6 +2,7 @@ package com.arsoft.projects.common.business.entity;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 /**
  * This class stores the information about the address object
@@ -10,6 +11,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  *
  */
 @XmlRootElement(name="Address")
+@XmlType(propOrder= {"addressLineOne","addressLineTwo","city","state","pinCode","country"})
 public class ArAddressInfo extends ArInfoBase {
 	
 	private String addressLineOne;

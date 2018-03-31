@@ -2,8 +2,10 @@ package com.arsoft.projects.common.business.entity;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name="Date")
+@XmlType(propOrder= {"day","month","year"})
 public class ArDate {
 	
 	private int day;

@@ -1,9 +1,14 @@
 package com.arsoft.projects.common.business.entity;
 
+import java.util.List;
+
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name="Business")
+@XmlType(propOrder = {"businessName", "businessOwnerInfo", "businessOperationTimeInfo", "businessKycInfo", "businessDateOfRegisteration", "productList"})
 public class ArBusinessEntityInfo extends ArInfoBase{
 	
 	private ArEntityInfo businessOwnerInfo;
@@ -11,6 +16,7 @@ public class ArBusinessEntityInfo extends ArInfoBase{
 	private ArDate businessDateOfRegisteration;
 	private ArKycInfo businessKycInfo;
 	private ArOperationTimeInfo businessOperationTimeInfo;
+	private List<ArProduct> productList;
 	
 	public ArBusinessEntityInfo() {
 		
@@ -60,5 +66,17 @@ public class ArBusinessEntityInfo extends ArInfoBase{
 	public void setBusinessOperationTimeInfo(ArOperationTimeInfo businessOperationTimeInfo) {
 		this.businessOperationTimeInfo = businessOperationTimeInfo;
 	}
+
+	public List<ArProduct> getProductList() {
+		return productList;
+	}
+
+	@XmlElementWrapper(name="ServiceList")
+	@XmlElement(name="Service")
+	public void setProductList(List<ArProduct> productList) {
+		this.productList = productList;
+	}
+	
+	
 	
 }

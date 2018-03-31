@@ -2,8 +2,10 @@ package com.arsoft.projects.common.business.entity;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name="Identification")
+@XmlType(propOrder= {"identificationType","identificationValue"})
 public class ArIdentificationInfo {
 	
 	private ArIdentificationTypeEnum identificationType;

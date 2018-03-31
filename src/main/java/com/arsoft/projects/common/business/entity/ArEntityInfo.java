@@ -2,8 +2,10 @@ package com.arsoft.projects.common.business.entity;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name="Entity")
+@XmlType(propOrder= {"firstName", "middleName", "lastName", "gender", "dateOfBirth", "dateOfRegisteration", "kycInfo"})
 public class ArEntityInfo extends ArInfoBase {
 	
 	private String firstName;

@@ -3,7 +3,9 @@ package com.arsoft.projects.common.business.entity;
 import java.math.BigInteger;
 
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
 
+@XmlType(propOrder= {"id", "active", "createdDate", "lastUpdateDate"})
 public abstract class ArInfoBase {
 	
 	private BigInteger id;
