@@ -42,6 +42,13 @@ public class ArBusinessService {
 		return get();
 	}
 	
+	@GET
+	@Path("/html")
+	@Produces(MediaType.TEXT_HTML)
+	public ArBusinessEntityInfo getBusinessEntityInfoHtml() {
+		return get();
+	}
+	
 	public ArBusinessEntityInfo get() {
 		ArBusinessEntityInfo arBusinessEntityInfo = new ArBusinessEntityInfo();
 		List<ArProduct> productList = new ArrayList<ArProduct>();
