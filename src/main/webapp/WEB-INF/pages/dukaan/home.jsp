@@ -12,6 +12,7 @@
 	<body>
 		<div class = "header">
 			<a href="#home">Home</a>
+			<a href="#login">Login</a>
 		  	<a href="#products">Products</a>
 		  	<a href="#contact">Contact</a>
 		  	<a href="#about">About</a>
