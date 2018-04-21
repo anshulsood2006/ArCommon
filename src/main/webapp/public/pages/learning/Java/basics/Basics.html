@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Basics</title>
+</head>
+<body>
+<h2><a href="../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../Content.html">Home</a></h2>
+<h1>Basics</h1>
+<h1>Features</h1>
+<p><b>Bit</b></p>
+<p>It stands for binary digit and is a basic unit of information used in computing and digital communications. </p>
+<p><b>Byte</b></p>
+<p>It is also a unit of information used in computing and digital communications and is equal to 8 bits.</p>
+<p><b>Autoboxing</b></p>
+<p>Convert primitive data types to corresponding Wrapper classes. This can be done in below ways:</p>
+<ul>
+	<li>Passing as a parameter to a method that expects an object of the corresponding wrapper class. For example a method with Integer argument can be called by passing int, java compiler will do the conversion of int to Integer.</li>
+	<li>Assign to a variable of the corresponding wrapper class. For example, assigning a Long object to long variable.</li>
+</ul>
+<p><b>Unboxing</b></p>	
+<p>Convert  Wrapper classes to corresponding primitive data types. This can be done in below ways: </p>	
+<ul>
+ 	<li>Pass as a parameter to a method that expects a value of the corresponding primitive type.</li>
+	<li>Assign to a variable of the corresponding primitive type.</li>
+</ul>
+<h1>Examples</h1>
+<p></p>
+<h1>Frequently Asked Questions</h1>
+<p><b>What is the difference between equals and ==?</b></p>
+<ul>
+<li> == is a operator while equals is a method in Java.</li>
+<li> == behaves identical for all the objects where as equals being a method can be overridden to compare the objects based on business needs.</li>
+<li> == can be used to compare both the primitives and objects where as the equals can be used to compare objects only</li>
+<li>For primitives, == operator will return true only in case the values are same otherwise this will return false.</li>
+<li>For objects, == operator will return true only if the memory reference is same for the objects  otherwise this will return false.</li>
+</ul>
+<p><b>What is result of program: </b></p>
+<pre>
+	Integer i3 = 100; 
+	Integer i4 = 100; 
+	if (i3 == i4) { 
+		System.out.println("i1 and i2 is equal"); 
+	} else { 
+		System.out.println("i1 and i2 is not equal "); 
+	}?
+</pre>
+<p>i1 and i2 is equal. This happens because auto boxing uses Integer.valueOf() method to convert Integer to int and since method caches Integer object for range -128 to 127, it return same Integer object in heap.</p>
+<p><b>What is the contract between equals and hashcode method in Java</b></p>
+<p>Both equals() and hashCode() methods are defined in the Object class as below</p>
+<h2><a href="../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../Content.html">Home</a></h2>
+</body>
+</html>

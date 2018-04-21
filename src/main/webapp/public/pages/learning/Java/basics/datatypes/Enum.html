@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Enum</title>
+</head>
+<body>
+<h2><a href="../DataTypes.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
+<h1>Enums</h1>
+<ol>
+<li>An enum type is a subclass of abstract class java.Lang.Enum</li>
+<li>Enums are used to group named constants.</li>
+<li>They are used when all the possible values are known at compile time e.g. days of week, months of year etc.</li>
+<li>They can have variables, methods and constructors.</li>
+<li>We can declare abstract methods in java enum, then all the enum fields must implement the abstract method</li>
+<li>Enums can be used in switch statement,</li>
+<li>Every enum is internally implemented by using Class. e.g 
+<pre>
+enum Color
+{
+	RED, GREEN, BLUE;
+}
+</pre>
+is internally represented as:
+<pre>
+class Color
+{
+     public static final Color RED = new Color();
+     public static final Color BLUE = new Color();
+     public static final Color GREEN = new Color();
+}</pre>
+</li>
+<li>Every enum constant represents an object of type enum.</li>
+<li>Enum type can be passed as an argument to switch statement.</li>
+<li>All enums implicitly extend java.lang.Enum class. As a class can only extend one parent in Java, so an enum cannot extend anything else.</li>
+<li>toString() method is overridden in java.lang.Enum class,which returns enum constant name.</li>
+<li>Enum can implement many interfaces.</li>
+<li>Enum can contain constructor and it is executed separately for each enum constant at the time of enum class loading</li>
+<li>Every enum constant is always implicitly public static final. Since it is static, we can access it by using enum Name. Since it is final, we cannot create child enums.</li>
+<li>Constructor is always private or package-private. If you try to make constructor as public you get a compilation error "Illegal modifier for the enum constructor; only private is permitted."</li>
+<li>Since enum constants can not be created explicitly so constructor can not be called. </li>
+<li>By default enums have their own string values. e.g. for Example 1 below the value for enum YES is YES and that for enum NO is NO, while for Example 2 the values of variable default value and size in bits for enum BOOLEAN are false and 1 respectively</li>
+<li>Parameterrized enums have at least one getter method to get the value of the enum.</li>
+<li>Enum in java implicitly implements both Serializable and Comparable interfaces<li>
+</ol>
+<h1>Examples</h1>
+<p>Example 1:</p>
+<pre>
+	public enum ArOptions {	
+		YES, NO
+	}
+</pre>
+<p>Example 2:</p>
+<pre>
+	//Declare the enumClass
+	public enum ArDataTypeEnum {
+	
+		//<b>Declare all the named enumConstant</b>
+		BOOLEAN("false", 1),
+		BYTE("0", 8),
+		CHAR("\u0000", 16),
+		SHORT("0", 16),
+		INT("0", 32),
+		FLOAT("0.0", 32),
+		LONG("0", 64),
+		DOUBLE("0.0", 64);
+		
+		//<b>Declare each of the variable involved for parameterized enum</b>
+		private String defaultValue;
+		private int sizeInBits;
+		
+		//<b>Create private constructor to initialize each of the variable involved for parameterized enum</b>
+		private ArDataTypeEnum(String defaultValue, int sizeInBits){
+			this.defaultValue = defaultValue;
+			this.sizeInBits = sizeInBits;
+		}
+		
+		//<b>Define public getter methods for each of the variable involved for parameterized enum</b>
+		public String getDefaultValue() {
+			return this.defaultValue;
+		}
+		public int getSizeInBits() {
+			return this.sizeInBits;
+		}
+	}	
+</pre>
+<h1>Frequently Asked Questions</h1>
+<p><b>How to get all the values inside enum?</b></p>
+<p>{enumClass}.values() returns an array of all the enum constants defined in an Enum</p>
+<p><b>How to get the name of enum?</b></p>
+<p>{enumConstant}.name() returns the name of enum constant defined in an Enum e.g. ArDataTypeEnum.SHORT.name() in Example 2 above will return SHORT</p>
+<p><b>How to find if an enum constant is present inside an enum?</b></p>
+<p>If {enumClass}.valueOf(name) does not through IllegalArgumentException and returns enum constant.</p>
+<p><b>What is the return value of {enumConstant}.ordinal() method?</b></p>
+<p>This method returns the order in which the enumConstant is declared in the enumClass e.g. ArDataTypeEnum.SHORT.ordinal() in Example 2 returns 3</p>
+<p><b>What is the difference between comparing Enums using equals and == and compareTo methods?</b></p>
+<p>== and equals return the same result since the equals method is internally using == only.
+<pre>
+	public final boolean equals(Object other) {
+        	return this==other;
+    	}
+</pre> <p>This method is declared final to avoid any overriding. We should ideally be using == methods to avoid NullPointerException which may occur in case of using equals obj1 == obj2 can never throw this exception but obj1.equals(obj2) can. Also == method provides type safety during compile time.</p>
+<p><b>What is advantage and disadvantage of using Enum as Singleton?</b></p>
+<ul>
+<li>Enums are easy to write</li>
+<li>They handle serialization by themselves. JVM takes care of singleton destruction which can be caused by calling readObject() method.</li>
+<li>Enum constants are also thread safe</li>
+</ul>
+<p><b>How to convert string to enum?</b></p>
+<p>A string can be converted to enum in below two ways:</p>
+<ul>
+<li>Enum.valueOf(enumValue)</li>
+<li>{EnumClass}.valueOf(enumValue)</li>
+</ul>
+<h2><a href="../DataTypes.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
+</body>
+</html>

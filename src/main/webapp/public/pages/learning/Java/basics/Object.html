@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Object</title>
+</head>
+<body>
+<h2><a href="../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../Content.html">Home</a></h2>
+<h1>Object</h1>
+<h1>Features</h1>
+<p>Methods of Object Class:  There are total 11 methods in Object class</p>
+
+<ol>
+<li>protected  native Object clone() throws CloneNotSupportedException</li>
+<li>public native final void notify()</li>
+<li>public native final void notifyAll()</li>
+<li>public native final void wait(long timeout) throws InterruptedException</li>
+<li>public native final void wait(long timeout, int nanoseconds) throws InterruptedException</li>
+<li>public native final void wait() throws InterruptedException</li>
+<li>public native final Class getClass()</li>
+<li>public native int hashCode()</li>
+<li>protected void finalize() throws Throwable { }</li>
+<li><pre>public String toString() {
+	return getClass().getName() + "@" + Integer.toHexString(hashCode());
+}</pre></li>
+<li><pre>public boolean equals(Object obj) {
+	return (this == obj);
+}</pre></li>
+</ol>
+<h1>Examples</h1>
+<p></p>
+<h1>Frequently Asked Questions</h1>
+<p><b>Which are protected methods in Object class?</b></p>
+<p>clone() and finalize()</p>
+<p><b>Which methods are non native in Object class?</b></p>
+<p>equals(), finalize() and toString()</p>
+<p><b>Which methods are non final in Object class?</b></p>
+<p>clone(), hashCode(), equals() and toString()</p>
+<p><b>How many methods are protected, how many are non native and how many are non-final in Object class?</b></p>
+<p>Out of total 11 methods in Object class: </p>
+<ul>
+<li>2 are protected viz. clone() and finalize() and rest 9 are public. (See above)</li>
+<li>3 are non-native viz. equals(), finalize() and toString() and rest 8 are native. (See above)</li>
+<li>4 are non-final viz. clone(), hashCode(), equals() and toString() and rest 7 are final. (See above)</li>
+</ul>
+<p><b>Can the native methods be over-ridden in Java?s</b><p>
+<p>Yes, clone() and hashCode() are the native methods which are usually over-ridden in Java as per the requirement.</p>
+<h2><a href="../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../Content.html">Home</a></h2>
+</body>
+</html>

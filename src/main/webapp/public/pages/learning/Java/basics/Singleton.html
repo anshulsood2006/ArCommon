@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Singleton</title>
+</head>
+<body>
+<h2><a href="../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../Content.html">Home</a></h2>
+<h1>Singleton</h1>
+<h1>Features</h1>
+<p></p>
+<h1>Examples</h1>
+<p>Enum Singletons</p>
+<p>Double Checked Locking Singletons</p>
+<p>Singletons with static factoy method</p>
+<p></p>
+<h1>Frequently Asked Questions</h1>
+<p><b>What are the advantages of using Enum Sigletons in java?</b></p>
+<p> Advantages: Easy to write.</p>
+<p><b>How to avoid singleton destruction on using readResolve method for serialized class?</b></p>
+<p>One a singleton class is declared as serializable, a new instance can be created using readObject() method which always return a new instance. To avoid this, override the readResolve() method to return the singleton instance instead. 
+<pre>
+	private Object readResolve(){
+        	return INSTANCE;
+    	}
+</pre>
+
+<h2><a href="../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../Content.html">Home</a></h2>
+</body>
+</html>
