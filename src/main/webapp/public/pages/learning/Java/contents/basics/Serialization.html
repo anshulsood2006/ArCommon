@@ -8,16 +8,219 @@
 <h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
 <h1>Serialization</h1>
 <h1>Features</h1>
-<p></p>
+<ul>
+<li><b>Serialization</b> is the process of converting a java object to a stream so that it can be transferred over network or stored in a file or database. This can be done by implementing interface java.io.Serializable which is a marker interface having no methods defined. The conversion of object to stream is taken care by JVM by its default serialization mechanism.</li>
+<li><b>De-serialization</b> is the process of converting back the object stream to Java object</li>
+<li>Static members variables are not stored in serialization process</li>
+<li>To prevent serialization of non-static member variable in a Serializable class, declare the variable as transient</li>
+<li>A static final long variable called serialVersionUID should be added to all the Serializable classes.</li>
+<li>When an object of a class is serialized, the class name and serial version UID are written to the stream of bytes. When the stream is deserialized, the JVM checks if the serialVersionUID is the same as that of the local class. If they're not, it doesn't even try to de-serialize the object, because it knows the classes are incompatible.</li>
+<li>Externalizable interface can be used to serialize selected attributes of Java object</li>
+<li>Implementing Externalizable need a default public constructor.</li>
+</ul>
 <h1>Examples</h1>
-<p></p>
+<h1>Serialization and de-serialization using Serializable interface:</h1>
+<pre>
+
+public class ArSerializable implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7531061384523331594L;
+	
+	public boolean a ;
+	public byte b;
+	public char c;
+	public short d;
+	public int e;
+	public float f;
+	public long g;
+	public double h;
+	
+	
+	//both the below variables i and j will not be serialized
+	public transient int i;
+	public static int j;
+	
+	public ArSerializable() {
+		this.a = true;
+		this.b = -128;
+		this.c = 'q';
+		this.d = -32768;
+		this.e = 1234;
+		this.f = 1234.9f;
+		this.g = 123L;
+		this.h = 123.45d;
+		this.i = 123;
+		j = 15678;
+	}
+	
+	public static String FILENAME = "object.ser";
+	
+	public static void serializeObject(Object object) throws FileNotFoundException, IOException {
+		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(FILENAME));
+		oos.writeObject(object);
+		oos.close();
+	}
+	
+	public static Object deSerializeObject(String filePath) throws FileNotFoundException, IOException, ClassNotFoundException {
+		ObjectInputStream ois = new ObjectInputStream(new FileInputStream(new File(filePath)));
+		Object object = ois.readObject();
+		ois.close();
+		return object;
+	}
+	
+	public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
+		ArSerializable object = new ArSerializable();
+		serializeObject(object);
+		ArSerializable objectDes = (ArSerializable) deSerializeObject(FILENAME);
+		System.out.println(objectDes.a);
+		System.out.println(objectDes.b);
+		System.out.println(objectDes.c);
+		System.out.println(objectDes.d);
+		System.out.println(objectDes.e);
+		System.out.println(objectDes.f);
+		System.out.println(objectDes.g);
+		System.out.println(objectDes.h);
+		System.out.println(objectDes.i);
+		System.out.println(j);
+	}
+	
+}
+
+</pre>
+
+<h1>Serialization and de-serialization using Externalizable interface:</h1>
+
+<pre>
+
+import java.io.Externalizable;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInput;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutput;
+import java.io.ObjectOutputStream;
+
+public class ArExternalizable implements Externalizable{
+
+	public boolean a ;
+	public byte b;
+	public transient char c;
+	public short d;
+	public int e;
+	public float f;
+	public long g;
+	public double h;
+	public transient int i;
+	public static int j;
+	public int k;
+	
+	public ArExternalizable(String str) {
+		this.a = true;
+		this.b = -128;
+		this.c = 'q';
+		this.d = -32768;
+		this.e = 1234;
+		this.f = 1234.9f;
+		this.g = 123L;
+		this.h = 123.45d;
+		this.i = 123;
+		j = 15678;
+		k = 100;
+	}
+	
+	public ArExternalizable() {
+		
+	}
+
+	public static String FILENAME = "object.ser";
+	
+	public static void serializeObject(ArExternalizable object) throws FileNotFoundException, IOException {
+		ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(FILENAME));
+		object.writeExternal(oos);
+		oos.flush();
+		oos.close();
+	}
+	
+	public static Object deSerializeObject(String filePath) throws FileNotFoundException, IOException, ClassNotFoundException {
+		ObjectInputStream ois = new ObjectInputStream(new FileInputStream(new File(filePath)));
+		ArExternalizable object = new ArExternalizable();
+		object.readExternal(ois);
+		ois.close();
+		return object;
+	}
+	
+	public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
+		ArExternalizable object = new ArExternalizable("");
+		serializeObject(object);
+		ArExternalizable objectDes = (ArExternalizable) deSerializeObject(FILENAME);
+		System.out.println(objectDes.a);
+		System.out.println(objectDes.b);
+		System.out.println(objectDes.c);
+		System.out.println(objectDes.d);
+		System.out.println(objectDes.e);
+		System.out.println(objectDes.f);
+		System.out.println(objectDes.g);
+		System.out.println(objectDes.h);
+		System.out.println(objectDes.i);
+		System.out.println(j);
+	}
+	@Override
+	public void writeExternal(ObjectOutput out) throws IOException {
+		out.writeInt(e);	
+	}
+
+	@Override
+	public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
+		e = in.readInt();	
+	}
+
+}
+
+</pre>
+
 <h1>Frequently Asked Questions</h1>
-<p><b></b></p>
-<p></p>
-<p><b></b></p>
-<p></p>
-<p><b></b></p>
-<p></p>
+<p><b>What is the difference between Serializable and Externalizable interfaces in Java?</b></p>
+<p><b>Serializable</b> is a marker interface and provides no methods. The JVM takes care of serialization by its default mechanism. The programmers don't have much control over this process. But <b>Externalizable</b> is an interface having two methods</p>
+<ul>
+<li>readExternal()</li>
+<li>writeExternal()</li>
+</ul>
+<p>The programmer's can provide their custom serialization mechanism by using Externalizable interface. This enhances the performance of object serialization as well.</p> 
+<p><b>What is the use of serialVersionUID?</b></p>
+<p>This is a long number associated with a Serializable class which is actually used during de-serialization to verify that the sender and receiver of the serialized objects have loaded the compatible classes. In case this is not so, InvalidClassException is thrown</p>
+<p><b>Can two classes have same serialVersionUID?</b></p>
+<p>Yes, this is because the serialVersionUID of classes are independent of each other.</p>
+<p><b>Why we can not serialize the static variables?</b></p>
+<ul>
+<li>Static variables are associated with class and not to object and hence it is not serialized.</li>
+<li>It will make redundant copy of same variable in multiple objects which makes it in-efficient.</li>
+<li>The static variable can be modified by any object and a serialized copy would be stale or not in sync with current value.</li>
+</ul>
+<p><b>When should one use Externalizable interface?</b></p>
+<p>This interface should be used in case of big java objects where selected attributes are to be serialized during run time.</p>
+<p><b>What are compatible changes in Serialization process?</b></p>
+<ol>
+<li>Addition of new variables. The new fields will automatically get set to their default value.</li>
+<li>Changes to access modifiers</li>
+<li>Changing a transient field to a non-transient field or static field to non-static field, both are compatible change since this is similar to adding a field.</li>
+</ol>
+<p><b>What are incompatible changes in Serialization process?</b></p>
+<ol>
+<li>Changing serializable implementation to externalizable.</li>
+<li>Deleting a field</li>
+<li>Changing a non-transient field to a transient field or non-static field to static field.</li>
+<li>Changing type of variable</li>
+<li>Changing package of the class</li>
+</ol>
+<p><b>What will happen if one of the members in the class doesn't implement Serializable interface?</b></p>
+<p>This will throw NotSerializableException at run time.</p>
+<p><b>How can you avoid a child class from being serialized where parent class implement Serializable?</b></p>
+<p>This can be done by implementing writeObject() and readObject() method in the child class and throwing NotSerializableException from those method</p>
 <h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
 </body>
 </html>
