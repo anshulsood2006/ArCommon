@@ -5,7 +5,7 @@
 <title>Basics</title>
 </head>
 <body>
-<h2><a href="../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../Content.html">Home</a></h2>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
 <h1>Basics</h1>
 <h1>Features</h1>
 <p><b>Bit</b></p>
@@ -46,8 +46,17 @@
 	}?
 </pre>
 <p>i1 and i2 is equal. This happens because auto boxing uses Integer.valueOf() method to convert Integer to int and since method caches Integer object for range -128 to 127, it return same Integer object in heap.</p>
+<p><b>What is default return value for hashcode() method inside the Object class</b></p>
+<p>The value returned by the default implementation of hashCode() is called identity hash code and it is by default the integer representation of the memory address of the object. However this implementation is JVM dependent. Even if the hashCode method is overridden, the identity hash code can be obtained for the object as System.identityHashCode(object)</p>
 <p><b>What is the contract between equals and hashcode method in Java</b></p>
-<p>Both equals() and hashCode() methods are defined in the Object class as below</p>
-<h2><a href="../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../Content.html">Home</a></h2>
+<p>Objects which are equals must also return the same hashcode. Both equals() and hashCode() methods are defined in the Object class as below:</p>
+<ul>
+	<li>public native int hashCode()</li>
+	<li><pre>public boolean equals(Object obj) {
+	return (this == obj);
+}</pre></li>
+</ul>
+<p>As per the contract, whenever this method is invoked on the same object more than once during an execution of a Java application, the hashCode method must consistently return the same integer. But normally JVM will relocate the objects, after GC or compaction.</p>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
 </body>
 </html>
