@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Daemon Thread in Java</title>
+</head>
+<body>
+<h2><a href="Multithreading.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
+<h1>Daemon Thread</h1>
+<h1>Features</h1>
+<p>These are low-priority threads whose only role is to provide services to user threads.</p>
+<p>Poorly designed code in daemon threads can prevent the JVM from exiting. For example, calling Thread.join() on a running daemon thread can block the shutdown of the application.</p>
+<p><b>Uses of daemon Thread</b> They are useful for background supporting tasks such as garbage collection, releasing memory of unused objects and removing unwanted entries from the cache. Most of the JVM threads are daemon threads</p>
+<p>Daemon thread is created by calling setDaemon(true) on the thread. This should be done before calling start method on thread. Otherwise you will get IllegalThreadStateException.</p>
+<h1>Examples</h1>
+<p>Daemon Thread</p>
+<pre>
+public class ArDaemonThread implements Runnable{
+
+	@Override
+	public void run() {
+		System.out.println("This is a daemon thread running.");
+	}
+	
+	public static void main(String[] args) {
+		Thread t = new Thread(new ArDaemonThread());
+		t.setDaemon(true);
+		t.start();
+	}
+
+}
+</pre>
+<h1>Frequently Asked Questions</h1>
+<p><b></b></p>
+<p></p>
+<p><b></b></p>
+<p></p>
+<p><b></b></p>
+<p></p>
+<h2><a href="Multithreading.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
+</body>
+</html>

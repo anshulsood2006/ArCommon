@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Multithreading in Java</title>
+</head>
+<body>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
+<h1>Multithreading</h1>
+<h1>Features</h1>
+<p><b>Types of thread: </b> </p>
+<ul>
+<li><b>User Threads: </b>They are high-priority threads. The JVM will wait for any user thread to complete its task before terminating it.</li>
+<li><a href="DaemonThread.html"><b>Daemon Threads: </b></a>They are low-priority threads whose only role is to provide services to user threads.</li>
+</ul>
+<p><b>Lifecycle of Thread:</b></p>
+<ul>
+<li><b>New:</b> This is the state when thread is created using new keyword.</li>
+<li><b>Runnable:</b> This is the state when we call start method on the thread object.</li>
+<li><b>Running:</b> This is the state when thread is executing.</li>
+<li><b>Blocked/Waiting:</b> This is the state when we call join method on the thread object.</li>
+<li><b>Dead:</b> This is the state when thread has completed its execution.</li>
+</ul>
+<p><b>Thread Priority:</b> It is defined between 1 to 10 where 10 is the highest priority and the threads with higher priority will get executed first. But this depends on thread scheduler which is OS dependent. It is set by calling  setPriority(priority) method on thread object.</p>
+<ul>
+<li>Thread.MIN_PRIORITY is defined as 1</li>
+<li>Thread.MAX_PRIORITY is defined as 10</li>
+<li>Thread.NORM_PRIORITY is defined as 5</li>
+</ul>
+<p><b>Methods of thread class</b> </p>
+<ul>
+<li><a href="Join.html">Join()</a></li>
+<li><a href=""></a></li>
+</ul>
+<h1>Examples</h1>
+<p><b>Creating Thread using Thread class</b></p>
+<pre>
+public class ArThread extends Thread{
+	
+	private String name;
+	
+	public ArThread(String name){
+		this.name = name;
+	}
+	
+	@Override
+	public void run(){
+		System.out.println("Thread: "+this.name+" is running.");
+	}
+	
+	public static void main(String[] args) {
+		ArThread t = new ArThread("Test Thread");
+		t.start();
+	}
+}
+</pre>
+<p><b>Creating Thread using Runnable interface</b></p>
+<pre>
+public class MyRunnable implements Runnable{
+
+	private String name;
+	
+	public MyRunnable( String name) {
+		this.name = name;
+	}
+	
+	@Override
+	public void run() {
+		System.out.println("Running thread "+this.name);
+	}
+}
+</pre>
+<h1>Frequently Asked Questions</h1>
+<p><b>What is the difference between Process and Thread?</b></p>
+<p>Process is a self contained complete execution environment where as thread is a single task getting executed independently inside a process.</p>
+<p><b>What is difference between calling start() and calling run() method on Thread class</b></p>
+<p>A new thread is created on calling start() method on the thread object where as no thread is created on calling the run() method directly.</p>
+<p><b>How can we make sure main() is the last thread to finish in Java Program?</b></p>
+<p>This can be done by calling join() on all the other threads inside main method</p>
+<p><b></b></p>
+<p></p>
+<p><b></b></p>
+<p></p>
+<p><b></b></p>
+<p></p>
+<p><b></b></p>
+<p></p>
+<p><b></b></p>
+<p></p>
+<p><b></b></p>
+<p></p>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
+</body>
+</html>
