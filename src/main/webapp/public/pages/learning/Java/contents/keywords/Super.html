@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Super in Java</title>
+</head>
+<body>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
+<h1>Super</h1>
+<h1>Features</h1>
+<p>This keyword is used to call the default methods of parent interface inside implementing class. See example in the section below</p>
+<h1>Examples</h1>
+<p><b>Call the default methods inside parent interface in child class:</b></p>
+<pre>
+
+//<b>Interface A is having default method log(String logText)</b>
+public interface InterfaceA {
+	
+	public void write(String text);
+	
+	default void log(String logText) {
+		System.out.println("Logging: "+logText);
+	}
+}
+
+//<b>Interface B is also having default method log(String logText)</b>
+public interface InterfaceB {
+	
+	public void write(String text);
+	
+	default void log(String logText) {
+		System.out.println("Logging: "+logText);
+	}
+}
+
+//<b>ClassA implements both interfaces, InterfaceA and InterfaceB, so compiler enforces to give implementation of the default method </b>
+public class ClassA implements InterfaceA, InterfaceB{
+
+	@Override
+	public void write(String text) {
+				
+	}
+	
+	@Override
+	public void log(String logText) {
+		//<b>Call log method of InterfaceA.</b>
+		InterfaceA.super.log(logText);
+	}
+}
+</pre>
+<h1>Frequently Asked Questions</h1>
+<p><b></b></p>
+<p></p>
+<p><b></b></p>
+<p></p>
+<p><b></b></p>
+<p></p>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
+</body>
+</html>

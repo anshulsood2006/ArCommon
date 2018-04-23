@@ -8,16 +8,96 @@
 <h2><a href="../basics/DataTypes.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
 <h1>Interface</h1>
 <h1>Features</h1>
+<p>Till java 7, interfaces can have only method declaration, but from Java 8 onwards, interfaces can also have: 
+<ul>
+<li><b>Static Methods:</b></li>
+<li><b>Default Methods:</b> The are declared with keyword default and default implementation is given in the interface itself.</li>
+</ul>
 <p></p>
 <h1>Examples</h1>
-<p></p>
+<p><b>Declaring default method in an interface:</b></p>
+<pre>
+public interface ArJava8Interface {
+	
+	public void write(String text);
+	
+	default void log(String logText) {
+		System.out.println("Logging: "+logText);
+	}
+}
+</pre>
+<p><b>Overriding default method in child class:</b></p>
+<pre>
+public class ArJava8InterfaceClassA implements ArJava8Interface{
+
+	@Override
+	public void write(String text) {
+				
+	}
+	
+	//<b>The default method log(String text) has been overridden in the class</b>
+	public void log(String logText) {
+		System.out.println("Logging: from class level: "+logText);
+	}
+	
+	public static void main(String[] args) {
+		ArJava8InterfaceClassA a = new ArJava8InterfaceClassA();
+		a.log("Anshul");
+	}
+
+}
+</pre>
 <h1>Frequently Asked Questions</h1>
-<p><b></b></p>
-<p></p>
-<p><b></b></p>
-<p></p>
-<p><b></b></p>
-<p></p>
+<p><b>What is the advantage of default methods in interface since Java 8?</b></p>
+<p>This avoids changing all the classes, if a new method is added to an existing interface. Earlier till Java 7, adding a new method to an interface would lead to a situation where we had to provide the implementation for the method in all the classes implementing the interface. This lead to change in lot of files. After Java 8, we can just provide default implementation for the method in the interface itself. If required, this method can also be overridden in the implementing class just by removing the modifier default.</p>
+<p><b>What happens in case a class is implementing two or more interfaces which are having one or more common default methods?</b></p>
+<p>In this case the default method needs to be implemented explicitly in the class, otherwise compile will show an error with text "Duplicate default methods named are inherited from the types". The default keyword needs to be removed from the method signature during implementation in the child class.</p>
+<pre>
+
+//<b>Interface A is having default method log(String logText)</b>
+public interface InterfaceA {
+	
+	public void write(String text);
+	
+	default void log(String logText) {
+		System.out.println("Logging: "+logText);
+	}
+}
+
+//<b>Interface B is also having default method log(String logText)</b>
+public interface InterfaceB {
+	
+	public void write(String text);
+	
+	default void log(String logText) {
+		System.out.println("Logging: "+logText);
+	}
+}
+
+//<b>ClassA implements both interfaces, InterfaceA and InterfaceB, so compiler enforces to give implementation of the default method </b>
+public class ClassA implements InterfaceA, InterfaceB{
+
+	@Override
+	public void write(String text) {
+				
+	}
+	
+	//<b>We have to explicitly override the default method to handle the diamond problem.
+	@Override
+	public void log(String logText) {
+		InterfaceA.super.log(logText);
+	}
+	</b>
+}
+</pre>
+<p><b>How to call the default method implemented in one of the interface in the child class?</b></p>
+<p>This can be done by using {Interface}.super.{method}. Example to call the default implementation given for log method in InterfaceA is: </p>
+<pre>
+	@Override
+	public void log(String logText) {
+		<b>InterfaceA.super.log(logText);</b>
+	}
+</pre>
 <h2><a href="../basics/DataTypes.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
 </body>
 </html>
