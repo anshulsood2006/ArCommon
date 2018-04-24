@@ -27,8 +27,113 @@
 	return (this == obj);
 }</pre></li>
 </ol>
+<h1>wait, notify and notifyAll()</h1>
+<p>All the three methods are called on an object by a thread. The thread should be having the monitor object else java.lang.IllegalMonitorStateException exception is thrown.</p>
+<ul>
+<li><b>wait(): This method has three variances</b>
+<ul>
+<li><b>wait(): </b>The thread waits indefinitely for any other thread to call notify or notifyAll method on the monitor object to wake up the current thread.</li>
+<li><b>wait(long timeout): </b>The thread waits for any other thread to call notify or notifyAll method on the monitor object to wake up the current thread or waits for specified period which ever happens earlier</li>
+<li><b>wait(long timeout, int timeout): </b>The thread waits for any other thread to call notify or notifyAll method on the monitor object to wake up the current thread or waits for specified period (1000000*timeout+nanos nanoseconds) which ever happens earlier</li>
+</ul>	
+</li>
+<li><b>notify(): </b>This method when called on monitor object, wakes up only one thread which is waiting for monitor on that object.</li>
+<li><b>notifyAll(): </b>This method when called on monitor object, wakes up all the threads which are waiting for monitor on that object.</li>
+</ul>
 <h1>Examples</h1>
-<p></p>
+<h1>wait, notify and notifyAll()</h1>
+<pre>
+
+//The object on which monitor will be obtained
+public class ArMessage {
+	
+	private String message;
+	
+	public ArMessage(String message) {
+		this.message = message;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+	
+}
+
+//The class that will be waiting for other threads to invoke notify method
+public class ArWaiter implements Runnable {
+
+	private ArMessage arMessage;
+	
+	public ArWaiter(ArMessage arMessage) {
+		this.arMessage = arMessage;
+	}
+	
+	@Override
+	public void run() {
+		synchronized (arMessage) {
+			try {
+				System.out.println("ArWaiter is waiting.");
+				arMessage.wait();
+			}catch(InterruptedException ex) {
+				System.out.println("InterruptedException is thrown inside ArNotifier.");
+			}
+			System.out.println("ArWaiter is notified and "+arMessage.getMessage()+" is received successfully.");
+		}
+	}
+
+}
+
+//The class that will notify one or all the waiting threads based on whether notify or notifyAll is called.
+public class ArNotifier implements Runnable{
+
+private ArMessage arMessage;
+	
+	public ArNotifier(ArMessage arMessage) {
+		this.arMessage = arMessage;
+	}
+	
+	@Override
+	public void run() {
+		try {
+			Thread.sleep(1000);
+			synchronized (arMessage) {
+				System.out.println("ArNotifier is notifying.");
+				arMessage.notifyAll();
+				
+        		}
+		}catch(InterruptedException ex) {
+			System.out.println("InterruptedException is thrown inside ArNotifier.");
+		}
+	}
+
+}
+
+// The class to test the wait and notify/notifyAll
+public class ArWaiterNotifier {
+	 public static void main(String[] args) {
+        ArMessage msg = new ArMessage("process it");
+        ArWaiter waiter = new ArWaiter(msg);
+        new Thread(waiter).start();
+        
+        ArWaiter waiter1 = new ArWaiter(msg);
+        new Thread(waiter1).start();
+        
+        ArNotifier notifier = new ArNotifier(msg);
+        new Thread(notifier).start();
+        System.out.println("All the threads are started");
+    }
+}
+</pre>
+Note: Here in ArWaiterNotifier, two waiter threads are created both of which have called wait() on the common arMessage object.
+<ul>
+	<li>If notifier object calls notify() method, only one thread will get notified. The program will never terminate.</li>
+	<li>If notifier object calls notifyAll() method, both the threads will get notified. The program will terminate.</li>
+</ul>
+This will not work all the time. If the notifier thread get the lock first, its notify() call will be ignored and other threads will always be waiting. To avoid this we have called Thread.sleep(1000) method. This will make sure that the two waiter threads are started before notifier is started.
 <h1>Frequently Asked Questions</h1>
 <p><b>Which are protected methods in Object class?</b></p>
 <p>clone() and finalize()</p>
