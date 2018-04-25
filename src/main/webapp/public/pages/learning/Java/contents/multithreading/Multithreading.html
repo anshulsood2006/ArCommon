@@ -32,6 +32,7 @@
 <li><a href="Join.html">Join()</a></li>
 <li><a href=""></a></li>
 </ul>
+<p><b>Thread Synchronization:</b> This is achieved by creating a monitor/lock object that will be used to synchronized the behavior of three threads. This involves proper use of keyword synchronized and methods wait(), notify() and notifyAll() on the shared monitor object.</p>
 <h1>Examples</h1>
 <p><b>Creating Thread using Thread class</b></p>
 <pre>
@@ -67,6 +68,114 @@ public class MyRunnable implements Runnable{
 	@Override
 	public void run() {
 		System.out.println("Running thread "+this.name);
+	}
+}
+</pre>
+<p><b>Thread Synchronization (Thread t1, t1 and t3 are printing A, B and C continuously. Make them to print in this manner: ABCABCABCABCABCABCABC and so on)</b></p>
+<pre>
+//
+
+//Thread A
+public class ArThreadA implements Runnable{
+	
+	private ArLock lock;
+	private char charToPrint = 'A';
+	
+	public ArThreadA(ArLock lock) {
+		this.lock = lock;
+	}
+	
+	@Override
+	public void run() {
+		try {
+			synchronized(lock){	
+				for (int i = 0; i < 15; i ++){
+					while(lock.flag != 1){
+						lock.wait();
+					}
+					System.out.print(charToPrint);
+					lock.flag = 2;
+					lock.notifyAll();
+				}
+			}
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+}
+//Thread B
+public class ArThreadB implements Runnable{
+	
+	private ArLock lock;
+	private char charToPrint = 'B';
+	
+	public ArThreadB(ArLock lock) {
+		this.lock = lock;
+	}
+	
+	@Override
+	public void run() {
+		try {
+			synchronized(lock){	
+				for (int i = 0; i < 15; i ++){
+					while(lock.flag != 2){
+						lock.wait();
+					}
+					System.out.print(charToPrint);
+					lock.flag = 3;
+					lock.notifyAll();
+				}
+			}
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+}
+//Thread C
+public class ArThreadC implements Runnable{
+	
+	private ArLock lock;
+	private char charToPrint = 'C';
+	
+	public ArThreadC(ArLock lock) {
+		this.lock = lock;
+	}
+	
+	@Override
+	public void run() {
+		try {
+			synchronized(lock){	
+				for (int i = 0; i < 15; i ++){
+					while(lock.flag != 3){
+						lock.wait();
+					}
+					System.out.print(charToPrint);
+					lock.flag = 1;
+					lock.notifyAll();
+				}
+			}
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+}
+
+//Create the shared object for synchronization
+public class ArLock {
+	public volatile int flag = 1; 
+}
+
+//Test Class
+public class ArThreadSynchronizedExample{
+
+	public static void main(String[] args) {
+		ArLock lock = new ArLock();
+		Thread t1 = new Thread (new ArThreadA(lock));
+		Thread t2 = new Thread (new ArThreadB(lock));
+		Thread t3 = new Thread (new ArThreadC(lock));
+		t1.start();
+		t2.start();
+		t3.start();
 	}
 }
 </pre>
