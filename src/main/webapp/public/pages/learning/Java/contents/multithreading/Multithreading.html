@@ -29,8 +29,18 @@
 </ul>
 <p><b>Methods of thread class</b> </p>
 <ul>
-<li><a href="Join.html">Join()</a></li>
-<li><a href=""></a></li>
+<li>Non Static:
+	<ul>
+	<li><a href="Join.html">Join()</a></li>
+	<li><a href=""></a></li>
+	</ul>
+</li>
+<li>Static: The below methods work on the currently executing thread. So there is no point in invoking these methods on some other threads that are in wait state. 
+	<ul>
+	<li><a href="Sleep.html">Sleep()</a></li>
+	<li><a href="Yield.html">Yield()</a></li>
+	</ul>
+</li>
 </ul>
 <p><b>Thread Synchronization:</b> This is achieved by creating a monitor/lock object that will be used to synchronized the behavior of three threads. This involves proper use of keyword synchronized and methods wait(), notify() and notifyAll() on the shared monitor object.</p>
 <h1>Examples</h1>
