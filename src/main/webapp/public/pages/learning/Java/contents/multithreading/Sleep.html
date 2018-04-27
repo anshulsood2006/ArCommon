@@ -8,9 +8,42 @@
 <h2><a href="Multithreading.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
 <h1>Sleep()</h1>
 <h1>Features</h1>
-<p></p>
+<p>It is used to sleep the thread for a specified amount of time.</p>
+<p>It has two variants</p>
+<ul>
+<li>sleep(long miliseconds)</li>
+<li>sleep(long miliseconds, int nanoseconds)</li>
+</ul>
+<p>Both the methods can throw InterruptedException</p> 
 <h1>Examples</h1>
-<p></p>
+<p><b>sleep() Method</b></p>
+<pre>
+public class ArSleepExample implements Runnable{
+	
+	private String name;
+	
+	public ArSleepExample(String name){
+		this.name = name;
+	}
+
+	@Override
+	public void run() {
+		System.out.println("Thread: "+name +" is waiting for 5000 milseconds");	
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void main(String[] args) {
+		Thread t1 = new Thread(new ArSleepExample("Anshul"));
+		Thread t2 = new Thread (new ArSleepExample("Akhil"));
+		t1.start();
+		t2.start();
+	}
+}
+</pre>
 <h1>Frequently Asked Questions</h1>
 <p><b></b></p>
 <p></p>

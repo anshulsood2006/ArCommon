@@ -31,14 +31,14 @@
 <ul>
 <li>Non Static:
 	<ul>
-	<li><a href="Join.html">Join()</a></li>
+	<li><a href="Join.html">Join()</a>: It is used to pause the current thread execution until and unless the specified thread is dead. This method is called inside a thread and on the other thread which needs to be completed before the other thread</li>
 	<li><a href=""></a></li>
 	</ul>
 </li>
 <li>Static: The below methods work on the currently executing thread. So there is no point in invoking these methods on some other threads that are in wait state. 
 	<ul>
-	<li><a href="Sleep.html">Sleep()</a></li>
-	<li><a href="Yield.html">Yield()</a></li>
+	<li><a href="Sleep.html">Sleep()</a>: This method is used to stop execution of a thread for a specified interval.</li>
+	<li><a href="Yield.html">Yield()</a>: This method causes the currently executing thread object to temporarily pause and allow other threads to execute.</li>
 	</ul>
 </li>
 </ul>
@@ -196,10 +196,13 @@ public class ArThreadSynchronizedExample{
 <p>A new thread is created on calling start() method on the thread object where as no thread is created on calling the run() method directly.</p>
 <p><b>How can we make sure main() is the last thread to finish in Java Program?</b></p>
 <p>This can be done by calling join() on all the other threads inside main method</p>
-<p><b></b></p>
-<p></p>
-<p><b></b></p>
-<p></p>
+<p><b>Why are sleep() and yield() methods static?</b></p>
+<p>The sleep() and yield() methods work on the currently executing thread. So there is no point of invoking these methods on some other threads that are in wait state. Hence they are declared as static methods.</p>
+<p><b>What is the difference between yield(), sleep() and join() methods?</b></p>
+<ol>
+<li>Yield() and sleep() methods are static where as join() method is non-static</li>
+<li></li>
+</ol>
 <p><b></b></p>
 <p></p>
 <p><b></b></p>
