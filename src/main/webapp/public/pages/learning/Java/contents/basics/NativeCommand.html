@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Java Native Commands</title>
+</head>
+<body>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
+<h1>Java Native Commands</h1>
+<h1>Features</h1>
+<p>The native means the code that is written in a language other than java</p>
+<h1>Examples</h1>
+<p><b>Creating a native method in JAVA</b></p>
+<ul>
+<li>Create a java class having native method</li>
+<li>Select the class</li>
+<li>Go to Run >> External Tool >. External Tool Configurations</li>
+<li>Create a new configuration with some name say ""Native"</li>
+<li>Select location as C:\Program Files\Java\jdk1.8.0_151\bin\javah.exe</li>
+<li>Select the working directory as ${workspace_loc:/ArCommon/target/classes}</li>
+<li>Select arguments as -jni com.arsoft.projects.common.learning.natives.ArNativeClass</li>
+<li>Click run</li>
+<li>This will return a file named  e.g. com.arsoft.projects.common.learning.natives.ArNativeClass.h</li>
+<li>Add the implementation for the method in C or  C ++</li>
+<li>Compile the library to .dll or .so file</li>
+</ul>
+<h1>Frequently Asked Questions</h1>
+<p><b></b></p>
+<p></p>
+<p><b></b></p>
+<p></p>
+<p><b></b></p>
+<p></p>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
+</body>
+</html>

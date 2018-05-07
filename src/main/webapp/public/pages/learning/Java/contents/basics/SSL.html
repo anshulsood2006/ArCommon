@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>SSL In java</title>
+</head>
+<body>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
+<h1>SSL</h1>
+<h1>Features</h1>
+<ul>
+<li><b>Keystore:</b> It is used to store server's own identity/certificates. It contains the server's certificate, including its private key. </li>
+<li><b>Truststore:</b> It is used to store identity/certificates of other parties issued by CA</li>
+<li><b>JSSE:</b> Java Secure Socket Extension</li>
+</ul>
+
+<h1>Examples</h1>
+<p><b>Create a SSL connection between web server and the client.</b></p>
+<ul>
+<li><p>Generate certificate: </p>keytool -genkey -alias localhost -keyalg RSA -keypass password -storepass password -keystore server.keystore.jks</li>
+<li><p>Convert to cer file: </p>keytool -export -alias localhost -storepass password -file server.cer -keystore server.keystore.jks</li>
+<li><p>Add the certificate to the trust store file: </p>keytool -import -v -trustcacerts -alias localhost -file server.cer -keystore server.truststore.jks -keypass password -storepass password</li>
+<li><p>Verify if the certificate was successfully added into the keystore. </p>keytool -list -v -keystore server.keystore.jks</li>
+<li><p>Validate if the certificate was successfully added into the trust store. </p>keytool -list -v -keystore server.truststore.jks</li>
+<li><p>Delete a certificate file: </p>keytool -delete -alias sb6270x1769 -keystore server.keystore.jks</li>
+</ul>
+<pre>
+</pre>
+<h1>Frequently Asked Questions</h1>
+<p><b></b></p>
+<p></p>
+<p><b></b></p>
+<p></p>
+<p><b></b></p>
+<p></p>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
+</body>
+</html>
