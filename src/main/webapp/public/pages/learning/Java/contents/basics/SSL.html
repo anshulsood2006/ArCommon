@@ -17,13 +17,28 @@
 <h1>Examples</h1>
 <p><b>Create a SSL connection between web server and the client.</b></p>
 <ul>
-<li><p>Generate certificate: </p>keytool -genkey -alias localhost -keyalg RSA -keypass password -storepass password -keystore server.keystore.jks</li>
-<li><p>Convert to cer file: </p>keytool -export -alias localhost -storepass password -file server.cer -keystore server.keystore.jks</li>
-<li><p>Add the certificate to the trust store file: </p>keytool -import -v -trustcacerts -alias localhost -file server.cer -keystore server.truststore.jks -keypass password -storepass password</li>
-<li><p>Verify if the certificate was successfully added into the keystore. </p>keytool -list -v -keystore server.keystore.jks</li>
-<li><p>Validate if the certificate was successfully added into the trust store. </p>keytool -list -v -keystore server.truststore.jks</li>
-<li><p>Delete a certificate file: </p>keytool -delete -alias sb6270x1769 -keystore server.keystore.jks</li>
+	<li><p>Generate certificate: </p>keytool -genkey -alias localhost -keyalg RSA -keypass password -storepass password -keystore server.keystore.jks</li>
+	<li><p>Convert to cer file: </p>keytool -export -alias localhost -storepass password -file server.cer -keystore server.keystore.jks</li>
+	<li><p>Add the certificate to the trust store file: </p>keytool -import -v -trustcacerts -alias localhost -file server.cer -keystore server.truststore.jks -keypass password -storepass password</li>
+	<li><p>Verify if the certificate was successfully added into the keystore. </p>keytool -list -v -keystore server.keystore.jks</li>
+	<li><p>Validate if the certificate was successfully added into the trust store. </p>keytool -list -v -keystore server.truststore.jks</li>
+	<li><p>Delete a certificate file: </p>keytool -delete -alias sb6270x1769 -keystore server.keystore.jks</li>
 </ul>
+
+<p><b>Create certificates using OpenSSL.</b></p>
+	<ul>
+		<li><b>Download OpenSSL from internet</b></li>
+		<li><b>Create a sample directory and go to that directory from command prompt</b></li>
+		<li><b>SET OPENSSL_CONF=path to openssl.cfg file</b></li>
+		<li><b>SET RANDFILE=.rnd</b></li>
+		<li><b>Generate root certificate key:</b> genrsa -out ca.key 4096</li>
+		<li><b>Generate root certificate:</b> req -new -x509 -days 1826 -key ca.key -out ca.crt</li>
+		<li><b>Generate intermediate certificate key:</b> genrsa -out ia.key 4096</li>
+		<li><b>Generate intermediate certificate signing request:</b> req -new -key ia.key -out ia.csr</li>
+		<li><b>Generate intermediate certificate: </b>x509 -req -days 730 -in ia.csr -CA ca.crt -CAkey ca.key -set_serial 01 -out ia.crt</li>
+		<li><b>Package the files:</b> pkcs12 -export -out ia.p12 -inkey ia.key -in ia.crt -chain -CAfile ca.crt</li>
+		<li><b>Generate certificate with only public key: </b>pkcs12 -in ia.p12 -clcerts -nokeys -out ca-public.crt</li>
+	</ul>
 <pre>
 </pre>
 <h1>Frequently Asked Questions</h1>
