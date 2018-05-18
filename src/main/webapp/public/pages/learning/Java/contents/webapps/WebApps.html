@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Webapps</title>
+</head>
+<body>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
+<h1>Webapps</h1>
+<h1>Features</h1>
+<p></p>
+<h1>Examples</h1>
+<p><b></b></p>
+<pre>
+</pre>
+<h1>Frequently Asked Questions</h1>
+<p><b>What is the significance of &lt;context-param&gt; tag in web.xml file?</b></p>
+<p>This tag is used to store the application specific static parameters related to a web application as below
+<pre>
+	&lt;context-param&gt;
+		&lt;param-name&gt;paramName&lt;/param-name&gt;
+		&lt;param-value&gt;paramValue&lt;/param-value&gt;
+	&lt;/context-param&gt;  
+</pre>
+<ul>
+	<li>They are defined directly under &lt;web-app&gt;.</li>
+	<li>They are also called ServletContext parameters.</li>
+</ul>
+</p>
+<p><b>What is the significance of &lt;init-param&gt; tag in web.xml file?</b></p>
+<p>This tag is used to store the servlet specific static parameters in a web application as below</p>
+<pre>
+	&lt;servlet&gt;
+		&lt;servlet-name&gt;Servlet name&lt;/servlet-name&gt;
+		&lt;servlet-class&gt;Servlet Class fully qualified name&lt;/servlet-class&gt;
+		&lt;init-param&gt;
+	           &lt;param-name&gt;paramName&lt;/param-name&gt;
+	           &lt;param-value&gt;paramValue&lt;/param-value&gt;
+	       &lt;/init-param&gt;
+		&lt;load-on-startup&gt;0&lt;/load-on-startup&gt;
+	&lt;/servlet&gt;
+</pre>
+<ul>
+	<li>They are defined under &lt;servlet&gt; tag for which the param needs to be defined.</li>
+	<li>They are also called ServletConfig parameters.</li>
+</ul>
+<p><b>What is the significance of &lt;listener&gt; tag in web.xml file?</b></p>
+<p></p>
+<p><b>What is the significance of contextConfigLocation parameter in web.xml</b></p>
+<p>This parameter is used to tell the Spring where to load configuration files from.</p>
+<p><b>What is the significance of applicationContext.xml file in springs based web application?</b></p>
+<p>This file is used to define the application wide spring beans</p>
+<p><b>What is the significance of spring-servlet.xml file in springs based web application?</b></p>
+<p>This file is used to define the servlet specific spring beans</p>
+<p><b>How to define a bean in spring based web-application?</b></p>
+<p>Beans are defined inside one of the spring configuration file as below:</p>
+<pre>
+	&lt;bean id="id" class="class" scope="scope" name="name" init-method="method" depends-on="bean" lazy-init="true"&gt;
+		&lt;property name="name"&gt;
+			&lt;ref bean="bean" /&gt;
+		&lt;/property&gt;
+		&lt;property name="name" ref="bean"&gt;
+		&lt;/property&gt;
+		&lt;constructor-arg ref="bean"&gt;&lt;/constructor-arg&gt;
+	&lt;/bean&gt;
+</pre>
+<ul>
+	<li><b>id: </b>It's a unique identifier for the bean.</li>
+	<li><b>class: </b>It's the bean class qualified name to be used to create the bean.</li>
+	<li><b>name: </b></li>
+	<li><b>scope: </b>It's the scope of the bean
+		<ul>
+			<li><b>singleton: </b> Return the same bean instance each time.</li>
+			<li><b>prototype: </b>  Produce a new bean instance each time.</li>
+			<li><b>request: </b> Bean is valid for current HTTP request</li>
+			<li><b>session: </b> Bean is valid for current HTTP session. Only valid in the context of a web-aware Spring ApplicationContext.</li>
+			<li><b>globalSession: </b>Bean is valid for global HTTP session. Typically only valid when used in a portlet context. Only valid in the context of a web-aware Spring ApplicationContext.</li>
+		</ul>
+	</li>
+	<li><b>constructor-arg: </b> Injects constructor based dependency to the bean
+		<ul>
+		<li>Used as &lt;constructor-arg ref = "spellChecker"/&gt;</li>
+		<li>In case there are more than one parameters for a constructor, the ambiguity is resolved by maintaining the order</li>
+		<li></li>
+		<li></li>
+		</ul>
+	</li> 
+	
+	<li><b>init-method: </b></li>
+	<li><b>depends-on: </b></li>
+	<li><b>lazy-init: </b>It tells the IoC container to create a bean instance when it is first requested, rather than at the startup.</li>
+</ul>
+Out of the above attributes, class is mandatory.
+<p><b></b></p>
+<p></p>
+<p><b></b></p>
+<p></p>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
+</body>
+</html>
