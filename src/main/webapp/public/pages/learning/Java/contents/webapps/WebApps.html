@@ -26,7 +26,6 @@
 	<li>They are defined directly under &lt;web-app&gt;.</li>
 	<li>They are also called ServletContext parameters.</li>
 </ul>
-</p>
 <p><b>What is the significance of &lt;init-param&gt; tag in web.xml file?</b></p>
 <p>This tag is used to store the servlet specific static parameters in a web application as below</p>
 <pre>
@@ -44,8 +43,6 @@
 	<li>They are defined under &lt;servlet&gt; tag for which the param needs to be defined.</li>
 	<li>They are also called ServletConfig parameters.</li>
 </ul>
-<p><b>What is the significance of &lt;listener&gt; tag in web.xml file?</b></p>
-<p></p>
 <p><b>What is the significance of contextConfigLocation parameter in web.xml</b></p>
 <p>This parameter is used to tell the Spring where to load configuration files from.</p>
 <p><b>What is the significance of applicationContext.xml file in springs based web application?</b></p>
@@ -55,7 +52,7 @@
 <p><b>How to define a bean in spring based web-application?</b></p>
 <p>Beans are defined inside one of the spring configuration file as below:</p>
 <pre>
-	&lt;bean id="id" class="class" scope="scope" name="name" init-method="method" depends-on="bean" lazy-init="true"&gt;
+	&lt;bean id="id" class="class" name="name" parent="bean" scope="scope" init-method="method" destroy-method="method" "depends-on="bean" lazy-init="true"&gt;
 		&lt;property name="name"&gt;
 			&lt;ref bean="bean" /&gt;
 		&lt;/property&gt;
@@ -64,11 +61,15 @@
 		&lt;constructor-arg ref="bean"&gt;&lt;/constructor-arg&gt;
 	&lt;/bean&gt;
 </pre>
+Tags:
 <ul>
-	<li><b>id: </b>It's a unique identifier for the bean.</li>
-	<li><b>class: </b>It's the bean class qualified name to be used to create the bean.</li>
-	<li><b>name: </b></li>
-	<li><b>scope: </b>It's the scope of the bean
+	<li><b>Bean:</b> Used to declare the bean. The attributes are:
+	<ul>
+		<li><b>id: </b>It's a unique identifier for the bean.</li>
+		<li><b>class: </b>It's the bean class qualified name to be used to create the bean.</li>
+		<li><b>name: </b> It's also a unique identifier to be used to create the bean.</li>
+		<li><b>parent: </b>It is used to define parent class for the bean class to support inheritance.</li>
+		<li><b>scope: </b>It's the scope of the bean
 		<ul>
 			<li><b>singleton: </b> Return the same bean instance each time.</li>
 			<li><b>prototype: </b>  Produce a new bean instance each time.</li>
@@ -76,25 +77,135 @@
 			<li><b>session: </b> Bean is valid for current HTTP session. Only valid in the context of a web-aware Spring ApplicationContext.</li>
 			<li><b>globalSession: </b>Bean is valid for global HTTP session. Typically only valid when used in a portlet context. Only valid in the context of a web-aware Spring ApplicationContext.</li>
 		</ul>
+		<li><b>init-method: </b>Used to declare the method of the bean class which needs to be called on bean destruction.</li>
+		<li><b>destroy-method: </b>Used to declare the method of the bean class which needs to be called on bean creation.</li>
+		<li><b>depends-on: </b> Used to initialize another bean before this bean.</li>
+		<li><b>lazy-init: </b>It tells the IoC container to create a bean instance when it is first requested, rather than at the startup.</li>
+	</ul>
+	Out of the above attributes, only class is mandatory.
 	</li>
-	<li><b>constructor-arg: </b> Injects constructor based dependency to the bean
+	<li><b>constructor-arg: </b> Used to inject constructor based dependency to the bean
 		<ul>
-		<li>Used as &lt;constructor-arg ref = "spellChecker"/&gt;</li>
-		<li>In case there are more than one parameters for a constructor, the ambiguity is resolved by maintaining the order</li>
-		<li></li>
-		<li></li>
+		<li>Used as &lt;constructor-arg ref = "bean"/&gt;</li>
+		<li>In case there are more than one parameters for a constructor, the ambiguity is resolved by maintaining the order in which the  arguments are supplied to the appropriate constructor. </li>
+		<li>Type matching with simple types can also be used
+<pre>
+	&lt;bean id = "id" class = "class"&gt;
+	  &lt;constructor-arg type = "int" value = "2001"/&gt;
+	  &lt;constructor-arg type = "java.lang.String" value = "Zara"/&gt;
+	&lt;/bean&gt;
+</pre>
+		</li>
+		<li>Index can also be used
+<pre>
+&lt;bean id = "exampleBean" class = "examples.ExampleBean"&gt;
+  &lt;constructor-arg index = "0" value = "2001"/&gt;
+  &lt;constructor-arg index = "1" value = "Zara"/&gt;
+&lt;/bean&gt;
+</pre>
+		</li>
 		</ul>
 	</li> 
+	<li><b>property: </b> Used to inject setter based dependency to the bean
+	<ul>
+		<li>&lt;property name = "name" value = "John Doe"/&gt;</li>
+		<li>&lt;property name = "spouse" ref = "spouse"/&gt;</li>
+	</ul>
+	</li>
 	
-	<li><b>init-method: </b></li>
-	<li><b>depends-on: </b></li>
-	<li><b>lazy-init: </b>It tells the IoC container to create a bean instance when it is first requested, rather than at the startup.</li>
 </ul>
-Out of the above attributes, class is mandatory.
+<p><b>How to get a bean defined in spring based web-application?</b></p>
+<p>This can be done by calling applicationContext.getBean(beanId) method</p>
+<p><b>How to get application context in spring based web-application?</b></p>
+<p>This can be done in below ways:</p>
+<ul>
+	<li>By implementing the class with interface ApplicationContextAware which forces it to override the method public void setApplicationContext(ApplicationContext applicationContext)</li>
+	<li>By using the below class implementations
+		<ul>
+			<li>FileSystemXmlApplicationContext(String pathOfXmlFile)</li>
+			<li>ClassPathXmlApplicationContext(String xmlFileOnClasspath)</li>
+			<li>WebXmlApplicationContext(String xmlFileInsideWebInf)</li>
+		</ul>
+	</li>
+	<li>ContextLoader.getCurrentWebApplicationContext();</li>
+</ul>
+<p><b>What are servlet filters and how to create filters in webapp?</b></p>
+<p>Java Servlet Filters are used to intercept request and do some pre-processing and can be used to intercept response and do post-processing before sending to client in web application.
+<ul>
+<li>Create a class that implements interface javax.servlet.Filter</li>
+<li>Override the below methods
+	<ul>
+		<li>public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain) throws IOException, ServletException</li>
+		<li>public void init(FilterConfig filterConfig) throws ServletException</li>
+		<li>public void destroy()</li>
+	</ul>
+</li>
+<li>Pre-servlet code is written before filterChain.doFilter(request, response) call inside doFilter() method and the post-filter code is written after that:
+<pre>
+public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+	// do pre-servlet work here
+	chain.doFilter(request, response);
+	// do post servlet work here
+}
+</pre>
+</li>
+<li>Add the filter class to web.xml to configure the filter 
+<pre>
+&lt;filter&gt;
+	&lt;filter-name&gt;filterName&lt;/filter-name&gt;
+	&lt;filter-class&gt;filterClass&lt;/filter-class&gt;
+&lt;/filter&gt;
+&lt;filter-mapping&gt;
+	&lt;filter-name&gt;filterName&lt;/filter-name&gt;
+	&lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+&lt;/filter-mapping&gt;
+</pre>
+</li>
+</ul>
+<p><b>What are servlet listeners and how to create listeners in webapp?</b></p>
+<p>Servlet Listeners are used for listening to events happening in a web containers during run time. Main event objects and the corresponding listeners in servlet API are: </p>
+<ul>
+<li>
+<table border="1">
+	<tr><th>Event</th><th>Called when</th><th>Listener</th></tr>
+	<tr><td>javax.servlet.AsyncEvent</td><td>Asynchronous operation is initiated on a ServletRequest</td><td>javax.servlet.AsyncListener</td></tr>
+	<tr><td>javax.servlet.http.HttpSessionBindingEvent</td><td>Object is  bound or unbound from a session</td><td>javax.servlet.http.HttpSessionBindingListener</td></tr>
+	<tr><td>javax.servlet.http.HttpSessionEvent</td><td>Session object changes</td><td>javax.servlet.http.HttpSessionListener</td></tr>
+	<tr><td>javax.servlet.ServletContextAttributeEvent </td><td>Attributes of servlet context change</td><td>javax.servlet.ServletContextAttributeListener</td></tr>
+	<tr><td>javax.servlet.ServletContextEvent</td><td>Servlet context change</td><td>javax.servlet.ServletContextListener </td></tr>
+	<tr><td>javax.servlet.ServletRequestEvent</td><td>Servlet request is in its lifecycle.</td><td>javax.servlet.ServletRequestListener</td></tr>
+	<tr><td>javax.servlet.ServletRequestAttributeEvent</td><td>Attributes of servlet request change</td><td>javax.servlet.ServletRequestAttributeListener </td></tr>
+	<tr><td>javax.servlet.ServletContextEvent</td><td>Servlet context is initiated for a spring based web application</td><td>org.springframework.web.context.ContextLoaderListener</td></tr>
+</table>
+</li>
+<li> To listen to any of the above events in a web application, create a class that implements the corresponding event and provide the required implementation for the methods.</li>
+<li>Add the listener class to the web.xml file
+<pre>
+&lt;listener&gt;
+    &lt;listener-class&gt;listenerClass&lt;/listener-class&gt;
+&lt;/listener&gt;
+</pre>
+</li>
+</ul>
+<p><b>What is the significance of adding ContextLoaderListener in web.xml file of a web-app?</b></p>
+<p>This listener is used to load more than one configuration files in case of spring based web application.</p>
+<p><b>What is the significance of ApplicationContextAware interface?</b></p>
+<p>This interface is used in spring based web application to get application context anywhere in the code by overriding the setApplicationContext(ApplicationContext context) method.</p>
 <p><b></b></p>
 <p></p>
 <p><b></b></p>
 <p></p>
+<p><b></b></p>
+<p></p>
+<p><b></b></p>
+<p></p>
+<p><b></b></p>
+<p></p>
+<p><b></b></p>
+<p></p>
+<p><b></b></p>
+<p></p>
+
 <h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
 </body>
 </html>
