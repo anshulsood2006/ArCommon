@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Data Structures in Java</title>
+</head>
+<body>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
+<h1>Data Structures</h1>
+<h1>Features</h1>
+<p>The data structures present in java.util package are:</p>
+<ul>
+<li><b>Enumeration: </b>It is a legacy interface to iterate over a collection of objects. This is obtained by 
+	<ul>
+	<li>For legacy data structures, call elements() methods on the object.</li>
+	<li>For collections, call Collections.enumeration(collectionObject)</li>
+	</ul>
+	<pre>
+	public static void main(String[] args) {
+		List<String> list = null;
+		list = new ArrayList<>();
+		list.add("Anshul");
+		list.add("Akhil");
+		list.add("Abhishek");
+		list.add("Ashok");
+		Enumeration<String> e = Collections.enumeration(list);
+		while (e.hasMoreElements()){
+			System.out.println(e.nextElement());
+		}
+		Vector<String> vector = new Vector<>();
+		vector.add("Anshul");
+		vector.add("Akhil");
+		vector.add("Abhishek");
+		vector.add("Ashok");
+		e = vector.elements();
+		while (e.hasMoreElements()){
+			System.out.println(e.nextElement());
+		}
+	}
+	</pre>
+</li>
+<li><b>BitSet: </b>Special type of array that holds bit values.</li>
+<li><b>Vector: </b>Synchronized list of objects having some additional legacy methods.</li>
+<li><b>Stack: </b>Stack is a subclass of Vector that implements a standard last-in, first-out stack.</li>
+<li><b>Dictionary: </b>Legacy class to store elements in key value pair.</li>
+<li><b>Hashtable: </b>Synchronized legacy class to store elements in key value pair. Earlier it was concrete implementation of a Dictionary, now it implements Map interface as well.</li>
+<li><b>Properties: </b>Properties is a subclass of Hashtable and is used to maintain lists of values in which the key is a String and the value is also a String.</li>
+</ul>
+All the above classes are now legacy and Java-2 has introduced a new framework called Collections Framework.
+<h1>Examples</h1>
+<p><b></b></p>
+<pre>
+</pre>
+<h1>Frequently Asked Questions</h1>
+<p><b></b></p>
+<p></p>
+<p><b></b></p>
+<p></p>
+<p><b></b></p>
+<p></p>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
+</body>
+</html>
