@@ -24,8 +24,8 @@
 <p><b>Thread Priority:</b> It is defined between 1 to 10 where 10 is the highest priority and the threads with higher priority will get executed first. But this depends on thread scheduler which is OS dependent. It is set by calling  setPriority(priority) method on thread object.</p>
 <ul>
 <li>Thread.MIN_PRIORITY is defined as 1</li>
-<li>Thread.MAX_PRIORITY is defined as 10</li>
 <li>Thread.NORM_PRIORITY is defined as 5</li>
+<li>Thread.MAX_PRIORITY is defined as 10</li>
 </ul>
 <p><b>Methods of thread class</b> </p>
 <ul>
@@ -43,6 +43,11 @@
 </li>
 </ul>
 <p><b>Thread Synchronization:</b> This is achieved by creating a monitor/lock object that will be used to synchronized the behavior of three threads. This involves proper use of keyword synchronized and methods wait(), notify() and notifyAll() on the shared monitor object.</p>
+Some other synchronization techniques in JAVA are: 
+<ul>
+	<li><a href="Lock.html">Lock interface</a></li>
+</ul>
+<p>Fairness: It is a boolean property given during creation of a lock object. If this is set as true this will make sure that the longest waiting thread is given the highest priority</p>
 <h1>Examples</h1>
 <p><b>Creating Thread using Thread class</b></p>
 <pre>
