@@ -1,0 +1,77 @@
+1. Get the result of a scrip every 2 minutes and store the result in file as
+
+Overall Data:
+
+HCL_07_03_2018_Current: HCL||07_03_2018||20@12:35||22@12:40||19.5@12:45
+HCL_Historic_Day_07_03_2018_2018: HCL||07_03_2018||Open@20@9:00||Lowest@11@11:35||Highest@26@2:35||Close@21@3:30
+HCL_Historic_Week_22_2018: HCL||22(07-02-2018 to 07-08-2018)||Lowest@11@11:35@07_03_2018||Highest@26@2:35@07_03_2018
+HCL_Historic_Month_01_2018: HCL||January||Lowest@11@11:35@07_03_2018||Highest@26@2:35@07_03_2018
+HCL_Historic_Year_2018: HCL||2018||Lowest@11@11:35@07_03_2018||Highest@26@2:35@07_03_2018
+
+HCL_Historic
+	HCL||Weekly||Lowest@11@11:35@07_03_2018||Highest@26@2:35@07_03_2018
+	HCL||Monthly||Lowest@11@11:35@07_03_2018||Highest@26@2:35@07_03_2018
+	HCL||Yearly||Lowest@11@11:35@07_03_2018||Highest@26@2:35@07_03_2018
+Scrip Name 
+Current Data:
+	Price
+	DateTime
+		Date
+		Time
+Historic Data:
+	DailyLowest
+		Price
+		DateTime
+			Date
+			Time		
+	DailyHighest
+		Price
+		DateTime
+			Date
+			Time	
+	WeeklyLowest
+		Price
+		DateTime
+			Date
+			Time		
+	WeeklyHighest
+		Price
+		DateTime
+			Date
+			Time
+	MonthlyLowest
+		Price
+		DateTime
+			Date
+			Time		
+	MonthlyHighest
+		Price
+		DateTime
+			Date
+			Time
+	YearlyLowest
+		Price
+		DateTime
+			Date
+			Time		
+	YearlyHighest
+		Price
+		DateTime
+			Date
+			Time
+			
+Date wise data
+
+Date 
+	Date
+	Low
+		Time
+	Highest
+		Time
+	Open
+		Time
+	Close
+		Time
+
+		
+ 
