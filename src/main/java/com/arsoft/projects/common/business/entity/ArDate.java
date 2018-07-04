@@ -19,7 +19,7 @@ public class ArDate {
 	public ArDate(int day, ArMonthEnum month, int year) {
 		this.day = day;
 		this.month = month;
-		this.year = 1900 + year;
+		this.year = year;
 	}
 
 	public int getDay() {

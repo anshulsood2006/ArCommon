@@ -29,7 +29,7 @@ public class ArDateTimeUtil {
 		int day = date.getDay() + 1;
 		int month = date.getMonth() + 1;
 		ArMonthEnum arMonthEnum = ArMonthEnum.getArMonthEnum(String.valueOf(month));
-		int year = date.getYear();
+		int year = date.getYear() + 1900;
 		ArDate arDate = new ArDate(day, arMonthEnum, year);
 		return arDate;
 	}
