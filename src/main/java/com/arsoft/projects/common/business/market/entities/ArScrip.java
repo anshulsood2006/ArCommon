@@ -55,7 +55,7 @@ public class ArScrip {
 	
 	public String toString(){
 		return "Scrip [ Name: "+ this.name + " , Complete Name: "+this.completeName +", Bourse Name: "+this.bourse + " , Price: "+
-				this.price + " , Time: "+this.timeOfRecord;
+				this.price + " , Time of Record: "+this.timeOfRecord +"]";
 	}
 
  

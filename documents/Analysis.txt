@@ -88,13 +88,14 @@ AsScripDataFetcher_IF
 	* The object returned will consist of 
 	public void getScripCurrentData();
 
+ArScripCurrentDataWriter_IF	
+	public boolean writeScripData();
+	
 ArScripDayDataWriter_IF
 	/
 	*This method will be used to write scrip day data in the format 
 	*
 	*/
-	public boolean writeScripData();
-ArScripCurrentDataWriter_IF	
 	public boolean writeScripData();	
 ArScripWeekDataWriter_IF	
 	public boolean writeScripData();
