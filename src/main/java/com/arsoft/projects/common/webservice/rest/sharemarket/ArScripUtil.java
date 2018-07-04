@@ -31,9 +31,8 @@ public class ArScripUtil implements Callable<String>{
 		this.myAsset = myAsset;
 	}
 	
-	@Override
-	public String call() {
-		String url = "https://finance.google.com/finance/getprices?q="+myAsset+"&x=NSE&p=1&i=1&f=c";
+	public static String getScripData(String scrip, ArBourse arBourse){
+		String url = "https://finance.google.com/finance/getprices?q="+scrip+"&x="+arBourse+"&p=1&i=1&f=c";
 		String output = null;
 		try {
 			output = ArWebServiceUtil.excecute(url, null, null);
@@ -48,7 +47,12 @@ public class ArScripUtil implements Callable<String>{
 			}
 		}
 		String value = output.substring(index + 1, output.length());
-		return value;	
+		return value;
+	}
+	
+	@Override
+	public String call() {
+		return getScripData(myAsset, ArBourse.NSE);	
 	}
 	
 	public static void main(String[] args) throws JSONException, ArException {
@@ -186,6 +190,12 @@ public class ArScripUtil implements Callable<String>{
             exec.shutdownNow();
         }
 		return scrips;
+	}
+
+	public static ArScrip getArScrip(String scripName, ArBourse arBourse) {
+		String arScripPrice = getScripData(scripName, arBourse);
+		ArScrip arScrip = new ArScrip(scripName, scripName, arBourse, Double.parseDouble(arScripPrice), ArDateTimeUtil.getCurrentArDateTime());
+		return arScrip;
 	}
 
 }
