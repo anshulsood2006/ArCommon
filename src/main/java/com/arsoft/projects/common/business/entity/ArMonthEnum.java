@@ -62,4 +62,13 @@ public enum ArMonthEnum {
 	    }
 		return false;
 	}
+	
+	public static ArMonthEnum getArMonthEnum(String enumValue){
+		for (ArMonthEnum arMonthEnum : ArMonthEnum.values()) {
+	        if (arMonthEnum.getValue().toLowerCase().equals(enumValue.toLowerCase())) {
+	            return arMonthEnum;
+	        }
+	    }
+		return null;
+	}
 }

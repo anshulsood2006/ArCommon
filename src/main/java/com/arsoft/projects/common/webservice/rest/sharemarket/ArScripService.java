@@ -1,7 +1,6 @@
 package com.arsoft.projects.common.webservice.rest.sharemarket;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -18,9 +17,12 @@ import org.apache.logging.log4j.Logger;
 import org.json.JSONArray;
 
 import com.arsoft.projects.common.annotation.ArAnnotationUtil;
+import com.arsoft.projects.common.business.market.entities.ArScrip;
+import com.arsoft.projects.common.business.market.entities.ArScripConstant;
 import com.arsoft.projects.common.equity.ArBourse;
 import com.arsoft.projects.common.exception.ArException;
 import com.arsoft.projects.common.string.ArStringUtil;
+import com.arsoft.projects.common.utility.datatime.ArDateTimeUtil;
 import com.arsoft.projects.common.webservice.rest.ArList;
 import com.arsoft.projects.common.webservice.rest.error.ArError;
 import com.arsoft.projects.common.webservice.rest.error.ArErrorList;
@@ -87,9 +89,9 @@ public class ArScripService{
 				ArScrip arScrip = null;
 				try{
 					value = Double.parseDouble(entryMap.getValue());
-					arScrip= new ArScrip(entryMap.getKey(), entryMap.getKey(), ArBourse.NSE, value, new Date());
+					arScrip= new ArScrip(entryMap.getKey(), entryMap.getKey(), ArBourse.NSE, value, ArDateTimeUtil.getCurrentArDateTime());
 				}catch(NumberFormatException e){
-					arScrip= new ArScrip(entryMap.getKey(), ArScripConstant.SCRIP_NOT_FOUND , ArBourse.NSE, value, new Date());
+					arScrip= new ArScrip(entryMap.getKey(), ArScripConstant.SCRIP_NOT_FOUND , ArBourse.NSE, value, ArDateTimeUtil.getCurrentArDateTime());
 				}
 				arScrips.add(arScrip);
 			}

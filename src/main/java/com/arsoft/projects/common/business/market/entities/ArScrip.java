@@ -1,10 +1,9 @@
-package com.arsoft.projects.common.webservice.rest.sharemarket;
-
-import java.util.Date;
+package com.arsoft.projects.common.business.market.entities;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.arsoft.projects.common.business.entity.ArDateTime;
 import com.arsoft.projects.common.equity.ArBourse;
 
 /**
@@ -40,18 +39,18 @@ public class ArScrip {
 	 * This variable stores the timestamp on which the scrip is being trade
 	 */
 	
-	private Date timeOfRecord;
+	private ArDateTime timeOfRecord;
 	
 	public ArScrip(){
 		
 	}
 	
-	public ArScrip(String name, String completeName, ArBourse bourse, double price, Date timeOfRecord){
+	public ArScrip(String name, String completeName, ArBourse bourse, double price, ArDateTime timeOfRecord){
 		this.name = name;
 		this.completeName = completeName;
 		this.bourse = bourse;
 		this.price = price;
-		this.timeOfRecord = timeOfRecord;		
+		this.timeOfRecord = timeOfRecord;
 	}
 	
 	public String toString(){
@@ -96,12 +95,12 @@ public class ArScrip {
 		this.price = price;
 	}
 
-	public Date getTimeOfRecord() {
+	public ArDateTime getTimeOfRecord() {
 		return timeOfRecord;
 	}
 
 	@XmlElement(name = "Time")
-	public void setTimeOfRecord(Date timeOfRecord) {
+	public void setTimeOfRecord(ArDateTime timeOfRecord) {
 		this.timeOfRecord = timeOfRecord;
 	}
 	

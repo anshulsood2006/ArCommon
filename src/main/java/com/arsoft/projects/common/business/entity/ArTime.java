@@ -102,4 +102,7 @@ public class ArTime {
 		this.timeZone = timeZone;
 	}
 	
+	public String toString(){
+		return "Hour: "+this.hour+", Minute: "+this.minute+", Second: "+this.second+", AmPm: "+this.amPm+", Timezone: "+this.timeZone;
+	}
 }

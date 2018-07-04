@@ -30,5 +30,9 @@ public class ArDateTime {
 	public void setTime(ArTime time) {
 		this.time = time;
 	}
+	
+	public String toString(){
+		return "Date: "+this.date +", Time: "+this.time;
+	}
 
 }

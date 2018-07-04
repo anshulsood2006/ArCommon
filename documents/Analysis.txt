@@ -1,17 +1,25 @@
-1. Get the result of a scrip every 2 minutes and store the result in file as
+1. Get the result of a scrip every 2 minutes and store the result in the files as
 
-Overall Data:
+Data files to be created:
 
-HCL_07_03_2018_Current: HCL||07_03_2018||20@12:35||22@12:40||19.5@12:45
-HCL_Historic_Day_07_03_2018_2018: HCL||07_03_2018||Open@20@9:00||Lowest@11@11:35||Highest@26@2:35||Close@21@3:30
-HCL_Historic_Week_22_2018: HCL||22(07-02-2018 to 07-08-2018)||Lowest@11@11:35@07_03_2018||Highest@26@2:35@07_03_2018
-HCL_Historic_Month_01_2018: HCL||January||Lowest@11@11:35@07_03_2018||Highest@26@2:35@07_03_2018
-HCL_Historic_Year_2018: HCL||2018||Lowest@11@11:35@07_03_2018||Highest@26@2:35@07_03_2018
+HCL_Data_Current_07_03_2018: HCL||07_03_2018||20@12:35||22@12:40||19.5@12:45
+HCL_Data_Day_03_07_2018: HCL||07_03_2018||Open@20@9:00||Lowest@11@11:35||Highest@26@2:35||Close@21@3:30
+HCL_Data_Week_22_2018: HCL||22(07-02-2018 to 07-08-2018)||Lowest@11@11:35@07_03_2018||Highest@26@2:35@07_03_2018
+HCL_Data_Month_07_2018: HCL||January||Lowest@11@11:35@07_03_2018||Highest@26@2:35@07_03_2018
+HCL_Data_Year_2018: HCL||2018||Lowest@11@11:35@07_03_2018||Highest@26@2:35@07_03_2018
+HCL_Data_Complete_07_03_2018: HCL||07_03_2018||20@12:35||22@12:40||19.5@12:45
 
 HCL_Historic
 	HCL||Weekly||Lowest@11@11:35@07_03_2018||Highest@26@2:35@07_03_2018
 	HCL||Monthly||Lowest@11@11:35@07_03_2018||Highest@26@2:35@07_03_2018
 	HCL||Yearly||Lowest@11@11:35@07_03_2018||Highest@26@2:35@07_03_2018
+	
+ArScrip 
+	String name;
+	String completeName;
+	ArBourse bourse;
+	float price;
+	timeOfRecord;
 Scrip Name 
 Current Data:
 	Price
@@ -73,5 +81,26 @@ Date
 	Close
 		Time
 
-		
- 
+
+Interfaces
+AsScripDataFetcher_IF
+	/*This method will bring the scrips current live data.
+	* The object returned will consist of 
+	public void getScripCurrentData();
+
+ArScripDayDataWriter_IF
+	/
+	*This method will be used to write scrip day data in the format 
+	*
+	*/
+	public boolean writeScripData();
+ArScripCurrentDataWriter_IF	
+	public boolean writeScripData();	
+ArScripWeekDataWriter_IF	
+	public boolean writeScripData();
+ArScripMonthDataWriter_IF	
+	public boolean writeScripData();
+ArScripYearDataWriter_IF	
+	public boolean writeScripData();
+ArScripCompleteDataWriter_IF	
+	public boolean writeScripData();

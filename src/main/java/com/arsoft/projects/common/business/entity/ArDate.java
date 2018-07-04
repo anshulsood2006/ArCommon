@@ -19,7 +19,7 @@ public class ArDate {
 	public ArDate(int day, ArMonthEnum month, int year) {
 		this.day = day;
 		this.month = month;
-		this.year = year;
+		this.year = 1900 + year;
 	}
 
 	public int getDay() {
@@ -47,6 +47,10 @@ public class ArDate {
 	@XmlElement(name="Year")
 	public void setYear(int year) {
 		this.year = year;
+	}
+	
+	public String toString(){
+		return "Day: "+this.day+", Month: "+this.month+", Year: "+this.year;
 	}
 
 }
