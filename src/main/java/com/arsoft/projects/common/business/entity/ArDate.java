@@ -52,5 +52,15 @@ public class ArDate {
 	public String toString(){
 		return "Day: "+this.day+", Month: "+this.month+", Year: "+this.year;
 	}
+	
+	
+	public String getDayAsString() {
+		return day < 10 ? "0" + day : String.valueOf(day);
+	}
+	
+	public String getMonthAsString() {
+		return Integer.parseInt(month.getValue()) < 10 ? "0" + month.getValue() : String.valueOf(month.getValue());
+	}
+
 
 }

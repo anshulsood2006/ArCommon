@@ -9,6 +9,9 @@ HCL_Data_Month_07_2018: HCL||January||Lowest@11@11:35@07_03_2018||Highest@26@2:3
 HCL_Data_Year_2018: HCL||2018||Lowest@11@11:35@07_03_2018||Highest@26@2:35@07_03_2018
 HCL_Data_Complete_07_03_2018: HCL||07_03_2018||20@12:35||22@12:40||19.5@12:45
 
+HCL_Data_Day_03_07_2018||Day Data||05-07-2018@12:34:35 - Header
+
+
 HCL_Historic
 	HCL||Weekly||Lowest@11@11:35@07_03_2018||Highest@26@2:35@07_03_2018
 	HCL||Monthly||Lowest@11@11:35@07_03_2018||Highest@26@2:35@07_03_2018

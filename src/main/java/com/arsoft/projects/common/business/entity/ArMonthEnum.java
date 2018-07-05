@@ -48,7 +48,7 @@ public enum ArMonthEnum {
 		return false;
 	}
 	
-	public static boolean isHavingEnumValue(String enumValue) { 
+	public static boolean isHavingEnumValue(String enumValue) {
 		for (ArMonthEnum arMonthEnum : ArMonthEnum.values()) {
 			if (enumValue == null && arMonthEnum.getValue() == null) {
 				return true;

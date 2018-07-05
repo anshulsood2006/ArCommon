@@ -7,8 +7,10 @@ import com.arsoft.projects.common.business.entity.ArDate;
 import com.arsoft.projects.common.business.entity.ArDateTime;
 import com.arsoft.projects.common.business.entity.ArMonthEnum;
 import com.arsoft.projects.common.business.entity.ArTime;
+import com.arsoft.projects.common.string.ArStringConstant;
 
 public class ArDateTimeUtil {
+	
 	public static ArDateTime getCurrentArDateTime(){
 		Date date = new Date();
 		ArDate arDate = ArDateTimeUtil.getArDate(date);
@@ -19,9 +21,27 @@ public class ArDateTimeUtil {
 		return arDateTime;
 	}
 	
-	public static void main(String[] args) {
-		ArDateTime z = ArDateTimeUtil.getCurrentArDateTime();
-		System.out.println(z);
+	/**
+	 * Get the given date as ArDateTime
+	 * @param date
+	 * @return the provided date as ArDateTime
+	 */
+	public static ArDateTime getArDateTime(Date date){
+		ArDate arDate = ArDateTimeUtil.getArDate(date);
+		ArDateTime arDateTime = new ArDateTime();
+		arDateTime.setDate(arDate);
+		ArTime arTime = ArDateTimeUtil.getArTime(date);
+		arDateTime.setTime(arTime);
+		return arDateTime;
+	}
+	
+	/**
+	 * Return the given ArDate in the format DD_MM_YYYY
+	 * @param arDate
+	 * @return the given ArDate in the format DD_MM_YYYY
+	 */
+	public static String getUnderScoredDate(ArDate arDate){
+		return arDate.getDayAsString()+ArStringConstant.UNDERSCORE+arDate.getMonthAsString()+ArStringConstant.UNDERSCORE+arDate.getYear();
 	}
 	
 	@SuppressWarnings("deprecation")
@@ -41,5 +61,14 @@ public class ArDateTimeUtil {
 		int seconds = date.getSeconds();
 		ArTime arTime = new ArTime(hour,minute, seconds, hour < 12 ? ArAmPmEnum.AM : ArAmPmEnum.PM);
 		return arTime;
+	}
+	
+	/**
+	 * Returns the given arTime in the format HH_MM_SS
+	 * @param arTime
+	 * @return the given arTime in the format HH_MM_SS
+	 */
+	public static String getUnderScoredTime(ArTime arTime) {
+		return arTime.getHourAsString()+ArStringConstant.UNDERSCORE+arTime.getMinuteAsString()+ArStringConstant.UNDERSCORE+arTime.getSecondAsString();
 	}
 }

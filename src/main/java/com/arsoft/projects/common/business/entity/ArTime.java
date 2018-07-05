@@ -105,4 +105,17 @@ public class ArTime {
 	public String toString(){
 		return "Hour: "+this.hour+", Minute: "+this.minute+", Second: "+this.second+", AmPm: "+this.amPm+", Timezone: "+this.timeZone;
 	}
+	
+	public String getHourAsString() {
+		return hour < 10 ? "0" + hour : String.valueOf(hour);
+	}
+	
+	public String getMinuteAsString() {
+		return  minute < 10 ? "0" + minute : String.valueOf(minute);
+	}
+	
+	public String getSecondAsString() {
+		return second < 10 ? "0" + second : String.valueOf(second);
+	}
+	
 }

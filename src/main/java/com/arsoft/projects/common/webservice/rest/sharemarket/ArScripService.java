@@ -17,8 +17,8 @@ import org.apache.logging.log4j.Logger;
 import org.json.JSONArray;
 
 import com.arsoft.projects.common.annotation.ArAnnotationUtil;
+import com.arsoft.projects.common.business.market.constant.ArScripConstant;
 import com.arsoft.projects.common.business.market.entities.ArScrip;
-import com.arsoft.projects.common.business.market.entities.ArScripConstant;
 import com.arsoft.projects.common.equity.ArBourse;
 import com.arsoft.projects.common.exception.ArException;
 import com.arsoft.projects.common.string.ArStringUtil;
