@@ -6,33 +6,33 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name="DateTimeStamp")
 public class ArDateTime {
 	
-	private ArDate date;
-	private ArTime time;
+	private ArDate arDate;
+	private ArTime arTime;
 	
 	public ArDateTime() {
 		
 	}
 
-	public ArDate getDate() {
-		return date;
+	public ArDate getArDate() {
+		return arDate;
 	}
 
-	@XmlElement(name="Date")
-	public void setDate(ArDate date) {
-		this.date = date;
+	@XmlElement(name="ArDate")
+	public void setArDate(ArDate arDate) {
+		this.arDate = arDate;
 	}
 
-	public ArTime getTime() {
-		return time;
+	public ArTime getArTime() {
+		return arTime;
 	}
 
-	@XmlElement(name="Time")
-	public void setTime(ArTime time) {
-		this.time = time;
+	@XmlElement(name="ArTime")
+	public void setArTime(ArTime arTime) {
+		this.arTime = arTime;
 	}
 	
 	public String toString(){
-		return "Date: "+this.date +", Time: "+this.time;
+		return "ArDate: "+this.arDate +", ArTime: "+this.arTime;
 	}
 
 }

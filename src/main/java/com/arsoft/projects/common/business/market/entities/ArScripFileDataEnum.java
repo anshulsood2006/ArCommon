@@ -80,18 +80,58 @@ public enum ArScripFileDataEnum {
 	 * @return true if the given fileName is present in the enum, else returns false
 	 */
 	public static boolean isHavingFileName(String fileName) { 
-		for (ArScripFileDataEnum ArScripFileDataEnum : ArScripFileDataEnum.values()) {
-			if (fileName == null && ArScripFileDataEnum.getFileName() == null) {
+		for (ArScripFileDataEnum arScripFileDataEnum : ArScripFileDataEnum.values()) {
+			if (fileName == null && arScripFileDataEnum.getFileName() == null) {
 				return true;
 			}
-			if(ArScripFileDataEnum.getFileName() == null || fileName == null) {
+			if(arScripFileDataEnum.getFileName() == null || fileName == null) {
 				continue;
 			}
-	        if (ArScripFileDataEnum.getFileName().toLowerCase().equals(fileName.toLowerCase())) {
+	        if (arScripFileDataEnum.getFileName().toLowerCase().equals(fileName.toLowerCase())) {
 	            return true;
 	        }
 	    }
 		return false;
+	}
+	
+	/**
+	 * Returns the ArScripFileDataEnum corresponding to the given fileType
+	 * @param fileType
+	 * @return the ArScripFileDataEnum corresponding to the given fileType
+	 */
+	public static ArScripFileDataEnum getArScripFileDataEnumByFileType(String fileType) {
+		for (ArScripFileDataEnum arScripFileDataEnum : ArScripFileDataEnum.values()) {
+			if (fileType == null && arScripFileDataEnum.getFileType()== null) {
+				return null;
+			}
+			if(arScripFileDataEnum.getFileType() == null || fileType == null) {
+				continue;
+			}
+	        if (arScripFileDataEnum.getFileType().toLowerCase().equals(fileType.toLowerCase())) {
+	            return arScripFileDataEnum;
+	        }
+	    }
+		return null;
+	}
+	
+	/**
+	 * Returns the ArScripFileDataEnum corresponding to the given fileName
+	 * @param fileName
+	 * @return the ArScripFileDataEnum corresponding to the given fileName
+	 */
+	public static ArScripFileDataEnum getArScripFileDataEnumByFileName(String fileName) {
+		for (ArScripFileDataEnum arScripFileDataEnum : ArScripFileDataEnum.values()) {
+			if (fileName == null && arScripFileDataEnum.getFileName()== null) {
+				return null;
+			}
+			if(arScripFileDataEnum.getFileName() == null || fileName == null) {
+				continue;
+			}
+	        if (arScripFileDataEnum.getFileName().toLowerCase().equals(fileName.toLowerCase())) {
+	            return arScripFileDataEnum;
+	        }
+	    }
+		return null;
 	}
 		
 }

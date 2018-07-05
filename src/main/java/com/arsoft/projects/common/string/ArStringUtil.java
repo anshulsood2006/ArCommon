@@ -4,6 +4,7 @@ import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
+import java.util.regex.Pattern;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -62,6 +63,16 @@ public class ArStringUtil {
 		}else{
 			return false;
 		}
+	}
+	
+	public static String[] splitString(String str, String pattern) {
+		if (str == null) {
+			return null;
+		}
+		if (pattern == null || pattern.length() == 0) {
+			return str.split(ArStringConstant.EMPTY_STRING);
+		}
+		return str.split(Pattern.quote(pattern));
 	}
 	
 }

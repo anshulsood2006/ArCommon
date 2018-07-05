@@ -30,7 +30,7 @@ public abstract class ArScripFileData {
 	 * 
 	 */
 	public static final String getScripDataFileName(String scrip, ArDateTime createdDateTime, ArScripFileDataEnum arScripFileDataEnum){
-		ArDate date = createdDateTime.getDate();
-		return scrip + ArStringConstant.UNDERSCORE + arScripFileDataEnum.getFileName() + ArStringConstant.UNDERSCORE + date.getDayAsString() + ArStringConstant.UNDERSCORE + date.getMonthAsString() + ArStringConstant.UNDERSCORE + createdDateTime.getDate().getYear();
+		ArDate date = createdDateTime.getArDate();
+		return scrip + ArStringConstant.UNDERSCORE + arScripFileDataEnum.getFileName() + ArStringConstant.UNDERSCORE + date.getDayAsString() + ArStringConstant.UNDERSCORE + date.getMonthAsString() + ArStringConstant.UNDERSCORE + createdDateTime.getArDate().getYear();
 	}
 }

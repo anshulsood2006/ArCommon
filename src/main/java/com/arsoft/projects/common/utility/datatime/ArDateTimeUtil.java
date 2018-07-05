@@ -15,9 +15,9 @@ public class ArDateTimeUtil {
 		Date date = new Date();
 		ArDate arDate = ArDateTimeUtil.getArDate(date);
 		ArDateTime arDateTime = new ArDateTime();
-		arDateTime.setDate(arDate);
+		arDateTime.setArDate(arDate);
 		ArTime arTime = ArDateTimeUtil.getArTime(date);
-		arDateTime.setTime(arTime);
+		arDateTime.setArTime(arTime);
 		return arDateTime;
 	}
 	
@@ -29,9 +29,9 @@ public class ArDateTimeUtil {
 	public static ArDateTime getArDateTime(Date date){
 		ArDate arDate = ArDateTimeUtil.getArDate(date);
 		ArDateTime arDateTime = new ArDateTime();
-		arDateTime.setDate(arDate);
+		arDateTime.setArDate(arDate);
 		ArTime arTime = ArDateTimeUtil.getArTime(date);
-		arDateTime.setTime(arTime);
+		arDateTime.setArTime(arTime);
 		return arDateTime;
 	}
 	

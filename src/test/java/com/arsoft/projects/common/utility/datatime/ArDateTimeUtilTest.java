@@ -1,6 +1,7 @@
 package com.arsoft.projects.common.utility.datatime;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -21,8 +22,8 @@ public class ArDateTimeUtilTest {
 		Date date = format.parse(string);
 		ArDateTime arDateTime = ArDateTimeUtil.getArDateTime(date);
 		assertNotNull(arDateTime);
-		assertNotNull(arDateTime.getDate());
-		assertNotNull(arDateTime.getTime());
+		assertNotNull(arDateTime.getArDate());
+		assertNotNull(arDateTime.getArTime());
 		assertEquals(4, date.getDay());
 		assertEquals(6, date.getMonth());
 		assertEquals(118, date.getYear());
@@ -38,7 +39,7 @@ public class ArDateTimeUtilTest {
 		Date date = format.parse(string);
 		ArDateTime arDateTime = ArDateTimeUtil.getArDateTime(date);
 		assertNotNull(arDateTime);
-		String underscoredDate = ArDateTimeUtil.getUnderScoredDate(arDateTime.getDate());
+		String underscoredDate = ArDateTimeUtil.getUnderScoredDate(arDateTime.getArDate());
 		assertEquals("05_07_2018",underscoredDate);
 	}
 	
@@ -49,7 +50,7 @@ public class ArDateTimeUtilTest {
 		Date date = format.parse(string);
 		ArDateTime arDateTime = ArDateTimeUtil.getArDateTime(date);
 		assertNotNull(arDateTime);
-		String underscoredTime = ArDateTimeUtil.getUnderScoredTime(arDateTime.getTime());
+		String underscoredTime = ArDateTimeUtil.getUnderScoredTime(arDateTime.getArTime());
 		assertEquals("02_08_56",underscoredTime);
 	}
 	
