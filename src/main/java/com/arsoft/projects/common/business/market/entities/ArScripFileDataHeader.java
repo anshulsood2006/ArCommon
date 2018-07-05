@@ -1,6 +1,9 @@
 package com.arsoft.projects.common.business.market.entities;
 
+import java.util.regex.Pattern;
+
 import com.arsoft.projects.common.business.entity.ArDateTime;
+import com.arsoft.projects.common.exception.ArException;
 import com.arsoft.projects.common.string.ArStringConstant;
 import com.arsoft.projects.common.utility.datatime.ArDateTimeUtil;
 
@@ -62,9 +65,14 @@ public class ArScripFileDataHeader {
 	 * Returns the ArScripFileDataHeader object corresponding to the given String
 	 * @param headerString The header in string format
 	 * @return
+	 * @throws ArException 
 	 */
-	public static ArScripFileDataHeader getArScripFileDataHeader(String headerString){
+	public static ArScripFileDataHeader getArScripFileDataHeader(String headerString) throws ArException{
 		ArScripFileDataHeader arScripFileDataHeader = new ArScripFileDataHeader();
+		String[] parts = headerString.split(Pattern.quote("||"));
+        if (parts == null || parts.length != 5){
+        	throw new ArException("ArScripFileDataHeader: Invalid Header String");
+        }
 		return arScripFileDataHeader;
 	}
 }

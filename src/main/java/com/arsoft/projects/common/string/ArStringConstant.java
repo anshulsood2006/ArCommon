@@ -10,7 +10,7 @@ public class ArStringConstant {
 	public static final String EMPTY_STRING = "";
 	public static final String COMMA = ",";
 	public static final String PIPE = "|";
-	public static final String DOUBLE_PIPE = "|";
+	public static final String DOUBLE_PIPE = "||";
 	public static final String UNDERSCORE = "_";
 	public static final String AT_THE_RATE = "@";
 }
