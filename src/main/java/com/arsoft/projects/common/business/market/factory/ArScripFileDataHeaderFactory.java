@@ -18,7 +18,7 @@ public class ArScripFileDataHeaderFactory {
 	 */
 	public static String getHeader(String scrip, ArDateTime createdDateTime, ArDateTime updatedDateTime, ArScripFileDataEnum arScripFileDataEnum) {
 		ArScripFileDataHeader arScripFileDataHeader = new ArScripFileDataHeader(scrip, createdDateTime, updatedDateTime, arScripFileDataEnum);
-		return arScripFileDataHeader.getArScripFileDataHeaderAsString(arScripFileDataHeader);
+		return ArScripFileDataHeader.getArScripFileDataHeaderAsString(arScripFileDataHeader);
 	}
 	
 	
