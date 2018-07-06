@@ -22,13 +22,13 @@ Day Data File Example:
 SBIN||SBIN_Day_Data_05_07_2018||Day Data||05_07_2018@12_08_56||05_07_2018@14_22_33
 
 Month Data File Example:
-SBIN||SBIN_Month_Data_05_07_2018||Month Data||05_07_2018@12_08_56||05_07_2018@14_22_33
+SBIN||SBIN_Month_Data_07_2018||Month Data||05_07_2018@12_08_56||05_07_2018@14_22_33
 
 Week Data File Example
-SBIN||SBIN_Week_Data_05_07_2018||Week Data||05_07_2018@12_08_56||05_07_2018@14_22_33
+SBIN||SBIN_Week_Data_27_2018||Week Data||05_07_2018@12_08_56||05_07_2018@14_22_33
 
 Year Data File Example
-SBIN||SBIN_Year_Data_05_07_2018||Year Data||05_07_2018@12_08_56||05_07_2018@14_22_33
+SBIN||SBIN_Year_Data_2018||Year Data||05_07_2018@12_08_56||05_07_2018@14_22_33
 
 
 HCL_Historic
