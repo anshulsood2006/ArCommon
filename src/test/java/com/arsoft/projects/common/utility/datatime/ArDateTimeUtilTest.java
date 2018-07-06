@@ -11,7 +11,9 @@ import java.util.Locale;
 
 import org.junit.Test;
 
+import com.arsoft.projects.common.business.entity.ArDate;
 import com.arsoft.projects.common.business.entity.ArDateTime;
+import com.arsoft.projects.common.business.entity.ArMonthEnum;
 
 public class ArDateTimeUtilTest {
 	
@@ -52,6 +54,13 @@ public class ArDateTimeUtilTest {
 		assertNotNull(arDateTime);
 		String underscoredTime = ArDateTimeUtil.getUnderScoredTime(arDateTime.getArTime());
 		assertEquals("02_08_56",underscoredTime);
+	}
+	
+	@Test
+	public void verifyGetDate() throws ParseException{
+		ArDate arDate = new ArDate(5, ArMonthEnum.JULY, 2018);
+		Date date = ArDateTimeUtil.getDate(arDate);
+		assertNotNull(date);
 	}
 	
 }

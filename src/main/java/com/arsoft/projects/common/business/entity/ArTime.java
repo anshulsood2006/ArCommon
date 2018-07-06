@@ -36,6 +36,10 @@ public class ArTime {
 		this.amPm = amPm;
 	}
 	
+	public static ArTime getArTime(int hour, int minute, int second, ArAmPmEnum amPm){
+		return new ArTime(hour, minute, second, amPm);
+	}
+	
 	public ArTime(int hour, ArAmPmEnum amPm, ArTimeZoneEnum timezone) {
 		this.hour = hour;
 		this.amPm = amPm;

@@ -62,5 +62,9 @@ public class ArDate {
 		return Integer.parseInt(month.getValue()) < 10 ? "0" + month.getValue() : String.valueOf(month.getValue());
 	}
 
+	public static ArDate getArDate(int day, ArMonthEnum month, int year) {
+		return new ArDate(day, month, year);
+	}
+
 
 }

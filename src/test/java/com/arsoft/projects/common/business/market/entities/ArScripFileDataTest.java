@@ -28,10 +28,10 @@ public class ArScripFileDataTest {
 		fileName = ArScripFileData.getScripDataFileName("HCL", createdDateTime, ArScripFileDataEnum.FILE_DAY_DATA_COMPLETE);
 		assertEquals(fileName, "HCL_Complete_Day_Data_05_07_2018");
 		fileName = ArScripFileData.getScripDataFileName("HCL", createdDateTime, ArScripFileDataEnum.FILE_MONTH_DATA);
-		assertEquals(fileName, "HCL_Month_Data_05_07_2018");
+		assertEquals(fileName, "HCL_Month_Data_07_2018");
 		fileName = ArScripFileData.getScripDataFileName("HCL", createdDateTime, ArScripFileDataEnum.FILE_WEEK_DATA);
-		assertEquals(fileName, "HCL_Week_Data_05_07_2018");
+		assertEquals(fileName, "HCL_Week_Data_27_2018");
 		fileName = ArScripFileData.getScripDataFileName("HCL", createdDateTime, ArScripFileDataEnum.FILE_YEAR_DATA);
-		assertEquals(fileName, "HCL_Year_Data_05_07_2018");
+		assertEquals(fileName, "HCL_Year_Data_2018");
 	}
 }

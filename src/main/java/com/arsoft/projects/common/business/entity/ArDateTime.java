@@ -12,6 +12,10 @@ public class ArDateTime {
 	public ArDateTime() {
 		
 	}
+	
+	public static ArDateTime getArDateTime(){
+		return new ArDateTime();
+	}
 
 	public ArDate getArDate() {
 		return arDate;

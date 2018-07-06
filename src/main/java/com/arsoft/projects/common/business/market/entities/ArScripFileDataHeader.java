@@ -8,7 +8,6 @@ import com.arsoft.projects.common.business.entity.ArTime;
 import com.arsoft.projects.common.exception.ArException;
 import com.arsoft.projects.common.string.ArStringConstant;
 import com.arsoft.projects.common.string.ArStringUtil;
-import com.arsoft.projects.common.utility.datatime.ArDateTimeUtil;
 
 public class ArScripFileDataHeader {
 	
@@ -53,6 +52,10 @@ public class ArScripFileDataHeader {
 		
 	}
 	
+	public static ArScripFileDataHeader getArScripFileDataHeader(){
+		return new ArScripFileDataHeader();
+	}
+	
 	public ArScripFileDataHeader(String scrip, ArDateTime createdDateTime, ArDateTime updatedDateTime, ArScripFileDataEnum arScripFileDataEnum){
 		this.scrip = scrip;
 		this.createdDateTime = createdDateTime;
@@ -60,8 +63,8 @@ public class ArScripFileDataHeader {
 		this.arScripFileDataEnum = arScripFileDataEnum;
 	}
 	
-	public static String getArScripFileDataHeaderAsString(ArScripFileDataHeader arScripFileDataHeader){
-		return arScripFileDataHeader.getScrip() + ArStringConstant.DOUBLE_PIPE + ArScripFileData.getScripDataFileName(arScripFileDataHeader.getScrip(), arScripFileDataHeader.getCreatedDateTime(), arScripFileDataHeader.getArScripFileDataEnum()) + ArStringConstant.DOUBLE_PIPE + arScripFileDataHeader.getArScripFileDataEnum().getFileType() + ArStringConstant.DOUBLE_PIPE + ArDateTimeUtil.getUnderScoredDate(arScripFileDataHeader.getCreatedDateTime().getArDate()) + ArStringConstant.AT_THE_RATE + ArDateTimeUtil.getUnderScoredTime(arScripFileDataHeader.getCreatedDateTime().getArTime()) + ArStringConstant.DOUBLE_PIPE + ArDateTimeUtil.getUnderScoredDate(arScripFileDataHeader.getUpdatedDateTime().getArDate()) + ArStringConstant.AT_THE_RATE + ArDateTimeUtil.getUnderScoredTime(arScripFileDataHeader.getUpdatedDateTime().getArTime());
+	public static ArScripFileDataHeader getArScripFileDataHeader(String scrip, ArDateTime createdDateTime, ArDateTime updatedDateTime, ArScripFileDataEnum arScripFileDataEnum){
+		return new ArScripFileDataHeader(scrip, createdDateTime, updatedDateTime, arScripFileDataEnum);
 	}
 	
 	/**
@@ -71,6 +74,10 @@ public class ArScripFileDataHeader {
 	 * @throws ArException 
 	 */
 	public static ArScripFileDataHeader getArScripFileDataHeader(String headerString) throws ArException{
+		if (headerString == null || headerString.length() == 0){
+        	throw new ArException("ArScripFileDataHeader: Null Header String");
+        }
+		
 		ArScripFileDataHeader arScripFileDataHeader = new ArScripFileDataHeader();
 		String[] parts = ArStringUtil.splitString(headerString, ArStringConstant.DOUBLE_PIPE);
         if (parts == null || parts.length != 5){
@@ -95,7 +102,7 @@ public class ArScripFileDataHeader {
         }
         ArMonthEnum month = ArMonthEnum.getArMonthEnum(monthString);
 		int year = Integer.parseInt(createdDateArraySplitted[2]);
-		ArDate arDate = new ArDate(day, month, year);
+		ArDate arDate = ArDate.getArDate(day, month, year);
         String[] createdTimeArraySplitted = ArStringUtil.splitString(createdDateArray[1], ArStringConstant.UNDERSCORE);
         if (createdTimeArraySplitted == null || createdDateArraySplitted.length != 3){
         	throw new ArException("ArScripFileDataHeader: Invalid Created Date Time Format in Header String");
@@ -104,8 +111,8 @@ public class ArScripFileDataHeader {
 		int minute = Integer.parseInt(createdTimeArraySplitted[1]);
 		int second = Integer.parseInt(createdTimeArraySplitted[2]);
 		ArAmPmEnum amPm = hour < 12 ? ArAmPmEnum.AM: ArAmPmEnum.PM;
-		ArTime arTime = new ArTime(hour, minute, second, amPm);
-		ArDateTime createdDateTime = new ArDateTime();
+		ArTime arTime = ArTime.getArTime(hour, minute, second, amPm);
+		ArDateTime createdDateTime = ArDateTime.getArDateTime();
         createdDateTime.setArDate(arDate);
         createdDateTime.setArTime(arTime);
         arScripFileDataHeader.setCreatedDateTime(createdDateTime);
@@ -125,7 +132,7 @@ public class ArScripFileDataHeader {
         }
         month = ArMonthEnum.getArMonthEnum(monthString);
 		year = Integer.parseInt(updatedDateArraySplitted[2]);
-		arDate = new ArDate(day, month, year);
+		arDate = ArDate.getArDate(day, month, year);
         String[] updatedTimeArraySplitted = ArStringUtil.splitString(updatedDateArray[1], ArStringConstant.UNDERSCORE);
         if (updatedTimeArraySplitted == null || updatedTimeArraySplitted.length != 3){
         	throw new ArException("ArScripFileDataHeader: Invalid Updated Date Time Format in Header String");
@@ -134,8 +141,8 @@ public class ArScripFileDataHeader {
 		minute = Integer.parseInt(updatedTimeArraySplitted[1]);
 		second = Integer.parseInt(updatedTimeArraySplitted[2]);
 		amPm = hour < 12 ? ArAmPmEnum.AM: ArAmPmEnum.PM;
-		arTime = new ArTime(hour, minute, second, amPm);
-        ArDateTime updatedDateTime = new ArDateTime();
+		arTime = ArTime.getArTime(hour, minute, second, amPm);
+        ArDateTime updatedDateTime = ArDateTime.getArDateTime();
         updatedDateTime.setArDate(arDate);
         updatedDateTime.setArTime(arTime);
         arScripFileDataHeader.setUpdatedDateTime(updatedDateTime);

@@ -1,9 +1,12 @@
 package com.arsoft.projects.common.business.market.entities;
 
+import java.text.ParseException;
+
 import com.arsoft.projects.common.business.entity.ArDate;
 import com.arsoft.projects.common.business.entity.ArDateTime;
 import com.arsoft.projects.common.business.market.factory.ArScripFileDataHeaderFactory;
 import com.arsoft.projects.common.string.ArStringConstant;
+import com.arsoft.projects.common.utility.datatime.ArCalendarUtil;
 
 public abstract class ArScripFileData {
 	
@@ -13,7 +16,7 @@ public abstract class ArScripFileData {
 	private ArDateTime updatedDateTime;
 	private ArScripFileDataEnum fileType;
 	
-	public ArScripFileData(String scrip, ArDateTime createdDateTime, ArDateTime updatedDateTime, ArScripFileDataEnum fileType) {
+	public ArScripFileData(String scrip, ArDateTime createdDateTime, ArDateTime updatedDateTime, ArScripFileDataEnum fileType) throws ParseException {
 		this.scrip = scrip;
 		this.createdDateTime = createdDateTime;
 		this.updatedDateTime = updatedDateTime;
@@ -27,10 +30,26 @@ public abstract class ArScripFileData {
 	 * @param createdDateTime
 	 * @param arScripFileDataEnum
 	 * @return name of the file to be created
+	 * @throws ParseException 
 	 * 
 	 */
-	public static final String getScripDataFileName(String scrip, ArDateTime createdDateTime, ArScripFileDataEnum arScripFileDataEnum){
+	public static final String getScripDataFileName(String scrip, ArDateTime createdDateTime, ArScripFileDataEnum arScripFileDataEnum) throws ParseException{
 		ArDate date = createdDateTime.getArDate();
-		return scrip + ArStringConstant.UNDERSCORE + arScripFileDataEnum.getFileName() + ArStringConstant.UNDERSCORE + date.getDayAsString() + ArStringConstant.UNDERSCORE + date.getMonthAsString() + ArStringConstant.UNDERSCORE + createdDateTime.getArDate().getYear();
+		String postFix = "";
+		switch(arScripFileDataEnum){
+			case FILE_MONTH_DATA:
+				postFix = ArStringConstant.UNDERSCORE + date.getMonthAsString() + ArStringConstant.UNDERSCORE + createdDateTime.getArDate().getYear();
+				break;
+			case FILE_WEEK_DATA:
+				postFix = ArStringConstant.UNDERSCORE + ArCalendarUtil.getCurrentWeekOfYear(createdDateTime.getArDate()) + ArStringConstant.UNDERSCORE + createdDateTime.getArDate().getYear();
+				break;
+			case FILE_YEAR_DATA:
+				postFix = ArStringConstant.UNDERSCORE + createdDateTime.getArDate().getYear();
+				break;
+			default:
+				postFix = ArStringConstant.UNDERSCORE + date.getDayAsString() + ArStringConstant.UNDERSCORE + date.getMonthAsString() + ArStringConstant.UNDERSCORE + createdDateTime.getArDate().getYear();
+				break;
+		}
+		return scrip + ArStringConstant.UNDERSCORE + arScripFileDataEnum.getFileName() + postFix;
 	}
 }

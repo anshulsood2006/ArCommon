@@ -2,14 +2,33 @@
 
 Data files to be created:
 
-HCL_Data_Current_07_03_2018: HCL||07_03_2018||20@12:35||22@12:40||19.5@12:45
-HCL_Data_Day_03_07_2018: HCL||07_03_2018||Open@20@9:00||Lowest@11@11:35||Highest@26@2:35||Close@21@3:30
-HCL_Data_Week_22_2018: HCL||22(07-02-2018 to 07-08-2018)||Lowest@11@11:35@07_03_2018||Highest@26@2:35@07_03_2018
-HCL_Data_Month_07_2018: HCL||January||Lowest@11@11:35@07_03_2018||Highest@26@2:35@07_03_2018
-HCL_Data_Year_2018: HCL||2018||Lowest@11@11:35@07_03_2018||Highest@26@2:35@07_03_2018
-HCL_Data_Complete_07_03_2018: HCL||07_03_2018||20@12:35||22@12:40||19.5@12:45
+Headers Example:
+SBIN||SBIN_Current_Data_05_07_2018||Current Data||05_07_2018@12_08_56||05_07_2018@14_22_33
+SBIN||SBIN_Complete_Day_Data_05_07_2018||Complete Day Data||05_07_2018@12_08_56||05_07_2018@14_22_33
+SBIN||SBIN_Day_Data_05_07_2018||Day Data||05_07_2018@12_08_56||05_07_2018@14_22_33
+SBIN||SBIN_Month_Data_07_2018||Month Data||05_07_2018@12_08_56||05_07_2018@14_22_33
+SBIN||SBIN_Week_Data_22_2018||Week Data||05_07_2018@12_08_56||05_07_2018@14_22_33
+SBIN||SBIN_Year_Data_2018||Year Data||05_07_2018@12_08_56||05_07_2018@14_22_33
 
-HCL_Data_Day_03_07_2018||Day Data||05-07-2018@12:34:35 - Header
+Current Data File Example:
+SBIN||SBIN_Current_Data_05_07_2018||Current Data||05_07_2018@12_08_56||05_07_2018@14_22_33
+207.65@12_08_56||205.25@12_12_56||
+
+Complete Day Data File Example:
+SBIN||SBIN_Complete_Day_Data_05_07_2018||Complete Day Data||05_07_2018@12_08_56||05_07_2018@14_22_33
+207.65@12_08_56||205.25@12_12_56||
+
+Day Data File Example:
+SBIN||SBIN_Day_Data_05_07_2018||Day Data||05_07_2018@12_08_56||05_07_2018@14_22_33
+
+Month Data File Example:
+SBIN||SBIN_Month_Data_05_07_2018||Month Data||05_07_2018@12_08_56||05_07_2018@14_22_33
+
+Week Data File Example
+SBIN||SBIN_Week_Data_05_07_2018||Week Data||05_07_2018@12_08_56||05_07_2018@14_22_33
+
+Year Data File Example
+SBIN||SBIN_Year_Data_05_07_2018||Year Data||05_07_2018@12_08_56||05_07_2018@14_22_33
 
 
 HCL_Historic

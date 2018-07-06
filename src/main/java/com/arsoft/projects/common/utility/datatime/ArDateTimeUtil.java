@@ -1,6 +1,10 @@
 package com.arsoft.projects.common.utility.datatime;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 import com.arsoft.projects.common.business.entity.ArAmPmEnum;
 import com.arsoft.projects.common.business.entity.ArDate;
@@ -70,5 +74,20 @@ public class ArDateTimeUtil {
 	 */
 	public static String getUnderScoredTime(ArTime arTime) {
 		return arTime.getHourAsString()+ArStringConstant.UNDERSCORE+arTime.getMinuteAsString()+ArStringConstant.UNDERSCORE+arTime.getSecondAsString();
+	}
+	
+	/**
+	 * Return the date object corresponding to the ArDate
+	 * @param arDate
+	 * @return
+	 * @throws ParseException
+	 */
+	public static Date getDate(ArDate arDate) throws ParseException {
+		int day = arDate.getDay();
+		String month = arDate.getMonth().getValue();
+		int year = arDate.getYear();
+		String string = day+"/"+month+"/"+year;
+		DateFormat format = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
+		return format.parse(string);
 	}
 }

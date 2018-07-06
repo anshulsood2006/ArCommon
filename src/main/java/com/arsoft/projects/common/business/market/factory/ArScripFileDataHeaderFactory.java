@@ -1,8 +1,12 @@
 package com.arsoft.projects.common.business.market.factory;
 
+import java.text.ParseException;
+
 import com.arsoft.projects.common.business.entity.ArDateTime;
+import com.arsoft.projects.common.business.market.entities.ArScripFileData;
 import com.arsoft.projects.common.business.market.entities.ArScripFileDataEnum;
-import com.arsoft.projects.common.business.market.entities.ArScripFileDataHeader;
+import com.arsoft.projects.common.string.ArStringConstant;
+import com.arsoft.projects.common.utility.datatime.ArDateTimeUtil;
 
 public class ArScripFileDataHeaderFactory {
 	
@@ -15,11 +19,9 @@ public class ArScripFileDataHeaderFactory {
 	 * @param updatedDateTime
 	 * @param fileType
 	 * @return
-	 */
-	public static String getHeader(String scrip, ArDateTime createdDateTime, ArDateTime updatedDateTime, ArScripFileDataEnum arScripFileDataEnum) {
-		ArScripFileDataHeader arScripFileDataHeader = new ArScripFileDataHeader(scrip, createdDateTime, updatedDateTime, arScripFileDataEnum);
-		return ArScripFileDataHeader.getArScripFileDataHeaderAsString(arScripFileDataHeader);
+	 * @throws ParseException 
+	 */	
+	public static String getHeader(String scrip, ArDateTime createdDateTime, ArDateTime updatedDateTime, ArScripFileDataEnum arScripFileDataEnum) throws ParseException{
+		return scrip + ArStringConstant.DOUBLE_PIPE + ArScripFileData.getScripDataFileName(scrip, createdDateTime, arScripFileDataEnum) + ArStringConstant.DOUBLE_PIPE + arScripFileDataEnum.getFileType() + ArStringConstant.DOUBLE_PIPE + ArDateTimeUtil.getUnderScoredDate(createdDateTime.getArDate()) + ArStringConstant.AT_THE_RATE + ArDateTimeUtil.getUnderScoredTime(createdDateTime.getArTime()) + ArStringConstant.DOUBLE_PIPE + ArDateTimeUtil.getUnderScoredDate(updatedDateTime.getArDate()) + ArStringConstant.AT_THE_RATE + ArDateTimeUtil.getUnderScoredTime(updatedDateTime.getArTime());
 	}
-	
-	
 }
