@@ -7,28 +7,34 @@ SBIN||SBIN_Current_Data_05_07_2018||Current Data||05_07_2018@12_08_56||05_07_201
 SBIN||SBIN_Complete_Day_Data_05_07_2018||Complete Day Data||05_07_2018@12_08_56||05_07_2018@14_22_33
 SBIN||SBIN_Day_Data_05_07_2018||Day Data||05_07_2018@12_08_56||05_07_2018@14_22_33
 SBIN||SBIN_Month_Data_07_2018||Month Data||05_07_2018@12_08_56||05_07_2018@14_22_33
-SBIN||SBIN_Week_Data_22_2018||Week Data||05_07_2018@12_08_56||05_07_2018@14_22_33
+SBIN||SBIN_Week_Data_27_2018||Week Data||05_07_2018@12_08_56||05_07_2018@14_22_33
 SBIN||SBIN_Year_Data_2018||Year Data||05_07_2018@12_08_56||05_07_2018@14_22_33
 
 Current Data File Example:
 SBIN||SBIN_Current_Data_05_07_2018||Current Data||05_07_2018@12_08_56||05_07_2018@14_22_33
-207.65@12_08_56||205.25@12_12_56||
+207.65@12_08_56
+price@date@time||price@date@time
 
 Complete Day Data File Example:
 SBIN||SBIN_Complete_Day_Data_05_07_2018||Complete Day Data||05_07_2018@12_08_56||05_07_2018@14_22_33
-207.65@12_08_56||205.25@12_12_56||
+207.65@date@12_08_56||205.25@date@12_12_56||
+price@date@time||price@date@time
 
 Day Data File Example:
 SBIN||SBIN_Day_Data_05_07_2018||Day Data||05_07_2018@12_08_56||05_07_2018@14_22_33
+previouscloseprice@date@time||openPrice@date@time||highestPrice@date@time||lowestPrice@date@time||closePrice@date@time
 
 Month Data File Example:
 SBIN||SBIN_Month_Data_07_2018||Month Data||05_07_2018@12_08_56||05_07_2018@14_22_33
+highestPrice@date@time||lowestPrice@date@time
 
 Week Data File Example
 SBIN||SBIN_Week_Data_27_2018||Week Data||05_07_2018@12_08_56||05_07_2018@14_22_33
+highestPrice@date@time||lowestPrice@date@time
 
 Year Data File Example
 SBIN||SBIN_Year_Data_2018||Year Data||05_07_2018@12_08_56||05_07_2018@14_22_33
+highestPrice@date@time||lowestPrice@date@time
 
 
 HCL_Historic
@@ -36,74 +42,23 @@ HCL_Historic
 	HCL||Monthly||Lowest@11@11:35@07_03_2018||Highest@26@2:35@07_03_2018
 	HCL||Yearly||Lowest@11@11:35@07_03_2018||Highest@26@2:35@07_03_2018
 	
-ArScrip 
-	String name;
-	String completeName;
-	ArBourse bourse;
-	float price;
-	timeOfRecord;
-Scrip Name 
-Current Data:
-	Price
-	DateTime
-		Date
-		Time
-Historic Data:
-	DailyLowest
-		Price
-		DateTime
-			Date
-			Time		
-	DailyHighest
-		Price
-		DateTime
-			Date
-			Time	
-	WeeklyLowest
-		Price
-		DateTime
-			Date
-			Time		
-	WeeklyHighest
-		Price
-		DateTime
-			Date
-			Time
-	MonthlyLowest
-		Price
-		DateTime
-			Date
-			Time		
-	MonthlyHighest
-		Price
-		DateTime
-			Date
-			Time
-	YearlyLowest
-		Price
-		DateTime
-			Date
-			Time		
-	YearlyHighest
-		Price
-		DateTime
-			Date
-			Time
-			
-Date wise data
-
-Date 
-	Date
-	Low
-		Time
-	Highest
-		Time
-	Open
-		Time
-	Close
-		Time
-
-
+ArScripFileData
+	ArScripFileDataHeader
+	ArScripFileDataFooter
+		scrip;
+		enum == year, week, month
+			highestPrice
+			lowestPrice
+		enum == day
+			previousClosePrice
+			openPrice
+			highestPrice
+			lowestPrice
+			closePrice
+		enum == current
+			currentPrice
+		enum == complete
+			List currentPrice
 Interfaces
 AsScripDataFetcher_IF
 	/*This method will bring the scrips current live data.

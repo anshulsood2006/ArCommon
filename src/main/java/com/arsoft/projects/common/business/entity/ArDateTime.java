@@ -13,6 +13,11 @@ public class ArDateTime {
 		
 	}
 	
+	public ArDateTime(ArDate arDate, ArTime arTime) {
+		this.arDate = arDate;
+		this.arTime = arTime;
+	}
+	
 	public static ArDateTime getArDateTime(){
 		return new ArDateTime();
 	}

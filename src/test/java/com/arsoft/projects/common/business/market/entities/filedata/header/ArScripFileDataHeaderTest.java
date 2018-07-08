@@ -1,13 +1,14 @@
-package com.arsoft.projects.common.business.market.entities;
+package com.arsoft.projects.common.business.market.entities.filedata.header;
 
 import org.junit.Test;
 
+import com.arsoft.projects.common.business.market.entities.filedata.header.ArScripDataFileHeader;
 import com.arsoft.projects.common.exception.ArException;
 
 public class ArScripFileDataHeaderTest {
 	@Test
 	public void verifyGetArScripFileDataHeader() throws ArException{
 		String headerString = "SBIN||SBIN_Current_Data_05_07_2018||Current Data||05_07_2018@12_08_56||05_07_2018@14_22_33";
-		ArScripFileDataHeader.getArScripFileDataHeader(headerString);
+		ArScripDataFileHeader.getArScripDataFileHeader(headerString);
 	}
 }
