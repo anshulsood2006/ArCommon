@@ -1,4 +1,4 @@
-package com.arsoft.projects.common.business.market.entities.filedata.footer;
+package com.arsoft.projects.common.business.market.entities;
 
 import com.arsoft.projects.common.business.entity.ArDateTime;
 
