@@ -1,7 +1,7 @@
-package com.arsoft.projects.common.business.market.entities.filedata;
+package com.arsoft.projects.common.business.market.entities.datafile;
 
-import com.arsoft.projects.common.business.market.entities.filedata.footer.ArScripDataFileFooter;
-import com.arsoft.projects.common.business.market.entities.filedata.header.ArScripDataFileHeader;
+import com.arsoft.projects.common.business.market.entities.datafile.footer.ArScripDataFileFooter;
+import com.arsoft.projects.common.business.market.entities.datafile.header.ArScripDataFileHeader;
 import com.arsoft.projects.common.business.market.factory.ArScripFileDataHeaderFactory;
 
 public abstract class ArScripDataFile {

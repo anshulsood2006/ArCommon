@@ -1,11 +1,11 @@
-package com.arsoft.projects.common.business.market.entities.filedata.header;
+package com.arsoft.projects.common.business.market.entities.datafile.header;
 
 import com.arsoft.projects.common.business.entity.ArAmPmEnum;
 import com.arsoft.projects.common.business.entity.ArDate;
 import com.arsoft.projects.common.business.entity.ArDateTime;
 import com.arsoft.projects.common.business.entity.ArMonthEnum;
 import com.arsoft.projects.common.business.entity.ArTime;
-import com.arsoft.projects.common.business.market.entities.filedata.ArScripDataFileEnum;
+import com.arsoft.projects.common.business.market.entities.datafile.ArScripDataFileEnum;
 import com.arsoft.projects.common.exception.ArException;
 import com.arsoft.projects.common.string.ArStringConstant;
 import com.arsoft.projects.common.string.ArStringUtil;

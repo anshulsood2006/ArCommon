@@ -2,7 +2,7 @@ package com.arsoft.projects.common.business.market.entities.filedata.header;
 
 import org.junit.Test;
 
-import com.arsoft.projects.common.business.market.entities.filedata.header.ArScripDataFileHeader;
+import com.arsoft.projects.common.business.market.entities.datafile.header.ArScripDataFileHeader;
 import com.arsoft.projects.common.exception.ArException;
 
 public class ArScripFileDataHeaderTest {

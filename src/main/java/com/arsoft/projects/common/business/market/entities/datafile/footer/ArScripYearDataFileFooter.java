@@ -1,6 +1,6 @@
-package com.arsoft.projects.common.business.market.entities.filedata.footer;
+package com.arsoft.projects.common.business.market.entities.datafile.footer;
 
-import com.arsoft.projects.common.business.market.entities.filedata.ArScripDataFileEnum;
+import com.arsoft.projects.common.business.market.entities.datafile.ArScripDataFileEnum;
 import com.arsoft.projects.common.exception.ArException;
 
 public class ArScripYearDataFileFooter extends ArScripDataFileWithOnlyHighLowFooter{

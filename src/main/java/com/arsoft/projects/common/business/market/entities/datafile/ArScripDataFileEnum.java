@@ -1,4 +1,4 @@
-package com.arsoft.projects.common.business.market.entities.filedata;
+package com.arsoft.projects.common.business.market.entities.datafile;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,7 +1,7 @@
 package com.arsoft.projects.common.business.market.factory;
 
-import com.arsoft.projects.common.business.market.entities.filedata.ArScripDataFileEnum;
-import com.arsoft.projects.common.business.market.entities.filedata.footer.ArScripDataFileFooter;
+import com.arsoft.projects.common.business.market.entities.datafile.ArScripDataFileEnum;
+import com.arsoft.projects.common.business.market.entities.datafile.footer.ArScripDataFileFooter;
 
 public class ArScripFileDataFooterFactory {
 

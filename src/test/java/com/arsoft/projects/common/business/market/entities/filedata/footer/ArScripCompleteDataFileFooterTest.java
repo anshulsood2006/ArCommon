@@ -13,7 +13,7 @@ import com.arsoft.projects.common.business.entity.ArDateTime;
 import com.arsoft.projects.common.business.entity.ArMonthEnum;
 import com.arsoft.projects.common.business.entity.ArTime;
 import com.arsoft.projects.common.business.market.entities.ArPriceData;
-import com.arsoft.projects.common.business.market.entities.filedata.footer.ArScripCompleteDayDataFileFooter;
+import com.arsoft.projects.common.business.market.entities.datafile.footer.ArScripCompleteDayDataFileFooter;
 import com.arsoft.projects.common.exception.ArException;
 
 public class ArScripCompleteDataFileFooterTest {

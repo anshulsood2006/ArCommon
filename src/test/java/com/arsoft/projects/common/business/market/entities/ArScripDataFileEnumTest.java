@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.arsoft.projects.common.business.market.entities.filedata.ArScripDataFileEnum;
+import com.arsoft.projects.common.business.market.entities.datafile.ArScripDataFileEnum;
 
 public class ArScripDataFileEnumTest {
 	
