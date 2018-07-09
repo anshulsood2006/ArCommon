@@ -2,7 +2,6 @@ package com.arsoft.projects.common.business.market.entities.datafile;
 
 import com.arsoft.projects.common.business.market.entities.datafile.footer.ArScripDataFileFooter;
 import com.arsoft.projects.common.business.market.entities.datafile.header.ArScripDataFileHeader;
-import com.arsoft.projects.common.business.market.factory.ArScripFileDataHeaderFactory;
 
 public abstract class ArScripDataFile {
 	
@@ -25,10 +24,10 @@ public abstract class ArScripDataFile {
 		this.arScripDataFileFooter = arScripDataFileFooter;
 	}
 
-
-
 	public ArScripDataFile(ArScripDataFileHeader arScripDataFileHeader, ArScripDataFileFooter arScripFileDataFooter) {
-		this.arScripDataFileHeader = ArScripFileDataHeaderFactory.getArScripDataFileHeader(arScripDataFileHeader.getScrip(), arScripDataFileHeader.getCreatedDateTime(), arScripDataFileHeader.getUpdatedDateTime(), arScripDataFileHeader.getArScripFileDataEnum());
-		//this.arScripDataFileFooter = ArScripFileDataFooterFactory.getArScripFileDataFooter(arScripFileDataHeader.getScrip(), arScripFileDataHeader.getArScripFileDataEnum(), arScripFileDataFooter);
+		this.arScripDataFileHeader = arScripDataFileHeader;//ArScripFileDataHeaderFactory.getArScripDataFileHeader(arScripDataFileHeader.getScrip(), arScripDataFileHeader.getCreatedDateTime(), arScripDataFileHeader.getUpdatedDateTime(), arScripDataFileHeader.getArScripFileDataEnum());
+		this.arScripDataFileFooter = arScripFileDataFooter;//ArScripFileDataFooterFactory.getArScripFileDataFooter(arScripDataFileHeader.getScrip(), arScripDataFileHeader.getArScripFileDataEnum(), arScripFileDataFooter);
 	}
+	
+	
 }

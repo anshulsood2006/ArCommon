@@ -11,7 +11,7 @@ import java.util.Locale;
 import org.junit.Test;
 
 import com.arsoft.projects.common.business.entity.ArDateTime;
-import com.arsoft.projects.common.business.market.entities.datafile.ArScripDataFileEnum;
+import com.arsoft.projects.common.business.market.constant.ArScripDataFileEnum;
 import com.arsoft.projects.common.business.market.factory.ArScripFileDataHeaderFactory;
 import com.arsoft.projects.common.utility.datatime.ArDateTimeUtil;
 

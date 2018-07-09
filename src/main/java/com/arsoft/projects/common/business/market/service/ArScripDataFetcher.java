@@ -1,6 +1,7 @@
-package com.arsoft.projects.common.business.market.interfaces;
+package com.arsoft.projects.common.business.market.service;
 
 import com.arsoft.projects.common.business.market.entities.ArScrip;
+import com.arsoft.projects.common.business.market.interfaces.ArScripDataFetcher_IF;
 import com.arsoft.projects.common.equity.ArBourse;
 import com.arsoft.projects.common.webservice.rest.sharemarket.ArScripUtil;
 
@@ -16,6 +17,7 @@ public class ArScripDataFetcher implements ArScripDataFetcher_IF{
 		ArScripDataFetcher a = new ArScripDataFetcher();
 		ArScrip s = a.getScripCurrentData("SBIN", ArBourse.NSE);
 		System.out.println(s);
+		//ArScripDataFile arScripDataFile = ArScr
 	}
 
 }
