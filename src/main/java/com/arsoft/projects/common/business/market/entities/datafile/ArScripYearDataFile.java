@@ -9,4 +9,11 @@ public class ArScripYearDataFile extends ArScripDataFile{
 		super(arScripDataFileHeader, arScripFileDataFooter);
 	}
 
+	public ArScripYearDataFile() {
+		
+	}
+
+	public static ArScripDataFile getArScripDataFile() {
+		return new ArScripYearDataFile();
+	}
 }

@@ -9,4 +9,12 @@ public class ArScripCurrentDataFile extends ArScripDataFile{
 		super(arScripDataFileHeader, arScripFileDataFooter);
 	}
 
+	public ArScripCurrentDataFile() {
+		
+	}
+
+	public static ArScripDataFile getArScripDataFile() {
+		return new ArScripCurrentDataFile();
+	}
+
 }

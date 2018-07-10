@@ -8,6 +8,10 @@ public abstract class ArScripDataFile {
 	public ArScripDataFileHeader arScripDataFileHeader;
 	public ArScripDataFileFooter arScripDataFileFooter;
 	
+	public ArScripDataFile() {
+		
+	}
+	
 	public ArScripDataFileHeader getArScripDataFileHeader() {
 		return arScripDataFileHeader;
 	}

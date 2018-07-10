@@ -8,5 +8,13 @@ public class ArScripMonthDataFile extends ArScripDataFile{
 	public ArScripMonthDataFile(ArScripDataFileHeader arScripDataFileHeader, ArScripDataFileFooter arScripFileDataFooter) {
 		super(arScripDataFileHeader, arScripFileDataFooter);
 	}
+	
+	public ArScripMonthDataFile() {
+		
+	}
+
+	public static ArScripDataFile getArScripDataFile() {
+		return new ArScripMonthDataFile();
+	}
 
 }

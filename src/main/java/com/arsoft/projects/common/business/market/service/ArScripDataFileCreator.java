@@ -1,33 +1,45 @@
 package com.arsoft.projects.common.business.market.service;
 
 import com.arsoft.projects.common.business.market.entities.ArScrip;
+import com.arsoft.projects.common.business.market.entities.datafile.ArScripCompleteDayDataFile;
+import com.arsoft.projects.common.business.market.entities.datafile.ArScripCurrentDataFile;
 import com.arsoft.projects.common.business.market.entities.datafile.ArScripDataFile;
+import com.arsoft.projects.common.business.market.entities.datafile.ArScripDayDataFile;
+import com.arsoft.projects.common.business.market.entities.datafile.ArScripMonthDataFile;
+import com.arsoft.projects.common.business.market.entities.datafile.ArScripWeekDataFile;
+import com.arsoft.projects.common.business.market.entities.datafile.ArScripYearDataFile;
 import com.arsoft.projects.common.business.market.interfaces.ArScripDataFileCreator_IF;
 
 public class ArScripDataFileCreator implements ArScripDataFileCreator_IF{
 	
 	public ArScripDataFile createArScripCompleteDayDataFile(ArScrip arScrip) {
-		return null;
+		ArScripDataFile arScripDataFile = ArScripCompleteDayDataFile.getArScripDataFile();
+		return arScripDataFile;
 	}
 	
 	public ArScripDataFile createArScripCurrentDataFile(ArScrip arScrip) {
-		return null;
+		ArScripDataFile arScripDataFile = ArScripCurrentDataFile.getArScripDataFile();
+		return arScripDataFile;
 	}
 	
 	public ArScripDataFile createArScripDayDataFile(ArScrip arScrip) {
-		return null;
+		ArScripDataFile arScripDataFile = ArScripDayDataFile.getArScripDataFile();
+		return arScripDataFile;
 	}
 	
 	public ArScripDataFile createArScripMonthDataFile(ArScrip arScrip) {
-		return null;
+		ArScripDataFile arScripDataFile = ArScripMonthDataFile.getArScripDataFile();
+		return arScripDataFile;
 	}
 	
 	public ArScripDataFile createArScripWeekDataFile(ArScrip arScrip) {
-		return null;
+		ArScripDataFile arScripDataFile = ArScripWeekDataFile.getArScripDataFile();
+		return arScripDataFile;
 	}
 	
 	public ArScripDataFile createArScripYearDataFile(ArScrip arScrip) {
-		return null;
+		ArScripDataFile arScripDataFile = ArScripYearDataFile.getArScripDataFile();
+		return arScripDataFile;
 	}
 	
 }

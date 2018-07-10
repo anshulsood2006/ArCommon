@@ -9,4 +9,11 @@ public class ArScripDayDataFile extends ArScripDataFile{
 		super(arScripDataFileHeader, arScripFileDataFooter);
 	}
 
+	public ArScripDayDataFile() {
+		
+	}
+
+	public static ArScripDataFile getArScripDataFile() {
+		return new ArScripDayDataFile();
+	}
 }
