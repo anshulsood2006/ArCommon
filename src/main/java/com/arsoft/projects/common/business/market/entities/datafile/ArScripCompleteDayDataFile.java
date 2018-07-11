@@ -5,6 +5,7 @@ import com.arsoft.projects.common.business.market.constant.ArScripDataFileEnum;
 import com.arsoft.projects.common.business.market.entities.ArScrip;
 import com.arsoft.projects.common.business.market.entities.datafile.footer.ArScripDataFileFooter;
 import com.arsoft.projects.common.business.market.entities.datafile.header.ArScripDataFileHeader;
+import com.arsoft.projects.common.business.market.factory.ArScripDataFileFooterFactory;
 import com.arsoft.projects.common.business.market.factory.ArScripDataFileHeaderFactory;
 import com.arsoft.projects.common.utility.datatime.ArDateTimeUtil;
 
@@ -15,9 +16,9 @@ public class ArScripCompleteDayDataFile extends ArScripDataFile{
 	}
 	
 	public ArScripCompleteDayDataFile(ArScrip arScrip) {
-		ArDateTime arDateTime = ArDateTimeUtil.getCurrentArDateTime();
-		this.arScripDataFileHeader = ArScripDataFileHeaderFactory.getArScripDataFileHeader(arScrip.getName(), arScrip.getTimeOfRecord(), arDateTime, ArScripDataFileEnum.COMPLETE_DAY_DATE_FILE);
-		//this.arScripDataFileHeader = ArScripDataFileFooterFactory.getArScripFileDataFooter(scrip, arScripDataFileEnum, arScripFileDataFooter);
+		ArDateTime updatedDateTime = ArDateTimeUtil.getCurrentArDateTime();
+		this.arScripDataFileHeader = ArScripDataFileHeaderFactory.getArScripDataFileHeader(arScrip, updatedDateTime, ArScripDataFileEnum.COMPLETE_DAY_DATE_FILE);
+		this.arScripDataFileFooter = ArScripDataFileFooterFactory.getArScripDataFileFooter(arScrip, ArScripDataFileEnum.COMPLETE_DAY_DATE_FILE);
 	}
 	
 	public static ArScripCompleteDayDataFile getArScripDataFile(ArScrip arScrip) {

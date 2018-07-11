@@ -39,6 +39,7 @@ public class ArScripCompleteDataFileFooterTest {
 		arPriceData = new ArPriceData(18, arDateTime);
 		currentPriceList.add(arPriceData);
 		ArScripCompleteDayDataFileFooter arScripCompleteDataFileFooter = new ArScripCompleteDayDataFileFooter(new ArScrip("SBIN", "", ArBourse.NSE, 12.56, new ArDateTime()));
+		arScripCompleteDataFileFooter.setCurrentPriceList(currentPriceList);
 		String string = arScripCompleteDataFileFooter.getArScripDataFileFooterAsString();
 		assertEquals("21.64@08_07_2018@12_44_42||22.0@08_07_2018@13_44_42||18.0@08_07_2018@12_04_42",string);
 	}

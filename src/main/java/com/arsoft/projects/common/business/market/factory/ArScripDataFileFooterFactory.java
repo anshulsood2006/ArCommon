@@ -19,7 +19,7 @@ public class ArScripDataFileFooterFactory {
 		return null;
 	}
 	
-	public static ArScripDataFileFooter getArScripDataFileFooter(ArScrip scrip, ArDateTime createdDateTime, ArDateTime updatedDateTime, ArScripDataFileEnum arScripDataFileEnum) {
+	public static ArScripDataFileFooter getArScripDataFileFooter(ArScrip scrip, ArScripDataFileEnum arScripDataFileEnum) {
 		switch(arScripDataFileEnum){
 		case MONTH_DATA_FILE:
 			return new ArScripMonthDataFileFooter(scrip);

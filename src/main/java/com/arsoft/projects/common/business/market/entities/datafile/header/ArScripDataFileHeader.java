@@ -6,31 +6,24 @@ import com.arsoft.projects.common.business.entity.ArDateTime;
 import com.arsoft.projects.common.business.entity.ArMonthEnum;
 import com.arsoft.projects.common.business.entity.ArTime;
 import com.arsoft.projects.common.business.market.constant.ArScripDataFileEnum;
+import com.arsoft.projects.common.business.market.entities.ArScrip;
+import com.arsoft.projects.common.equity.ArBourse;
 import com.arsoft.projects.common.exception.ArException;
 import com.arsoft.projects.common.string.ArStringConstant;
 import com.arsoft.projects.common.string.ArStringUtil;
 
 public class ArScripDataFileHeader {
 	
-	private String scrip;
-	private ArDateTime createdDateTime;
+	private ArScrip arScrip;
 	private ArDateTime updatedDateTime;
 	private ArScripDataFileEnum arScripDataFileEnum;
 	
-	public String getScrip() {
-		return scrip;
+	public ArScrip getArScrip() {
+		return arScrip;
 	}
 
-	public void setScrip(String scrip) {
-		this.scrip = scrip;
-	}
-
-	public ArDateTime getCreatedDateTime() {
-		return createdDateTime;
-	}
-
-	public void setCreatedDateTime(ArDateTime createdDateTime) {
-		this.createdDateTime = createdDateTime;
+	public void setArScrip(ArScrip arScrip) {
+		this.arScrip = arScrip;
 	}
 
 	public ArDateTime getUpdatedDateTime() {
@@ -57,9 +50,8 @@ public class ArScripDataFileHeader {
 		return new ArScripDataFileHeader();
 	}
 	
-	public ArScripDataFileHeader(String scrip, ArDateTime createdDateTime, ArDateTime updatedDateTime, ArScripDataFileEnum arScripDataFileEnum){
-		this.scrip = scrip;
-		this.createdDateTime = createdDateTime;
+	public ArScripDataFileHeader(ArScrip arScrip, ArDateTime updatedDateTime, ArScripDataFileEnum arScripDataFileEnum){
+		this.arScrip = arScrip;
 		this.updatedDateTime = updatedDateTime;
 		this.arScripDataFileEnum = arScripDataFileEnum;
 	}
@@ -72,8 +64,8 @@ public class ArScripDataFileHeader {
 	 * @param arScripFileDataEnum
 	 * @return
 	 */
-	public static ArScripDataFileHeader getArScripDataFileHeader(String scrip, ArDateTime createdDateTime, ArDateTime updatedDateTime, ArScripDataFileEnum arScripFileDataEnum){
-		return new ArScripDataFileHeader(scrip, createdDateTime, updatedDateTime, arScripFileDataEnum);
+	public static ArScripDataFileHeader getArScripDataFileHeader(ArScrip arScrip, ArDateTime updatedDateTime, ArScripDataFileEnum arScripFileDataEnum){
+		return new ArScripDataFileHeader(arScrip, updatedDateTime, arScripFileDataEnum);
 	}
 	
 	/**
@@ -93,7 +85,8 @@ public class ArScripDataFileHeader {
         	throw new ArException("ArScripDataFileHeader: Invalid Header String");
         }
         
-        arScripDataFileHeader.setScrip(parts[0]);
+        String name = parts[0];
+        
         arScripDataFileHeader.setArScripFileDataEnum(ArScripDataFileEnum.getArScripFileDataEnumByFileType(parts[2]));
         
         String[] createdDateArray = ArStringUtil.splitString(parts[3], ArStringConstant.AT_THE_RATE);
@@ -124,7 +117,8 @@ public class ArScripDataFileHeader {
 		ArDateTime createdDateTime = ArDateTime.getArDateTime();
         createdDateTime.setArDate(arDate);
         createdDateTime.setArTime(arTime);
-        arScripDataFileHeader.setCreatedDateTime(createdDateTime);
+        ArScrip arScrip = new ArScrip(name, name, ArBourse.NSE, 0, createdDateTime);
+        arScripDataFileHeader.setArScrip(arScrip);
         
         String[] updatedDateArray = ArStringUtil.splitString(parts[4], ArStringConstant.AT_THE_RATE);
         if (updatedDateArray == null || updatedDateArray.length != 2){
