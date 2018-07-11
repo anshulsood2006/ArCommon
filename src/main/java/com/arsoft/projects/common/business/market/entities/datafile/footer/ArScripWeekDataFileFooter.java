@@ -1,12 +1,13 @@
 package com.arsoft.projects.common.business.market.entities.datafile.footer;
 
 import com.arsoft.projects.common.business.market.constant.ArScripDataFileEnum;
+import com.arsoft.projects.common.business.market.entities.ArScrip;
 import com.arsoft.projects.common.exception.ArException;
 
 public class ArScripWeekDataFileFooter extends ArScripDataFileWithOnlyHighLowFooter{
 
-	public ArScripWeekDataFileFooter(String scrip) {
-		super(scrip, ArScripDataFileEnum.WEEK_DATA_FILE);
+	public ArScripWeekDataFileFooter(ArScrip arScrip) {
+		super(arScrip, ArScripDataFileEnum.WEEK_DATA_FILE);
 	}
 
 	@Override
@@ -15,7 +16,7 @@ public class ArScripWeekDataFileFooter extends ArScripDataFileWithOnlyHighLowFoo
 	}
 	
 	public String toString() {
-		return "Scrip: "+this.getScrip()+"High Price: "+this.getHighPrice()+", Low Price: "+this.getLowPrice();
+		return "Scrip: "+this.getArScrip()+", High Price: "+this.getHighPrice()+", Low Price: "+this.getLowPrice();
 	}
 
 }

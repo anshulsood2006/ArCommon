@@ -10,7 +10,7 @@ import com.arsoft.projects.common.string.ArStringConstant;
 import com.arsoft.projects.common.utility.datatime.ArCalendarUtil;
 import com.arsoft.projects.common.utility.datatime.ArDateTimeUtil;
 
-public class ArScripFileDataHeaderFactory {
+public class ArScripDataFileHeaderFactory {
 	
 	/**
 	 * Returns the file header in the below format

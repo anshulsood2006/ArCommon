@@ -1,5 +1,6 @@
 package com.arsoft.projects.common.business.market.entities.datafile;
 
+import com.arsoft.projects.common.business.market.entities.ArScrip;
 import com.arsoft.projects.common.business.market.entities.datafile.footer.ArScripDataFileFooter;
 import com.arsoft.projects.common.business.market.entities.datafile.header.ArScripDataFileHeader;
 
@@ -9,12 +10,12 @@ public class ArScripCurrentDataFile extends ArScripDataFile{
 		super(arScripDataFileHeader, arScripFileDataFooter);
 	}
 
-	public ArScripCurrentDataFile() {
-		
+	public ArScripCurrentDataFile(ArScrip arScrip) {
+	
 	}
 
-	public static ArScripDataFile getArScripDataFile() {
-		return new ArScripCurrentDataFile();
+	public static ArScripDataFile getArScripDataFile(ArScrip arScrip) {
+		return new ArScripCurrentDataFile(arScrip);
 	}
 
 }

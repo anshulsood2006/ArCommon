@@ -5,14 +5,15 @@ import com.arsoft.projects.common.business.entity.ArDateTime;
 import com.arsoft.projects.common.business.entity.ArTime;
 import com.arsoft.projects.common.business.market.constant.ArScripDataFileEnum;
 import com.arsoft.projects.common.business.market.entities.ArPriceData;
+import com.arsoft.projects.common.business.market.entities.ArScrip;
 import com.arsoft.projects.common.exception.ArException;
 import com.arsoft.projects.common.string.ArStringConstant;
 import com.arsoft.projects.common.utility.datatime.ArDateTimeUtil;
 
 public class ArScripDataFileWithOnlyHighLowFooter extends ArScripDataFileFooter{
 
-	public ArScripDataFileWithOnlyHighLowFooter(String scrip, ArScripDataFileEnum arScripDataFileEnum) {
-		super(scrip, arScripDataFileEnum);
+	public ArScripDataFileWithOnlyHighLowFooter(ArScrip arScrip, ArScripDataFileEnum arScripDataFileEnum) {
+		super(arScrip, arScripDataFileEnum);
 	}
 
 	private ArPriceData highPrice;
@@ -36,7 +37,7 @@ public class ArScripDataFileWithOnlyHighLowFooter extends ArScripDataFileFooter{
 
 	@Override
 	public String getArScripDataFileFooterAsString() throws ArException {
-		String scrip = this.getScrip();
+		String scrip = this.getArScrip().getName();
 		if(scrip == null || scrip.equals(ArStringConstant.EMPTY_STRING)) {
 			throw new ArException("ArScripCurrentDataFileFooter: Scrip is not present");
 		}
@@ -58,7 +59,7 @@ public class ArScripDataFileWithOnlyHighLowFooter extends ArScripDataFileFooter{
 	}
 	
 	public String toString() {
-		return "Scrip: "+this.getScrip()+"High Price: "+this.getHighPrice()+", Low Price: "+this.getLowPrice();
+		return "Scrip: "+this.getArScrip()+", High Price: "+this.getHighPrice()+", Low Price: "+this.getLowPrice();
 	}
 	
 	

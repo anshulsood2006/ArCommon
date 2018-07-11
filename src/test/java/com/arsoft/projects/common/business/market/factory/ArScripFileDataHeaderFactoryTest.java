@@ -26,17 +26,17 @@ public class ArScripFileDataHeaderFactoryTest {
 		format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.ENGLISH);
 		date = format.parse(string);
 		ArDateTime updatedDateTime = ArDateTimeUtil.getArDateTime(date);
-		String header = ArScripFileDataHeaderFactory.getArScripFileDataHeaderAsString(scrip, createdDateTime, updatedDateTime, ArScripDataFileEnum.CURRENT_DATA_FILE);
+		String header = ArScripDataFileHeaderFactory.getArScripFileDataHeaderAsString(scrip, createdDateTime, updatedDateTime, ArScripDataFileEnum.CURRENT_DATA_FILE);
 		assertEquals(header, "SBIN||SBIN_Current_Data_05_07_2018||Current Data||05_07_2018@12_08_56||05_07_2018@14_22_33");
-		header = ArScripFileDataHeaderFactory.getArScripFileDataHeaderAsString(scrip, createdDateTime, updatedDateTime, ArScripDataFileEnum.DAY_DATA_FILE);
+		header = ArScripDataFileHeaderFactory.getArScripFileDataHeaderAsString(scrip, createdDateTime, updatedDateTime, ArScripDataFileEnum.DAY_DATA_FILE);
 		assertEquals(header, "SBIN||SBIN_Day_Data_05_07_2018||Day Data||05_07_2018@12_08_56||05_07_2018@14_22_33");
-		header = ArScripFileDataHeaderFactory.getArScripFileDataHeaderAsString(scrip, createdDateTime, updatedDateTime, ArScripDataFileEnum.COMPLETE_DAY_DATE_FILE);
+		header = ArScripDataFileHeaderFactory.getArScripFileDataHeaderAsString(scrip, createdDateTime, updatedDateTime, ArScripDataFileEnum.COMPLETE_DAY_DATE_FILE);
 		assertEquals(header, "SBIN||SBIN_Complete_Day_Data_05_07_2018||Complete Day Data||05_07_2018@12_08_56||05_07_2018@14_22_33");
-		header = ArScripFileDataHeaderFactory.getArScripFileDataHeaderAsString(scrip, createdDateTime, updatedDateTime, ArScripDataFileEnum.MONTH_DATA_FILE);
+		header = ArScripDataFileHeaderFactory.getArScripFileDataHeaderAsString(scrip, createdDateTime, updatedDateTime, ArScripDataFileEnum.MONTH_DATA_FILE);
 		assertEquals(header, "SBIN||SBIN_Month_Data_07_2018||Month Data||05_07_2018@12_08_56||05_07_2018@14_22_33");
-		header = ArScripFileDataHeaderFactory.getArScripFileDataHeaderAsString(scrip, createdDateTime, updatedDateTime, ArScripDataFileEnum.WEEK_DATA_FILE);
+		header = ArScripDataFileHeaderFactory.getArScripFileDataHeaderAsString(scrip, createdDateTime, updatedDateTime, ArScripDataFileEnum.WEEK_DATA_FILE);
 		assertEquals(header, "SBIN||SBIN_Week_Data_27_2018||Week Data||05_07_2018@12_08_56||05_07_2018@14_22_33");
-		header = ArScripFileDataHeaderFactory.getArScripFileDataHeaderAsString(scrip, createdDateTime, updatedDateTime, ArScripDataFileEnum.YEAR_DATA_FILE);
+		header = ArScripDataFileHeaderFactory.getArScripFileDataHeaderAsString(scrip, createdDateTime, updatedDateTime, ArScripDataFileEnum.YEAR_DATA_FILE);
 		assertEquals(header, "SBIN||SBIN_Year_Data_2018||Year Data||05_07_2018@12_08_56||05_07_2018@14_22_33");
 	}
 }

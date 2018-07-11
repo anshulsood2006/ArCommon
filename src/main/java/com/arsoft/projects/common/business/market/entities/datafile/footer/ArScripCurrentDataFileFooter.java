@@ -5,6 +5,7 @@ import com.arsoft.projects.common.business.entity.ArDateTime;
 import com.arsoft.projects.common.business.entity.ArTime;
 import com.arsoft.projects.common.business.market.constant.ArScripDataFileEnum;
 import com.arsoft.projects.common.business.market.entities.ArPriceData;
+import com.arsoft.projects.common.business.market.entities.ArScrip;
 import com.arsoft.projects.common.exception.ArException;
 import com.arsoft.projects.common.string.ArStringConstant;
 import com.arsoft.projects.common.utility.datatime.ArDateTimeUtil;
@@ -21,11 +22,11 @@ public class ArScripCurrentDataFileFooter extends ArScripDataFileFooter{
 		this.currentPrice = currentPrice;
 	}
 
-	public ArScripCurrentDataFileFooter(String scrip, ArPriceData currentPrice) {
-		super(scrip, ArScripDataFileEnum.CURRENT_DATA_FILE);
-		this.currentPrice = currentPrice;
+	public ArScripCurrentDataFileFooter(ArScrip arScrip) {
+		super(arScrip, ArScripDataFileEnum.CURRENT_DATA_FILE);
+		this.currentPrice = new ArPriceData(arScrip.getPrice(), arScrip.getTimeOfRecord());
 	}
-
+	
 	/**
 	 * Returns footer string for Current Data File in the format 
 	 * price@date@time
@@ -34,7 +35,7 @@ public class ArScripCurrentDataFileFooter extends ArScripDataFileFooter{
 	 */
 	@Override
 	public String getArScripDataFileFooterAsString() throws ArException {
-		String scrip = this.getScrip();
+		String scrip = this.getArScrip().getName();
 		if(scrip == null || scrip.equals(ArStringConstant.EMPTY_STRING)) {
 			throw new ArException("ArScripCurrentDataFileFooter: Scrip is not present");
 		}
@@ -50,7 +51,7 @@ public class ArScripCurrentDataFileFooter extends ArScripDataFileFooter{
 	}
 	
 	public String toString() {
-		return "Scrip: "+this.getScrip()+", Current Price: "+this.getCurrentPrice();
+		return "Scrip: "+this.getArScrip()+", Current Price: "+this.getCurrentPrice();
 	}
 	
 }

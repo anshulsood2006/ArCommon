@@ -1,19 +1,21 @@
 package com.arsoft.projects.common.business.market.entities.datafile.footer;
 
 import com.arsoft.projects.common.business.market.constant.ArScripDataFileEnum;
+import com.arsoft.projects.common.business.market.entities.ArScrip;
 import com.arsoft.projects.common.exception.ArException;
 
 public abstract class ArScripDataFileFooter {
 	
-	private String scrip;
+	private ArScrip arScrip;
 	private ArScripDataFileEnum arScripDataFileEnum;
 
-	public String getScrip() {
-		return scrip;
+	public ArScrip getArScrip() {
+		return arScrip;
 	}
 
-	public void setScrip(String scrip) {
-		this.scrip = scrip;
+	public void setArScrip(ArScrip arScrip, ArScripDataFileEnum arScripDataFileEnum) {
+		this.arScrip = arScrip;
+		this.arScripDataFileEnum = arScripDataFileEnum;
 	}
 
 	public ArScripDataFileEnum getArScripDataFileEnum() {
@@ -24,8 +26,8 @@ public abstract class ArScripDataFileFooter {
 		this.arScripDataFileEnum = arScripDataFileEnum;
 	}
 
-	public ArScripDataFileFooter (String scrip, ArScripDataFileEnum arScripDataFileEnum) {
-		this.scrip = scrip;
+	public ArScripDataFileFooter (ArScrip arScrip, ArScripDataFileEnum arScripDataFileEnum) {
+		this.arScrip = arScrip;
 		this.arScripDataFileEnum = arScripDataFileEnum;
 	}
 	

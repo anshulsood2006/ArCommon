@@ -5,6 +5,7 @@ import com.arsoft.projects.common.business.entity.ArDateTime;
 import com.arsoft.projects.common.business.entity.ArTime;
 import com.arsoft.projects.common.business.market.constant.ArScripDataFileEnum;
 import com.arsoft.projects.common.business.market.entities.ArPriceData;
+import com.arsoft.projects.common.business.market.entities.ArScrip;
 import com.arsoft.projects.common.exception.ArException;
 import com.arsoft.projects.common.string.ArStringConstant;
 import com.arsoft.projects.common.utility.datatime.ArDateTimeUtil;
@@ -57,12 +58,12 @@ public class ArScripDayDataFileFooter extends ArScripDataFileFooter{
 		this.closePrice = closePrice;
 	}
 
-	public ArScripDayDataFileFooter(String scrip) {
-		super(scrip, ArScripDataFileEnum.DAY_DATA_FILE);
+	public ArScripDayDataFileFooter(ArScrip arScrip) {
+		super(arScrip, ArScripDataFileEnum.DAY_DATA_FILE);
 	}
 	
-	public ArScripDayDataFileFooter(String scrip, ArPriceData previousClosePrice, ArPriceData openPrice, ArPriceData highPrice, ArPriceData lowPrice, ArPriceData closePrice) {
-		super(scrip, ArScripDataFileEnum.DAY_DATA_FILE);
+	public ArScripDayDataFileFooter(ArScrip arScrip, ArPriceData previousClosePrice, ArPriceData openPrice, ArPriceData highPrice, ArPriceData lowPrice, ArPriceData closePrice) {
+		super(arScrip, ArScripDataFileEnum.DAY_DATA_FILE);
 		this.previousClosePrice = previousClosePrice;
 		this.openPrice = openPrice;
 		this.highPrice = highPrice;
@@ -79,7 +80,7 @@ public class ArScripDayDataFileFooter extends ArScripDataFileFooter{
 	@Override
 	public String getArScripDataFileFooterAsString() throws ArException {
 		String footer = ArStringConstant.EMPTY_STRING;
-		String scrip = this.getScrip();
+		String scrip = this.getArScrip().getName();
 		if(scrip == null || scrip.equals(ArStringConstant.EMPTY_STRING)) {
 			throw new ArException("ArScripCurrentDataFileFooter: Scrip is not present");
 		}
@@ -116,7 +117,7 @@ public class ArScripDayDataFileFooter extends ArScripDataFileFooter{
 	}
 	
 	public String toString() {
-		return "Scrip: "+this.getScrip()+", Previous Close Price: "+this.getPreviousClosePrice()+", Open Price: "+this.getOpenPrice()+", High Price: "+this.getHighPrice()+", Low Price: "+this.getLowPrice()+", Close Price: "+this.getClosePrice();
+		return "Scrip: "+this.getArScrip()+", Previous Close Price: "+this.getPreviousClosePrice()+", Open Price: "+this.getOpenPrice()+", High Price: "+this.getHighPrice()+", Low Price: "+this.getLowPrice()+", Close Price: "+this.getClosePrice();
 	}
 
 }

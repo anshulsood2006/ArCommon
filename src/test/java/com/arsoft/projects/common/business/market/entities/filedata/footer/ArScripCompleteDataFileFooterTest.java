@@ -13,7 +13,9 @@ import com.arsoft.projects.common.business.entity.ArDateTime;
 import com.arsoft.projects.common.business.entity.ArMonthEnum;
 import com.arsoft.projects.common.business.entity.ArTime;
 import com.arsoft.projects.common.business.market.entities.ArPriceData;
+import com.arsoft.projects.common.business.market.entities.ArScrip;
 import com.arsoft.projects.common.business.market.entities.datafile.footer.ArScripCompleteDayDataFileFooter;
+import com.arsoft.projects.common.equity.ArBourse;
 import com.arsoft.projects.common.exception.ArException;
 
 public class ArScripCompleteDataFileFooterTest {
@@ -36,7 +38,7 @@ public class ArScripCompleteDataFileFooterTest {
 		arDateTime = new ArDateTime(arDate, arTime);
 		arPriceData = new ArPriceData(18, arDateTime);
 		currentPriceList.add(arPriceData);
-		ArScripCompleteDayDataFileFooter arScripCompleteDataFileFooter = new ArScripCompleteDayDataFileFooter("SBI", currentPriceList);
+		ArScripCompleteDayDataFileFooter arScripCompleteDataFileFooter = new ArScripCompleteDayDataFileFooter(new ArScrip("SBIN", "", ArBourse.NSE, 12.56, new ArDateTime()));
 		String string = arScripCompleteDataFileFooter.getArScripDataFileFooterAsString();
 		assertEquals("21.64@08_07_2018@12_44_42||22.0@08_07_2018@13_44_42||18.0@08_07_2018@12_04_42",string);
 	}

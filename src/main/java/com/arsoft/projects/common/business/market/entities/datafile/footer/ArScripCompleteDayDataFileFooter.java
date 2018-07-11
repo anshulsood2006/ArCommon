@@ -1,5 +1,6 @@
 package com.arsoft.projects.common.business.market.entities.datafile.footer;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.arsoft.projects.common.business.entity.ArDate;
@@ -7,6 +8,7 @@ import com.arsoft.projects.common.business.entity.ArDateTime;
 import com.arsoft.projects.common.business.entity.ArTime;
 import com.arsoft.projects.common.business.market.constant.ArScripDataFileEnum;
 import com.arsoft.projects.common.business.market.entities.ArPriceData;
+import com.arsoft.projects.common.business.market.entities.ArScrip;
 import com.arsoft.projects.common.exception.ArException;
 import com.arsoft.projects.common.string.ArStringConstant;
 import com.arsoft.projects.common.utility.datatime.ArDateTimeUtil;
@@ -23,9 +25,13 @@ public class ArScripCompleteDayDataFileFooter extends ArScripDataFileFooter{
 		this.currentPriceList = currentPriceList;
 	}
 
-	public ArScripCompleteDayDataFileFooter(String scrip, List<ArPriceData> currentPriceList) {
-		super(scrip, ArScripDataFileEnum.COMPLETE_DAY_DATE_FILE);
-		this.currentPriceList = currentPriceList;
+	public ArScripCompleteDayDataFileFooter(ArScrip arScrip) {
+		super(arScrip, ArScripDataFileEnum.COMPLETE_DAY_DATE_FILE);
+		if (this.currentPriceList == null){
+			currentPriceList = new ArrayList<>();
+		}
+		ArPriceData e = new ArPriceData(arScrip.getPrice(), arScrip.getTimeOfRecord());
+		this.currentPriceList.add(e);
 	}
 	
 	/**
@@ -36,7 +42,7 @@ public class ArScripCompleteDayDataFileFooter extends ArScripDataFileFooter{
 	 */
 	public String getArScripDataFileFooterAsString() throws ArException {
 		String footer = "";
-		String scrip = this.getScrip();
+		String scrip = this.getArScrip().getName();
 		if(scrip == null || scrip.equals(ArStringConstant.EMPTY_STRING)) {
 			throw new ArException("ArScripCompleteDayDataFileFooter: Scrip is not present");
 		}
@@ -64,6 +70,10 @@ public class ArScripCompleteDayDataFileFooter extends ArScripDataFileFooter{
 			}
 		}
 		return footer;
+	}
+	
+	public String toString() {
+		return "Scrip: "+this.getArScrip()+", Current Price List: "+this.getCurrentPriceList();
 	}
 
 }
