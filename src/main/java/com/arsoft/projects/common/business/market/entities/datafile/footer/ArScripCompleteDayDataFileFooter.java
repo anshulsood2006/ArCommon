@@ -75,5 +75,9 @@ public class ArScripCompleteDayDataFileFooter extends ArScripDataFileFooter{
 	public String toString() {
 		return "Scrip: "+this.getArScrip()+", Current Price List: "+this.getCurrentPriceList();
 	}
-
+	
+	public static ArScripDataFileFooter getArScripDataFileFooter(ArScrip arScrip){
+		return new ArScripCompleteDayDataFileFooter(arScrip);
+	}
+	
 }

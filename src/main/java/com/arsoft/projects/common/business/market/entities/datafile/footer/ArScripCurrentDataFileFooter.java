@@ -54,4 +54,8 @@ public class ArScripCurrentDataFileFooter extends ArScripDataFileFooter{
 		return "Scrip: "+this.getArScrip()+", Current Price: "+this.getCurrentPrice();
 	}
 	
+	public static ArScripDataFileFooter getArScripDataFileFooter(ArScrip arScrip){
+		return new ArScripCurrentDataFileFooter(arScrip);
+	}
+	
 }

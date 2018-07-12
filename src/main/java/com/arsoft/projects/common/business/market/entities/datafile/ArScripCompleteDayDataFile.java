@@ -25,4 +25,8 @@ public class ArScripCompleteDayDataFile extends ArScripDataFile{
 		return new ArScripCompleteDayDataFile(arScrip);
 	}
 	
+	public String toString(){
+		return "Complete Day Data File Header: "+this.arScripDataFileHeader +", Complete Day Data File Footer: "+this.arScripDataFileFooter;
+	}
+	
 }

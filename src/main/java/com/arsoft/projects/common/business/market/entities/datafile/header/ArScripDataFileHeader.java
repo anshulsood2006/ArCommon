@@ -34,7 +34,7 @@ public class ArScripDataFileHeader {
 		this.updatedDateTime = updatedDateTime;
 	}
 
-	public ArScripDataFileEnum getArScripFileDataEnum() {
+	public ArScripDataFileEnum getArScripDataFileEnum() {
 		return arScripDataFileEnum;
 	}
 
@@ -151,5 +151,9 @@ public class ArScripDataFileHeader {
         arScripDataFileHeader.setUpdatedDateTime(updatedDateTime);
        
         return arScripDataFileHeader;
+	}
+	
+	public String toString() {
+		return "Scrip: "+this.getArScrip()+", Updated Time: "+this.getUpdatedDateTime()+", : "+this.getArScripDataFileEnum();
 	}
 }

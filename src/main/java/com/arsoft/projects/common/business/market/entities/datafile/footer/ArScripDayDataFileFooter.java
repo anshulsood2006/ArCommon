@@ -120,4 +120,7 @@ public class ArScripDayDataFileFooter extends ArScripDataFileFooter{
 		return "Scrip: "+this.getArScrip()+", Previous Close Price: "+this.getPreviousClosePrice()+", Open Price: "+this.getOpenPrice()+", High Price: "+this.getHighPrice()+", Low Price: "+this.getLowPrice()+", Close Price: "+this.getClosePrice();
 	}
 
+	public static ArScripDataFileFooter getArScripDataFileFooter(ArScrip arScrip){
+		return new ArScripDayDataFileFooter(arScrip);
+	}
 }

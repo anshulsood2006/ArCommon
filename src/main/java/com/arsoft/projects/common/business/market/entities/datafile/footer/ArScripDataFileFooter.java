@@ -33,4 +33,7 @@ public abstract class ArScripDataFileFooter {
 	
 	public abstract String getArScripDataFileFooterAsString() throws ArException;
 	
+	public String toString() {
+		return "Scrip: "+this.getArScrip()+", Current Price: "+this.getArScripDataFileEnum();
+	}
 }

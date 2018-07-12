@@ -50,7 +50,7 @@ public class ArDateTimeUtil {
 	
 	@SuppressWarnings("deprecation")
 	public static ArDate getArDate(Date date){
-		int day = date.getDay() + 1;
+		int day = date.getDate();
 		int month = date.getMonth() + 1;
 		ArMonthEnum arMonthEnum = ArMonthEnum.getArMonthEnum(String.valueOf(month));
 		int year = date.getYear() + 1900;

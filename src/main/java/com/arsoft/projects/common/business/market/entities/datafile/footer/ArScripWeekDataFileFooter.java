@@ -18,5 +18,9 @@ public class ArScripWeekDataFileFooter extends ArScripDataFileWithOnlyHighLowFoo
 	public String toString() {
 		return "Scrip: "+this.getArScrip()+", High Price: "+this.getHighPrice()+", Low Price: "+this.getLowPrice();
 	}
+	
+	public static ArScripDataFileFooter getArScripDataFileFooter(ArScrip arScrip){
+		return new ArScripWeekDataFileFooter(arScrip);
+	}
 
 }

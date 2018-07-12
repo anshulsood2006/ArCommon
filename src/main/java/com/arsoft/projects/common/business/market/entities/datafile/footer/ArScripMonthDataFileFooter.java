@@ -18,4 +18,8 @@ public class ArScripMonthDataFileFooter extends ArScripDataFileWithOnlyHighLowFo
 	public String toString() {
 		return "Scrip: "+this.getArScrip()+", High Price: "+this.getHighPrice()+", Low Price: "+this.getLowPrice();
 	}
+	
+	public static ArScripDataFileFooter getArScripDataFileFooter(ArScrip arScrip){
+		return new ArScripMonthDataFileFooter(arScrip);
+	}
 }

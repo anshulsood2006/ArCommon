@@ -18,4 +18,7 @@ public class ArScripCurrentDataFile extends ArScripDataFile{
 		return new ArScripCurrentDataFile(arScrip);
 	}
 
+	public String toString(){
+		return "Current Data File Header: "+this.arScripDataFileHeader +", Current Data File Footer: "+this.arScripDataFileFooter;
+	}
 }

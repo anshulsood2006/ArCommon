@@ -17,5 +17,9 @@ public class ArScripMonthDataFile extends ArScripDataFile{
 	public static ArScripDataFile getArScripDataFile(ArScrip arScrip) {
 		return new ArScripMonthDataFile(arScrip);
 	}
+	
+	public String toString(){
+		return "Month Data File Header: "+this.arScripDataFileHeader +", Month Data File Footer: "+this.arScripDataFileFooter;
+	}
 
 }

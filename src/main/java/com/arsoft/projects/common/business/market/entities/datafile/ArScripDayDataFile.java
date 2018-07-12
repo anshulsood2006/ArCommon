@@ -17,4 +17,8 @@ public class ArScripDayDataFile extends ArScripDataFile{
 	public static ArScripDataFile getArScripDataFile(ArScrip arScrip) {
 		return new ArScripDayDataFile(arScrip);
 	}
+	
+	public String toString(){
+		return "Day Data File Header: "+this.arScripDataFileHeader +", Day Data File Footer: "+this.arScripDataFileFooter;
+	}
 }

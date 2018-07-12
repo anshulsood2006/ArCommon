@@ -22,7 +22,7 @@ public class ArScripDataFileFooterFactory {
 	public static ArScripDataFileFooter getArScripDataFileFooter(ArScrip scrip, ArScripDataFileEnum arScripDataFileEnum) {
 		switch(arScripDataFileEnum){
 		case MONTH_DATA_FILE:
-			return new ArScripMonthDataFileFooter(scrip);
+			return ArScripMonthDataFileFooter.getArScripDataFileFooter(scrip);
 		case WEEK_DATA_FILE:
 			return new ArScripWeekDataFileFooter(scrip);
 		case YEAR_DATA_FILE:

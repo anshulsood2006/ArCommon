@@ -33,5 +33,7 @@ public abstract class ArScripDataFile {
 		this.arScripDataFileFooter = arScripFileDataFooter;//ArScripFileDataFooterFactory.getArScripFileDataFooter(arScripDataFileHeader.getScrip(), arScripDataFileHeader.getArScripFileDataEnum(), arScripFileDataFooter);
 	}
 	
-	
+	public String toString(){
+		return "Data File Header: "+this.arScripDataFileHeader +", Data File Footer: "+this.arScripDataFileFooter;
+	}
 }

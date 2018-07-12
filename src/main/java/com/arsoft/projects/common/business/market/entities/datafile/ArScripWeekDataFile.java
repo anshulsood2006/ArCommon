@@ -17,4 +17,8 @@ public class ArScripWeekDataFile extends ArScripDataFile{
 	public static ArScripDataFile getArScripDataFile(ArScrip arScrip) {
 		return new ArScripWeekDataFile(arScrip);
 	}
+	
+	public String toString(){
+		return "Week Data File Header: "+this.arScripDataFileHeader +", Complete Day Data File Footer: "+this.arScripDataFileFooter;
+	}
 }
