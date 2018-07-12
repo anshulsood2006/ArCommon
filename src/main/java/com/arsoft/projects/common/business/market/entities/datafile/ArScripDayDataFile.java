@@ -19,6 +19,6 @@ public class ArScripDayDataFile extends ArScripDataFile{
 	}
 	
 	public String toString(){
-		return "Day Data File Header: "+this.arScripDataFileHeader +", Day Data File Footer: "+this.arScripDataFileFooter;
+		return "Day Data File Header: "+this.arScripDataFileHeader +",\nDay Data File Footer: "+this.arScripDataFileFooter;
 	}
 }

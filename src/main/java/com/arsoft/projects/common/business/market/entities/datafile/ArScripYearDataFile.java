@@ -17,4 +17,8 @@ public class ArScripYearDataFile extends ArScripDataFile{
 	public static ArScripDataFile getArScripDataFile(ArScrip arScrip) {
 		return new ArScripYearDataFile(arScrip);
 	}
+	
+	public String toString(){
+		return "Year Data File Header: "+this.arScripDataFileHeader +",\nYear Data File Footer: "+this.arScripDataFileFooter;
+	}
 }

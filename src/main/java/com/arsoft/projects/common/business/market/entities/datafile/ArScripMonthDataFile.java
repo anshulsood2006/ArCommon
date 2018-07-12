@@ -19,7 +19,7 @@ public class ArScripMonthDataFile extends ArScripDataFile{
 	}
 	
 	public String toString(){
-		return "Month Data File Header: "+this.arScripDataFileHeader +", Month Data File Footer: "+this.arScripDataFileFooter;
+		return "Month Data File Header: "+this.arScripDataFileHeader +",\nMonth Data File Footer: "+this.arScripDataFileFooter;
 	}
 
 }

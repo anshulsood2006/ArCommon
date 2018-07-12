@@ -34,6 +34,6 @@ public abstract class ArScripDataFile {
 	}
 	
 	public String toString(){
-		return "Data File Header: "+this.arScripDataFileHeader +", Data File Footer: "+this.arScripDataFileFooter;
+		return "Data File Header: "+this.arScripDataFileHeader +",\nData File Footer: "+this.arScripDataFileFooter;
 	}
 }
