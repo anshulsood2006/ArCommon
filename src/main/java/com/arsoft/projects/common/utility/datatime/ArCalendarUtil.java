@@ -9,7 +9,7 @@ import com.arsoft.projects.common.business.entity.ArDate;
 public class ArCalendarUtil {
 	
 	
-	public static int getCurrentWeekOfYear(ArDate arDate) throws ParseException{
+	public static int getCurrentWeekOfYear(ArDate arDate){
 		Calendar calendar = Calendar.getInstance();
 		Date date = ArDateTimeUtil.getDate(arDate);
 		calendar.setTime(date);

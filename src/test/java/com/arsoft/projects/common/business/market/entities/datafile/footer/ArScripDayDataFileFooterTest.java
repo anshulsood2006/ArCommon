@@ -1,4 +1,4 @@
-package com.arsoft.projects.common.business.market.entities.filedata.footer;
+package com.arsoft.projects.common.business.market.entities.datafile.footer;
 
 import static org.junit.Assert.assertEquals;
 

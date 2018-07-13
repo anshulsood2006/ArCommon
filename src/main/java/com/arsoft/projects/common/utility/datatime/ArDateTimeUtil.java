@@ -82,12 +82,17 @@ public class ArDateTimeUtil {
 	 * @return
 	 * @throws ParseException
 	 */
-	public static Date getDate(ArDate arDate) throws ParseException {
+	public static Date getDate(ArDate arDate){
 		int day = arDate.getDay();
 		String month = arDate.getMonth().getValue();
 		int year = arDate.getYear();
 		String string = day+"/"+month+"/"+year;
 		DateFormat format = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
-		return format.parse(string);
+		try{
+			return format.parse(string);
+		}catch(ParseException e){
+			return null;
+		}
+		
 	}
 }

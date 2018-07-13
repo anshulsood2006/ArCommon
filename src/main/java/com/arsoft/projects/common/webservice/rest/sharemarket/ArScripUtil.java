@@ -18,6 +18,7 @@ import com.arsoft.projects.common.business.market.entities.ArScrip;
 import com.arsoft.projects.common.equity.ArBourse;
 import com.arsoft.projects.common.exception.ArException;
 import com.arsoft.projects.common.file.ArFileUtil;
+import com.arsoft.projects.common.number.ArNumberUtil;
 import com.arsoft.projects.common.string.ArStringConstant;
 import com.arsoft.projects.common.string.ArStringUtil;
 import com.arsoft.projects.common.utility.datatime.ArDateTimeUtil;
@@ -192,8 +193,11 @@ public class ArScripUtil implements Callable<String>{
 		return scrips;
 	}
 
-	public static ArScrip getArScrip(String scripName, ArBourse arBourse) {
+	public static ArScrip getArScrip(String scripName, ArBourse arBourse) throws ArException {
 		String arScripPrice = getScripData(scripName, arBourse);
+		if (!ArNumberUtil.isDouble(arScripPrice)){
+			throw new ArException("Price not available for scrip: "+scripName+" at bourse: "+arBourse);
+		}
 		ArScrip arScrip = new ArScrip(scripName, scripName, arBourse, Double.parseDouble(arScripPrice), ArDateTimeUtil.getCurrentArDateTime());
 		return arScrip;
 	}
