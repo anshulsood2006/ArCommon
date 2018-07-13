@@ -60,6 +60,11 @@ public class ArScripDayDataFileFooter extends ArScripDataFileFooter{
 
 	public ArScripDayDataFileFooter(ArScrip arScrip) {
 		super(arScrip, ArScripDataFileEnum.DAY_DATA_FILE);
+		this.previousClosePrice = new ArPriceData(0, ArDateTimeUtil.getCurrentArDateTime());
+		this.openPrice = new ArPriceData(0, ArDateTimeUtil.getCurrentArDateTime());
+		this.highPrice = new ArPriceData(0, ArDateTimeUtil.getCurrentArDateTime());
+		this.lowPrice = new ArPriceData(0, ArDateTimeUtil.getCurrentArDateTime());
+		this.closePrice = new ArPriceData(0, ArDateTimeUtil.getCurrentArDateTime());
 	}
 	
 	public ArScripDayDataFileFooter(ArScrip arScrip, ArPriceData previousClosePrice, ArPriceData openPrice, ArPriceData highPrice, ArPriceData lowPrice, ArPriceData closePrice) {

@@ -26,6 +26,38 @@ public class ArScripDataFileTest {
 		assertNotNull(footer);
 		assertTrue(ArScripTestUtil.assertStringStartsWith(header.getArScripFileDataHeaderAsString(),"SBIN||SBIN_Complete_Day_Data_08_07_2018||Complete Day Data||08_07_2018@12_44_42||"));
 		assertEquals(footer.getArScripDataFileFooterAsString(),"21.64@08_07_2018@12_44_42");
+		arScripDataFile = ArScripDataFileFactory.getArScripDataFile(arScrip, ArScripDataFileEnum.CURRENT_DATA_FILE);
+		assertNotNull(arScripDataFile);
+		header = arScripDataFile.getArScripDataFileHeader();
+		footer = arScripDataFile.getArScripDataFileFooter();
+		assertNotNull(header);
+		assertNotNull(footer);
+		assertEquals(footer.getArScripDataFileFooterAsString(),"21.64@08_07_2018@12_44_42");
+		assertTrue(ArScripTestUtil.assertStringStartsWith(header.getArScripFileDataHeaderAsString(),"SBIN||SBIN_Current_Data_08_07_2018||Current Data||08_07_2018@12_44_42||"));
+		arScripDataFile = ArScripDataFileFactory.getArScripDataFile(arScrip, ArScripDataFileEnum.DAY_DATA_FILE);
+		assertNotNull(arScripDataFile);
+		header = arScripDataFile.getArScripDataFileHeader();
+		footer = arScripDataFile.getArScripDataFileFooter();
+		assertNotNull(header);
+		assertNotNull(footer);
+		arScripDataFile = ArScripDataFileFactory.getArScripDataFile(arScrip, ArScripDataFileEnum.MONTH_DATA_FILE);
+		assertNotNull(arScripDataFile);
+		header = arScripDataFile.getArScripDataFileHeader();
+		footer = arScripDataFile.getArScripDataFileFooter();
+		assertNotNull(header);
+		assertNotNull(footer);
+		arScripDataFile = ArScripDataFileFactory.getArScripDataFile(arScrip, ArScripDataFileEnum.WEEK_DATA_FILE);
+		assertNotNull(arScripDataFile);
+		header = arScripDataFile.getArScripDataFileHeader();
+		footer = arScripDataFile.getArScripDataFileFooter();
+		assertNotNull(header);
+		assertNotNull(footer);
+		arScripDataFile = ArScripDataFileFactory.getArScripDataFile(arScrip, ArScripDataFileEnum.YEAR_DATA_FILE);
+		assertNotNull(arScripDataFile);
+		header = arScripDataFile.getArScripDataFileHeader();
+		footer = arScripDataFile.getArScripDataFileFooter();
+		assertNotNull(header);
+		assertNotNull(footer);
 	}
 
 	
