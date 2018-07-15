@@ -10,7 +10,6 @@ import com.arsoft.projects.common.business.entity.ArDateTime;
 import com.arsoft.projects.common.business.entity.ArMonthEnum;
 import com.arsoft.projects.common.business.entity.ArTime;
 import com.arsoft.projects.common.business.market.entities.ArScrip;
-import com.arsoft.projects.common.business.market.entities.datafile.footer.ArScripCurrentDataFileFooter;
 import com.arsoft.projects.common.equity.ArBourse;
 import com.arsoft.projects.common.exception.ArException;
 
