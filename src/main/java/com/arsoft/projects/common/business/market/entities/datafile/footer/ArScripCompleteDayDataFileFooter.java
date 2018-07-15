@@ -9,8 +9,10 @@ import com.arsoft.projects.common.business.entity.ArTime;
 import com.arsoft.projects.common.business.market.constant.ArScripDataFileEnum;
 import com.arsoft.projects.common.business.market.entities.ArPriceData;
 import com.arsoft.projects.common.business.market.entities.ArScrip;
+import com.arsoft.projects.common.business.market.util.ArPriceDataUtil;
 import com.arsoft.projects.common.exception.ArException;
 import com.arsoft.projects.common.string.ArStringConstant;
+import com.arsoft.projects.common.string.ArStringUtil;
 import com.arsoft.projects.common.utility.datatime.ArDateTimeUtil;
 
 public class ArScripCompleteDayDataFileFooter extends ArScripDataFileFooter{
@@ -35,10 +37,25 @@ public class ArScripCompleteDayDataFileFooter extends ArScripDataFileFooter{
 	}
 	
 	public ArScripCompleteDayDataFileFooter(String footerString, ArScrip arScrip)  throws ArException {
+		super(footerString, arScrip);
+		super.setArScripDataFileEnum(ArScripDataFileEnum.CURRENT_DATA_FILE);
+		
 		if (footerString == null || footerString.length() == 0){
-        	throw new ArException("ArScripYearDataFileFooter: Null Footer String");
+        	throw new ArException("ArScripCompleteDayDataFileFooter: Null Footer String");
         }
 		
+		String[] parts = ArStringUtil.splitString(footerString, ArStringConstant.DOUBLE_PIPE);
+		if (parts == null || parts.length < 1){
+        	throw new ArException("ArScripCompleteDayDataFileFooter: Invalid Footer String");
+        }
+		
+		for (String part : parts) {
+			if (this.currentPriceList == null){
+				currentPriceList = new ArrayList<>();
+			}
+			ArPriceData currentPrice = ArPriceDataUtil.getArPriceData(part); 
+			this.currentPriceList.add(currentPrice);
+		}
 	}
 
 	public ArScripCompleteDayDataFileFooter() {

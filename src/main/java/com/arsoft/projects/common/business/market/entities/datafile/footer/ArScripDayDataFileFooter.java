@@ -6,8 +6,10 @@ import com.arsoft.projects.common.business.entity.ArTime;
 import com.arsoft.projects.common.business.market.constant.ArScripDataFileEnum;
 import com.arsoft.projects.common.business.market.entities.ArPriceData;
 import com.arsoft.projects.common.business.market.entities.ArScrip;
+import com.arsoft.projects.common.business.market.util.ArPriceDataUtil;
 import com.arsoft.projects.common.exception.ArException;
 import com.arsoft.projects.common.string.ArStringConstant;
+import com.arsoft.projects.common.string.ArStringUtil;
 import com.arsoft.projects.common.utility.datatime.ArDateTimeUtil;
 
 public class ArScripDayDataFileFooter extends ArScripDataFileFooter{
@@ -76,7 +78,38 @@ public class ArScripDayDataFileFooter extends ArScripDataFileFooter{
 		this.closePrice = closePrice;
 	}
 	
-	public ArScripDayDataFileFooter(String footerString, ArScrip arScrip) {
+	public ArScripDayDataFileFooter(String footerString, ArScrip arScrip) throws ArException {
+		super(footerString, arScrip);
+		super.setArScripDataFileEnum(ArScripDataFileEnum.DAY_DATA_FILE);
+		
+		if (footerString == null || footerString.length() == 0){
+        	throw new ArException("ArScripDayDataFileFooter: Null Footer String");
+        }
+		String[] parts = ArStringUtil.splitString(footerString, ArStringConstant.DOUBLE_PIPE);
+		if (parts == null || parts.length != 5){
+        	throw new ArException("ArScripDayDataFileFooter: Invalid Footer String");
+        }
+	
+		String previousClosePriceString = parts[0];
+		ArPriceData previousClosePrice = ArPriceDataUtil.getArPriceData(previousClosePriceString);
+		this.setPreviousClosePrice(previousClosePrice);
+		
+		String openPriceString = parts[1];
+		ArPriceData openPrice = ArPriceDataUtil.getArPriceData(openPriceString);
+		this.setOpenPrice(openPrice);
+		
+		String highPriceString = parts[2];
+		ArPriceData highPrice = ArPriceDataUtil.getArPriceData(highPriceString);
+		this.setHighPrice(highPrice);
+		
+		String lowPriceString = parts[3];
+		ArPriceData lowPrice = ArPriceDataUtil.getArPriceData(lowPriceString);
+		this.setLowPrice(lowPrice);
+		
+		String closePriceString = parts[4];
+		ArPriceData closePrice = ArPriceDataUtil.getArPriceData(closePriceString);
+		this.setClosePrice(closePrice);
+		
 		
 	}
 

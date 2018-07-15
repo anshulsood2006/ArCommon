@@ -6,8 +6,10 @@ import com.arsoft.projects.common.business.entity.ArTime;
 import com.arsoft.projects.common.business.market.constant.ArScripDataFileEnum;
 import com.arsoft.projects.common.business.market.entities.ArPriceData;
 import com.arsoft.projects.common.business.market.entities.ArScrip;
+import com.arsoft.projects.common.business.market.util.ArPriceDataUtil;
 import com.arsoft.projects.common.exception.ArException;
 import com.arsoft.projects.common.string.ArStringConstant;
+import com.arsoft.projects.common.string.ArStringUtil;
 import com.arsoft.projects.common.utility.datatime.ArDateTimeUtil;
 
 public class ArScripCurrentDataFileFooter extends ArScripDataFileFooter{
@@ -28,7 +30,21 @@ public class ArScripCurrentDataFileFooter extends ArScripDataFileFooter{
 	}
 	
 	public ArScripCurrentDataFileFooter(String footerString, ArScrip arScrip) throws ArException {
+		super(footerString, arScrip);
+		super.setArScripDataFileEnum(ArScripDataFileEnum.CURRENT_DATA_FILE);
 		
+		if (footerString == null || footerString.length() == 0){
+        	throw new ArException("ArScripCurrentDataFileFooter: Null Footer String");
+        }
+		
+		String[] parts = ArStringUtil.splitString(footerString, ArStringConstant.DOUBLE_PIPE);
+		if (parts == null || parts.length != 1){
+        	throw new ArException("ArScripCurrentDataFileFooter: Invalid Footer String");
+        }
+		
+		String currentPriceString = parts[0];
+		ArPriceData currentPrice = ArPriceDataUtil.getArPriceData(currentPriceString);
+		this.setCurrentPrice(currentPrice);
 	}
 
 	/**
