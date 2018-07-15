@@ -34,6 +34,17 @@ public class ArScripCompleteDayDataFileFooter extends ArScripDataFileFooter{
 		this.currentPriceList.add(e);
 	}
 	
+	public ArScripCompleteDayDataFileFooter(String footerString, ArScrip arScrip)  throws ArException {
+		if (footerString == null || footerString.length() == 0){
+        	throw new ArException("ArScripYearDataFileFooter: Null Footer String");
+        }
+		
+	}
+
+	public ArScripCompleteDayDataFileFooter() {
+		
+	}
+
 	/**
 	 * Returns footer string for Complete Day Data File in the format 
 	 * price@date@time||price@date@time||price@date@time||price@date@time
@@ -78,6 +89,10 @@ public class ArScripCompleteDayDataFileFooter extends ArScripDataFileFooter{
 	
 	public static ArScripDataFileFooter getArScripDataFileFooter(ArScrip arScrip){
 		return new ArScripCompleteDayDataFileFooter(arScrip);
+	}
+
+	public static ArScripDataFileFooter getArScripDataFileFooter(String footerString, ArScrip arScrip) throws ArException {
+		return new ArScripCompleteDayDataFileFooter(footerString, arScrip);
 	}
 	
 }

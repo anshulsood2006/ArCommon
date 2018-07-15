@@ -25,10 +25,18 @@ public abstract class ArScripDataFileFooter {
 	public void setArScripDataFileEnum(ArScripDataFileEnum arScripDataFileEnum) {
 		this.arScripDataFileEnum = arScripDataFileEnum;
 	}
-
+	
 	public ArScripDataFileFooter (ArScrip arScrip, ArScripDataFileEnum arScripDataFileEnum) {
 		this.arScrip = arScrip;
 		this.arScripDataFileEnum = arScripDataFileEnum;
+	}
+	
+	public ArScripDataFileFooter(String footerString, ArScrip arScrip) throws ArException {
+		this.arScrip = arScrip;
+	}
+	
+	public ArScripDataFileFooter() {
+		
 	}
 	
 	public abstract String getArScripDataFileFooterAsString() throws ArException;

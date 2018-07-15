@@ -27,6 +27,10 @@ public class ArScripCurrentDataFileFooter extends ArScripDataFileFooter{
 		this.currentPrice = new ArPriceData(arScrip.getPrice(), arScrip.getTimeOfRecord());
 	}
 	
+	public ArScripCurrentDataFileFooter(String footerString, ArScrip arScrip) throws ArException {
+		
+	}
+
 	/**
 	 * Returns footer string for Current Data File in the format 
 	 * price@date@time
@@ -56,6 +60,10 @@ public class ArScripCurrentDataFileFooter extends ArScripDataFileFooter{
 	
 	public static ArScripDataFileFooter getArScripDataFileFooter(ArScrip arScrip){
 		return new ArScripCurrentDataFileFooter(arScrip);
+	}
+
+	public static ArScripDataFileFooter getArScripDataFileFooter(String footerString, ArScrip arScrip) throws ArException {
+		return new ArScripCurrentDataFileFooter(footerString, arScrip);
 	}
 	
 }

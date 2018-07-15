@@ -11,7 +11,9 @@ import com.arsoft.projects.common.business.entity.ArDate;
 import com.arsoft.projects.common.business.entity.ArDateTime;
 import com.arsoft.projects.common.business.entity.ArMonthEnum;
 import com.arsoft.projects.common.business.entity.ArTime;
+import com.arsoft.projects.common.exception.ArException;
 import com.arsoft.projects.common.string.ArStringConstant;
+import com.arsoft.projects.common.string.ArStringUtil;
 
 public class ArDateTimeUtil {
 	
@@ -94,5 +96,34 @@ public class ArDateTimeUtil {
 			return null;
 		}
 		
+	}
+
+	public static ArDate getArDate(String underScoredDate) throws ArException {
+		String[] underScoredDateSplitted = ArStringUtil.splitString(underScoredDate, ArStringConstant.UNDERSCORE);
+        if (underScoredDateSplitted == null || underScoredDateSplitted.length != 3){
+        	throw new ArException("ArDateTimeUtil: Invalid Date Format in underScoredDate string");
+        }
+        int day = Integer.parseInt(underScoredDateSplitted[0]);
+        String monthString = underScoredDateSplitted[1];
+        if(monthString.startsWith("0")) {
+        	monthString = monthString.substring(1);
+        }
+        ArMonthEnum month = ArMonthEnum.getArMonthEnum(monthString);
+		int year = Integer.parseInt(underScoredDateSplitted[2]);
+		ArDate arDate = ArDate.getArDate(day, month, year);
+		return arDate;
+	}
+	
+	public static ArTime getArTime(String underScoredTime) throws ArException {
+		String[] underScoredTimeSplitted = ArStringUtil.splitString(underScoredTime, ArStringConstant.UNDERSCORE);
+        if (underScoredTimeSplitted == null || underScoredTimeSplitted.length != 3){
+        	throw new ArException("ArDateTimeUtil: Invalid Time Format in underScoredDate string");
+        }
+        int hour = Integer.parseInt(underScoredTimeSplitted[0]);
+		int minute = Integer.parseInt(underScoredTimeSplitted[1]);
+		int second = Integer.parseInt(underScoredTimeSplitted[2]);
+		ArAmPmEnum amPm = hour < 12 ? ArAmPmEnum.AM: ArAmPmEnum.PM;
+		ArTime arTime = ArTime.getArTime(hour, minute, second, amPm);
+		return arTime;
 	}
 }

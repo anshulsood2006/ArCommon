@@ -59,6 +59,5 @@ public class ArScripDataFileTest {
 		assertNotNull(header);
 		assertNotNull(footer);
 	}
-
 	
 }

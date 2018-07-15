@@ -8,6 +8,7 @@ import com.arsoft.projects.common.business.market.entities.ArPriceData;
 import com.arsoft.projects.common.business.market.entities.ArScrip;
 import com.arsoft.projects.common.exception.ArException;
 import com.arsoft.projects.common.string.ArStringConstant;
+import com.arsoft.projects.common.string.ArStringUtil;
 import com.arsoft.projects.common.utility.datatime.ArDateTimeUtil;
 
 public class ArScripDataFileWithOnlyHighLowFooter extends ArScripDataFileFooter{
@@ -33,6 +34,49 @@ public class ArScripDataFileWithOnlyHighLowFooter extends ArScripDataFileFooter{
 
 	public void setLowPrice(ArPriceData lowPrice) {
 		this.lowPrice = lowPrice;
+	}
+	
+	public ArScripDataFileWithOnlyHighLowFooter() {
+		
+	}
+	
+	public ArScripDataFileWithOnlyHighLowFooter(String footerString, ArScrip arScrip)  throws ArException {
+		super(footerString, arScrip);
+		if (footerString == null || footerString.length() == 0){
+        	throw new ArException("ArScripDataFileWithOnlyHighLowFooter: Null Footer String");
+        }
+		String[] parts = ArStringUtil.splitString(footerString, ArStringConstant.DOUBLE_PIPE);
+		if (parts == null || parts.length != 2){
+        	throw new ArException("ArScripDataFileWithOnlyHighLowFooter: Invalid Footer String");
+        }
+		
+		String highestPriceString = parts[0];
+		String[] highestPriceStringArray = ArStringUtil.splitString(highestPriceString, ArStringConstant.AT_THE_RATE);
+		if (highestPriceStringArray == null || highestPriceStringArray.length != 3){
+        	throw new ArException("ArScripDataFileWithOnlyHighLowFooter: Invalid Highest Price in Footer String");
+        }
+		double highestPrice = Double.parseDouble(highestPriceStringArray[0]);
+		String highestPriceDateString = highestPriceStringArray[1];
+		ArDate arDate = ArDateTimeUtil.getArDate(highestPriceDateString);
+		String highestPriceTimeString = highestPriceStringArray[2];
+		ArTime arTime = ArDateTimeUtil.getArTime(highestPriceTimeString);
+		ArDateTime arDateTime = new ArDateTime(arDate, arTime);
+		ArPriceData highPrice = new ArPriceData(highestPrice, arDateTime);
+		this.setHighPrice(highPrice);
+		
+		String lowestPriceString = parts[1];
+		String[] lowestPriceStringArray = ArStringUtil.splitString(lowestPriceString, ArStringConstant.AT_THE_RATE);
+		if (lowestPriceStringArray == null || lowestPriceStringArray.length != 3){
+        	throw new ArException("ArScripDataFileWithOnlyHighLowFooter: Invalid Lowest Price in Footer String");
+        }
+		double lowestPrice = Double.parseDouble(lowestPriceStringArray[0]);
+		String lowettPriceDateString = lowestPriceStringArray[1];
+		arDate = ArDateTimeUtil.getArDate(lowettPriceDateString);
+		String lowestPriceTimeString = lowestPriceStringArray[2];
+		arTime = ArDateTimeUtil.getArTime(lowestPriceTimeString);
+		arDateTime = new ArDateTime(arDate, arTime);
+		ArPriceData lowPrice = new ArPriceData(lowestPrice, arDateTime);
+		this.setLowPrice(lowPrice);
 	}
 
 	@Override

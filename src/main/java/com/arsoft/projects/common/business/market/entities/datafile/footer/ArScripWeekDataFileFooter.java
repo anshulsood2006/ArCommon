@@ -14,6 +14,11 @@ public class ArScripWeekDataFileFooter extends ArScripDataFileWithOnlyHighLowFoo
 		this.setHighPrice(new ArPriceData(0, ArDateTimeUtil.getCurrentArDateTime()));	
 	}
 
+	public ArScripWeekDataFileFooter(String footerString, ArScrip arScrip) throws ArException {
+		super(footerString, arScrip);
+		super.setArScripDataFileEnum(ArScripDataFileEnum.YEAR_DATA_FILE);
+	}
+
 	@Override
 	public String getArScripDataFileFooterAsString() throws ArException {
 		return super.getArScripDataFileFooterAsString();
@@ -27,4 +32,7 @@ public class ArScripWeekDataFileFooter extends ArScripDataFileWithOnlyHighLowFoo
 		return new ArScripWeekDataFileFooter(arScrip);
 	}
 
+	public static ArScripDataFileFooter getArScripDataFileFooter(String footerString, ArScrip arScrip) throws ArException {
+		return new ArScripWeekDataFileFooter(footerString, arScrip);
+	}
 }

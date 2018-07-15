@@ -13,6 +13,15 @@ public class ArScripYearDataFileFooter extends ArScripDataFileWithOnlyHighLowFoo
 		this.setLowPrice(new ArPriceData(0, ArDateTimeUtil.getCurrentArDateTime()));
 		this.setHighPrice(new ArPriceData(0, ArDateTimeUtil.getCurrentArDateTime()));
 	}
+	
+	public ArScripYearDataFileFooter(String footerString, ArScrip arScrip) throws ArException {
+		super(footerString, arScrip);
+		super.setArScripDataFileEnum(ArScripDataFileEnum.YEAR_DATA_FILE);
+	}
+
+	public ArScripYearDataFileFooter() {
+		
+	}
 
 	@Override
 	public String getArScripDataFileFooterAsString() throws ArException {
@@ -23,7 +32,11 @@ public class ArScripYearDataFileFooter extends ArScripDataFileWithOnlyHighLowFoo
 		return "Scrip: "+this.getArScrip()+", High Price: "+this.getHighPrice()+", Low Price: "+this.getLowPrice();
 	}
 	
-	public static ArScripDataFileFooter getArScripDataFileFooter(ArScrip arScrip){
+	public static ArScripDataFileFooter getArScripDataFileFooter(ArScrip arScrip) throws ArException {
 		return new ArScripYearDataFileFooter(arScrip);
+	}
+	
+	public static ArScripDataFileFooter getArScripDataFileFooter(String footerString, ArScrip arScrip) throws ArException {
+		return new ArScripYearDataFileFooter(footerString, arScrip);
 	}
 }

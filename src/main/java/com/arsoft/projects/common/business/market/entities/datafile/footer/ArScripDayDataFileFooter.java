@@ -76,6 +76,10 @@ public class ArScripDayDataFileFooter extends ArScripDataFileFooter{
 		this.closePrice = closePrice;
 	}
 	
+	public ArScripDayDataFileFooter(String footerString, ArScrip arScrip) {
+		
+	}
+
 	/**
 	 * Returns footer string for Day Data File in the format 
 	 * price@date@time
@@ -127,5 +131,9 @@ public class ArScripDayDataFileFooter extends ArScripDataFileFooter{
 
 	public static ArScripDataFileFooter getArScripDataFileFooter(ArScrip arScrip){
 		return new ArScripDayDataFileFooter(arScrip);
+	}
+
+	public static ArScripDataFileFooter getArScripDataFileFooter(String footerString, ArScrip arScrip) throws ArException {
+		return new ArScripDayDataFileFooter(footerString, arScrip);
 	}
 }
