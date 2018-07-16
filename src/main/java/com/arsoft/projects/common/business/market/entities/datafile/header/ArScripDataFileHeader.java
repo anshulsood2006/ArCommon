@@ -21,6 +21,7 @@ public class ArScripDataFileHeader {
 	private ArScrip arScrip;
 	private ArDateTime updatedDateTime;
 	private ArScripDataFileEnum arScripDataFileEnum;
+	private String fileName;
 	
 	public ArScrip getArScrip() {
 		return arScrip;
@@ -45,6 +46,14 @@ public class ArScripDataFileHeader {
 	public void setArScripFileDataEnum(ArScripDataFileEnum arScripDataFileEnum) {
 		this.arScripDataFileEnum = arScripDataFileEnum;
 	}
+	
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
 
 	public ArScripDataFileHeader(){
 		
@@ -58,6 +67,7 @@ public class ArScripDataFileHeader {
 		this.arScrip = arScrip;
 		this.updatedDateTime = updatedDateTime;
 		this.arScripDataFileEnum = arScripDataFileEnum;
+		this.fileName = getScripDataFileName(arScrip, arScripDataFileEnum);
 	}
 	
 	/**
@@ -90,8 +100,8 @@ public class ArScripDataFileHeader {
         }
         
         String name = parts[0];
-        
-        arScripDataFileHeader.setArScripFileDataEnum(ArScripDataFileEnum.getArScripFileDataEnumByFileType(parts[2]));
+        ArScripDataFileEnum arScripDataFileEnum = ArScripDataFileEnum.getArScripFileDataEnumByFileType(parts[2]);
+        arScripDataFileHeader.setArScripFileDataEnum(arScripDataFileEnum);
         
         String[] createdDateArray = ArStringUtil.splitString(parts[3], ArStringConstant.AT_THE_RATE);
         if (createdDateArray == null || createdDateArray.length != 2){
@@ -153,7 +163,7 @@ public class ArScripDataFileHeader {
         updatedDateTime.setArDate(arDate);
         updatedDateTime.setArTime(arTime);
         arScripDataFileHeader.setUpdatedDateTime(updatedDateTime);
-       
+        arScripDataFileHeader.setFileName(getScripDataFileName(arScrip, arScripDataFileEnum));
         return arScripDataFileHeader;
 	}
 	

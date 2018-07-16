@@ -6,7 +6,7 @@ import com.arsoft.projects.common.business.entity.ArTime;
 import com.arsoft.projects.common.business.market.constant.ArScripDataFileEnum;
 import com.arsoft.projects.common.business.market.entities.ArPriceData;
 import com.arsoft.projects.common.business.market.entities.ArScrip;
-import com.arsoft.projects.common.business.market.util.ArPriceDataUtil;
+import com.arsoft.projects.common.business.market.util.ArScripPriceDataUtil;
 import com.arsoft.projects.common.exception.ArException;
 import com.arsoft.projects.common.string.ArStringConstant;
 import com.arsoft.projects.common.string.ArStringUtil;
@@ -43,7 +43,7 @@ public class ArScripCurrentDataFileFooter extends ArScripDataFileFooter{
         }
 		
 		String currentPriceString = parts[0];
-		ArPriceData currentPrice = ArPriceDataUtil.getArPriceData(currentPriceString);
+		ArPriceData currentPrice = ArScripPriceDataUtil.getArPriceData(currentPriceString);
 		this.setCurrentPrice(currentPrice);
 	}
 

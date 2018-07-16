@@ -6,7 +6,7 @@ import com.arsoft.projects.common.business.entity.ArTime;
 import com.arsoft.projects.common.business.market.constant.ArScripDataFileEnum;
 import com.arsoft.projects.common.business.market.entities.ArPriceData;
 import com.arsoft.projects.common.business.market.entities.ArScrip;
-import com.arsoft.projects.common.business.market.util.ArPriceDataUtil;
+import com.arsoft.projects.common.business.market.util.ArScripPriceDataUtil;
 import com.arsoft.projects.common.exception.ArException;
 import com.arsoft.projects.common.string.ArStringConstant;
 import com.arsoft.projects.common.string.ArStringUtil;
@@ -91,23 +91,23 @@ public class ArScripDayDataFileFooter extends ArScripDataFileFooter{
         }
 	
 		String previousClosePriceString = parts[0];
-		ArPriceData previousClosePrice = ArPriceDataUtil.getArPriceData(previousClosePriceString);
+		ArPriceData previousClosePrice = ArScripPriceDataUtil.getArPriceData(previousClosePriceString);
 		this.setPreviousClosePrice(previousClosePrice);
 		
 		String openPriceString = parts[1];
-		ArPriceData openPrice = ArPriceDataUtil.getArPriceData(openPriceString);
+		ArPriceData openPrice = ArScripPriceDataUtil.getArPriceData(openPriceString);
 		this.setOpenPrice(openPrice);
 		
 		String highPriceString = parts[2];
-		ArPriceData highPrice = ArPriceDataUtil.getArPriceData(highPriceString);
+		ArPriceData highPrice = ArScripPriceDataUtil.getArPriceData(highPriceString);
 		this.setHighPrice(highPrice);
 		
 		String lowPriceString = parts[3];
-		ArPriceData lowPrice = ArPriceDataUtil.getArPriceData(lowPriceString);
+		ArPriceData lowPrice = ArScripPriceDataUtil.getArPriceData(lowPriceString);
 		this.setLowPrice(lowPrice);
 		
 		String closePriceString = parts[4];
-		ArPriceData closePrice = ArPriceDataUtil.getArPriceData(closePriceString);
+		ArPriceData closePrice = ArScripPriceDataUtil.getArPriceData(closePriceString);
 		this.setClosePrice(closePrice);
 		
 		
