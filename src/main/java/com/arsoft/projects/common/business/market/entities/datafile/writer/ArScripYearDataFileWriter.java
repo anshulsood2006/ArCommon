@@ -33,4 +33,8 @@ public class ArScripYearDataFileWriter implements ArScripDataFileWriter_IF {
 		ArScripPriceDataUtil.writeArScripDataFile(arScripDataFileCached);
 	}
 
+	public static ArScripDataFileWriter_IF getArScripDataWriter() {
+		return new ArScripYearDataFileWriter();
+	}
+
 }

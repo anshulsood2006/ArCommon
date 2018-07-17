@@ -24,4 +24,8 @@ public class ArScripCompleteDayDataFileWriter implements ArScripDataFileWriter_I
 		footerCached.setCurrentPriceList(footerNew.getCurrentPriceList());
 		ArScripPriceDataUtil.writeArScripDataFile(arScripDataFileCached);
 	}
+
+	public static ArScripDataFileWriter_IF getArScripDataWriter() {
+		return new ArScripCompleteDayDataFileWriter();
+	}
 }

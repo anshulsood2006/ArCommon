@@ -5,7 +5,12 @@ import com.arsoft.projects.common.business.market.constant.ArScripDataFileEnum;
 import com.arsoft.projects.common.business.market.entities.ArScrip;
 import com.arsoft.projects.common.business.market.entities.datafile.ArScripDataFile;
 import com.arsoft.projects.common.business.market.factory.ArScripDataFileFactory;
+import com.arsoft.projects.common.business.market.factory.ArScripDataFileReaderFactory;
+import com.arsoft.projects.common.business.market.factory.ArScripDataFileWriterFactory;
 import com.arsoft.projects.common.business.market.interfaces.ArScripDataFetcher_IF;
+import com.arsoft.projects.common.business.market.interfaces.ArScripDataFileReader_IF;
+import com.arsoft.projects.common.business.market.interfaces.ArScripDataFileWriter_IF;
+import com.arsoft.projects.common.business.market.util.ArScripPriceDataUtil;
 import com.arsoft.projects.common.equity.ArBourse;
 import com.arsoft.projects.common.exception.ArException;
 import com.arsoft.projects.common.utility.datatime.ArDateTimeUtil;
@@ -25,9 +30,18 @@ public class ArScripDataFetcher implements ArScripDataFetcher_IF{
 			System.out.println("Market is open: ");
 			ArScripDataFetcher a = new ArScripDataFetcher();
 			ArScrip arScrip = a.getScripCurrentData("SBIN", ArBourse.NSE);
-			ArScripDataFile arScripDataFile = ArScripDataFileFactory.getArScripDataFile(arScrip, ArScripDataFileEnum.COMPLETE_DAY_DATE_FILE);
-			System.out.println(arScripDataFile.getArScripDataFileHeader().getArScripFileDataHeaderAsString());
-			System.out.println(arScripDataFile.getArScripDataFileFooter().getArScripDataFileFooterAsString());
+			ArScripDataFileEnum arScripDataFileEnum = ArScripDataFileEnum.COMPLETE_DAY_DATE_FILE;
+			String fileName = ArScripPriceDataUtil.getScripDataFileName(arScrip, arScripDataFileEnum);
+			ArScripDataFileReader_IF reader = ArScripDataFileReaderFactory.getArScripDataFileReader(arScripDataFileEnum);
+			ArScripDataFileWriter_IF writer = ArScripDataFileWriterFactory.getArScripDataFileWriter(arScripDataFileEnum);
+			ArScripDataFile arScripDataFileCached = reader.readData(fileName, arScrip);
+			System.out.println(arScripDataFileCached.getArScripDataFileHeader().getArScripFileDataHeaderAsString());
+			System.out.println(arScripDataFileCached.getArScripDataFileFooter().getArScripDataFileFooterAsString());
+			ArScripDataFile arScripDataFileNew = ArScripDataFileFactory.getArScripDataFile(arScrip, arScripDataFileEnum);
+			writer.updateData(arScripDataFileCached, arScripDataFileNew);
+			System.out.println(arScripDataFileCached.getArScripDataFileHeader().getArScripFileDataHeaderAsString());
+			System.out.println(arScripDataFileCached.getArScripDataFileFooter().getArScripDataFileFooterAsString());
+			
 		}else{
 			System.out.println("Market is closed currently.");
 		}

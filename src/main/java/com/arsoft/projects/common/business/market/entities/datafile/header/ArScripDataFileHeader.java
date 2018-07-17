@@ -9,11 +9,11 @@ import com.arsoft.projects.common.business.entity.ArMonthEnum;
 import com.arsoft.projects.common.business.entity.ArTime;
 import com.arsoft.projects.common.business.market.constant.ArScripDataFileEnum;
 import com.arsoft.projects.common.business.market.entities.ArScrip;
+import com.arsoft.projects.common.business.market.util.ArScripPriceDataUtil;
 import com.arsoft.projects.common.equity.ArBourse;
 import com.arsoft.projects.common.exception.ArException;
 import com.arsoft.projects.common.string.ArStringConstant;
 import com.arsoft.projects.common.string.ArStringUtil;
-import com.arsoft.projects.common.utility.datatime.ArCalendarUtil;
 import com.arsoft.projects.common.utility.datatime.ArDateTimeUtil;
 
 public class ArScripDataFileHeader {
@@ -67,7 +67,7 @@ public class ArScripDataFileHeader {
 		this.arScrip = arScrip;
 		this.updatedDateTime = updatedDateTime;
 		this.arScripDataFileEnum = arScripDataFileEnum;
-		this.fileName = getScripDataFileName(arScrip, arScripDataFileEnum);
+		this.fileName = ArScripPriceDataUtil.getScripDataFileName(arScrip, arScripDataFileEnum);
 	}
 	
 	/**
@@ -163,7 +163,7 @@ public class ArScripDataFileHeader {
         updatedDateTime.setArDate(arDate);
         updatedDateTime.setArTime(arTime);
         arScripDataFileHeader.setUpdatedDateTime(updatedDateTime);
-        arScripDataFileHeader.setFileName(getScripDataFileName(arScrip, arScripDataFileEnum));
+        arScripDataFileHeader.setFileName(ArScripPriceDataUtil.getScripDataFileName(arScrip, arScripDataFileEnum));
         return arScripDataFileHeader;
 	}
 	
@@ -183,35 +183,7 @@ public class ArScripDataFileHeader {
 	 * @throws ParseException 
 	 */	
 	public String getArScripFileDataHeaderAsString() throws ArException{
-		return this.getArScrip().getName() + ArStringConstant.DOUBLE_PIPE + getScripDataFileName(this.getArScrip(), this.getArScripDataFileEnum()) + ArStringConstant.DOUBLE_PIPE + this.getArScripDataFileEnum().getFileType() + ArStringConstant.DOUBLE_PIPE + ArDateTimeUtil.getUnderScoredDate(this.getArScrip().getTimeOfRecord().getArDate()) + ArStringConstant.AT_THE_RATE + ArDateTimeUtil.getUnderScoredTime(arScrip.getTimeOfRecord().getArTime()) + ArStringConstant.DOUBLE_PIPE + ArDateTimeUtil.getUnderScoredDate(this.getUpdatedDateTime().getArDate()) + ArStringConstant.AT_THE_RATE + ArDateTimeUtil.getUnderScoredTime(this.getUpdatedDateTime().getArTime());
+		return this.getArScrip().getName() + ArStringConstant.DOUBLE_PIPE + ArScripPriceDataUtil.getScripDataFileName(this.getArScrip(), this.getArScripDataFileEnum()) + ArStringConstant.DOUBLE_PIPE + this.getArScripDataFileEnum().getFileType() + ArStringConstant.DOUBLE_PIPE + ArDateTimeUtil.getUnderScoredDate(this.getArScrip().getTimeOfRecord().getArDate()) + ArStringConstant.AT_THE_RATE + ArDateTimeUtil.getUnderScoredTime(arScrip.getTimeOfRecord().getArTime()) + ArStringConstant.DOUBLE_PIPE + ArDateTimeUtil.getUnderScoredDate(this.getUpdatedDateTime().getArDate()) + ArStringConstant.AT_THE_RATE + ArDateTimeUtil.getUnderScoredTime(this.getUpdatedDateTime().getArTime());
 	}
 	
-	/**
-	 * Returns the name of the file to be created. The format of the name is SCRIP_FILE_NAME_DD_MM_YYYY
-	 * @param scrip
-	 * @param createdDateTime
-	 * @param arScripDataFileEnum
-	 * @return name of the file to be created
-	 * @throws ParseException 
-	 * 
-	 */
-	public static final String getScripDataFileName(ArScrip arScrip, ArScripDataFileEnum arScripDataFileEnum){
-		ArDate date = arScrip.getTimeOfRecord().getArDate();
-		String postFix = "";
-		switch(arScripDataFileEnum){
-			case MONTH_DATA_FILE:
-				postFix = ArStringConstant.UNDERSCORE + date.getMonthAsString() + ArStringConstant.UNDERSCORE + date.getYear();
-				break;
-			case WEEK_DATA_FILE:
-				postFix = ArStringConstant.UNDERSCORE + ArCalendarUtil.getCurrentWeekOfYear(date) + ArStringConstant.UNDERSCORE + date.getYear();
-				break;
-			case YEAR_DATA_FILE:
-				postFix = ArStringConstant.UNDERSCORE + date.getYear();
-				break;
-			default:
-				postFix = ArStringConstant.UNDERSCORE + date.getDayAsString() + ArStringConstant.UNDERSCORE + date.getMonthAsString() + ArStringConstant.UNDERSCORE + date.getYear();
-				break;
-		}
-		return arScrip.getName() + ArStringConstant.UNDERSCORE + arScripDataFileEnum.getFileName() + postFix;
-	}
 }

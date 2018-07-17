@@ -33,4 +33,8 @@ public class ArScripWeekDataFileWriter implements ArScripDataFileWriter_IF {
 		ArScripPriceDataUtil.writeArScripDataFile(arScripDataFileCached);
 	}
 
+	public static ArScripDataFileWriter_IF getArScripDataWriter() {
+		return new ArScripWeekDataFileWriter();
+	}
+
 }
