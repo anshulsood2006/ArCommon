@@ -9,9 +9,77 @@
 <h1>Decorator Design Pattern</h1>
 <h1>Features</h1>
 <p>It is a type of structural design pattern</p>
+<ul>
+	<li>We can change the functionality of objects at runtime</li>
+	<li>This is achieved in below manner</li>
+	<li>Define component interface.</li>
+	<li>Define component interface implementation class.</li>
+	<li>Define decorator class having HAS-A relationship with the component interface.</li>
+	<li>Define concrete decorator classes. </li>
+	<li>Decorator pattern is used a lot in Java IO classes, such as FileReader, BufferedReader etc.</li>
+</ul>
 <h1>Examples</h1>
-<p><b></b></p>
+<p><b>Component Interface:</b>
 <pre>
+public interface Car {
+	public void assemble();
+}
+</pre>
+<b>Component Interface Implementation:</b>
+<pre>
+public class CarComponentImplementation implements Car{
+
+	@Override
+	public void assemble() {
+		System.out.println("Basic Car");		
+	}
+
+}
+</pre>
+<b>Decorator:</b>
+<pre>
+public class CarDecorator implements Car{
+	protected Car carComponent;
+	
+	public CarDecorator(Car carComponent){
+		this.carComponent = carComponent;
+	}
+
+	@Override
+	public void assemble() {
+		this.carComponent.assemble();		
+	}
+}
+</pre>
+<b>Concrete Decorators:</b>
+<pre>
+public class LuxoryCar extends CarDecorator{
+
+	public LuxoryCar(Car carComponent) {
+		super(carComponent);
+		System.out.println("Luxory Car");
+	}
+
+}
+
+public class SportsCar extends CarDecorator{
+
+	public SportsCar(Car carComponent) {
+		super(carComponent);
+		System.out.println("Sports Car");
+	}
+
+}
+</pre>
+<b>Test the decorator pattern:</b>
+<pre>
+public class DecoratorPatternTest {
+	public static void main(String[] args) {
+		
+		Car car = new SportsCar(new LuxoryCar(new CarComponentImplementation()));
+		car.assemble();
+	}
+}
 </pre>
 <h1>Frequently Asked Questions</h1>
 <p><b></b></p>
