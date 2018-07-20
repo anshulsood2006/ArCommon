@@ -9,8 +9,22 @@
 <h1>Atomic</h1>
 <h1>Features</h1>
 <ul>
-<li></li>
-<li></li>
+<li><b>Atomic Operations (CAS):</b> compare-and-swap is machine level atomic operation that works on three operands:
+	<ol>
+		<li>The memory location on which to operate (M)</li>
+		<li>The existing expected value (A) of the variable</li>
+		<li>The new value (B) which needs to be set</li>
+	</ol>
+	The CAS operation updates atomically the value in M to B, but only if the existing value in M matches A, otherwise no action is taken
+</li>
+<li><b>Atomic Variables:</b>
+	<ol>
+		<li>AtomicInteger</li>
+		<li>AtomicLong</li>
+		<li>AtomicBoolean</li>
+		<li>AtomicReference</li>
+	</ol>
+</li>
 <li></li>
 <li></li>
 <li></li>
