@@ -2,13 +2,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Topic</title>
+<title>Reentrant Lock in Java</title>
 </head>
 <body>
 <h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
-<h1>Topic</h1>
+<h1>Reentrant Lock</h1>
 <h1>Features</h1>
-<p></p>
+<p>
+
+<ul>
+<li> ReentrantLock allow threads to enter into lock on a resource more than once</li>
+<li>When the thread first enters into lock, a hold count is set to one. Before unlocking the thread can re-enter into lock again and every time hold count is incremented by one. For every unlock request, hold count is decremented by one and when hold count is 0, the resource is unlocked.</li>
+<li>The unlock statement is always called in the finally block to ensure that the lock is released even if an exception is thrown in the method body.</li>
+</ul>
 <h1>Examples</h1>
 <p><b></b></p>
 <pre>

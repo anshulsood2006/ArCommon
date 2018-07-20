@@ -46,8 +46,13 @@
 Some other synchronization techniques in JAVA are: 
 <ul>
 	<li><a href="Lock.html">Lock interface</a></li>
+	<li><a href="ReentrantLock.html">Reentrant Lock</a></li>
 </ul>
-<p>Fairness: It is a boolean property given during creation of a lock object. If this is set as true this will make sure that the longest waiting thread is given the highest priority</p>
+<p><b>Fairness:</b> It is a boolean property given during creation of a lock object. If this is set as true this will make sure that the longest waiting thread is given the highest priority</p>
+<p><b>ThreadGroup:</b> Grouping multiple threads into a single object so that a single method call cab be used to suspend, resume or interrupt all the threads</p>
+<p><b>Shutdown Hook:</b> This is used to perform clean up operations when JVM shuts down abruptly or normally. It can be called by using Runtime.addShutdownHook(Thread hook) method.
+
+
 <h1>Examples</h1>
 <p><b>Creating Thread using Thread class</b></p>
 <pre>
@@ -194,6 +199,67 @@ public class ArThreadSynchronizedExample{
 	}
 }
 </pre>
+<p><b>Thread Group</b></p>
+<pre>
+package com.arsoft.projects.common.learning.multithreading;
+
+public class MyThreadGroup implements Runnable {
+
+	private String name;
+
+	private MyThreadGroup(String name) {
+		this.name = name;
+	}
+
+	public MyThreadGroup() {
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public void run() {
+		System.out.println("Running the thread: " + this.name);
+
+	}
+
+	public static void main(String[] args) {
+		MyThreadGroup test = new MyThreadGroup();
+		ThreadGroup tg1 = new ThreadGroup("Parent ThreadGroup");
+		Thread t1 = new Thread(tg1, new MyThreadGroup("Anshul"));
+		Thread t2 = new Thread(tg1, new MyThreadGroup("Akhil"));
+		Thread t3 = new Thread(tg1, new MyThreadGroup("Abhishek"));
+		t1.start();
+		t2.start();
+		t3.start();
+		System.out.println("Thread Group Name: " + tg1.getName());
+		tg1.list(); 
+	}
+
+}
+</pre>
+<p><b>Shut Down Hook</b></p>
+<pre>
+package com.arsoft.projects.common.learning.multithreading;
+
+public class MyThreadGroup{
+
+	class ShutDownHook extends Thread{
+
+		@Override
+		public void run() {
+			System.out.println("Shutdown hook is called");			
+		}
+		
+	}
+
+	public static void main(String[] args) {
+		MyThreadGroup test = new MyThreadGroup();
+		Runtime runtime = Runtime.getRuntime(); 
+		runtime.addShutdownHook(test.new ShutDownHook());
+	}
+
+}
+
+</pre>
 <h1>Frequently Asked Questions</h1>
 <p><b>What is the difference between Process and Thread?</b></p>
 <p>Process is a self contained complete execution environment where as thread is a single task getting executed independently inside a process.</p>
@@ -209,7 +275,29 @@ public class ArThreadSynchronizedExample{
 <li></li>
 </ol>
 <p><b>How to resolve the compilation error message "No enclosing instance of type X is accessible. Must qualify the allocation with an enclosing instance of type X"</b></p>
-<p>This issue occcurs in case one is trying to create an instance of an inner class without having an insatance of outer class. Create an instance of outer class and then use that instance to call the inner class</p>
+<p>This issue occurs in case one is trying to create an instance of an inner class without having an instance of outer class. Create an instance of outer class and then use that instance to create instance of the inner class. E.g.</p>
+<pre>
+package com.arsoft.projects.common.learning.multithreading;
+
+public class MyThreadGroup{
+
+	class ShutDownHook extends Thread{
+
+		@Override
+		public void run() {
+			System.out.println("Shutdown hook is called");			
+		}
+		
+	}
+
+	public static void main(String[] args) {
+		MyThreadGroup test = new MyThreadGroup();
+		Runtime runtime = Runtime.getRuntime(); 
+		runtime.addShutdownHook(<b>test.new ShutDownHook()</b>);
+	}
+
+}
+</pre>
 <p><b></b></p>
 <p></p>
 <p><b></b></p>
