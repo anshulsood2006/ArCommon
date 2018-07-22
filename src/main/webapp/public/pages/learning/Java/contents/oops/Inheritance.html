@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Inheritance in Java</title>
+</head>
+<body>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
+<h1>Inheritance</h1>
+<h1>Features</h1>
+<ul>
+<li>In case of inheritance, the constructor of base class with no argument is always called whenever any constructor of derived class is called.</li>
+<li>In case of inheritance, the method of the class whose constructor is invoked is called.</li>
+<li>In Java there is only call by value.</li>
+<li></li>
+<li></li>
+<li></li>
+</ul>
+<h1>Examples</h1>
+<p></p>
+<h1>Frequently Asked Questions</h1>
+<p><b>What is the output of below program:</b></p>
+<pre>
+public class ClassA {
+
+	public ClassA() {
+		System.out.println("constructor of Class A is called");
+	}
+	
+}
+
+public class ClassB extends ClassA {
+	
+	public ClassB() {
+		System.out.println("constructor of Class B is called");
+	}
+	
+	public ClassB(String B) {
+		System.out.println("constructor of Class B is called with argument "+B);
+	}
+	
+	public static void main(String[] args) {
+		ClassA clazz = new ClassB();
+	}
+}
+</pre>
+<p>constructor of Class A is called<br/>constructor of Class B is called</p>
+<p><b>What is the output of below program:</b></p>
+<pre>
+public class ClassA {
+
+	public ClassA() {
+		System.out.println("constructor of Class A is called");
+	}
+	
+}
+
+public class ClassB extends ClassA {
+	
+	public ClassB() {
+		System.out.println("constructor of Class B is called");
+	}
+	
+	public ClassB(String B) {
+		System.out.println("constructor of Class B is called with argument "+B);
+	}
+	
+	public static void main(String[] args) {
+		ClassA clazz = new ClassB("Anshul");
+	}
+}
+</pre>
+<p>constructor of Class A is called<br/>constructor of Class B is called with argument Anshul</p>
+<p><b>What is the output of below program:</b></p>
+<pre>
+public class ClassA {
+	
+	public void method() {
+		System.out.println("method of Class A is called");
+	}
+	
+}
+
+public class ClassB extends ClassA {
+	
+	public void method() {
+		System.out.println("method of Class B is called");
+	}
+	
+	public static void main(String[] args) {
+		ClassB classb = new ClassB();
+		classb.method();
+		ClassA classa = new ClassB();
+		classa.method();
+		classa = new ClassA();
+		classa.method();
+	}
+}
+</pre>
+<p>method of Class B is called<br/>method of Class B is called<br/>method of Class A is called</p>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
+</body>
+</html>

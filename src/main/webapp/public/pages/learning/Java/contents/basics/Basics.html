@@ -24,6 +24,12 @@
  	<li>Pass as a parameter to a method that expects a value of the corresponding primitive type.</li>
 	<li>Assign to a variable of the corresponding primitive type.</li>
 </ul>
+<p><b>Association:</b></p>
+<p>It is a type of HAS-A relationship between two classes. It is of two types:
+<ol>
+	<li><b>Aggregation: </b>It is a one way relationship between two classes. Both the entries can survive individually which means ending one entity will not effect the other entity.</li>
+	<li><b>Composition: </b>Both the entities are dependent on each other. The composed object cannot exist without the other entity.</li>
+</ol>
 <h1>Examples</h1>
 <p></p>
 <h1>Frequently Asked Questions</h1>
@@ -55,6 +61,12 @@
 	<li><pre>public boolean equals(Object obj) {
 	return (this == obj);
 }</pre></li>
+</ul>
+<p><b>What is the difference between composition and aggregation?</b></p>
+<ul>
+	<li>Aggregation implies a relationship where the child can exist independently of the parent. For example, Bank and Employee, delete the Bank and the Employee still exist. whereas Composition implies a relationship where the child cannot exist independent of the parent. Example: Human and heart, heart don't exist separate to a Human</li>
+	<li>Aggregation relation is "has-a" and composition is ""part-of" relation.</li>
+	<li>Composition is a strong association whereas aggregation is a weak association.</li>
 </ul>
 <p>As per the contract, whenever this method is invoked on the same object more than once during an execution of a Java application, the hashCode method must consistently return the same integer. But normally JVM will relocate the objects, after GC or compaction.</p>
 <h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
