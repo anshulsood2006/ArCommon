@@ -19,7 +19,6 @@ public class MaxValueMultithreaded implements Callable<Integer>{
 	public Integer call() throws Exception {
 		int maxValue = 0;
 		for (int index = 0; index < list.size(); index++){
-			//System.out.println("Max: "+index);
 			int z = list.get(index);
 			if(z > maxValue){
 				maxValue = z;
@@ -30,14 +29,15 @@ public class MaxValueMultithreaded implements Callable<Integer>{
 	
 	
 	public static void main(String[] args) throws InterruptedException, ExecutionException {
-		int totalElements = 65496760;
+		int totalElements = 654967599;
+		int noOfThreads = 1;
 		List<Integer> list = ExerciseUtil.getArrayList(totalElements);
 		System.out.println("Array initialized: "+list.size());
-		ExecutorService executor = Executors.newFixedThreadPool(10);
-		int gap = totalElements / 4;
+		ExecutorService executor = Executors.newFixedThreadPool(noOfThreads);
+		int gap = totalElements / noOfThreads;
 		int maxValueFinal = 0;
 		long start = System.currentTimeMillis();
-		for (int i = 0; i < 4; i++){
+		for (int i = 0; i < noOfThreads; i++){
 			Future<Integer> fut = executor.submit(new MaxValueMultithreaded(list.subList(gap * i, gap * (i + 1))));
 			Integer maxValue = fut.get();
 			if (maxValue > maxValueFinal){

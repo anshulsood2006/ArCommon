@@ -12,7 +12,8 @@ import java.util.List;
 public class MaxValue {
 
 	public static void main(String[] args) {
-		List<Integer> list = ExerciseUtil.getArrayList(65496759);
+		int totalElements = 65496760;
+		List<Integer> list = ExerciseUtil.getArrayList(totalElements);
 		int size = list.size();
 		System.out.println("Size = "+size);
 		long start = System.currentTimeMillis();
