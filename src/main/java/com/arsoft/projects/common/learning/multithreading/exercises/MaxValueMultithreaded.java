@@ -1,5 +1,7 @@
 package com.arsoft.projects.common.learning.multithreading.exercises;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
@@ -29,17 +31,26 @@ public class MaxValueMultithreaded implements Callable<Integer>{
 	
 	
 	public static void main(String[] args) throws InterruptedException, ExecutionException {
-		int totalElements = 654967599;
-		int noOfThreads = 1;
+		int totalElements = 84967000;
+		int noOfThreads = 4;
 		List<Integer> list = ExerciseUtil.getArrayList(totalElements);
 		System.out.println("Array initialized: "+list.size());
 		ExecutorService executor = Executors.newFixedThreadPool(noOfThreads);
 		int gap = totalElements / noOfThreads;
-		int maxValueFinal = 0;
 		long start = System.currentTimeMillis();
+		Collection<Callable<Integer>> collections = null;
 		for (int i = 0; i < noOfThreads; i++){
-			Future<Integer> fut = executor.submit(new MaxValueMultithreaded(list.subList(gap * i, gap * (i + 1))));
-			Integer maxValue = fut.get();
+			if(collections == null){
+				collections = new ArrayList<>();
+			}
+			collections.add(new MaxValueMultithreaded(list.subList(gap * i, gap * (i + 1))));
+			
+		}
+		List<Future<Integer>> list1 = executor.invokeAll(collections);
+		int maxValue = 0;
+		int maxValueFinal = 0;
+		for (Future<Integer> future: list1){
+			maxValue = future.get();
 			if (maxValue > maxValueFinal){
 				maxValueFinal = maxValue;
 			}

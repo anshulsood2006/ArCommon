@@ -1,6 +1,5 @@
 package com.arsoft.projects.common.learning.multithreading.exercises;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -12,7 +11,7 @@ import java.util.List;
 public class MaxValue {
 
 	public static void main(String[] args) {
-		int totalElements = 65496760;
+		int totalElements = 84967000;
 		List<Integer> list = ExerciseUtil.getArrayList(totalElements);
 		int size = list.size();
 		System.out.println("Size = "+size);
