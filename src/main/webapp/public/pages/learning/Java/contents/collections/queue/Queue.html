@@ -10,27 +10,21 @@
 <h1>Features</h1>
 <ul>
 	<li>It is an ordered list of objects with its use limited to inserting elements at the end of list and deleting elements from the start of list</li>
+	<li>New elements are inserted at the tail of the queue, and the queue retrieval operations obtain elements at the head of the queue.</li>
 	<li>The main operations that can be performed on queue are:
 		<ol>
-			<li>add(): Adds element at the tail of queue i.e. last of linked list or as per priority in case of priority queue.</li>
-			<li>peek(): Gives the head element of queue but the element is not removed from queue. Null returned if queue is empty</li>
-			<li>element(): Gives the head element of queue but the element is not removed from queue. Throws NoSuchElementException if queue is empty</li>
-			<li>poll(): Gives the head element of queue and also the element is removed from queue. Null returned if queue is empty</li>
-			<li>remove(): Gives the head element of queue and also the element is removed from queue. Throws NoSuchElementException if queue is empty</li>
+			<li><b>add():</b> Adds element at the tail of queue i.e. last of linked list or as per priority in case of priority queue.</li>
+			<li><b>peek():</b> Gives the head element of queue but the element is not removed from queue. Null returned if queue is empty</li>
+			<li><b>element():</b> Gives the head element of queue but the element is not removed from queue. Throws NoSuchElementException if queue is empty</li>
+			<li><b>poll():</b> Gives the head element of queue and also the element is removed from queue. Null returned if queue is empty</li>
+			<li><b>remove():</b> Gives the head element of queue and also the element is removed from queue. Throws NoSuchElementException if queue is empty</li>
 		</ol>
 	</li>
 	<li>The main implementation classes are:
 		<ol>
-			<li><a href="LinkedList.html">Linked List: </a>Used to store elements in FIFO manner in the order of insertion.</li>
-			<li><a href="PriorityQueue.html">Priority Queue: </a>Used to store elements according to some priority.</li>
-			<li><a href="BlockingQueue.html">Blocking Queue: </a>Used to store elements in FIFO order but provides thread safe operations.
-				<ol>
-					<li><a href="blockingqueue/ArrayBlockingQueue.html">Array Blocking Queue</a></li>
-					<li><a href="blockingqueue/LinkedBlockingQueue.html">Linked Blocking Queue</a></li>
-					<li><a href="blockingqueue/PriorityBlockingQueue.html">Priority Blocking Queue</a></li>
-					<li><a href="blockingqueue/SynchronousQueue.html">Synchronous Queue.html</a></li>
-				</ol>
-			</li>
+			<li><a href="LinkedList.html"><b>Linked List:</b> </a>Used to store elements in FIFO manner in the order of insertion.</li>
+			<li><a href="PriorityQueue.html"><b>Priority Queue:</b> </a>Used to store elements according to some priority.</li>
+			<li><a href="BlockingQueue.html"><b>Blocking Queue:</b> </a>Interface whose implementation classes are used to store elements in FIFO order and also provides thread safe operations.</li>
 		</ol>
 	</li>
 	<li></li>
@@ -42,10 +36,17 @@
 <pre>
 </pre>
 <h1>Frequently Asked Questions</h1>
-<p><b></b></p>
-<p></p>
-<p><b></b></p>
-<p></p>
+<p><b>What is the difference between add and put methods?</b></p>
+<p>In case a queue is full put method fails while put blocks.</p>
+<p><b>What is the difference between add and offer methods?</b></p>
+<p>
+	<ul>
+		<li>add() comes from Collection while offer() comes from Queue</li>
+		<li>For a capacity-constrained queue, the difference is that add() always returns true and throws an IllegalStateException if it can't add the element, whereas offer() is allowed to return false if it can't add the element.</li>
+	</ul>
+</p>
+<p><b>Which two methods are the blocking methods in queue?</b></p>
+<p>put() and take()</p>
 <p><b></b></p>
 <p></p>
 <h2><a href="../Collections.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>

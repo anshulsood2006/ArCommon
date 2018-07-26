@@ -9,11 +9,27 @@
 <h1>Blocking Queue</h1>
 <h1>Features</h1>
 <ul>
-	<li>This is thread safe queue in Java</li>
+	<li>This is thread safe queue in Java.</li>
+	<li>The size needs to be provided in the constructor and is mandatory.</li>
 	<li>It support operations that wait for the queue to become non-empty when retrieving and removing an element, and wait for space to become available in the queue when adding an element.</li>
-	<li>Null objects can not be added and throws Null Pointer Exception if such thing is tried</li>
-	<li>This is primarily used for implementing producer consumer problem</li>
-	<li></li>
+	<li>Null objects can not be added and throws Null Pointer Exception if such thing is tried.</li>
+	<li>This is primarily used for implementing producer consumer problem.</li>
+	<li>The methods are:
+		<ol>
+			<li><b>put(): </b>Add the element to the tail of queue. This method will wait in case queue is full.</li>
+			<li><b>offer(): </b>Add the element to the tail of queue. </li>
+			<li><b>take(): </b>Retrieve and remove an element at the head of the queue. This method will wait in case queue is empty.</li>
+		</ol>
+	</li>
+	<li>
+		It has below implementation classes which are used to store elements in FIFO order and also provides thread safe operations.
+		<ol>
+			<li><a href="blockingqueue/ArrayBlockingQueue.html"><b>Array Blocking Queue: </b></a>It uses an internal array in which the elements are kept. Because it uses an array, it has a fixed size which is given in the constructor.</li>
+			<li><a href="blockingqueue/LinkedBlockingQueue.html"><b>Linked Blocking Queue: </b></a>It uses nodes (like a linked list), to keep track of the order of the elements, which increases the complexity of the data structure. It can have a fixed-size limit as well, but if we don't define one the limit is Integer.MAX_VALUE by default.</li>
+			<li><a href="blockingqueue/PriorityBlockingQueue.html"><b>Priority Blocking Queue</b></a></li>
+			<li><a href="blockingqueue/SynchronousQueue.html"><b>Synchronous Queue.html</b></a></li>
+		</ol>
+	</li>
 </ul>
 
 <h1>Examples</h1>
