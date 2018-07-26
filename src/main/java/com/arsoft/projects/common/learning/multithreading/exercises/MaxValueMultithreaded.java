@@ -31,10 +31,13 @@ public class MaxValueMultithreaded implements Callable<Integer>{
 	
 	
 	public static void main(String[] args) throws InterruptedException, ExecutionException {
-		int totalElements = 84967000;
+		int totalElements = 999999999;
 		int noOfThreads = 4;
+		if (totalElements < 20){
+			noOfThreads = 1;
+		}
 		List<Integer> list = ExerciseUtil.getArrayList(totalElements);
-		System.out.println("Array initialized: "+list.size());
+		System.out.println("Array initialized of size : "+list.size());
 		ExecutorService executor = Executors.newFixedThreadPool(noOfThreads);
 		int gap = totalElements / noOfThreads;
 		long start = System.currentTimeMillis();

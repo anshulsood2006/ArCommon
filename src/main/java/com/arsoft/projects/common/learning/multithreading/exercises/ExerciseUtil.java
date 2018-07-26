@@ -10,7 +10,10 @@ public class ExerciseUtil {
 		for (int i = 0; i < size; i ++){
 			System.out.println(i);
 			if (i == 100){
-				list.add(99999999);
+				list.add(654323456);
+			}
+			if (i == 63){
+				list.add(719999999);
 			}
 			else{
 				list.add(i);
