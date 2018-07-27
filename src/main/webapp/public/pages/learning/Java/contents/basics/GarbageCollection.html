@@ -12,22 +12,28 @@
 <li>The destruction of unused/unreachable objects by a daemon thread is called garbage collection.</li>
 <li>It frees heap memory in JVM.</li>
 <li>An object is said to be unreachable when there is no reference to it. e.g. <br/>Integer i = new Integer(4);<br/> i = null;<br/> Integer(4) object is unreachable now and can be garbage collected.</li>
-<li></li>
-<li></li>
-</ul>
-<p>JVM Memory model</p>
-The JVM memory is divided into 5 regions:
-<ul>
-	<li><b>Heap area</b>:</li>
-	<li><b>Thread Stack Area</b>: Every thread has its own stack area where it stores information about the course it has followed.</li>
+<li>One of the basic way of garbage collection involves three steps:
+	<ol>
+		<li><b>Marking: </b>In this step garbage collector identifies which objects are in use and which ones are not in use.</li>
+		<li><b>Normal Deletion: </b>Garbage Collector removes the unused objects and reclaim the free space to be allocated to other objects.</li>
+		<li><b>Deletion with Compacting: </b>For better performance, after deleting unused objects, all the survived objects can be moved to be together. This will increase the performance of allocation of memory to newer objects.</li>
+	</ol>
+</li>
+<li>Types of Garbage Collection:
+	<ol>
+		<li><b>Serial GC (-XX:+UseSerialGC)</b></li>
+		<li><b>Parallel GC (-XX:+UseParallelGC)</b></li>
+		<li><b>Parallel Old GC (-XX:+UseParallelOldGC)</b></li>
+		<li><b>Concurrent Mark Sweep (CMS) Collector (-XX:+UseConcMarkSweepGC)</b></li>
+		<li><b>G1 Garbage Collector (-XX:+UseG1GC)</b></li>
+	</ol>
+</li>
 </ul>
 <h1>Examples</h1>
 <p><b></b></p>
 <pre>
 </pre>
 <h1>Frequently Asked Questions</h1>
-<p><b></b></p>
-<p></p>
 <p><b></b></p>
 <p></p>
 <p><b></b></p>

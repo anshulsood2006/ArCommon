@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Memory Model in Java</title>
+</head>
+<body>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
+<h1>Features</h1>
+The JVM memory is broadly divided into 2 regions:
+<ul>
+	<li><b>Heap memory area </b> This memory space is further divided into two parts:
+		<ol>
+			<li><b>Young Generation: </b>
+				<ul>
+					<li>It is the memory where all the newly created objects are present.</li>
+					<li>Minor GC happens in young generation when memory is full</li>
+					<li>This memory space is further divided into three parts:</li>
+				</ul>
+				<ol>
+					<li><b>Eden memory</b></li>
+					<li><b>Survivor Zero(S0) memory</b></li>
+					<li><b>Survivor One(S1) memory</b></li>
+				</ol>
+				<ul>
+					<li>Eden memory is the memory area where most of the newly created objects are present.</li>
+					<li>Minor GC first happens in Eden space and this process moves all the survived objects to survivor zero (S0) memory</li>
+					<li>Minor GC then occurs in S0 space and the objects are then moved to S1 space. This minor GC process makes sure that one of the survivor space is free at a time.</li>
+					<li>There is a threshold value for the objects to reside in the young generation. One that value is crossed, the objects are promoted to the old generation.</li>
+				</ul>
+			</li>
+			<li><b>Old Generation:</b>
+				<ul>
+					<li>It is the memory where the longest lived/survived objects are present.</li>
+					<li>Major GC happens in the old generation when this space becomes full.</li>
+				</ul>
+			</li>
+		</ol>
+	</li>
+	<li><b>Permanent generation:</b>
+		<ul>
+			<li>It is the memory area where application metadata required by the JVM to describe the classes and methods used in the application is stored.</li>
+			<li>Major GC happens in this area as well.</li>
+			<li>This memory space is further divided into below parts:
+			<ol>
+				<li><b>Method Area: </b> It is the memory area used to store class structure (runtime constants and static variables) and code for methods and constructors.</li>
+				<li><b>Memory Pool: </b> It is the memory area used to store pool of immutable objects</li>
+				<li><b>Runtime Constant Pool: </b> It is the memory area used to store class runtime constants and static methods</li>
+				<li><b>Java Stack Memory: </b> It is the memory area used to store method specific values that are short-lived and references to other objects in the heap that are getting referred from the method. </li>
+				<li><b></b></li>
+			</ol>
+			</li>
+		</ul>
+	</li>
+</ul>
+<p><b>Stop the world event:</b>
+<ul> 
+	<li>During the GC process all the application threads are stopped until the GC is complete.</li>
+	<li>Minor GC is very fast since it occurs in young generation that has short lived objects</li>
+	<li>Major GC takes longer time because it checks all the live object</li>
+	<li>The duration is controlled by the strategy being used in the GC process.</li>
+</ul>
+<h1>Examples</h1>
+<p></p>
+<h1>Frequently Asked Questions</h1>
+<p><b>What is the difference between heap memory and stack memory?</b></p>
+<p>
+<table border="1">
+	<tr><th>Heap Memory</th><th>Stack Memory</th></tr>
+	<tr><td>Contains objects</td><td>Contains method specific values that are short-lived and references to other objects in the heap that are getting referred from the method</td></tr>
+	<tr><td>Reference to objects is quite complex in heap memory because it's used globally</td><td>Stack memory is always referenced in LIFO (Last-In-First-Out) order.</td></tr>
+	<tr><td>All the objects are stored in one block only</td><td> Whenever a method is invoked, a new block is created in the stack memory for the method to hold local primitive values and reference to other objects in the method. As soon as method ends, the block becomes unused and become available for next method.</td></tr>
+	<tr><td>Heap memory is larger in size</td><td>Stack memory is very smaller in size as compared to heap memory.</td></tr>
+	<tr><td>It is used by all the parts of the application</td><td>It is used only by one thread of execution.</td></tr>
+	<tr><td>It contains the objects.</td><td>It only contains local primitive variables and reference variables to objects in heap space.</td></tr>
+	<tr><td>Objects stored in the heap are globally accessible.</td><td>References in stack memory can't be accessed by other threads.</td></tr>
+	<tr><td>Heap memory is long-lived</td><td>Stack memory is short-lived</td></tr>
+	<tr><td>-Xms and -Xmx JVM option are used to define the startup size and maximum size of heap memory.</td><td>-Xss option is used to define to define the stack memory size</td></tr>
+	<tr><td>When heap memory is full, it throws java.lang.OutOfMemoryError: Java Heap Space error.</td><td>When stack memory is full, Java runtime throws java.lang.StackOverFlowErro</td></tr>
+</table>
+<p><b></b></p>
+<p></p>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
+</body>
+</html>
