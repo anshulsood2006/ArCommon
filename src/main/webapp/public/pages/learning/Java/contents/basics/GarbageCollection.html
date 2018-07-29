@@ -14,18 +14,59 @@
 <li>An object is said to be unreachable when there is no reference to it. e.g. <br/>Integer i = new Integer(4);<br/> i = null;<br/> Integer(4) object is unreachable now and can be garbage collected.</li>
 <li>One of the basic way of garbage collection involves three steps:
 	<ol>
-		<li><b>Marking: </b>In this step garbage collector identifies which objects are in use and which ones are not in use.</li>
-		<li><b>Normal Deletion: </b>Garbage Collector removes the unused objects and reclaim the free space to be allocated to other objects.</li>
-		<li><b>Deletion with Compacting: </b>For better performance, after deleting unused objects, all the survived objects can be moved to be together. This will increase the performance of allocation of memory to newer objects.</li>
+		<li><b>Mark: </b>In this step garbage collector identifies which objects are in use and which ones are not in use.</li>
+		<li><b>Sweep: </b>Garbage Collector removes the unused objects and reclaim the free space to be allocated to other objects.</li>
+		<li><b>Compact: </b>For better performance, after deleting unused objects, all the survived objects can be moved to be together. This will increase the performance of allocation of memory to newer objects.</li>
+	</ol>
+</li>
+<li>There are four ways to make an object eligible for garbage collection:
+	<ol>
+		<li>Make the reference null.</li>
+		<li>Re-assign the reference to other object.</li>
+		<li>Object that is created inside a method.</li>
+		<li>Island of isolation which is a group of objects that reference each other but they are not referenced by any active object in the application.</li>
+	</ol>
+</li>
+<li> There are two ways to call garbage collection in JAVA:
+	<ol>
+		<li>System.gc()</li>
+		<li>Runtime.getRuntime().gc()</li>
 	</ol>
 </li>
 <li>Types of Garbage Collection:
 	<ol>
-		<li><b>Serial GC (-XX:+UseSerialGC)</b></li>
-		<li><b>Parallel GC (-XX:+UseParallelGC)</b></li>
-		<li><b>Parallel Old GC (-XX:+UseParallelOldGC)</b></li>
-		<li><b>Concurrent Mark Sweep (CMS) Collector (-XX:+UseConcMarkSweepGC)</b></li>
-		<li><b>G1 Garbage Collector (-XX:+UseG1GC)</b></li>
+		<li><b>Serial GC (-XX:+UseSerialGC)</b>
+			<ul>
+				<li>It  uses the simple mark-sweep-compact approach for young and old generations garbage collection i.e Minor and Major GC.</li>
+				<li>It is useful in client-machines such as our simple stand alone applications and machines with smaller CPU. It is good for small applications with low memory footprint.</li>
+				
+			</ul>
+		</li>
+		<li><b>Parallel GC (-XX:+UseParallelGC)</b>
+			<ul>
+				<li>It is same as Serial GC except that is spawns N threads for young generation garbage collection where N is the number of CPU cores in the system.</li>
+				<li>We can control the number of threads using -XX:ParallelGCThreads=n JVM option.</li>
+				<li>It still uses single thread for old generation garbage collection</li>
+			</ul>
+		</li>
+		<li><b>Parallel Old GC (-XX:+UseParallelOldGC)</b>
+			<ul>
+				<li>This is same as Parallel GC except that it uses multiple threads for both young generation and old generation garbage collection.</li>
+			</ul>
+		</li>
+		<li><b>Concurrent Mark Sweep (CMS) Collector (-XX:+UseConcMarkSweepGC)</b>
+			<ul>
+				<li>This is used in the applications where we can't afford longer pause times</li>
+				<li>It minimize the pauses due to garbage collection by doing most of the garbage collection work concurrently with the application threads</li>
+				<li>We can limit the number of threads in CMS collector using -XX:ParallelCMSThreads=n JVM option</li>
+			</ul>
+		</li>
+		<li><b>G1 Garbage Collector (-XX:+UseG1GC)</b>
+			<ul>
+				<li>Garbage First Collector doesn't work like other collectors and there is no concept of Young and Old generation space.</li>
+				<li>It divides the heap space into multiple equal-sized heap regions. When a garbage collection is invoked, it first collects the region with lesser live data, hence "Garbage First".</li>
+			</ul>
+		</li>
 	</ol>
 </li>
 </ul>
@@ -34,8 +75,8 @@
 <pre>
 </pre>
 <h1>Frequently Asked Questions</h1>
-<p><b></b></p>
-<p></p>
+<p><b>What is difference between parallel GC and parallel old gc?</b></p>
+<p>In case of parallel GC there are multiple threads for both young generation garbage collection but only single thread for old generation garbage collection. But in case of parallel old GC, there are multiple threads for both young generation and old generation garbage collection. There is only single thread for old generation GC in parallel GC because the old generation GC process is less frequent as compared to young generation.</p>
 <p><b></b></p>
 <p></p>
 <h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
