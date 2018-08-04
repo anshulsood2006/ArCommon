@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Java Releases</title>
+</head>
+<body>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
+<h1>Java Releases</h1>
+
+<h1>Java 4 Features</h1>
+<ol>
+	<li></li>
+	<li></li>
+	<li></li>
+	
+</ol>
+<h1>Java 5 Features</h1>
+<ol>
+	<li>To improve the start up time of smaller applications, Class Data Sharing (CDS) was introduced. Here during the anything loaded by the bootstrap classloader was serialized and stored in a file on disk that could be reloaded on future launches of the JVM. This meant that multiple instances of the JVM shared the class metadata, so it wouldn't have to load them all every time.</li>
+	<li></li>
+</ol>
+<h1>Java 6 Features</h1>
+<ol>
+	<li></li>
+	<li></li>
+	<li></li>
+	
+</ol>
+<h1>Java 7 Features</h1>
+<ol>
+	<li></li>
+	<li></li>
+	<li></li>
+	
+</ol>
+<h1>Java 8 Features</h1>
+<ol>
+	<li><b>Default Method:</b> A default method with body can be added to interfaces. This method is available to all the classes implementing the interface</li>
+	<li></li>
+	<li></li>
+	
+</ol>
+<h1>Java 9 Features</h1>
+<ol>
+	<li>Java 9 is about the modularization of the JDK and is also known as Project Jigsaw.</li>
+	<li>G1GC has been made the default garbage collector now. It has replaced the Concurrent Mark and Sweep garbage collector.</li>
+	<li>JIT as of Java 9 was written completely in C++. It converts Java bytecode into machine code at runtime. A new experimental interface called the JVM Compiler Interface or JVMCI has been introduced. This interface makes it possible to rewrite the JIT Compiler in pure Java.</li>
+	<li><b>JShell and REPL: </b>Java 9 introduces JShell and a Read-Eval-Print Loop (REPL) for the Java Programming Language. REPL allows you to evaluate code snippets such as declarations, statements, expressions. You can test your code as you create it, and way before you are done with your whole project.</li>
+</ol>
+<h1>Java 10 Features</h1>
+<ol>
+	<li><b>Release frequency: </b>Java will release new features in every 6 months.</li>
+	<li><b>Local Variable Type Inference: var</b>
+		<ul> 
+			<li>This not a kept as reserved keyword to maintain backward compatibility.</li>
+			<li>This is used to turn verbose local assignments to relatively simple assignment. e.g. <b>HashMap&lt;String, String&gt; success = new HashMap<>();</b> can now be written as <b>var success = new HashMap&lt;, String&gt;();</b>. At compile time, java will figure out the reference type based on the value type.</li>
+		</ul>
+	</li>
+	<li>An <b>unmodifiable view collection</b> is a collection that is unmodifiable and is also a view onto a backing collection. Examples of unmodifiable view collections are those returned by the Collections.unmodifiableCollection, Collections.unmodifiableList, and related methods.UnmodifiableList returns an unmodifiable view collection. Note that changes to the backing collection might still be possible, and if they occur, they are visible through the unmodifiable view.</li>
+	<li><b>List.copyOf(Collection collection)</b> method is introduced where in collection becomes completely unmodifiable now</li>
+	<li>3 new methods have been introduced in Collectors class of Stream package
+		<ol>
+			<li>toUnmodifiableList</li>
+			<li>toUnmodifiableSet</li>
+			<li>toUnmodifiableMap</li>
+		</ol>
+	</li>
+	<li><b>Performance enhancements</b> to the default G1GC. Now full parallel processing happens.</li>
+	<li><b>Application Class-Data Sharing:</b> 
+		<ol>
+			<li>From Java 5 onwards, class metadata loaded by only bootstrap classloader was cached. Now the metadata loaded by system classloader and the platform classloader can also be cached. This can be done by adding flag -XX:+UseAppCDS</li>
+			<li>Also the application classes can also be cached now. This can be done in 3 steps as below:
+				<ol>
+					<li>Create list of classes to be cached<br/>
+						java -Xshare:off -XX:+UseAppCDS -XX:DumpLoadedClassList=myapp.lst \  -cp $CLASSPATH $MAIN_CLASS
+					</li>
+					<li>Create the cache <br/>
+						java -Xshare:dump -XX:+UseAppCDS -XX:SharedClassListFile=myapp.lst \  -XX:SharedArchiveFile=myapp.jsa \  -cp $CLASSPATH
+					</li>
+					<li>Run the app using the cache <br/>
+						java -Xshare:on -XX:+UseAppCDS -XX:SharedArchiveFile=myapp.jsa \  -cp $CLASSPATH $MAIN_CLASS
+					</li>
+				</ol>
+			</li>
+		</ol>
+	</li>
+	<li><b>GRAAL: </b>The JVM Compiler Interface or JVMCI introduced in JAVA 9 has been used to create complete Java based JIT compiler called <b>GRAAL</b> in Java 10. This JIT compiler as of now can be used in Linux/x64 machines only.</li>
+	<li><b>Thread local handshakes: </b> Till now GC process was stop-the-world process. In Java 10, the JVM can put an arbitrary number of threads into a safepoint, and threads may continue running after performing the prescribed "handshake". This resulted in the JVM being able to pause just one thread at a time, whereas before it had to pause them all. </li>
+	<li><b>Numbering system: </b>A new version numbering system with semantic $FEATURE.$INTERIM.$UPDATE.$PATCH has been introduced where
+		<ul>
+			<li>FEATURE is the version of Java.</li>
+			<li>INTERIM is reserved in case in future if java wants to release new features faster than 6 months.</li>
+			<li>UPDATE starts with 1 and increments by 1 for every three months.</li>
+			<li>PATCH is used for any critical release happening before UDPATE release.</li>
+		</ul>
+	e.g. Java 10.0.1
+	</li	>
+	<li><b>REPL Performance</b>:The startup time of the JShell REPL tool has been improved a lot. It is Read-Eval-Print-Loop for Java language.</li>
+	<li><b>SSL Enhancements: </b>OpenJDK till Java 9 was having empty keystore. Now from Java 10 onwards, OpenJDK is also bundled with keystore called cacerts which is a home for root certificates for Certificate Authorities that the JVM can use to perform SSL handshakes. This can be confirmed by calling keytool -cacerts -list</li>
+	<li><b>Alternative Memory Allocation: </b>User can now use alternative memory devices such as Non-Volatile DIMM to allocate heap memory. This can be done using flag -XX:AllocateHeapAt=<path></li>
+	<li><b>Container Awareness: </b>JVM now knows if it is running inside Docker container. This means the application now has accurate information about what the docker container allocates to memory, CPU, and other system resources.Earlier, the JVM queried the host operating system to get this information. This causes a problem when the docker container would actually like to advertise a different resource set.</li>
+</ol>
+<h1>Examples</h1>
+<p><b></b></p>
+<pre>
+</pre>
+<h1>Frequently Asked Questions</h1>
+<p><b>What is the difference between Collections.unmodifiableList and Collectors.toUnmodifiableList?</b></p>
+<p>Collections.unmodifiableList returns an unmodifiable view where in in case the backing collection is modified then the view will also get modified. But Collectors.toUnmodifiableList will return a completely unmodifiable list.</p>
+<p><b></b></p>
+<p></p>
+<p><b></b></p>
+<p></p>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
+</body>
+</html>
