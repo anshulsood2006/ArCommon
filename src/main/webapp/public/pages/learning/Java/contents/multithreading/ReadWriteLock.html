@@ -15,12 +15,133 @@
 		<li><b>readLock():</b> To acquire the read lock</li>
 		<li><b>writeLock():</b> To acquire the write lock</li>
 	</ul>	
-</li>
+	</li>
 	<li>Multiple threads who want to read a resource can be granted access to the resource at the same time. But, if a single thread wants to write to that resource, no other reads nor writes must be in progress at the same time. To solve this problem of allowing multiple readers but only one writer, we need a read / write lock.</li>
-	<li></li>
+	<li>Read access to a resource will be granted only in case no other thread is writing to the resource or no other thread has requested the write access to the resource.</li>
+	<li>Re-entrant read access to a resource will be granted only if it can get read access (no writers or write requests), or if it already has read access (regardless of write requests)</li>
+	<li>Write access to a resource will be granted only in case no thread is reading or writing to the resource.</li>
+	<li>Re-entrant write access to a resource will be granted only if the thread has already write access.</li>
 </ul>
 <h1>Examples</h1>
-<p><b></b></p>
+<p>
+<pre>
+public class ArReadWriteLock {
+
+	private Map<Thread, Integer> readingThreads = new HashMap<Thread, Integer>();
+
+	private int writeAccesses = 0;
+	private int writeRequests = 0;
+	private Thread writingThread = null;
+
+	public synchronized void lockRead() throws InterruptedException {
+		Thread callingThread = Thread.currentThread();
+		while (!canGrantReadAccess(callingThread)) {
+			wait();
+		}
+
+		readingThreads.put(callingThread, (getReadAccessCount(callingThread) + 1));
+	}
+
+	private boolean canGrantReadAccess(Thread callingThread) {
+		if (isWriter(callingThread))
+			return true;
+		if (hasWriter())
+			return false;
+		if (isReader(callingThread))
+			return true;
+		if (hasWriteRequests())
+			return false;
+		return true;
+	}
+
+	public synchronized void unlockRead() {
+		Thread callingThread = Thread.currentThread();
+		if (!isReader(callingThread)) {
+			throw new IllegalMonitorStateException(
+					"Calling Thread does not" + " hold a read lock on this ReadWriteLock");
+		}
+		int accessCount = getReadAccessCount(callingThread);
+		if (accessCount == 1) {
+			readingThreads.remove(callingThread);
+		} else {
+			readingThreads.put(callingThread, (accessCount - 1));
+		}
+		notifyAll();
+	}
+
+	public synchronized void lockWrite() throws InterruptedException {
+		writeRequests++;
+		Thread callingThread = Thread.currentThread();
+		while (!canGrantWriteAccess(callingThread)) {
+			wait();
+		}
+		writeRequests--;
+		writeAccesses++;
+		writingThread = callingThread;
+	}
+
+	public synchronized void unlockWrite() throws InterruptedException {
+		if (!isWriter(Thread.currentThread())) {
+			throw new IllegalMonitorStateException(
+					"Calling Thread does not" + " hold the write lock on this ReadWriteLock");
+		}
+		writeAccesses--;
+		if (writeAccesses == 0) {
+			writingThread = null;
+		}
+		notifyAll();
+	}
+
+	private boolean canGrantWriteAccess(Thread callingThread) {
+		if (isOnlyReader(callingThread))
+			return true;
+		if (hasReaders())
+			return false;
+		if (writingThread == null)
+			return true;
+		if (!isWriter(callingThread))
+			return false;
+		return true;
+	}
+
+	private int getReadAccessCount(Thread callingThread) {
+		Integer accessCount = readingThreads.get(callingThread);
+		if (accessCount == null)
+			return 0;
+		return accessCount.intValue();
+	}
+
+	private boolean hasReaders() {
+		return readingThreads.size() > 0;
+	}
+
+	private boolean isReader(Thread callingThread) {
+		return readingThreads.get(callingThread) != null;
+	}
+
+	private boolean isOnlyReader(Thread callingThread) {
+		return readingThreads.size() == 1 && readingThreads.get(callingThread) != null;
+	}
+
+	private boolean hasWriter() {
+		return writingThread != null;
+	}
+
+	private boolean isWriter(Thread callingThread) {
+		return writingThread == callingThread;
+	}
+
+	private boolean hasWriteRequests() {
+		return this.writeRequests > 0;
+	}
+
+}
+</pre>
+Here notifyAll() method is called instead of notify() method because of below reasons:
+<ul>
+	<li>If a thread awakened by notify() was a read access thread, it would be put back to waiting because there are threads waiting for write access.</li>
+	<li> If multiple threads are waiting for read access and none for write access, and unlockWrite() is called, all threads waiting for read access are granted read access at once - not one by one.</li>
+</ul>
 <pre>
 </pre>
 <h1>Frequently Asked Questions</h1>
