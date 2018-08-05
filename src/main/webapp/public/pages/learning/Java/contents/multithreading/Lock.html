@@ -5,12 +5,12 @@
 <title>Lock interface in Java</title>
 </head>
 <body>
-<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
+<h2><a href="Multithreading.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
 <h1>Lock</h1>
 <h1>Features</h1>
 <ul>
-<li>It is defined inside the java.util.concurrent.lock package </li>
-<li>It has below major methods
+<li>It is an interface defined inside the java.util.concurrent.lock package </li>
+<li>It has below methods
 	<ul>
 		<li>lock(): To acquire the lock</li>
 		<li>unlock(): To release the lock</li>
@@ -18,8 +18,54 @@
 		<li>newCondition(): To create a condition.</li>
 	</ul>	
 </li>
-<li></li>
-<li></li>
+<li>The lock() method locks the Lock instance so that all threads calling lock() are blocked until unlock() is executed.
+	<pre>
+		public class Counter{
+
+		  	private Lock lock = new Lock();
+		  	private int count = 0;
+		
+		  	public int inc(){
+			    <b>lock.lock();
+			    try{
+			    	int newCount = ++count;
+			    }finally{
+			    	lock.unlock();</b>
+		    	    }
+			    return newCount;
+		  	}
+		}
+		
+		//Re-entrant Lock
+		public class Lock{
+
+			private boolean isLocked = false;
+			private Thread  lockedBy = null;
+ 			private int lockedCount = 0;
+			
+			public synchronized void lock() throws InterruptedException{
+				Thread callingThread = Thread.currentThread();
+				while(isLocked && lockedBy != callingThread){
+				    wait();
+				}
+				isLocked = true;
+				lockedCount++;
+    			lockedBy = callingThread
+			}
+			
+			public synchronized void unlock(){
+				if(Thread.curentThread() == this.lockedBy){
+					 lockedCount--;
+					 if(lockedCount == 0){
+			  				isLocked = false;
+			  				notify();
+	  				 }
+				}
+			}
+	</pre>
+	Here all the threads are blocked once lock.lock() is getting called and are released once unlock is called.
+</li>
+<li>The above Lock class is re-entrant as well since if a thread already holds the lock on a monitor object, it has access to all blocks synchronized on the same monitor object.</li>
 <li></li>
 </ul>
 <p>Difference between Lock and synchronized</p>
@@ -39,6 +85,6 @@
 <p></p>
 <p><b></b></p>
 <p></p>
-<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
+<h2><a href="Multithreading.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
 </body>
 </html>

@@ -42,16 +42,25 @@
 	</ul>
 </li>
 </ul>
-<p><b>Thread Synchronization:</b> This is achieved by creating a monitor/lock object that will be used to synchronized the behavior of three threads. This involves proper use of keyword synchronized and methods wait(), notify() and notifyAll() on the shared monitor object.</p>
+<p><b>Thread Synchronization:</b> This is achieved by creating a monitor/lock object that will be used to synchronized the behavior of the threads. This involves proper use of keyword synchronized and methods wait(), notify() and notifyAll() on the shared monitor object.</p>
 Some other synchronization techniques in JAVA are: 
 <ul>
-	<li><a href="Lock.html">Lock interface</a></li>
-	<li><a href="ReentrantLock.html">Reentrant Lock</a></li>
+	<li>
+		<a href="Lock.html">Lock</a> Its implementation class is:
+		<ol>
+			<li><a href="ReentrantLock.html">Re-entrant Lock</a></li>
+		</ol>
+	</li>
+	<li><a href="ReadWriteLock.html">Read Write Lock</a> Its implementation class is:
+		<ol>
+			<li><a href="ReentrantReadWriteLock.html">Re-entrant Read Write Lock</a></li>
+		</ol>
+	</li>
 </ul>
 <p><b>Fairness:</b> It is a boolean property given during creation of a lock object. If this is set as true this will make sure that the longest waiting thread is given the highest priority</p>
 <p><b>ThreadGroup:</b> Grouping multiple threads into a single object so that a single method call cab be used to suspend, resume or interrupt all the threads</p>
 <p><b>Shutdown Hook:</b> This is used to perform clean up operations when JVM shuts down abruptly or normally. It can be called by using Runtime.addShutdownHook(Thread hook) method.
-
+<p><b>Lock Re-entrance:</b>If a thread already holds the lock on a monitor object, it has access to all blocks synchronized on the same monitor object. This is called re-entrance. The thread can reenter any block of code for which it already holds the lock.</p>
 
 <h1>Examples</h1>
 <p><b>Creating Thread using Thread class</b></p>

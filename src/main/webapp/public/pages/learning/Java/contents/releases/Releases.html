@@ -17,7 +17,7 @@
 </ol>
 <h1>Java 5 Features</h1>
 <ol>
-	<li>To improve the start up time of smaller applications, Class Data Sharing (CDS) was introduced. Here during the anything loaded by the bootstrap classloader was serialized and stored in a file on disk that could be reloaded on future launches of the JVM. This meant that multiple instances of the JVM shared the class metadata, so it wouldn't have to load them all every time.</li>
+	<li>To improve the start up time of smaller applications, Class Data Sharing (CDS) was introduced. Anything which is loaded by the bootstrap classloader was serialized and stored in a file on disk that could be reloaded on future launches of the JVM. This meant that multiple instances of the JVM shared the class metadata, so it wouldn't have to load them all every time.</li>
 	<li></li>
 </ol>
 <h1>Java 6 Features</h1>
@@ -36,8 +36,13 @@
 </ol>
 <h1>Java 8 Features</h1>
 <ol>
-	<li><b>Default Method:</b> A default method with body can be added to interfaces. This method is available to all the classes implementing the interface</li>
-	<li></li>
+	<li><b>Default Method:</b> A default method with body can be added to interfaces. This method is automatically available to all the classes implementing the interface</li>
+	<li><b>Process Termination: </b>Process class has two new methods
+		<ol>
+			<li><b>isAlive()</b></li>
+			<li><b>destroyForcibly()</b></li>
+		</ol>
+	</li>
 	<li></li>
 	
 </ol>

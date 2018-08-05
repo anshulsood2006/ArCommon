@@ -5,7 +5,7 @@
 <title>Reentrant Lock in Java</title>
 </head>
 <body>
-<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
+<h2><a href="Multithreading.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
 <h1>Reentrant Lock</h1>
 <h1>Features</h1>
 <p>
@@ -16,9 +16,51 @@
 <li>The unlock statement is always called in the finally block to ensure that the lock is released even if an exception is thrown in the method body.</li>
 </ul>
 <h1>Examples</h1>
-<p><b></b></p>
-<pre>
-</pre>
+<p>
+	<pre>
+		public class Counter{
+
+		  	private Lock lock = new Lock();
+		  	private int count = 0;
+		
+		  	public int inc(){
+			    <b>lock.lock();
+			    try{
+			    	int newCount = ++count;
+			    }finally{
+			    	lock.unlock();</b>
+		    	    }
+			    return newCount;
+		  	}
+		}
+		
+		//Re-entrant Lock
+		public class Lock{
+
+			private boolean isLocked = false;
+			private Thread  lockedBy = null;
+ 			private int lockedCount = 0;
+			
+			public synchronized void lock() throws InterruptedException{
+				Thread callingThread = Thread.currentThread();
+				while(isLocked && lockedBy != callingThread){
+				    wait();
+				}
+				isLocked = true;
+				lockedCount++;
+    			lockedBy = callingThread
+			}
+			
+			public synchronized void unlock(){
+				if(Thread.curentThread() == this.lockedBy){
+					 lockedCount--;
+					 if(lockedCount == 0){
+			  				isLocked = false;
+			  				notify();
+	  				 }
+				}
+			}
+	</pre>
 <h1>Frequently Asked Questions</h1>
 <p><b></b></p>
 <p></p>
@@ -26,6 +68,6 @@
 <p></p>
 <p><b></b></p>
 <p></p>
-<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
+<h2><a href="Multithreading.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
 </body>
 </html>
