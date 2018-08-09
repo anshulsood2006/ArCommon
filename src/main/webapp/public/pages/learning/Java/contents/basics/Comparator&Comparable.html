@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Comparator &amp; Comparable in Java</title>
+</head>
+<body>
+<h2><a href="Basics.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
+<h1>Comparator &amp; Comparable</h1>
+<h1>Features</h1>
+<table border="1">
+	<tr><th>Comparable</th><th>Comparator</th></tr>
+	<tr>
+		<td>It is used to sort elements of a user defined collection on the basis of SINGLE class variable using natural sorting order.</td>
+		<td>It is used to sort elements of a user defined collection on the basis of ONE or MORE class variables using user defined sorting order.</td>
+	</tr>
+	<tr>
+		<td>Sorting logic is in the same class whose objects are being sorted. So this is called natural ordering of objects</td>
+		<td>Sorting logic is in the different class whose objects are being sorted. So we can write different logics based on different attributes of objects</td>
+	</tr>
+	<tr>
+		<td>The class whose objects needs to be sorted must implement Comparable interface</td>
+		<td>The class whose objects needs to be sorted need not implement Comparator interface. Instead new class is written that implements the Comparator interface</td>
+	</tr>
+	<tr>
+		<td>It uses compareTo(ArClass clazz) method to sort the elements.</td>
+		<td>It uses compare(ArClass obj1, ArClass obj2) method to sort the elements.</td>
+	</tr>
+	<tr>
+		<td>It is found inside java.lang package.</td>
+		<td>It is found inside java.util package.</td>
+	</tr>
+	<tr>
+		<td>Elements can be sorted using Collection.sort(list) method.</td>
+		<td>Elements can be sorted using Collection.sort(list, comparator) method.</td>
+	</tr>
+	<tr>
+		<td>It compares this object to the given object.
+			<ul>
+				<li>Returns -1 if this &lt; object.</li>
+				<li>Returns 0 if this == object.</li>
+				<li>Returns 1 if this &gt; object.</li>
+			</ul>
+		</td>
+		<td>It compares two given objects.
+			<ul>
+				<li>Returns -1 if object1 &lt; object2.</li>
+				<li>Returns 0 if object1 == object2.</li>
+				<li>Returns 1 if object1 &gt; object2.</li>
+			</ul>
+		</td>
+	</tr>
+	
+</table>
+<p><b>Return Logic: </b>
+-1 if this 
+<h1>Examples</h1>
+<p><b>Comparable</b></p>
+<pre>
+public class ArStudent implements Comparable<ArStudent> {
+
+	private int age;
+	private int rollNumber;
+	private String name;
+	
+	public ArStudent(String name, int age, int rollNumber) {
+		this.name = name;
+		this.age = age;
+		this.rollNumber = rollNumber;
+	}
+	
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public int getRollNumber() {
+		return rollNumber;
+	}
+
+	public void setRollNumber(int rollNumber) {
+		this.rollNumber = rollNumber;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	@Override
+	public int compareTo(ArStudent student) {
+		if (this.name == null || student.name == null){
+			return 0;
+		}
+		return this.name.compareTo(student.name);
+	}
+	
+	public String toString(){
+		return this.name;
+	}
+	
+	public static void main(String[] args) {
+		ArStudent a = new ArStudent(null, 0, 0);
+		ArStudent b = new ArStudent("A", 10, 1);
+		ArStudent c = new ArStudent("z", 10, 2);
+		ArStudent d = new ArStudent("P", 11, 3);
+		ArStudent e = new ArStudent("Z", 9, 4);
+		List<ArStudent> list = new ArrayList<>();
+		list.add(a);
+		list.add(b);
+		list.add(c);
+		list.add(d);
+		list.add(e);
+		System.out.println("Before: "+list);
+		Collections.sort(list);
+		System.out.println("After: "+list);
+	}
+
+}
+</pre>
+<p><b></b></p>
+<pre>
+</pre>
+<h1>Frequently Asked Questions</h1>
+<p><b></b></p>
+<p></p>
+<p><b></b></p>
+<p></p>
+<p><b></b></p>
+<p></p>
+<h2><a href="Basics.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
+</body>
+</html>
