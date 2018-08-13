@@ -9,25 +9,108 @@
 <h1>Final (Immutable)</h1>
 <h1>Features</h1>
 <ul>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
+<li>A final class is a class which can not be extended.</li>
+<li>A final method is the method which can not be overridden</li>
+<li>A final variable is a variable whose value can not be changed once initialized</li>
 </ul>
+
+<p><b>Immutable Class:</b>Steps to create immutable class
+<ul>
+	<li>Declare the class as final so it can't be extended.</li>
+	<li>Make all fields private so that direct access is not allowed.</li>
+	<li>Don't provide setter methods for variables</li>
+	<li>Make all mutable fields final so that it's value can be assigned only once by following below two steps
+		<ol>
+		<li>Initialize all the fields via a constructor performing deep copy.</li>
+		<li>Perform cloning of objects in the getter methods to return a copy rather than returning the actual object reference.</li>
+		</ol>
+	</li>
+</ul>
+<p><b>Shallow Clone</b> 
+<ul>
+	<li>If we use default clone method of object class, it returns a shallow copy.</li>
+	<li>It creates new instance and copies all the field of object to that new instance and returns it as object type. This object needs to be explicitly casted back to the original object.</li>
+	<li>The objects which implement Cloneable interface are only eligible for cloning process</li>
+	<li>If original object has any references to other objects as fields, then only references of those objects are copied into clone object, copy of those objects are not created. </li>
+</ul>
+<p><b>Deep Clone</b>
 <h1>Examples</h1>
-<p></p>
+<p>Immutable Class</p>
+<pre>
+public class TestImmutableVariable {
+	
+	public String a;
+	public String b;
+	public String getA() {
+		return a;
+	}
+	public void setA(String a) {
+		this.a = a;
+	}
+	public String getB() {
+		return b;
+	}
+	public void setB(String b) {
+		this.b = b;
+	}
+	
+	public String toString(){
+		return a+" "+b;
+	}
+}
+
+public final class Immutable {
+	
+	
+	private final int age;
+	private final String name;
+	private final TestImmutableVariable variable;
+	
+	public Immutable(int age, String name, TestImmutableVariable variable){
+		this.age = age;
+		this.name = name;
+		TestImmutableVariable clone = new TestImmutableVariable();
+		clone.setA(variable.getA());
+		clone.setB(variable.getB());
+		this.variable = clone;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public TestImmutableVariable getVariable() {
+		TestImmutableVariable clone = new TestImmutableVariable();
+		clone.setA(this.variable.getA());
+		clone.setB(this.variable.getB());
+		return clone;
+	}
+	
+	public String toString(){
+		return age+" "+name+" "+variable;
+	}
+	
+}
+
+public class ImmutableTest {
+	public static void main(String[] args) {
+		TestImmutableVariable variable = new TestImmutableVariable();
+		variable.setA("S");
+		variable.setB("B");
+		Immutable immutable =new Immutable(10, "Anshul", variable);
+		System.out.println(immutable);
+		
+		immutable.getVariable().setA("Anshul");
+		
+		System.out.println(immutable);
+	}
+}
+</pre>
 <h1>Frequently Asked Questions</h1>
-<p><b>How to create final class in Java?</b></p>
-<p><ul>
-<li>Declare the class as final so it can't be extended.</li>
-<li>Make all fields private so that direct access is not allowed.</li>
-<li>Don't provide setter methods for variables</li>
-<li>Make all mutable fields final so that it's value can be assigned only once.</li>
-<li>Initialize all the fields via a constructor performing deep copy.</li>
-<li>Perform cloning of objects in the getter methods to return a copy rather than returning the actual object reference.</li>
-</ul></p>
 <p><b></b></p>
 <p></p>
 <h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
