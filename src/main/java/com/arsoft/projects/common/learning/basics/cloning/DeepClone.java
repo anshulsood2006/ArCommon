@@ -1,17 +1,25 @@
 package com.arsoft.projects.common.learning.basics.cloning;
 
-public class ShallowClone {
+public class DeepClone {
 	public static void main(String[] args) {
+		
 		Course science = new Course("Physics", "Chemistry", "Biology");
-		StudentShallowClone student1 = new StudentShallowClone(111, "John", science);
-		StudentShallowClone student2 = null;
+		StudentDeepClone student1 = new StudentDeepClone(111, "John", science);
+		StudentDeepClone student2 = null;
+		
 		try {
-			student2 = (StudentShallowClone) student1.clone();
+			// Creating a clone of student1 and assigning it to student2
+			student2 = (StudentDeepClone) student1.clone();
 		} catch (CloneNotSupportedException e) {
 			e.printStackTrace();
 		}
+		// Printing the subject3 of 'student1'
 		System.out.println(student1.course.subject3); // Output : Biology
+		// Changing the subject3 of 'student2'
 		student2.course.subject3 = "Maths";
+		// This change will be reflected in original student 'student1'
 		System.out.println(student1.course.subject3); // Output : Maths
+		
+		
 	}
 }

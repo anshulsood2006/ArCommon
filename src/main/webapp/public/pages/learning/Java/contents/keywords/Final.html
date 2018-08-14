@@ -26,16 +26,37 @@
 		</ol>
 	</li>
 </ul>
-<p><b>Shallow Clone</b> 
+<p><b>Cloning</b>
+
 <ul>
-	<li>If we use default clone method of object class, it returns a shallow copy.</li>
-	<li>It creates new instance and copies all the field of object to that new instance and returns it as object type. This object needs to be explicitly casted back to the original object.</li>
+	<li>The process of creating a copy of object in java is called cloning.</li>
 	<li>The objects which implement Cloneable interface are only eligible for cloning process</li>
-	<li>If original object has any references to other objects as fields, then only references of those objects are copied into clone object, copy of those objects are not created. </li>
+	<li>It is of below types
+		<ul>	
+			<li>
+				<b>Shallow Clone</b>
+				<ul>
+					<li>It creates new instance and copies all the field of object to that new instance and returns it as object type. This object needs to be explicitly casted back to the original object.</li>
+					<li>If original object has any references to other objects as fields, then only references of those objects are copied into clone object, copy of those objects are not created. </li>
+					<li>If we use default clone method of object class, it returns a shallow copy.</li>
+					
+				</ul>
+			</li>
+			<li>
+				<b>Deep Clone</b> 
+				<ul>
+					<li>It creates new instance and copies all the field of object to that new instance and returns it as object type. This object needs to be explicitly casted back to the original object.</li>
+					<li>If original object has any references to other objects as fields, then the copy of objects being referred is also created.</li>
+					 <li>Inside the constructor, set all the non primitive instance variables to new object of that type. See example below.</li>
+					<li>The clone method needs to be overridden to create deep copy.</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
 </ul>
-<p><b>Deep Clone</b>
+
 <h1>Examples</h1>
-<p>Immutable Class</p>
+<p><b>Immutable Class</b></p>
 <pre>
 public class TestImmutableVariable {
 	
@@ -103,13 +124,96 @@ public class ImmutableTest {
 		variable.setB("B");
 		Immutable immutable =new Immutable(10, "Anshul", variable);
 		System.out.println(immutable);
-		
 		immutable.getVariable().setA("Anshul");
-		
 		System.out.println(immutable);
 	}
 }
 </pre>
+<p><b>Shallow Clone</b></p>
+<pre>
+class Course {
+	String subject1;
+	String subject2;
+	String subject3;
+
+	public Course(String sub1, String sub2, String sub3) {
+		this.subject1 = sub1;
+		this.subject2 = sub2;
+		this.subject3 = sub3;
+	}
+}
+
+class StudentShallowClone implements Cloneable {
+	int id;
+	String name;
+	Course course;
+
+	public StudentShallowClone(int id, String name, Course course) {
+		this.id = id;
+		this.name = name;
+		this.course  = course;
+	}
+
+	<b>//Default clone on super class called</b>
+	protected Object clone() throws CloneNotSupportedException {
+		return super.clone();
+	}
+}
+
+public class ShallowClone {
+	public static void main(String[] args) {
+		Course science = new Course("Physics", "Chemistry", "Biology");
+		StudentShallowClone student1 = new StudentShallowClone(111, "John", science);
+		StudentShallowClone student2 = null;
+		try {
+			student2 = (StudentShallowClone) student1.clone();
+		} catch (CloneNotSupportedException e) {
+			e.printStackTrace();
+		}
+		System.out.println(student1.course.subject3); // Output : Biology
+		student2.course.subject3 = "Maths";
+		System.out.println(student1.course.subject3); // Output : Maths
+	}
+}
+</pre>
+
+<p><b>Deep Clone</b></p>
+<pre>
+class Course {
+	String subject1;
+	String subject2;
+	String subject3;
+
+	public Course(String sub1, String sub2, String sub3) {
+		this.subject1 = sub1;
+		this.subject2 = sub2;
+		this.subject3 = sub3;
+	}
+}
+
+public class StudentDeepClone implements Cloneable{
+
+	int id;
+	String name;
+	Course course;
+
+	public StudentDeepClone(int id, String name, Course course) {
+		this.id = id;
+		this.name = name;
+		<b>//For non primitive variables, new instance is created and set inside the constructor</b>
+		this.course  = new Course(course.subject1, course.subject2, course.subject3);
+	}
+
+	<b>//The clone method is over-ridden to return new instance of class object instead</b>
+	protected Object clone() throws CloneNotSupportedException {
+		StudentDeepClone student = new StudentDeepClone(id, name, course);
+		return student;
+	}
+}
+
+
+</pre>
+
 <h1>Frequently Asked Questions</h1>
 <p><b></b></p>
 <p></p>
