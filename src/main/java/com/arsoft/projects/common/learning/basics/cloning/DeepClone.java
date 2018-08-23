@@ -8,17 +8,15 @@ public class DeepClone {
 		StudentDeepClone student2 = null;
 		
 		try {
-			// Creating a clone of student1 and assigning it to student2
 			student2 = (StudentDeepClone) student1.clone();
 		} catch (CloneNotSupportedException e) {
 			e.printStackTrace();
 		}
-		// Printing the subject3 of 'student1'
 		System.out.println(student1.course.subject3); // Output : Biology
-		// Changing the subject3 of 'student2'
+		System.out.println(student2.course.subject3);
 		student2.course.subject3 = "Maths";
-		// This change will be reflected in original student 'student1'
 		System.out.println(student1.course.subject3); // Output : Maths
+		System.out.println(student2.course.subject3);
 		
 		
 	}

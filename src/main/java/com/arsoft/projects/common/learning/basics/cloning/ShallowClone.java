@@ -11,7 +11,9 @@ public class ShallowClone {
 			e.printStackTrace();
 		}
 		System.out.println(student1.course.subject3); // Output : Biology
+		System.out.println(student2.course.subject3);
 		student2.course.subject3 = "Maths";
 		System.out.println(student1.course.subject3); // Output : Maths
+		System.out.println(student2.course.subject3);
 	}
 }
