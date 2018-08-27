@@ -9,6 +9,7 @@
 <h1>Method Overloading</h1>
 <h1>Features</h1>
 <ul>
+<li>Methods overloading is also called <b>static polymorphism or compile time binding</b>.</li>
 <li>The two methods are said to be overloaded if the method name is same but arguments are different e.g.
 	<ol>
 		<li>No of arguments e.g. <ul><li>public int <b>add(int, int)</b></li><li>public int <b>add(int, int, int)</b></li></ul></li>
@@ -16,8 +17,18 @@
 		<li>Order of arguments e.g. <ul><li>public int <b>add(int, float)</b> </li><li> public int <b>add(float, int)</b></li></ul></li>
 	</ol>
 </li>
-<li>The two methods are NOT said to be overloaded if only the return type is different e.g. <ul><li>public <b>float</b> add(int, int)</li><li>public <b>int</b> add(int, int)</li></ul> This will give compilation error.</li>
-<li>Methods overloading is also called static polymorphism or compile time binding.</li>
+<li>The two methods are NOT said to be overloaded if only the return type is different e.g. <ul><li>public <b>float</b> add(int, int)</li><li>public <b>int</b> add(int, int)</li></ul> This will give compilation error: "Duplicate method in type"</li>
+<li>Methods can not be overloaded by just adding keyword static. e.g. below code will give compilation error: "Duplicate method in type"<pre>
+	public String method(){
+		System.out.println("method called");
+		return "method";
+	}
+	
+	public static String method(){
+		System.out.println("method called");
+		return "method";
+	}
+</pre> </li>
 <li><b>Type Promotion:</b> When a data type of smaller size is promoted to the data type of bigger size than this is called type promotion, for example: byte data type can be promoted to short, a short data type can be promoted to int, long, double etc.</li>
 </ul>
 <h1>Examples</h1>

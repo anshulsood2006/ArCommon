@@ -9,11 +9,137 @@
 <h1>Method Overriding</h1>
 <h1>Features</h1>
 <ul>
-	<li></li>
+	<li>Methods overriding is also called <b>dynamic polymorphism or run time binding</b></li>
+	<li>Two methods are to be called overloaded if 
+		<ul>
+			<li>Both methods have the same signature but different implementations</li>
+			<li>The methods are present in base and child class respectively</li>
+		</ul>
+	</li>
+	<li>Method can be overridden by adding keyword final to overridden method in child class.
+	<pre>
+	public class ClassA{
+		public String method(){
+			return "ClassA :: method()";
+		}
+	}
+	
+	public class ClassB extends ClassA{
+		<b>//No Compilation Error</b>
+		public final String method(){//Overridden method by adding final keyword
+			return "ClassB :: method()";
+		}
+	}
+	</pre>
+	</li>
+	<li>Final method in parent class can not be overridden in child class. The below code will give error :"Cannot override the final method from ClassA" 
+	<pre>
+	public class ClassA{
+		public final String method(){
+			return "ClassA :: method()";
+		}
+	}
+	
+	public class ClassB extends ClassA{
+		<b>//Compilation Error: "Cannot override the final method from ClassA"</b>
+		public String method(){//Trying to override final method
+			return "ClassB :: method()";
+		}
+	}
+	</pre>
+	</li>
+	<li>Private method in parent class can not be overridden in child class.</li>
+	<li>Method can not be overridden by reducing the visibility of overridden method in child class. The below code will give error :"Cannot reduce the visibility of the inherited method from ClassA"
+	<pre>
+	public class ClassA{
+		public String method(){
+			return "ClassA :: method()";
+		}
+	}
+	
+	public class ClassB extends ClassA{
+		<b>//Compilation Error: Cannot reduce the visibility of the inherited method from ClassA</b>
+		private String method(){  //Access specifier has been reduced from public o private in the method signature
+			return "ClassB :: method()";
+		}
+	}
+	</pre>
+	</li>
+	<li>Method can not be overridden by removing keyword static from the overridden method in child class. The below code will give error :"This instance method cannot override the static method"
+	<pre>
+	public class ClassA{
+		public static String method(){
+			return "ClassA :: method()";
+		}
+	}
+	
+	public class ClassB extends ClassA{
+		<b>//Compilation Error: This instance method cannot override the static method from ClassA</b>
+		public String method(){  //static keyword has been removed from the method signature
+			return "ClassB :: method()";
+		}
+	}
+	</pre>
+	</li>
+	<li>Method can not be overridden by adding keyword static to the overridden method in child class. The below code will give error: "This static method cannot hide the instance method from ClassA"
+	<pre>
+	public class ClassA{
+		public String method(){
+			return "ClassA :: method()";
+		}
+	}
+	
+	public class ClassB extends ClassA{
+		<b>//Compilation Error: This static method cannot hide the instance method from ClassA</b>
+		public static String method(){  //static keyword has been added to the method signature
+			return "ClassB :: method()";
+		}
+	}
+	</pre>
+	</li>
+	<li>Method can not be overridden by adding keyword static changing the return type in the overridden method in child class. The below code will give error: "The return type is incompatible with ClassA.method()"
+	<pre>
+	public class ClassA{
+		public String method(){
+			return "ClassA :: method()";
+		}
+	}
+	
+	public class ClassB extends ClassA{
+		<b>//Compilation Error: The return type is incompatible with ClassA.method()</b>
+		public int method(){  //return type has been changed in  the method signature
+			return 5;
+		}
+	}
+	</pre>
+	</li>
 </ul>
 <h1>Examples</h1>
-<p><b></b></p>
+<p><b>Method overriding</b></p>
 <pre>
+public class ClassA{
+	public String method(){
+		return "ClassA :: method()";
+	}
+}
+
+public class ClassB extends ClassA{
+	public String method(){
+		return "ClassB :: method()";
+	}
+}
+
+public class MethodOverriding {
+	
+	public static void main(String[] args) {
+		ClassA a = new ClassA();
+		System.out.println(a.method());
+		
+		a = new ClassB();
+		System.out.println(a.method());
+	}
+	
+}
 </pre>
 <h1>Frequently Asked Questions</h1>
 <p><b>Can we change the access specifier of the method from public to private in child class in case of method overriding?</b></p>
