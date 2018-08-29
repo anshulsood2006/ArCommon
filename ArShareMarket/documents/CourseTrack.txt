@@ -1,0 +1,11 @@
+The project is simple gradle build project. 
+
+31/08/2017: Convert it to a web project that uses an embedded tomcat server
+
+24/01/2018: Corrected the maven project structure
+
+
+
+
+
+

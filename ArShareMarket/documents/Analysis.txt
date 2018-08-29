@@ -1,0 +1,162 @@
+1. Get the result of a scrip every 2 minutes and store the result in the files as
+
+Data files to be created:
+
+Headers Example:
+SBIN||SBIN_Current_Data_05_07_2018||Current Data||05_07_2018@12_08_56||05_07_2018@14_22_33
+SBIN||SBIN_Complete_Day_Data_05_07_2018||Complete Day Data||05_07_2018@12_08_56||05_07_2018@14_22_33
+SBIN||SBIN_Day_Data_05_07_2018||Day Data||05_07_2018@12_08_56||05_07_2018@14_22_33
+SBIN||SBIN_Month_Data_07_2018||Month Data||05_07_2018@12_08_56||05_07_2018@14_22_33
+SBIN||SBIN_Week_Data_27_2018||Week Data||05_07_2018@12_08_56||05_07_2018@14_22_33
+SBIN||SBIN_Year_Data_2018||Year Data||05_07_2018@12_08_56||05_07_2018@14_22_33
+
+Complete Day Data File Example:
+SBIN||SBIN_Complete_Day_Data_05_07_2018||Complete Day Data||05_07_2018@12_08_56||05_07_2018@14_22_33
+207.65@date@12_08_56||205.25@date@12_12_56||
+price@date@time||price@date@time||price@date@time
+
+Current Data File Example:
+SBIN||SBIN_Current_Data_05_07_2018||Current Data||05_07_2018@12_08_56||05_07_2018@14_22_33
+price@date@time
+
+Day Data File Example:
+SBIN||SBIN_Day_Data_05_07_2018||Day Data||05_07_2018@12_08_56||05_07_2018@14_22_33
+previouscloseprice@date@time||openPrice@date@time||highestPrice@date@time||lowestPrice@date@time||closePrice@date@time
+
+Month Data File Example:
+SBIN||SBIN_Month_Data_07_2018||Month Data||05_07_2018@12_08_56||05_07_2018@14_22_33
+highestPrice@date@time||lowestPrice@date@time
+
+Week Data File Example
+SBIN||SBIN_Week_Data_27_2018||Week Data||05_07_2018@12_08_56||05_07_2018@14_22_33
+highestPrice@date@time||lowestPrice@date@time
+
+Year Data File Example
+SBIN||SBIN_Year_Data_2018||Year Data||05_07_2018@12_08_56||05_07_2018@14_22_33
+highestPrice@date@time||lowestPrice@date@time
+
+
+HCL_Historic
+	HCL||Weekly||Lowest@11@11:35@07_03_2018||Highest@26@2:35@07_03_2018
+	HCL||Monthly||Lowest@11@11:35@07_03_2018||Highest@26@2:35@07_03_2018
+	HCL||Yearly||Lowest@11@11:35@07_03_2018||Highest@26@2:35@07_03_2018
+	
+ArScripFileData
+	ArScripFileDataHeader
+	ArScripFileDataFooter
+		scrip;
+		enum == year, week, month
+			highestPrice
+			lowestPrice
+		enum == day
+			previousClosePrice
+			openPrice
+			highestPrice
+			lowestPrice
+			closePrice
+		enum == current
+			currentPrice
+		enum == complete
+			List currentPrice
+Interfaces
+AsScripDataFetcher_IF
+	/*This method will bring the scrips current live data.
+	* The object returned will consist of 
+	public void getScripCurrentData();
+
+ArScripCurrentDataWriter_IF	
+	public boolean writeScripData();
+	
+ArScripDayDataWriter_IF
+	/
+	*This method will be used to write scrip day data in the format 
+	*
+	*/
+	public boolean writeScripData();	
+ArScripWeekDataWriter_IF	
+	public boolean writeScripData();
+ArScripMonthDataWriter_IF	
+	public boolean writeScripData();
+ArScripYearDataWriter_IF	
+	public boolean writeScripData();
+ArScripCompleteDataWriter_IF	
+	public boolean writeScripData();
+
+Algorithm to set the data in the files
+1. if (hours > 15 && minutes > 16 && second > 0)
+		Send an error message ("Market is closed")	
+   if (hour < 9 &&  && minutes < 59 && second < 0)
+		Send an error message ("Market is closed")	
+2. Get Scrip Price Data
+3. See if the files exists in below order
+		Current Data File
+		Complete Day Data File
+		Day Data File
+		Week Data File
+		Month Data File
+		Year
+4. Yes
+		Get the header and footer for all the above files and store in cache
+		Current Data File
+			Update the currentPrice
+			Update the updatedDateTime in header of the file
+		Complete Day Data File
+			Add the currentPrice to the existing list
+			Update the updatedDateTime in header of the file
+		Day Data File
+			if previousClosePrice == null
+				Get the date - 1 and open the Current Data file for previous day.
+				Get the footer
+				Get the price and set previousClosePrice to that price
+				Update the updatedDateTime in header of the file
+			if (hours > 15 && minutes > 15 && second > 0)
+				Update closePrice to currentPrice
+				Update the updatedDateTime in header of the file
+			if (hour > 9 &&  && minutes < 15 && second < 0)
+				Update openPrice to currentPrice
+				Update the updatedDateTime in header of the file
+			if (lowPrice == null || highPrice == null)
+				Update both to currentPrice
+				Update the updatedDateTime in header of the file
+			if (currentPrice > highPrice){
+				highPrice = currentPrice
+				Update the updatedDateTime in header of the file
+			}
+			if (currentPrice < lowPrice){
+				lowPrice = currentPrice
+				Update the updatedDateTime in header of the file
+			}
+		Week Data File
+			if (currentPrice > highPrice){
+				highPrice = currentPrice
+				Update the updatedDateTime in header of the file
+			}
+			if (currentPrice < lowPrice){
+				lowPrice = currentPrice
+				Update the updatedDateTime in header of the file
+			}
+		Month Data File
+			if (currentPrice > highPrice){
+				highPrice = currentPrice
+				Update the updatedDateTime in header of the file
+			}
+			if (currentPrice < lowPrice){
+				lowPrice = currentPrice
+				Update the updatedDateTime in header of the file
+			}
+		Year	
+			if (currentPrice > highPrice){
+				highPrice = currentPrice
+				Update the updatedDateTime in header of the file
+			}
+			if (currentPrice < lowPrice){
+				lowPrice = currentPrice
+				Update the updatedDateTime in header of the file
+			}
+5. No
+		Create the files and set all the prices to currentPrice
+		Follow the above rules then
+	
+	
+		
+	

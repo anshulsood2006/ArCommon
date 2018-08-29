@@ -1,0 +1,16 @@
+Diameter is an authentication, authorization, and accounting protocol for computer networks.
+
+RADIUS had issues with reliability, scalability, security and flexibility. RADIUS cannot deal effectively with remote access, IP mobility and policy control.
+
+Like RADIUS, Diameter provides AAA functionality, but it is using TCP and SCTP instead of UDP, therefore logic for detection of communication problems is not included in the Diameter protocol itself.
+
+The Cx, Dh, Dx, Rf, Ro, Sh and Zh interfaces are supported by Diameter applications
+
+The Diameter base protocol is defined by RFC 6733 (Obsoletes: RFC 3588) and defines the minimum requirements for an AAA protocol. Diameter Applications can extend the base protocol by adding new commands, attributes, or both. Diameter security is provided by IPsec or TLS. The IANA has assigned TCP and SCTP port number 3868 to Diameter.
+
+Features: 
+Support for SCTP
+Capability negotiation
+Application layer acknowledgements, Diameter defines failover methods and state machines (RFC 3539)
+Extensibility; new commands can be defined
+Aligned on 32-bit boundaries

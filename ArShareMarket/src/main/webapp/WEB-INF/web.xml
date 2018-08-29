@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="3.0"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" >
+	<display-name>ArCommon Web</display-name>
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	
+	<servlet-mapping>
+	     <servlet-name>ArDemoServlet</servlet-name>
+	     <url-pattern>/demo</url-pattern>
+  	</servlet-mapping>
+  	
+  	<servlet>
+	    <servlet-name>ArDemoServlet</servlet-name>
+	    <servlet-class>
+	       com.arsoft.projects.common.learning.servlet.ArDemoServlet
+	    </servlet-class>
+	    <init-param>
+			<param-name>param1</param-name>
+			<param-value>1</param-value>
+		</init-param>
+		<init-param>
+			<param-name>param2</param-name>
+			<param-value>2</param-value>
+		</init-param>
+    	<load-on-startup>1</load-on-startup>
+	 </servlet>
+  	
+  	<servlet>
+	    <servlet-name>ArFileReaderServlet</servlet-name>
+	    <servlet-class>
+	       com.arsoft.projects.common.servlet.ArFileReaderServlet
+	    </servlet-class>
+    	<load-on-startup>1</load-on-startup>
+	 </servlet>
+   
+	<servlet-mapping>
+	     <servlet-name>ArFileReaderServlet</servlet-name>
+	     <url-pattern>/readFile</url-pattern>
+  	</servlet-mapping>
+  	
+  	<servlet>
+	    <servlet-name>ArTemplateServlet</servlet-name>
+	    <servlet-class>
+	       com.arsoft.projects.common.servlet.ArTemplateServlet
+	    </servlet-class>
+    	<load-on-startup>1</load-on-startup>
+	 </servlet>
+   
+	<servlet-mapping>
+	     <servlet-name>ArTemplateServlet</servlet-name>
+	     <url-pattern>/template</url-pattern>
+  	</servlet-mapping>
+  	
+  	<servlet>
+	    <servlet-name>ArEnvironmentServlet</servlet-name>
+	    <servlet-class>
+	       com.arsoft.projects.common.servlet.ArEnvironmentServlet
+	    </servlet-class>
+    	<load-on-startup>1</load-on-startup>
+	 </servlet>
+   
+	<servlet-mapping>
+	     <servlet-name>ArEnvironmentServlet</servlet-name>
+	     <url-pattern>/getEnvironmentDetail</url-pattern>
+  	</servlet-mapping>
+  	
+  	<servlet>
+	    <servlet-name>ArWishesYou</servlet-name>
+	    <servlet-class>
+	       com.arsoft.projects.common.servlet.ArWisher
+	    </servlet-class>
+    	<load-on-startup>1</load-on-startup>
+	 </servlet>
+   
+	<servlet-mapping>
+	     <servlet-name>ArWishesYou</servlet-name>
+	     <url-pattern>/wishes</url-pattern>
+  	</servlet-mapping>
+  	
+  	<servlet>
+	    <servlet-name>SendOrder</servlet-name>
+	    <servlet-class>
+	       com.arsoft.projects.common.servlet.ArEmailSenderServlet
+	    </servlet-class>
+    	<load-on-startup>2</load-on-startup>
+	 </servlet>
+   
+	<servlet-mapping>
+	     <servlet-name>SendOrder</servlet-name>
+	     <url-pattern>/order</url-pattern>
+  	</servlet-mapping>
+	
+	<!--  DispatcherServlet Defined for springs . For each servlet make sure that there is a corresponding file 
+	{ServletName}-servlet.xml inside WEB-INF folder-->
+	<servlet>
+	    <servlet-name>ArCommonBaseServlet</servlet-name>
+	    <servlet-class>
+	       org.springframework.web.servlet.DispatcherServlet
+	    </servlet-class>
+	    <!-- <init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/applicationContext.xml</param-value>
+		</init-param> -->
+    	<load-on-startup>1</load-on-startup>
+	 </servlet>
+   
+	<servlet-mapping>
+	     <servlet-name>ArCommonBaseServlet</servlet-name>
+	     <url-pattern>*.do</url-pattern>
+  	</servlet-mapping> 
+  	
+  	<listener>
+    	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>	
+	
+	<listener>
+    	<listener-class>com.sun.xml.ws.transport.http.servlet.WSServletContextListener</listener-class>
+	</listener>	
+	
+	<!-- Servlet Mapping for Jersey Rest Services -->
+	<servlet>
+		<servlet-name>Jersey REST Service</servlet-name>
+		<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+		<init-param>
+			<param-name>jersey.config.server.provider.packages</param-name>
+			<param-value>com.arsoft.projects.common.webservice.rest</param-value>
+		</init-param>
+		<init-param>
+			<param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Jersey REST Service</servlet-name>
+		<url-pattern>/services/*</url-pattern>
+	</servlet-mapping> 
+	<!-- Servlet Mapping for Jersey Rest Services --> 
+	
+	<!-- Spring Security Filter -->
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!-- Spring Security Filter -->
+	
+	<!-- Access-Control-Allow-Origin Filter -->
+	<filter>
+	    <filter-name>cors</filter-name>
+	    <filter-class>com.arsoft.projects.common.filter.ArCorsFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+	    <filter-name>cors</filter-name>
+	    <url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!-- Access-Control-Allow-Origin Filter Filter -->
+	
+	<!-- Global parameters for application -->
+	
+	<!-- Spring Security -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/spring/spring-security.xml</param-value>
+	</context-param>
+	<!-- Spring Security -->
+	
+	<context-param>
+		<param-name>angularJsURL</param-name>
+		<param-value>https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js</param-value>
+	</context-param>
+	
+	<context-param>
+		<param-name>environment</param-name>
+		<param-value>DEV</param-value>
+	</context-param>
+	
+	<context-param>
+		<param-name>arcommon.config.file.location</param-name>
+		<param-value>/WEB-INF/configuration/config.properties</param-value>
+	</context-param>
+	
+	<context-param>
+		<param-name>websiteNickName</param-name>
+		<param-value>MyFriendwa</param-value>
+	</context-param>
+	
+	<context-param>
+		<param-name>websiteFullName</param-name>
+		<param-value>www.myfriendwa.com</param-value>
+	</context-param>
+	
+	<context-param>
+		<param-name>websiteURL</param-name>
+		<param-value>http://www.myfriendwa.com/arcommon</param-value>
+	</context-param>	
+	
+	<context-param>
+		<param-name>contactEmail</param-name>
+		<param-value>contact@myfriendwa.com</param-value>
+	</context-param>
+	
+	<context-param>
+		<param-name>adminEmail</param-name>
+		<param-value>admin@myfriendwa.com</param-value>
+	</context-param>
+
+	<!-- Global parameters for application -->
+	
+</web-app>
