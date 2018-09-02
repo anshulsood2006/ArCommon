@@ -15,14 +15,82 @@
 			<tr><th>Access Specifier</th><th>Meaning</th></tr>
 			<tr><td>Default</td><td>Visible only inside the package</td></tr>
 			<tr><td>Public</td><td>Visible anywhere</td></tr>
-			<tr><td>Protected</td><td>Visible inside the package and all subclasses </td></tr>
+			<tr><td>Protected</td><td>Visible inside the package and all subclasses. In order to be able to access protected entity we need to subclass the class where the protected entity is declared.</td></tr>
 			<tr><td>Private</td><td>Visible only inside class</td></tr>
 		</table>
 	</li>
+	<li></li>
 </ul>
 <h1>Examples</h1>
-<p><b></b></p>
+<p><b>Entities with all the above four types of access specifiers are available inside the same class</b></p>
 <pre>
+public class MyTestClass {
+	public void myPublicMethod(){
+		System.out.println("myPublicMethod");
+	}
+	
+	void myDefaultMethod(){
+		System.out.println("myDefaultMethod");
+	}
+	
+	private void myPrivateMethod(){
+		System.out.println("myPrivateMethod");
+	}
+	
+	protected void myProtectedMethod(){
+		System.out.println("myProtectedMethod");
+	}
+	
+	public static void main(String[] args) {
+		MyTestClass myTestClass = new MyTestClass();
+		myTestClass.myDefaultMethod();
+		myTestClass.myPublicMethod();
+		myTestClass.myProtectedMethod();
+		myTestClass.myPrivateMethod();
+	}
+}
+</pre>
+<p><b>Entities with public, default and protected specifiers ONLY are available inside any class in the same package. Entities with private specifier are NOT.</b></p>
+<pre>
+public class TestAccessSpecifiersSamePackage {
+	
+	public static void main(String[] args) {
+		MyTestClass myTestClass = new MyTestClass();
+		myTestClass.myDefaultMethod();
+		myTestClass.myPublicMethod();
+		myTestClass.myProtectedMethod();
+		myTestClass.myPrivateMethod(); // Compile Error "The method myPrivateMethod() from the type MyTestClass is not visible"
+	}
+	
+}	
+</pre>
+<p><b>Entities with public specifier ONLY are available inside any class in the different package. Entities with default, private and protected specifier are NOT.</b></p>
+<pre>
+public class TestAccessSpecifierOtherPackageSubclass extends MyTestClass{
+	
+	public static void main(String[] args) {
+		TestAccessSpecifierOtherPackageSubclass myTestClass = new TestAccessSpecifierOtherPackageSubclass();
+		myTestClass.myDefaultMethod(); // Compile Error "The method myDefaultMethod() from the type MyTestClass is not visible"
+		myTestClass.myPublicMethod();
+		myTestClass.myProtectedMethod(); // Compile Error "The method myProtectedMethod() from the type MyTestClass is not visible"
+		myTestClass.myPrivateMethod(); // Compile Error "The method myPrivateMethod() from the type MyTestClass is not visible"
+	}
+	
+}
+</pre>
+<p><b>Entities with public and protected specifier ONLY are available inside any subclass of the class (having those methods) in the different package. Entities with default and private specifier are NOT.</b></p>
+<pre>
+public class TestAccessSpecifierOtherPackageSubclass extends MyTestClass{
+	
+	public static void main(String[] args) {
+		TestAccessSpecifierOtherPackageSubclass myTestClass = new TestAccessSpecifierOtherPackageSubclass();
+		myTestClass.myDefaultMethod(); // Compile Error "The method myDefaultMethod() from the type MyTestClass is not visible"
+		myTestClass.myPublicMethod();
+		myTestClass.myProtectedMethod();
+		myTestClass.myPrivateMethod(); // Compile Error "The method myPrivateMethod() from the type MyTestClass is not visible"
+	}
+	
+}
 </pre>
 <h1>Frequently Asked Questions</h1>
 <p><b></b></p>
