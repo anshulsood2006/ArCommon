@@ -8,48 +8,109 @@
 <h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
 <h1>Design Patterns</h1>
 <h1>Features</h1>
-<p>Design patterns are solutions to general problems that software developers faced during software development. These solutions were obtained by trial and error by numerous software developers over quite a substantial period of time.</p>
-<p>In java design patterns have been divided into three categories (BCS):
 <ul>
-	<li><b>Behavioral (CCIIMMOSSTV)</b>
+<li>Design patterns are solutions to general problems that software developers faced during software development. These solutions were obtained by trial and error by numerous software developers over quite a substantial period of time.</li>
+<li>Some design problems and solutions:
+<ul>
+	<li> <b>Duck Game Problem:</b>
 		<ul>
-			
-			<li><b><a href="Behavioral/ChainOfResponsibility.html">Chain of Responsibility Design Pattern:</a></b> In this pattern a request from a client is passed to a chain of objects to process them. The object in the chain will decide themselves who will be processing the request and whether the request is required to be sent to the next object in the chain or not.</li>
-			<li><b><a href="Behavioral/Command.html">Command Design Pattern: </a></b>This pattern creates an object which is used to encapsulate all information needed to perform an action. This information includes the method name, the object that owns the method and values for the method parameters.</li>
-			<li><b><a href="Behavioral/Interpreter.html">Interpreter Design Pattern</a></b></li>
-			<li><b><a href="Behavioral/Iterator.html">Iterator Design Pattern</a></b></li>
-			<li><b><a href="Behavioral/Mediator.html">Mediator Design Pattern</a></b></li>
-			<li><b><a href="Behavioral/Memento.html">Memento Design Pattern</a></b></li>
-			<li><b><a href="Behavioral/Observer.html">Observer Design Pattern</a></b></li>
-			<li><b><a href="Behavioral/State.html">State Design Pattern</a></b></li>
-			<li><b><a href="Behavioral/Strategy.html">Strategy Design Pattern</a></b>This pattern is used when we have multiple algorithm for a specific task and client decides the actual implementation to be used at runtime</li>
-			<li><b><a href="Behavioral/TemplateMethod.html">Template Method Design Pattern</a></b></li>
-			<li><b><a href="Behavioral/Visitor.html">Visitor Design Pattern</a></b></li>
-			
+			<li>We need to create a system where we can have different kind of ducks having different flying and quacking behaviors.</li>
+			<li>We will create a Duck interface having quack() and display() methods.</li>
+			<li>This interface is implemented by different varieties of ducks giving their own implementation.</li>
+			<li>Now a requirement comes to make few ducks to fly as well.</li>
+			<li>We can just not add new method fly() to Duck interface as this way we will have to unnecessarily override the fly method in all kinds of ducks</li>
+			<li>We can also not introduce a new interface flyable as this way, if in future the behavior of flyable interface changes we need to change all the subclasses implementing this interface.</li>
+			<li>So the above problem can not be solved by inheritance.</li>
+			<li>Design principle for this kind of situation is: <b>"Encapsulate all the aspects of an application that changes"</b></li>
+			<li>So we will create separate classes for different flying and quacking behavior</li>
+			<li>Design principle for above is: <b>"Program to interface not an implementation."</b></li>
+			<li>So we will declare the fly and quack behavior in separate interfaces called FlyBehavior and QuackBehavior and create separate subclasses as required by implementing these interfaces.</li>
+			<li>In this way the fly and quack behavior can be used by classes other than duck as well.</li>
+			<li>Now inside the duck class, we will declare the instance variables of interface type FlyBehavior and QuackBehavior.</li>
+			<li>Instead of setting the above variables inside the constructor of duck class, we will instead set these using setter methods so that the behaviors can be set at run time</li>
+			<li>Design principle for above is: <b>"Favor composition over inheritance."</b></li>
+			<li>The above design pattern is called <b>STRATEGY PATTERN</b></li>
 		</ul>
 	</li>
-	<li><b>Creational (ABFPS)</b>
+	<li> <b>Weather O Meter Problem:</b>
 		<ul>
-			<li><b><a href="creational/AbstractFactory.html">Abstract Factory Design Pattern: </a></b>This pattern takes responsibility of creation of factory of related objects without specifying their classes.</li>
-			<li><b><a href="creational/Builder.html">Builder Design Pattern</a></b></li>
-			<li><b><a href="creational/Factory.html">Factory Design Pattern:</a></b> This pattern takes responsibility of creation of classes from the client classes and do that itself.</li>
-			<li><b><a href="creational/Prototype.html">Prototype Design Pattern</a></b>This pattern is used when the object creation is a costly affair and requires a lot of time and resources and you have a similar object already existing. It provides a mechanism to copy the original object to a new object and then modify it according to our needs. It uses java cloning to copy the object.</li>
-			<li><b><a href="creational/Singleton.html">Singleton Design Pattern</a></b></li>
-		</ul>
-	</li>
-	<li><b>Structural (ABCDFFP)</b>
-		<ul>
-			<li><b><a href="Structural/Adapter.html">Adapter Design Pattern</a></b></li>
-			<li><b><a href="Structural/Bridge.html">Bridge Design Pattern</a></b></li>
-			<li><b><a href="Structural/Composite.html">Composite Design Pattern</a></b></li>
-			<li><b><a href="Structural/Decorator.html">Decorator Design Pattern: </a></b>This pattern changes the functionality of object at runtime (like using inheritance we can change the functionality at compile time).</li>
-			<li><b><a href="Structural/Facade.html">Facade Design Pattern:</a></b>This pattern involves a single class which provides simplified methods required by client and delegates calls to methods of existing system classes.</li>
-			<li><b><a href="Structural/Flyweight.html">Flyweight Design Pattern</a></b></li>
-			<li><b><a href="Structural/Proxy.html">Proxy Design Pattern</a></b></li>
-			
+			<li>We have to implement a weather system where a device sends data to different kinds of displays e.g. Current, forecast and statistical data.</li>
+			<li>This can be implemented using <b>OBSERVER PATTERN</b> where publisher (Subject) notifies about any change to the subscribers (Observers).</li>
+			<li>This pattern defines a one to many dependency between objects so that when one object changes its state all of its dependents are notified and updated automatically.</li>
+			<li>Design principle for this kind of situation is: <b>"Strive for loosely coupled design between objects that interact".</b></li>
+			<li>There should be loose coupling between the subject and the observers so that
+				<ul>
+					<li>Subject just needs to know about the observer interface not the concrete implementation.</li>
+					<li>Subject just maintains a list of objects that implement observer interface.</li>
+					<li>Subjects and Observer classes can be used independently of each other.</li>
+				</ul>
+			</li>
+			<li>We will create Subject interface implementing  java.util.Observable interface having below methods
+				<ul>
+					<li>public void addObserver(Observer observer)</li>
+					<li>public void deleteObserver(Observer observer)</li>
+					<li>public void notifyObservers()</li>
+					<li>public void notifyObservers(Obect object)</li>
+					<li>public void setChanged()</li>
+				</ul>
+			</li>
+			<li>We will create Observer interface extending java.util.Observer class having method
+				<ul>
+					<li>public void update(Observable observable, Obect object)</li>
+				</ul>
+			</li>
+			<li>We will create Display interface having method
+				<ul>
+					<li>public void display()</li>
+				</ul>
+			</li>
 		</ul>
 	</li>
 	
+</ul>
+</li>
+<li>In java design patterns have been divided into three categories (BCS):
+	<ul>
+		<li><b>Behavioral (CCIIMMOSSTV)</b>
+			<ul>
+				
+				<li><b><a href="Behavioral/ChainOfResponsibility.html">Chain of Responsibility Design Pattern:</a></b> In this pattern a request from a client is passed to a chain of objects to process them. The object in the chain will decide themselves who will be processing the request and whether the request is required to be sent to the next object in the chain or not.</li>
+				<li><b><a href="Behavioral/Command.html">Command Design Pattern: </a></b>This pattern creates an object which is used to encapsulate all information needed to perform an action. This information includes the method name, the object that owns the method and values for the method parameters.</li>
+				<li><b><a href="Behavioral/Interpreter.html">Interpreter Design Pattern</a></b></li>
+				<li><b><a href="Behavioral/Iterator.html">Iterator Design Pattern</a></b></li>
+				<li><b><a href="Behavioral/Mediator.html">Mediator Design Pattern</a></b></li>
+				<li><b><a href="Behavioral/Memento.html">Memento Design Pattern</a></b></li>
+				<li><b><a href="Behavioral/Observer.html">Observer Design Pattern</a></b></li>
+				<li><b><a href="Behavioral/State.html">State Design Pattern</a></b></li>
+				<li><b><a href="Behavioral/Strategy.html">Strategy Design Pattern</a></b>This pattern is used when we have multiple algorithm for a specific task and client decides the actual implementation to be used at runtime</li>
+				<li><b><a href="Behavioral/TemplateMethod.html">Template Method Design Pattern</a></b></li>
+				<li><b><a href="Behavioral/Visitor.html">Visitor Design Pattern</a></b></li>
+				
+			</ul>
+		</li>
+		<li><b>Creational (ABFPS)</b>
+			<ul>
+				<li><b><a href="creational/AbstractFactory.html">Abstract Factory Design Pattern: </a></b>This pattern takes responsibility of creation of factory of related objects without specifying their classes.</li>
+				<li><b><a href="creational/Builder.html">Builder Design Pattern</a></b></li>
+				<li><b><a href="creational/Factory.html">Factory Design Pattern:</a></b> This pattern takes responsibility of creation of classes from the client classes and do that itself.</li>
+				<li><b><a href="creational/Prototype.html">Prototype Design Pattern</a></b>This pattern is used when the object creation is a costly affair and requires a lot of time and resources and you have a similar object already existing. It provides a mechanism to copy the original object to a new object and then modify it according to our needs. It uses java cloning to copy the object.</li>
+				<li><b><a href="creational/Singleton.html">Singleton Design Pattern</a></b></li>
+			</ul>
+		</li>
+		<li><b>Structural (ABCDFFP)</b>
+			<ul>
+				<li><b><a href="Structural/Adapter.html">Adapter Design Pattern</a></b></li>
+				<li><b><a href="Structural/Bridge.html">Bridge Design Pattern</a></b></li>
+				<li><b><a href="Structural/Composite.html">Composite Design Pattern</a></b></li>
+				<li><b><a href="Structural/Decorator.html">Decorator Design Pattern: </a></b>This pattern changes the functionality of object at runtime (like using inheritance we can change the functionality at compile time).</li>
+				<li><b><a href="Structural/Facade.html">Facade Design Pattern:</a></b>This pattern involves a single class which provides simplified methods required by client and delegates calls to methods of existing system classes.</li>
+				<li><b><a href="Structural/Flyweight.html">Flyweight Design Pattern</a></b></li>
+				<li><b><a href="Structural/Proxy.html">Proxy Design Pattern</a></b></li>
+				
+			</ul>
+		</li>
+	</ul>
+</li>
 </ul>
 <h1>Examples</h1>
 <p><b></b></p>
@@ -58,8 +119,13 @@
 <h1>Frequently Asked Questions</h1>
 <p><b>What is Gang of Four (GOF)?</b></p>
 <p>In 1994, four authors Erich Gamma, Richard Helm, Ralph Johnson und John Vlissides published a book titled Design Patterns - Elements of Reusable Object-Oriented Software which initiated the concept of Design Pattern in Software development. These authors are collectively known as Gang of Four (GOF).</p>
-<p><b></b></p>
-<p></p>
+<p><b>java.util.Observable is a class, so is it a good idea to use this class while implementing Observer pattern?</b></p>
+<p>This is not a good idea to use Observable because
+	<ul>
+		<li>Being a class, it can not be used to add observable behavior to a class which is already extending some other class. (Multiple inheritance is not supported in Java)</li>
+		<li>It violate the design principle "Program to interface not an implementation" because of being a class not an interface.</li>
+		<li>It violate the design principle "Favor composition over inheritance" because of .</li>
+	</ul>
 <p><b></b></p>
 <p></p>
 <h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
