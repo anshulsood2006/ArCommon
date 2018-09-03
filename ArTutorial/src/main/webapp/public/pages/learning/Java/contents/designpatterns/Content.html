@@ -45,18 +45,18 @@
 					<li>Subjects and Observer classes can be used independently of each other.</li>
 				</ul>
 			</li>
-			<li>We will create Subject interface implementing  java.util.Observable interface having below methods
+			<li>We will create Subject interface having below methods
 				<ul>
 					<li>public void addObserver(Observer observer)</li>
 					<li>public void deleteObserver(Observer observer)</li>
 					<li>public void notifyObservers()</li>
-					<li>public void notifyObservers(Obect object)</li>
 					<li>public void setChanged()</li>
 				</ul>
+				setChanged() will be called to call notifyObservers() in the concrete classes implementing this interface.
 			</li>
 			<li>We will create Observer interface extending java.util.Observer class having method
 				<ul>
-					<li>public void update(Observable observable, Obect object)</li>
+					<li>public void update(int j)</li>
 				</ul>
 			</li>
 			<li>We will create Display interface having method
@@ -64,6 +64,86 @@
 					<li>public void display()</li>
 				</ul>
 			</li>
+			<li>We will create SubjectImpl class implementing Subject interface and provide implementation to the methods
+<pre>
+public class WeatherData implements Subject {
+
+	private ArrayList&lt;Observer&gt; observerList;
+	private int j;
+	
+	public WeatherData(){
+		observerList = new ArrayList&lt;&gt;();
+	}
+	@Override
+	public void addObserver(Observer observer) {
+		observerList.add(observer);
+	}
+
+	@Override
+	public void deleteObserver(Observer observer) {
+		observerList.remove(observer);
+	}
+
+	@Override
+	public void notifyObservers() {
+		for (Observer observer: observerList){
+			observer.update(this.temp, this.humidity, this.pressure);
+		}
+	}
+
+	public void setMeasurement(int j){
+		this.j = j;
+		setChanged();
+	}
+	
+	public void setChanged(){
+		notifyObservers();
+	}
+}
+</pre>
+			</li>
+			<li>We will create displays implementing Observer and DisplayElement interfaces and provide implementation to the methods
+<pre>
+public class StatisticsDisplay implements Observer, DisplayElement {
+	private int j;
+	private Subject subject;
+	
+	public StatisticsDisplay(Subject subject){
+		this.subject = subject;
+		subject.addObserver(this);
+	}
+	
+	@Override
+	public void display() {
+		System.out.println("StatisticsDisplay: j: "+this.j);
+	}
+
+	@Override
+	public void update(int j) {
+		this.j = j;
+		display();
+	}
+
+}
+</pre>
+			</li>
+			<li>The client class will create one object of subject implementation class and n number of observer classes.
+<pre>
+public class WeatherStation {
+	public static void main(String[] args) {
+		WeatherData weatherData = new WeatherData();
+		CurrentConditionDisplay current = new CurrentConditionDisplay(weatherData);
+		StatisticsDisplay statistics = new StatisticsDisplay(weatherData);
+		ForecastDisplay forecast = new ForecastDisplay(weatherData);
+		
+		weatherData.setMeasurement(10, 20, 30);
+		weatherData.setMeasurement(30, 40, 50);
+		weatherData.setMeasurement(40, 50, 60);
+	}
+}
+</pre>
+			</li>
+			<li>We have called setChanged() method via setMeasurement() method inside the subject class to call notifyObservers()</li>
 		</ul>
 	</li>
 	
@@ -126,6 +206,11 @@
 		<li>It violate the design principle "Program to interface not an implementation" because of being a class not an interface.</li>
 		<li>It violate the design principle "Favor composition over inheritance" because setChanged() method is protected and so to use it we have extend the class with Observable class. This method is not available by declaring an instance of type Observable inside the class.</li>
 	</ul>
+<p><b>Give some examples of observer pattern in jdk?</b></p>
+<ul>
+	<li>AbstractButton in swings where we can add action listeners</li>
+	<li>PropertyChangeListener interface of JavaBeans</li>
+</ul>
 <p><b></b></p>
 <p></p>
 <h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
