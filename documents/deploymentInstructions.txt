@@ -1,0 +1,9 @@
+Go to 
+
+java is at location : SET JAVA_HOME="/usr/java/jdk1.8.0_40"
+
+Kill wildfly:
+pgrep -d" " -f "wildfly" | xargs kill;
+
+start wild fly:
+./appservers/wildfly-8x/bin/standalone.sh
