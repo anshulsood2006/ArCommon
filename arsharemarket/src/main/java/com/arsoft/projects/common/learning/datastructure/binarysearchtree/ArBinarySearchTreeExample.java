@@ -26,10 +26,6 @@ public class ArBinarySearchTreeExample {
 		tree.insert(12);
 		tree.insert(87);
 		tree.insert(24);
-		tree.insert(12);
-		tree.insert(12);
-		tree.insert(12);
-		tree.insert(12);
-		tree.insert(12);
+		tree.inOrderTraversal();
 	}
 }
