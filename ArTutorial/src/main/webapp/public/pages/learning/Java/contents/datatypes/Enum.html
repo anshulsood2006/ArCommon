@@ -41,8 +41,8 @@ class Color
 <li>Constructor is always private or package-private. If you try to make constructor as public you get a compilation error "Illegal modifier for the enum constructor; only private is permitted."</li>
 <li>Since enum constants can not be created explicitly so constructor can not be called. </li>
 <li>By default enums have their own string values. e.g. for Example 1 below the value for enum YES is YES and that for enum NO is NO, while for Example 2 the values of variable default value and size in bits for enum BOOLEAN are false and 1 respectively</li>
-<li>Parameterrized enums have at least one getter method to get the value of the enum.</li>
-<li>Enum in java implicitly implements both Serializable and Comparable interfaces<li>
+<li>Parameterized enums have at least one getter method to get the value of the enum.</li>
+<li>Enum in java implicitly implements both Serializable and Comparable interfaces</li>
 </ol>
 <h1>Examples</h1>
 <p>Example 1:</p>
@@ -91,7 +91,7 @@ class Color
 <p><b>How to get the name of enum?</b></p>
 <p>{enumConstant}.name() returns the name of enum constant defined in an Enum e.g. ArDataTypeEnum.SHORT.name() in Example 2 above will return SHORT</p>
 <p><b>How to find if an enum constant is present inside an enum?</b></p>
-<p>If {enumClass}.valueOf(name) does not through IllegalArgumentException and returns enum constant.</p>
+<p>If {enumClass}.valueOf(name) does not throw IllegalArgumentException and returns enum constant.</p>
 <p><b>What is the return value of {enumConstant}.ordinal() method?</b></p>
 <p>This method returns the order in which the enumConstant is declared in the enumClass e.g. ArDataTypeEnum.SHORT.ordinal() in Example 2 returns 3</p>
 <p><b>What is the difference between comparing Enums using equals and == and compareTo methods?</b></p>

@@ -6,5 +6,9 @@ public class ClassA implements DefaultMethod {
 	public String sayHello() {
 		return "Hi from Class A";
 	}
+	
+	public static String takeHello(String name) {
+		return "Take my Hello: "+name;
+	}
 
 }

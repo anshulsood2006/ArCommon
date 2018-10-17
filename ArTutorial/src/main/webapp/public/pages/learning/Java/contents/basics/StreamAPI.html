@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Stream API in Java</title>
+</head>
+<body>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
+<h1>Stream API</h1>
+<h1>Features</h1>
+<ul>
+<li>This API consists of classes that can process a sequence of elements</li>
+<li>The package is java.util.stream</li>
+<li>default stream() method</li>
+</ul>
+<h1>Examples</h1>
+<p><b></b></p>
+<pre>
+</pre>
+<h1>Frequently Asked Questions</h1>
+<p><b>How can we create a stream of a collection object</b></p>
+<p>The default method stream() present inside collection interface can be used to return a stream of elements e.g. 
+<pre>
+	Stream&lt;String&gt; stream = list.stream();
+	//list is a list of String object 
+</pre>
+<p><b>How can we create a stream from arrays</b></p>
+<p>This can be done in two ways:
+<ul>
+	<li>Stream&lt;String&gt; stream = Stream.of("a","b", "c");</li>
+	<li>String[] arr = new String[]{"a", "b", "c"};<br/>
+		Stream<String> stream = Arrays.stream(arr);</li>
+<p><b></b></p>
+<p></p>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
+</body>
+</html>

@@ -78,8 +78,13 @@ The JVM memory is broadly divided into 2 regions:
 	<tr><td>-Xms and -Xmx JVM option are used to define the startup size and maximum size of heap memory.</td><td>-Xss option is used to define to define the stack memory size</td></tr>
 	<tr><td>When heap memory is full, it throws java.lang.OutOfMemoryError: Java Heap Space error.</td><td>When stack memory is full, Java runtime throws java.lang.StackOverFlowErro</td></tr>
 </table>
-<p><b></b></p>
-<p></p>
+<p><b>How are the variables stored in memory in Java?</b></p>
+<p>In java there are two types of variables viz. primitive variables and reference variables.
+<ul>
+	<li><b>Primitive variables</b> are stored in stack memory as (variable name and variable value) pair</li>
+	<li><b>Reference variable</b> are stored in different way where (variable name and memory address) pair is stored in Stack memory while (memory address and object) is stored in Heap memory.</li>
+</ul>
+Please be noted that all the static variables are stored in Perm gen space inside heap memory only</p>
 <h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
 </body>
 </html>

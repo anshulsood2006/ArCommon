@@ -14,5 +14,9 @@ public class StringTest {
 		s = "This is a test string";
 		s.valueOf("B");
 		System.out.println(s);
+		
+		String a = "ab" +"c";
+		String c = "a" + "bc";
+		System.out.println("(a == c) is:  " + (a == c));
 	}
 }

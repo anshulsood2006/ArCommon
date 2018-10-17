@@ -63,19 +63,32 @@
 	return (this == obj);
 }</pre></li>
 </ul>
+<p>As per the contract, whenever hashCode() method is invoked on the same object more than once during an execution of a Java application, the hashCode method must consistently return the same integer. But normally JVM will relocate the objects, after GC or compaction.</p>
 <p><b>What is the difference between composition and aggregation?</b></p>
 <ul>
 	<li>Aggregation implies a relationship where the child can exist independently of the parent. For example, Bank and Employee, delete the Bank and the Employee still exist. whereas Composition implies a relationship where the child cannot exist independent of the parent. Example: Human and heart, heart don't exist separate to a Human</li>
 	<li>Aggregation relation is "has-a" and composition is ""part-of" relation.</li>
 	<li>Composition is a strong association whereas aggregation is a weak association.</li>
 </ul>
-<p>As per the contract, whenever this method is invoked on the same object more than once during an execution of a Java application, the hashCode method must consistently return the same integer. But normally JVM will relocate the objects, after GC or compaction.</p>
 <p><b>What is the difference between local variable and member variable</b></p>
 <p>A variable declared inside a method is called local variable while variable declared inside a class is called a member variable</p>
 <p><b>What is the need of String pool in Java?</b></p>
-<p></p>
+<p>Since the strings are immutable in Java, so in order to save memory on creation of same string objects again and again, Java instead uses the string objects from string pool.</p>
+<p><b>What other datatypes other than String are cached in Java?</b></p>
+<p>If the value p being boxed is true, false, a byte, or a char in the range \u0000 to \u007f, or an int or short number between -128 and 127 (inclusive), then let r1 and r2 be the results of any two boxing conversions of p. It is always the case that r1 == r2.</p>
 <p><b>In which memory area string pool is created in Java?</b></p>
 <p>Heap Memory</p>
+<p><b>What is the output of below program?
+<pre>
+	String a = "ab" +"c";
+	String c = "a" + "bc";
+	System.out.println("(a == c) is:  " + (a == c));
+</pre></b></p>
+<p>(a == c) is:  true</p>
+<p><b></b></p>
+<p></p>
+<p><b></b></p>
+<p></p>
 <h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
 </body>
 </html>

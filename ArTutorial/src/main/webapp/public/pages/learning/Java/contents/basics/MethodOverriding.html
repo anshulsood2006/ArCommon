@@ -48,7 +48,7 @@
 	}
 	</pre>
 	</li>
-	<li>Private method in parent class can not be overridden in child class.</li>
+	<li>Private method in parent class can not be overridden in child class. There will be no compilation errors though.</li>
 	<li>Method can not be overridden by reducing the visibility of overridden method in child class. The below code will give error :"Cannot reduce the visibility of the inherited method from ClassA"
 	<pre>
 	public class ClassA{
@@ -97,7 +97,7 @@
 	}
 	</pre>
 	</li>
-	<li>Method can not be overridden by adding keyword static changing the return type in the overridden method in child class. The below code will give error: "The return type is incompatible with ClassA.method()"
+	<li>Method can not be overridden by changing the return type in the overridden method in child class. The below code will give error: "The return type is incompatible with ClassA.method()"
 	<pre>
 	public class ClassA{
 		public String method(){

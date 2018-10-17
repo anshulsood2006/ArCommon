@@ -5,4 +5,7 @@ public interface DefaultMethod {
 	public default int defaultMethod() {
 		return 0;
 	}
+	public static String takeHello(String name) {
+		return "Take my Hello: "+name;
+	}
 }
