@@ -11,12 +11,37 @@
 <ul>
 <li><a href="ArrayList.html" >Array List</a></li>
 <li><a href="queue/Queue.html" >Queue</a></li>
+<li><a href="stack/Stack.html" >Stack</a></li>
 </ul>
 <h1>Examples</h1>
 <p></p>
 <h1>Frequently Asked Questions</h1>
-<p><b></b></p>
-<p></p>
+<p><b>What is difference between queue and stack?</b></p>
+<p>
+<table border="1">
+	<tr><th>Queue</th><th>Stack</th></tr>
+	<tr><td>Uses principle of FIFO</td><td>Uses principle of LIFO</td></tr>
+	<tr><td>Uses add method to add a new element</td><td>Uses push method to add a new element</td></tr>
+	<tr>
+		<td>Uses below methods to remove head element
+			<table border="1">
+				 <tr><th>Method</th><th>Removes Head</th><th>Returns what if empty?</th></tr>
+				 <tr><td><b>peek()</b></td><td>No</td><td>null</td></td></tr>
+			     <tr><td><b>element()</b></td><td>No</td><td>NoSuchElementException</td></tr>
+                 <tr><td><b>poll()</b></td><td>Yes	<td>null</td></tr>
+                 <tr><td><b>remove()</b></td><td>Yes</td><td>NoSuchElementException</td></tr>
+			</table>
+		</td>
+		<td>Uses below methods to remove head element
+			<table border="1">
+				<tr><th>Method</th><th>Removes Head</th><th>Returns what if empty?</th></tr>
+				<tr><td><b>peek()</b></td><td>No</td><td>EmptyStackException</td></tr>
+				<tr><td><b>pop()</b></td><td>Yes</td><td>EmptyStackException</td></tr>
+			</table>
+		</td>
+	</tr>
+</table>
+</p>
 <p><b></b></p>
 <p></p>
 <p><b></b></p>

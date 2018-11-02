@@ -1,7 +1,7 @@
 package com.arsoft.projects.common.learning.basics.methodoverriding;
 
 public class ClassA{
-	private String method(){
+	public String method(){
 		return "ClassA :: method()";
 	}
 }

@@ -10,14 +10,15 @@
 <h1>Features</h1>
 <ul>
 	<li>It is an ordered list of objects with its use limited to inserting elements at the end of list and deleting elements from the start of list</li>
-	<li>New elements are inserted at the tail of the queue, and the queue retrieval operations obtain elements at the head of the queue.</li>
+	<li>New elements are inserted at the tail of the queue, and the queue retrieval operations obtain elements from the head of the queue.</li>
+	<li>It works on the principle of first in first out. (FIFO)</li>
 	<li>The main operations that can be performed on queue are:
 		<ol>
 			<li><b>add():</b> Adds element at the tail of queue i.e. last of linked list or as per priority in case of priority queue.</li>
-			<li><b>peek():</b> Gives the head element of queue but the element is not removed from queue. Null returned if queue is empty</li>
-			<li><b>element():</b> Gives the head element of queue but the element is not removed from queue. Throws NoSuchElementException if queue is empty</li>
-			<li><b>poll():</b> Gives the head element of queue and also the element is removed from queue. Null returned if queue is empty</li>
-			<li><b>remove():</b> Gives the head element of queue and also the element is removed from queue. Throws NoSuchElementException if queue is empty</li>
+			<li><b>peek():</b> Returns the head element of queue but the element is not removed from queue. Null returned if queue is empty</li>
+			<li><b>element():</b> Returns the head element of queue but the element is not removed from queue. Throws NoSuchElementException if queue is empty</li>
+			<li><b>poll():</b> Returns the head element of queue and also the element is removed from queue. Null returned if queue is empty</li>
+			<li><b>remove():</b> Returns the head element of queue and also the element is removed from queue. Throws NoSuchElementException if queue is empty</li>
 		</ol>
 	</li>
 	<li>The main implementation classes are:
