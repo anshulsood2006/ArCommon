@@ -2,7 +2,7 @@ package com.arsoft.projects.common.business.market.factory;
 
 import java.text.ParseException;
 
-import com.arsoft.projects.common.business.entity.ArDateTime;
+import com.arsoft.projects.arcommon.ArDateTime;
 import com.arsoft.projects.common.business.market.constant.ArScripDataFileEnum;
 import com.arsoft.projects.common.business.market.entities.ArScrip;
 import com.arsoft.projects.common.business.market.entities.datafile.footer.ArScripCompleteDayDataFileFooter;

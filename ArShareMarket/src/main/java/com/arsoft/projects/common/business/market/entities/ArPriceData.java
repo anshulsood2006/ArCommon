@@ -1,6 +1,6 @@
 package com.arsoft.projects.common.business.market.entities;
 
-import com.arsoft.projects.common.business.entity.ArDateTime;
+import com.arsoft.projects.arcommon.ArDateTime;
 
 public class ArPriceData {
 	

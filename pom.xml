@@ -11,8 +11,10 @@
 	<name>ArCommon Web-app</name>
 	
 	<modules>
+		<module>ArShared</module>
 		<module>ArShareMarket</module>
 		<module>ArTutorial</module>
+		<module>ArBid</module>
 	</modules>
 
 	<!-- All the constants can be declared inside properties tag and can be 

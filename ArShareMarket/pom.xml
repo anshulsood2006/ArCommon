@@ -18,6 +18,11 @@
   <!-- All the dependencies are declared inside dependencies tag -->
 	<dependencies>
 		<dependency>
+			<groupId>com.arsoft.projects</groupId>
+			<artifactId>arshared</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
 			<groupId>org.json</groupId>
 			<artifactId>json</artifactId>
 			<version>${json.version}</version>

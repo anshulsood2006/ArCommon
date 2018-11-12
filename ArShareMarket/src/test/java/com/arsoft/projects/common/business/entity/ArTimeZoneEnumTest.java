@@ -7,6 +7,8 @@ import java.util.List;
 
 import org.junit.Test;
 
+import com.arsoft.projects.arcommon.ArTimeZoneEnum;
+
 public class ArTimeZoneEnumTest {
 	@Test
 	public void isHavingEnum() {

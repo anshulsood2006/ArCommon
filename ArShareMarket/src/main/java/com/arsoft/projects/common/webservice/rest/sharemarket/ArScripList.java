@@ -6,7 +6,6 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import com.arsoft.projects.common.business.market.entities.ArScrip;
-import com.arsoft.projects.common.webservice.rest.ArList;
 
 /**
  * This class stores complete information about a particular scrip
@@ -14,7 +13,7 @@ import com.arsoft.projects.common.webservice.rest.ArList;
  *
  */
 @XmlRootElement(name="ScripList")
-public class ArScripList implements ArList<ArScrip>{
+public class ArScripList implements com.arsoft.projects.arcommon.ArList<ArScrip>{
 	
 	private List<ArScrip> arScripList;
 

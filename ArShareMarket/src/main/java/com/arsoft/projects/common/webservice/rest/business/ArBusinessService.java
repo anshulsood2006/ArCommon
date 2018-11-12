@@ -8,22 +8,22 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import com.arsoft.projects.common.business.entity.ArAddressInfo;
-import com.arsoft.projects.common.business.entity.ArAmPmEnum;
-import com.arsoft.projects.common.business.entity.ArBusinessEntityInfo;
-import com.arsoft.projects.common.business.entity.ArContactInfo;
-import com.arsoft.projects.common.business.entity.ArContactTypeEnum;
-import com.arsoft.projects.common.business.entity.ArDate;
-import com.arsoft.projects.common.business.entity.ArDayEnum;
-import com.arsoft.projects.common.business.entity.ArEntityInfo;
-import com.arsoft.projects.common.business.entity.ArGenderEnum;
-import com.arsoft.projects.common.business.entity.ArIdentificationInfo;
-import com.arsoft.projects.common.business.entity.ArIdentificationTypeEnum;
-import com.arsoft.projects.common.business.entity.ArKycInfo;
-import com.arsoft.projects.common.business.entity.ArMonthEnum;
-import com.arsoft.projects.common.business.entity.ArOperationTimeInfo;
-import com.arsoft.projects.common.business.entity.ArProduct;
-import com.arsoft.projects.common.business.entity.ArTime;
+import com.arsoft.projects.arcommon.ArAddressInfo;
+import com.arsoft.projects.arcommon.ArAmPmEnum;
+import com.arsoft.projects.arcommon.ArBusinessEntityInfo;
+import com.arsoft.projects.arcommon.ArContactInfo;
+import com.arsoft.projects.arcommon.ArContactTypeEnum;
+import com.arsoft.projects.arcommon.ArDate;
+import com.arsoft.projects.arcommon.ArDayEnum;
+import com.arsoft.projects.arcommon.ArEntityInfo;
+import com.arsoft.projects.arcommon.ArGenderEnum;
+import com.arsoft.projects.arcommon.ArIdentificationInfo;
+import com.arsoft.projects.arcommon.ArIdentificationTypeEnum;
+import com.arsoft.projects.arcommon.ArKycInfo;
+import com.arsoft.projects.arcommon.ArMonthEnum;
+import com.arsoft.projects.arcommon.ArOperationTimeInfo;
+import com.arsoft.projects.arcommon.ArProduct;
+import com.arsoft.projects.arcommon.ArTime;
 
 @Path("/business")
 public class ArBusinessService {

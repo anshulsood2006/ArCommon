@@ -1,6 +1,6 @@
 package com.arsoft.projects.common.business.market.entities.datafile.writer;
 
-import com.arsoft.projects.common.business.entity.ArTime;
+import com.arsoft.projects.arcommon.ArTime;
 import com.arsoft.projects.common.business.market.entities.ArPriceData;
 import com.arsoft.projects.common.business.market.entities.ArScrip;
 import com.arsoft.projects.common.business.market.entities.datafile.ArScripDataFile;

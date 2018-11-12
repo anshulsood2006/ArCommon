@@ -5,8 +5,8 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
 
-import com.arsoft.projects.common.business.entity.ArAmPmEnum;
-import com.arsoft.projects.common.business.entity.ArMonthEnum;
+import com.arsoft.projects.arcommon.ArAmPmEnum;
+import com.arsoft.projects.arcommon.ArMonthEnum;
 import com.arsoft.projects.common.business.market.entities.ArScrip;
 import com.arsoft.projects.common.business.market.factory.ArScripTestUtil;
 import com.arsoft.projects.common.exception.ArException;

@@ -11,9 +11,9 @@ import java.util.Locale;
 
 import org.junit.Test;
 
-import com.arsoft.projects.common.business.entity.ArDate;
-import com.arsoft.projects.common.business.entity.ArDateTime;
-import com.arsoft.projects.common.business.entity.ArMonthEnum;
+import com.arsoft.projects.arcommon.ArDate;
+import com.arsoft.projects.arcommon.ArDateTime;
+import com.arsoft.projects.arcommon.ArMonthEnum;
 
 public class ArDateTimeUtilTest {
 	

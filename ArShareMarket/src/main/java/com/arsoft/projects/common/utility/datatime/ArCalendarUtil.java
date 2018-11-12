@@ -3,7 +3,7 @@ package com.arsoft.projects.common.utility.datatime;
 import java.util.Calendar;
 import java.util.Date;
 
-import com.arsoft.projects.common.business.entity.ArDate;
+import com.arsoft.projects.arcommon.ArDate;
 
 public class ArCalendarUtil {
 	

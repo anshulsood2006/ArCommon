@@ -1,0 +1,16 @@
+Two types of users
+	Provider
+	Bidder
+	
+Provider
+	extends ArPerson
+		First Name 			String
+		Middle Name			String
+		Last Name			String
+		Date of Birth		ArDate
+		Gender				ArGenderEnum
+		Contact Info
+	
+	
+	
+	
