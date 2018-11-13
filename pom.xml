@@ -15,7 +15,8 @@
 		<module>ArShareMarket</module>
 		<module>ArTutorial</module>
 		<module>ArBid</module>
-	</modules>
+    	<module>ArEnterprise</module>
+  	</modules>
 
 	<!-- All the constants can be declared inside properties tag and can be 
 		used later using ${property_name} -->
