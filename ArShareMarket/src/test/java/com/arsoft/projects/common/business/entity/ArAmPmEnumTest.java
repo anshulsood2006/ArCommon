@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.arsoft.projects.arcommon.ArAmPmEnum;
+import com.arsoft.projects.arshared.ArAmPmEnum;
 
 public class ArAmPmEnumTest {
 	

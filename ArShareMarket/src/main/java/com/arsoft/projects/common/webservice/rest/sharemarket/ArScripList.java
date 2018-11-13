@@ -13,7 +13,7 @@ import com.arsoft.projects.common.business.market.entities.ArScrip;
  *
  */
 @XmlRootElement(name="ScripList")
-public class ArScripList implements com.arsoft.projects.arcommon.ArList<ArScrip>{
+public class ArScripList implements com.arsoft.projects.arshared.ArList<ArScrip>{
 	
 	private List<ArScrip> arScripList;
 

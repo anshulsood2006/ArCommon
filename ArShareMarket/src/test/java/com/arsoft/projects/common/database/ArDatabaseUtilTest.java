@@ -7,7 +7,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import com.arsoft.projects.common.exception.ArException;
+import com.arsoft.projects.arshared.exception.ArException;
 
 public class ArDatabaseUtilTest {
 	

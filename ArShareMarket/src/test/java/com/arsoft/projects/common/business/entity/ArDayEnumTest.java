@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.arsoft.projects.arcommon.ArDayEnum;
+import com.arsoft.projects.arshared.ArDayEnum;
 
 public class ArDayEnumTest {
 	

@@ -13,9 +13,9 @@ import javax.ws.rs.core.MediaType;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.arsoft.projects.arcommon.ArList;
-import com.arsoft.projects.arcommon.ArProduct;
-import com.arsoft.projects.arcommon.ArProductList;
+import com.arsoft.projects.arshared.ArList;
+import com.arsoft.projects.arshared.ArProduct;
+import com.arsoft.projects.arshared.ArProductList;
 
 @Path("/dukaan/product")
 public class ArDukaanService implements ArDukaanServiceIF{

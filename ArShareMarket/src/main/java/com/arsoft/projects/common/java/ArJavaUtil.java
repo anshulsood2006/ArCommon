@@ -3,7 +3,7 @@ package com.arsoft.projects.common.java;
 import javax.tools.JavaCompiler;
 import javax.tools.ToolProvider;
 
-import com.arsoft.projects.common.exception.ArException;
+import com.arsoft.projects.arshared.exception.ArException;
 
 public class ArJavaUtil {
 	

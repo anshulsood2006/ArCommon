@@ -6,13 +6,13 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+import com.arsoft.projects.arshared.exception.ArException;
 import com.arsoft.projects.common.business.market.constant.ArScripDataFileEnum;
 import com.arsoft.projects.common.business.market.entities.ArScrip;
 import com.arsoft.projects.common.business.market.entities.datafile.footer.ArScripDataFileFooter;
 import com.arsoft.projects.common.business.market.entities.datafile.header.ArScripDataFileHeader;
 import com.arsoft.projects.common.business.market.factory.ArScripDataFileFactory;
 import com.arsoft.projects.common.business.market.factory.ArScripTestUtil;
-import com.arsoft.projects.common.exception.ArException;
 
 public class ArScripDataFileTest {
 	@Test

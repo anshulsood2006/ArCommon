@@ -1,0 +1,8 @@
+ArDictionary:
+	Add a word
+	Search a word
+	Translate into different languages
+	
+
+	
+	

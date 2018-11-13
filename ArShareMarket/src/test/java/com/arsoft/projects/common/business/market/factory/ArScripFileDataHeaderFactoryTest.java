@@ -10,12 +10,12 @@ import java.util.Locale;
 
 import org.junit.Test;
 
-import com.arsoft.projects.arcommon.ArDateTime;
+import com.arsoft.projects.arshared.ArDateTime;
+import com.arsoft.projects.arshared.exception.ArException;
 import com.arsoft.projects.common.business.market.constant.ArScripDataFileEnum;
 import com.arsoft.projects.common.business.market.entities.ArScrip;
 import com.arsoft.projects.common.business.market.entities.datafile.header.ArScripDataFileHeader;
 import com.arsoft.projects.common.equity.ArBourse;
-import com.arsoft.projects.common.exception.ArException;
 import com.arsoft.projects.common.utility.datatime.ArDateTimeUtil;
 
 public class ArScripFileDataHeaderFactoryTest {

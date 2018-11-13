@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.arsoft.projects.arcommon.ArTimeZoneEnum;
+import com.arsoft.projects.arshared.ArTimeZoneEnum;
 
 public class ArTimeZoneEnumTest {
 	@Test

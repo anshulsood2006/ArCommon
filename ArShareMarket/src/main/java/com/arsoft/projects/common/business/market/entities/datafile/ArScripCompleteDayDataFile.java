@@ -1,6 +1,6 @@
 package com.arsoft.projects.common.business.market.entities.datafile;
 
-import com.arsoft.projects.arcommon.ArDateTime;
+import com.arsoft.projects.arshared.ArDateTime;
 import com.arsoft.projects.common.business.market.constant.ArScripDataFileEnum;
 import com.arsoft.projects.common.business.market.entities.ArScrip;
 import com.arsoft.projects.common.business.market.entities.datafile.footer.ArScripDataFileFooter;

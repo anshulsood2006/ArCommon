@@ -15,7 +15,7 @@ import java.util.concurrent.Future;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.arsoft.projects.common.exception.ArException;
+import com.arsoft.projects.arshared.exception.ArException;
 import com.arsoft.projects.common.file.ArFileUtil;
 import com.arsoft.projects.common.json.ArJsonUtil;
 import com.arsoft.projects.common.string.ArStringConstant;

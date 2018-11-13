@@ -10,7 +10,7 @@ import java.util.Locale;
 
 import org.junit.Test;
 
-import com.arsoft.projects.arcommon.ArDateTime;
+import com.arsoft.projects.arshared.ArDateTime;
 import com.arsoft.projects.common.business.market.constant.ArScripDataFileEnum;
 import com.arsoft.projects.common.business.market.util.ArScripPriceDataUtil;
 import com.arsoft.projects.common.equity.ArBourse;

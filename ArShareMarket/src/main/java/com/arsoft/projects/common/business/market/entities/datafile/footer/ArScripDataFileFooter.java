@@ -1,8 +1,8 @@
 package com.arsoft.projects.common.business.market.entities.datafile.footer;
 
+import com.arsoft.projects.arshared.exception.ArException;
 import com.arsoft.projects.common.business.market.constant.ArScripDataFileEnum;
 import com.arsoft.projects.common.business.market.entities.ArScrip;
-import com.arsoft.projects.common.exception.ArException;
 
 public abstract class ArScripDataFileFooter {
 	

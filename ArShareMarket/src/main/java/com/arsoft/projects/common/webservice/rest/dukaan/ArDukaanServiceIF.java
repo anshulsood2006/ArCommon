@@ -1,7 +1,7 @@
 package com.arsoft.projects.common.webservice.rest.dukaan;
 
-import com.arsoft.projects.arcommon.ArList;
-import com.arsoft.projects.arcommon.ArProductList;
+import com.arsoft.projects.arshared.ArList;
+import com.arsoft.projects.arshared.ArProductList;
 
 public interface ArDukaanServiceIF {
 	

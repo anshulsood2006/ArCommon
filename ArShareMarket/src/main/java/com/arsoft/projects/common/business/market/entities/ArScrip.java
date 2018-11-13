@@ -3,7 +3,7 @@ package com.arsoft.projects.common.business.market.entities;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import com.arsoft.projects.arcommon.ArDateTime;
+import com.arsoft.projects.arshared.ArDateTime;
 import com.arsoft.projects.common.equity.ArBourse;
 
 /**

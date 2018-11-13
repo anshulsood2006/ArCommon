@@ -13,10 +13,10 @@ import java.util.concurrent.Future;
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import com.arsoft.projects.arshared.exception.ArException;
 import com.arsoft.projects.common.business.market.constant.ArScripConstant;
 import com.arsoft.projects.common.business.market.entities.ArScrip;
 import com.arsoft.projects.common.equity.ArBourse;
-import com.arsoft.projects.common.exception.ArException;
 import com.arsoft.projects.common.file.ArFileUtil;
 import com.arsoft.projects.common.number.ArNumberUtil;
 import com.arsoft.projects.common.string.ArStringConstant;

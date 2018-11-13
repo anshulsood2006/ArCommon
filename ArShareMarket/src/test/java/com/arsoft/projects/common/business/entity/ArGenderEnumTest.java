@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.arsoft.projects.arcommon.ArGenderEnum;
+import com.arsoft.projects.arshared.ArGenderEnum;
 
 public class ArGenderEnumTest {
 	

@@ -12,6 +12,17 @@
 <h1>Frequently Asked Questions</h1>
 <p><b>When is the constructor called in case of enums?</b></p>
 <p>Whenever an enum is invoked or used or called for the first time, constructor is called for all the enums constant.</p>
+<p><b>What are the differences between method and constructor in Java?</b></p>
+<p>
+<table border="1">
+	<tr><th>Method</th><th>Constructor</th></tr>
+	<tr><td>It can have all types of access modifiers viz. public, private, protected and none and it can also be abstract, final, native, static, or synchronized.</td><td>It can have all types of access modifiers viz. public, private, protected and none but it can not be abstract, final, native, static, or synchronized.</td></tr>
+	<tr><td>It always has a return type including void.</td><td>It never has a return type.</td></tr>
+	<tr><td>It can have any name.</td><td>It always has the same name as that of the class.</td></tr>
+	<tr><td>It used <b>this</b> keyword to refer to instance of the class that is executing the method.</td><td>It uses <b>this</b> key word to call another constructor of the same class.</td></tr>
+	<tr><td>It used <b>super</b> keyword to call to the overridden method of the super class.</td><td>It uses <b>super</b> key word to call constructor of the super class.</td></tr>
+	<tr><td>It is inherited in the child class.</td><td>It is not inherited in the child class.</td></tr>
+</table></p>
 <h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
 </body>
 </html>

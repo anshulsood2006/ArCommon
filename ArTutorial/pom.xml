@@ -14,4 +14,12 @@
   <build>
     <finalName>artutorial</finalName>
   </build>
+  <!-- All the dependencies are declared inside dependencies tag -->
+	<dependencies>
+		<dependency>
+			<groupId>com.arsoft.projects</groupId>
+			<artifactId>arshared</artifactId>
+			<version>1.0</version>
+		</dependency>
+	</dependencies>
 </project>

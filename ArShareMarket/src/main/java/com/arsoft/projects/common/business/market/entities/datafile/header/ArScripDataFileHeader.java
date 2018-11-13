@@ -2,16 +2,16 @@ package com.arsoft.projects.common.business.market.entities.datafile.header;
 
 import java.text.ParseException;
 
-import com.arsoft.projects.arcommon.ArAmPmEnum;
-import com.arsoft.projects.arcommon.ArDate;
-import com.arsoft.projects.arcommon.ArDateTime;
-import com.arsoft.projects.arcommon.ArMonthEnum;
-import com.arsoft.projects.arcommon.ArTime;
+import com.arsoft.projects.arshared.ArAmPmEnum;
+import com.arsoft.projects.arshared.ArDate;
+import com.arsoft.projects.arshared.ArDateTime;
+import com.arsoft.projects.arshared.ArMonthEnum;
+import com.arsoft.projects.arshared.ArTime;
+import com.arsoft.projects.arshared.exception.ArException;
 import com.arsoft.projects.common.business.market.constant.ArScripDataFileEnum;
 import com.arsoft.projects.common.business.market.entities.ArScrip;
 import com.arsoft.projects.common.business.market.util.ArScripPriceDataUtil;
 import com.arsoft.projects.common.equity.ArBourse;
-import com.arsoft.projects.common.exception.ArException;
 import com.arsoft.projects.common.string.ArStringConstant;
 import com.arsoft.projects.common.string.ArStringUtil;
 import com.arsoft.projects.common.utility.datatime.ArDateTimeUtil;

@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 
-import com.arsoft.projects.common.exception.ArException;
+import com.arsoft.projects.arshared.exception.ArException;
 
 public class ArCryptography {
 	

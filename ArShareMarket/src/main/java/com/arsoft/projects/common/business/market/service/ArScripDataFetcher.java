@@ -1,6 +1,7 @@
 package com.arsoft.projects.common.business.market.service;
 
-import com.arsoft.projects.arcommon.ArDateTime;
+import com.arsoft.projects.arshared.ArDateTime;
+import com.arsoft.projects.arshared.exception.ArException;
 import com.arsoft.projects.common.business.market.constant.ArScripDataFileEnum;
 import com.arsoft.projects.common.business.market.entities.ArScrip;
 import com.arsoft.projects.common.business.market.entities.datafile.ArScripDataFile;
@@ -12,7 +13,6 @@ import com.arsoft.projects.common.business.market.interfaces.ArScripDataFileRead
 import com.arsoft.projects.common.business.market.interfaces.ArScripDataFileWriter_IF;
 import com.arsoft.projects.common.business.market.util.ArScripPriceDataUtil;
 import com.arsoft.projects.common.equity.ArBourse;
-import com.arsoft.projects.common.exception.ArException;
 import com.arsoft.projects.common.utility.datatime.ArDateTimeUtil;
 import com.arsoft.projects.common.webservice.rest.sharemarket.ArScripUtil;
 

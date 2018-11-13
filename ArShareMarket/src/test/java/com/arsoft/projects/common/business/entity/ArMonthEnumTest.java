@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.arsoft.projects.arcommon.ArMonthEnum;
+import com.arsoft.projects.arshared.ArMonthEnum;
 
 public class ArMonthEnumTest {
 	

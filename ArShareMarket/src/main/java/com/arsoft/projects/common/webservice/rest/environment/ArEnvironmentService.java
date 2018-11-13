@@ -17,14 +17,14 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.json.JSONArray;
 
-import com.arsoft.projects.arcommon.ArList;
+import com.arsoft.projects.arshared.ArList;
+import com.arsoft.projects.arshared.exception.ArException;
+import com.arsoft.projects.arshared.webservice.rest.error.ArError;
+import com.arsoft.projects.arshared.webservice.rest.error.ArErrorList;
 import com.arsoft.projects.common.annotation.ArAnnotationUtil;
 import com.arsoft.projects.common.environment.ArEnvironmentActionEnum;
-import com.arsoft.projects.common.exception.ArException;
 import com.arsoft.projects.common.properties.ArPropertyHandler;
 import com.arsoft.projects.common.string.ArStringUtil;
-import com.arsoft.projects.common.webservice.rest.error.ArError;
-import com.arsoft.projects.common.webservice.rest.error.ArErrorList;
 
 @Path("/environment")
 public class ArEnvironmentService{

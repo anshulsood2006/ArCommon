@@ -5,7 +5,7 @@ import java.util.List;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import com.arsoft.projects.arcommon.ArList;
+import com.arsoft.projects.arshared.ArList;
 
 @XmlRootElement(name="PropertyList")
 public class ArEnvironmentPropertyList implements ArList<ArEnvironmentProperty>{

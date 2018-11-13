@@ -2,6 +2,7 @@ package com.arsoft.projects.common.business.market.entities.datafile.reader;
 
 import java.util.Map;
 
+import com.arsoft.projects.arshared.exception.ArException;
 import com.arsoft.projects.common.business.market.constant.ArScripConstant;
 import com.arsoft.projects.common.business.market.entities.ArScrip;
 import com.arsoft.projects.common.business.market.entities.datafile.ArScripCompleteDayDataFile;
@@ -11,7 +12,6 @@ import com.arsoft.projects.common.business.market.entities.datafile.footer.ArScr
 import com.arsoft.projects.common.business.market.entities.datafile.header.ArScripDataFileHeader;
 import com.arsoft.projects.common.business.market.interfaces.ArScripDataFileReader_IF;
 import com.arsoft.projects.common.business.market.util.ArScripPriceDataUtil;
-import com.arsoft.projects.common.exception.ArException;
 
 public class ArScripCompleteDayDataFileReader implements ArScripDataFileReader_IF {
 

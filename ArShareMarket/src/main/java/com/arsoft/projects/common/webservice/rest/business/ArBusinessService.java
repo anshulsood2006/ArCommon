@@ -8,22 +8,22 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import com.arsoft.projects.arcommon.ArAddressInfo;
-import com.arsoft.projects.arcommon.ArAmPmEnum;
-import com.arsoft.projects.arcommon.ArBusinessEntityInfo;
-import com.arsoft.projects.arcommon.ArContactInfo;
-import com.arsoft.projects.arcommon.ArContactTypeEnum;
-import com.arsoft.projects.arcommon.ArDate;
-import com.arsoft.projects.arcommon.ArDayEnum;
-import com.arsoft.projects.arcommon.ArEntityInfo;
-import com.arsoft.projects.arcommon.ArGenderEnum;
-import com.arsoft.projects.arcommon.ArIdentificationInfo;
-import com.arsoft.projects.arcommon.ArIdentificationTypeEnum;
-import com.arsoft.projects.arcommon.ArKycInfo;
-import com.arsoft.projects.arcommon.ArMonthEnum;
-import com.arsoft.projects.arcommon.ArOperationTimeInfo;
-import com.arsoft.projects.arcommon.ArProduct;
-import com.arsoft.projects.arcommon.ArTime;
+import com.arsoft.projects.arshared.ArAddressInfo;
+import com.arsoft.projects.arshared.ArAmPmEnum;
+import com.arsoft.projects.arshared.ArBusinessEntityInfo;
+import com.arsoft.projects.arshared.ArContactInfo;
+import com.arsoft.projects.arshared.ArContactTypeEnum;
+import com.arsoft.projects.arshared.ArDate;
+import com.arsoft.projects.arshared.ArDayEnum;
+import com.arsoft.projects.arshared.ArEntityInfo;
+import com.arsoft.projects.arshared.ArGenderEnum;
+import com.arsoft.projects.arshared.ArIdentificationInfo;
+import com.arsoft.projects.arshared.ArIdentificationTypeEnum;
+import com.arsoft.projects.arshared.ArKycInfo;
+import com.arsoft.projects.arshared.ArMonthEnum;
+import com.arsoft.projects.arshared.ArOperationTimeInfo;
+import com.arsoft.projects.arshared.ArProduct;
+import com.arsoft.projects.arshared.ArTime;
 
 @Path("/business")
 public class ArBusinessService {

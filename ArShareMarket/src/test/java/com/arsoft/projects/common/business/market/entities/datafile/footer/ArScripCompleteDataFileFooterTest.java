@@ -8,16 +8,16 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.arsoft.projects.arcommon.ArAmPmEnum;
-import com.arsoft.projects.arcommon.ArDate;
-import com.arsoft.projects.arcommon.ArDateTime;
-import com.arsoft.projects.arcommon.ArMonthEnum;
-import com.arsoft.projects.arcommon.ArTime;
+import com.arsoft.projects.arshared.ArAmPmEnum;
+import com.arsoft.projects.arshared.ArDate;
+import com.arsoft.projects.arshared.ArDateTime;
+import com.arsoft.projects.arshared.ArMonthEnum;
+import com.arsoft.projects.arshared.ArTime;
+import com.arsoft.projects.arshared.exception.ArException;
 import com.arsoft.projects.common.business.market.entities.ArPriceData;
 import com.arsoft.projects.common.business.market.entities.ArScrip;
 import com.arsoft.projects.common.business.market.factory.ArScripTestUtil;
 import com.arsoft.projects.common.equity.ArBourse;
-import com.arsoft.projects.common.exception.ArException;
 
 public class ArScripCompleteDataFileFooterTest {
 	

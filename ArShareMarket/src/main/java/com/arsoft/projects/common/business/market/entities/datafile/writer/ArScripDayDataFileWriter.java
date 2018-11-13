@@ -1,6 +1,7 @@
 package com.arsoft.projects.common.business.market.entities.datafile.writer;
 
-import com.arsoft.projects.arcommon.ArTime;
+import com.arsoft.projects.arshared.ArTime;
+import com.arsoft.projects.arshared.exception.ArException;
 import com.arsoft.projects.common.business.market.entities.ArPriceData;
 import com.arsoft.projects.common.business.market.entities.ArScrip;
 import com.arsoft.projects.common.business.market.entities.datafile.ArScripDataFile;
@@ -8,7 +9,6 @@ import com.arsoft.projects.common.business.market.entities.datafile.footer.ArScr
 import com.arsoft.projects.common.business.market.entities.datafile.header.ArScripDataFileHeader;
 import com.arsoft.projects.common.business.market.interfaces.ArScripDataFileWriter_IF;
 import com.arsoft.projects.common.business.market.util.ArScripPriceDataUtil;
-import com.arsoft.projects.common.exception.ArException;
 
 public class ArScripDayDataFileWriter implements ArScripDataFileWriter_IF {
 
