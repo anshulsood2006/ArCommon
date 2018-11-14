@@ -7,23 +7,6 @@ import com.arsoft.projects.arenterprise.ardictionary.contract.IArDictionary;
 
 public class ArDictionary implements IArDictionary{
 	
-	public static void main(String[] args) {
-		IArDictionary.hi();
-		new ArDictionary().hello();
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				System.out.println("Inside Thread run method anonymous class");
-			}
-		}).start();
-		
-		new Thread(() -> System.out.println("Inside Thread run method lambda expression")).start();
-	}
-	
-	static String hi() {
-		return "Hi from ArDictionary static method";
-	}
-	
 	public ArDictionary() {
 		
 	}

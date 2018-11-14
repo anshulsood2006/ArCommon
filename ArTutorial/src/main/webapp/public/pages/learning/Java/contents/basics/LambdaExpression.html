@@ -2,6 +2,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="keywords" content="lambda expression">
+<meta name="author" content="Anshul Sood">
 <title>Lambda Expressions in Java</title>
 </head>
 <body>
@@ -15,17 +17,48 @@
 	<li>It is also used in functional programming using Java Streams API.</li>
 	<li>It is used to avoid boilerplate code.</li>
 	<li>The syntax is <b>(Argument-list) Arrow-token -> {body}</b></li>
+	<li>It gives a compile time error "The target type of this expression must be a functional interface" if used with a non functional interface.</li>
 </ul>
 <h1>Examples</h1>
 <p><b>Lambda expression to implement method having no arguments</b></p>
 <pre>
-
+public interface ILambdaExpressionTestInterfaceNoArgument {
+	public String hello();
+}
+public class LambdaExpressionTestClass{
+	public static void main(String[] args) {
+		ILambdaExpressionTestInterfaceNoArgument noLambda = () -> {return "Hello";};
+		System.out.println(noLambda.hello());
+	}
+}
+</pre>
+<p><b>Lambda expression to implement method having one argument</b></p>
+<pre>
+public interface ILambdaExpressionTestInterfaceOneArgument {
+	public String hello(String firstName);
+}
+public class LambdaExpressionTestClass{
+	public static void main(String[] args) {
+		ILambdaExpressionTestInterfaceOneArgument oneLambda = (firstName) -> {return "Hello " +firstName;};
+		System.out.println(oneLambda.hello("Anshul"));
+	}
+}
+</pre>
+<p><b>Lambda expression to implement method having two arguments</b></p>
+<pre>
+public interface ILambdaExpressionTestInterfaceTwoArgument {
+	public String hello(String firstName, String lastName);
+}
+public class LambdaExpressionTestClass{
+	public static void main(String[] args) {
+		ILambdaExpressionTestInterfaceTwoArgument twoLambda = (firstName, secondName) -> {return "Hello " +firstName +" "+secondName;};
+		System.out.println(twoLambda.hello("Anshul","Sood"));
+	}
+}
 </pre>
 <h1>Frequently Asked Questions</h1>
-<p><b></b></p>
-<p>
-
-</p>
+<p><b>What will happen if we try to use lambda expression for an interface which is not a functional interface?</b></p>
+<p>This will give a compile time error "The target type of this expression must be a functional interface"</p>
 <h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
 </body>
 </html>
