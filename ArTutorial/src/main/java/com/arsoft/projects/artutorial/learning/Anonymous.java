@@ -1,0 +1,7 @@
+package com.arsoft.projects.artutorial.learning;
+
+public interface Anonymous {
+	public void getMe();
+	public void processMe();
+	public void sendMe();
+}
