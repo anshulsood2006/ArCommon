@@ -15,7 +15,7 @@
   	<servlet>
 	    <servlet-name>ArDemoServlet</servlet-name>
 	    <servlet-class>
-	       com.arsoft.projects.common.learning.servlet.ArDemoServlet
+	       com.arsoft.projects.common.servlet.ArDemoServlet
 	    </servlet-class>
 	    <init-param>
 			<param-name>param1</param-name>

@@ -1,4 +1,4 @@
-package com.arsoft.projects.artutorial.learning.servlet;
+package com.arsoft.projects.common.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Enumeration;
@@ -16,6 +16,7 @@ public class ArDemoServlet extends HttpServlet{
 	 */
 	private static final long serialVersionUID = -976499313193346497L;
 
+	@SuppressWarnings("unchecked")
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
 	    PrintWriter out = resp.getWriter();
 		ServletContext ctx = getServletContext();
