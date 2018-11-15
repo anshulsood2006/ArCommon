@@ -12,18 +12,90 @@
 <h1>Features</h1>
 <ul>
 <li>It is used to refer to static or non static methods or a constructor of a class.</li>
-<li>It is a shorthand syntax for a lambda expression that executes just ONE method. Syntax is: <b>Object :: methodName</b></li>
-<li>It is used to pass just a reference of a method to another method instead of passing the complete object.</li>
+<li>It is a shorthand syntax for a lambda expression that executes just ONE method. Syntax is: <b>Object :: methodName.</b></li>
+<li>It is used to pass just a reference of a method as an argument to another method instead of passing the complete object.</li>
+<li>It can only be used to replace a single-method lambda expression where all your lambda expression does is just calling another method with the parameters passed to the lambda.</li>
 <li>It is of three types:
 <ol>
-	<li>Static Method Reference</li>
-	<li>Non Static Method Reference</li>
-	<li>Constructor Reference</li>
+	<li>Static Method Reference. Syntax is: <b>Class::staticMethod</b></li>
+	<li>Instance Method Reference for an object of a particular type. Syntax is: <b>ObjectType::instanceMethod</b></li>
+	<li>Instance Method Reference for an existing object. Syntax is: <b>object::instanceMethod</b></li>
+	<li>Constructor Reference. Syntax is: <b>ClassName::new</b></li>
 </ol>
 </li>
 </ul>
 <h1>Examples</h1>
-<p></p>
+<p><b>Static Method Reference</b></p>
+<p>
+The method in the interface and the static method in the class should have the equivalent arguments.
+<pre>
+public abstract interface MyInterface{
+	public void draw(String color, int shade);
+}
+
+public class StaticMethodReference {
+
+	public static void drawPainting(String color, int shade){
+		System.out.println("Color: "+color+" has been used to draw with opacity: "+shade);
+	}
+	
+	public static void main(String[] args) {
+		MyInterface myInterface = StaticMethodReference::drawPainting;
+		myInterface.draw("Red", 5);
+	}
+}
+</pre>
+</p>
+<p><b>Instance Method Reference for an object of a particular type</b></p>
+<p>The method in the interface and the instance method in the class should have the equivalent arguments.
+<p>The class should be static inner class
+<pre>
+public abstract interface MyInterface{
+	public String draw();
+}
+public class InstanceMethodReferenceObjectType {
+	public static void main(String args[]) {
+        final List&lt;Person&gt; people = Arrays.asList(new Person(), new Person());
+		people.forEach(Person::printName);
+    }
+    private static class Person {
+        public String printName() {
+			return "";
+        }
+    }
+}
+</pre>
+</p>
+<p><b>Instance Method Reference for an existing object</b></p>
+<p>The method in the interface and the instance method in the class should have the equivalent arguments.
+<pre>
+public abstract interface MyInterface{
+	public void draw(String color, int shade);
+}
+public class InstanceMethodReferenceExistingObject {
+	public void drawPainting(String color, int shade){
+		System.out.println("Color: "+color+" has been used to draw with opacity: "+shade);
+	}
+	public static void main(String[] args) {
+		InstanceMethodReferenceExistingObject obj = new InstanceMethodReferenceExistingObject();
+		MyInterface myInterface = obj::drawPainting;
+		myInterface.draw("Green", 15);
+	} 
+}
+</pre>
+</p>
+<p><b>Constructor Reference</b></p>
+<p>
+<pre>
+public class ConstructorReference
+{
+    public static void main(String[] args)
+    {
+        Supplier&lt;List&lt;String&gt;&gt; st1 = ArrayList::new;
+    }
+}
+</pre>
+</p>
 <h1>Frequently Asked Questions</h1>
 <p><b></b></p>
 <p></p>
