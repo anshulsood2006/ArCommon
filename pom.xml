@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.arsoft.projects</groupId>
-	<artifactId>arcommon</artifactId>
+	<artifactId>arparent</artifactId>
 	<version>1.0</version>
 
 	<!-- This tag is used to specify that the project is a web project -->
 	<packaging>pom</packaging>
-	<name>ArCommon Web-app</name>
-	
+	<name>ArParent Parent Module</name>
+
 	<modules>
 		<module>ArShared</module>
 		<module>ArShareMarket</module>
 		<module>ArTutorial</module>
 		<module>ArBid</module>
-    	<module>ArEnterprise</module>
-  	</modules>
+		<module>ArEnterprise</module>
+		<module>ArEar</module>
+	</modules>
 
 	<!-- All the constants can be declared inside properties tag and can be 
 		used later using ${property_name} -->
@@ -25,6 +27,7 @@
 		<log4j-api.version>2.10.0</log4j-api.version>
 		<junit.version>4.12</junit.version>
 		<maven-compiler-plugin.version>3.6.1</maven-compiler-plugin.version>
+		<maven-ear-plugin.version>3.0.1</maven-ear-plugin.version>
 		<java.version>1.8</java.version>
 		<maven-war-plugin.version>2.6</maven-war-plugin.version>
 		<maven-dependency-plugin.version>3.0.2</maven-dependency-plugin.version>
@@ -49,16 +52,204 @@
 		<log4j-core.version>2.10.0</log4j-core.version>
 		<mockito-all.version>1.10.19</mockito-all.version>
 		<jersey2.version>2.26</jersey2.version>
-        <jaxrs.version>2.1</jaxrs.version>
-        <rest-assured.version>3.0.7</rest-assured.version>
-        <jersey-json.version>1.19.4</jersey-json.version>
-        <jersey-media-json-jackson.version>2.26</jersey-media-json-jackson.version>
+		<jaxrs.version>2.1</jaxrs.version>
+		<rest-assured.version>3.0.7</rest-assured.version>
+		<jersey-json.version>1.19.4</jersey-json.version>
+		<jersey-media-json-jackson.version>2.26</jersey-media-json-jackson.version>
+		<maven-surefire-plugin.version>2.21.0</maven-surefire-plugin.version>
+		<project.version>1.0</project.version>
 	</properties>
 
-	
+	<dependencies>
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>${json.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>${log4j-api.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>rest-assured</artifactId>
+			<version>${rest-assured.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>${mockito-all.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>${javax.servlet-api.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>${log4j-core.version}</version>
+		</dependency>
+
+		<!-- Dependencies for Java Mailing Service -->
+		<dependency>
+			<groupId>javax.jms</groupId>
+			<artifactId>javax.jms-api</artifactId>
+			<version>${javax.jms-api.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.geronimo.specs</groupId>
+			<artifactId>geronimo-jms_1.1_spec</artifactId>
+			<version>${geronimo-jms_1.1_spec.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-core</artifactId>
+			<version>${activemq-core.version}</version>
+		</dependency>
+		<!-- Dependencies for Java Mailing Service -->
+
+		<!-- Dependencies for Spring Framework -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson-databind.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<!-- Dependencies for Spring Framework -->
+
+		<!-- Dependencies for Spring Security -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<!-- Dependencies for Spring Security -->
+
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcprov-jdk16</artifactId>
+			<version>${bcprov-jdk16.version}</version>
+		</dependency>
+
+		<!-- Dependencies for JSTL -->
+		<dependency>
+			<groupId>javax.servlet.jsp.jstl</groupId>
+			<artifactId>jstl-api</artifactId>
+			<version>${jstl-api.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>taglibs</groupId>
+			<artifactId>standard</artifactId>
+			<version>${standard.version}</version>
+		</dependency>
+		<!-- Dependencies for JSTL -->
+
+		<!-- Dependencies for JAX-WS -->
+		<dependency>
+			<groupId>com.sun.xml.ws</groupId>
+			<artifactId>jaxws-rt</artifactId>
+			<version>${jaxws-rt.version}</version>
+		</dependency>
+		<!-- Dependencies for JAX-WS -->
+
+		<!-- Dependencies for Java Mailing Service -->
+		<dependency>
+			<groupId>com.sun.mail</groupId>
+			<artifactId>javax.mail</artifactId>
+			<version>${javax.mail.version}</version>
+		</dependency>
+		<!-- Dependencies for Java Mailing Service -->
+
+		<!-- Dependencies for Java MySQl Connection -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql-connector-java.version}</version>
+		</dependency>
+		<!-- Dependencies for Java MySQl Connection -->
+
+		<!-- Dependencies for hibernate -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate-core.version}</version>
+		</dependency>
+		<!-- Dependencies for hibernate -->
+
+		<!-- Dependencies for jersey rest web-services -->
+		<dependency>
+			<groupId>javax.ws.rs</groupId>
+			<artifactId>javax.ws.rs-api</artifactId>
+			<version>${jaxrs.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.containers</groupId>
+			<artifactId>jersey-container-servlet</artifactId>
+			<version>${jersey2.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.core</groupId>
+			<artifactId>jersey-server</artifactId>
+			<version>${jersey2.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.core</groupId>
+			<artifactId>jersey-client</artifactId>
+			<version>${jersey2.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.inject</groupId>
+			<artifactId>jersey-hk2</artifactId>
+			<version>${jersey2.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-json</artifactId>
+			<version>${jersey-json.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.media</groupId>
+			<artifactId>jersey-media-json-jackson</artifactId>
+			<version>${jersey-media-json-jackson.version}</version>
+		</dependency>
+		<!-- Dependencies for jersey rest web-services -->
+	</dependencies>
 
 	<build>
-		<finalName>arcommon</finalName>
+		<finalName>arparent</finalName>
 		<!-- Below two directories are necessary for web project. Otherwise there 
 			will be compilation issues -->
 		<sourceDirectory>src/main/java</sourceDirectory>
@@ -73,8 +264,8 @@
 					<source>${java.version}</source>
 					<target>${java.version}</target>
 					<excludes>
-				      	<exclude>**/com/arsoft/projects/common/jms/*.java</exclude>
-				    </excludes>
+						<exclude>**/com/arsoft/projects/common/jms/*.java</exclude>
+					</excludes>
 				</configuration>
 			</plugin>
 
@@ -132,17 +323,17 @@
 				<artifactId>wildfly-embedded</artifactId>
 				<version>${wildfly-embedded.version}</version>
 			</plugin>
-			
+
 			<plugin>
-       	 		<groupId>org.apache.maven.plugins</groupId>
-        		<artifactId>maven-surefire-plugin</artifactId>
-        		<version>2.21.0</version>
-        		<configuration>
-          		<excludes>
-            		<exclude>com.arsoft.projects.common.webservice.rest.environment.ArEnvironmentServiceTest.java</exclude>
-          		</excludes>
-        		</configuration>
-      		</plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${maven-surefire-plugin.version}</version>
+				<configuration>
+					<excludes>
+						<exclude>com.arsoft.projects.common.webservice.rest.environment.ArEnvironmentServiceTest.java</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
 		</plugins>
 
 	</build>

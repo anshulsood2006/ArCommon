@@ -1,24 +1,25 @@
 <?xml version="1.0"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>com.arsoft.projects</groupId>
-    <artifactId>arcommon</artifactId>
-    <version>1.0</version>
-  </parent>
-  <artifactId>arenterprise</artifactId>
-  <packaging>war</packaging>
-  <name>ArEnterprise Web-app</name>
-  <url>http://maven.apache.org</url>
-  <dependencies>
-	<dependency>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
 		<groupId>com.arsoft.projects</groupId>
-		<artifactId>arshared</artifactId>
-		<version>1.0</version>
-	</dependency>
-  </dependencies>
-  <build>
-    <finalName>arenterprise</finalName>
-  </build>
+		<artifactId>arparent</artifactId>
+		<version>${project.version}</version>
+	</parent>
+	<artifactId>arenterprise</artifactId>
+	<packaging>war</packaging>
+	<name>ArEnterprise Web-app</name>
+	<url>http://maven.apache.org</url>
+	<dependencies>
+		<dependency>
+			<groupId>com.arsoft.projects</groupId>
+			<artifactId>arshared</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<finalName>arenterprise</finalName>
+	</build>
 </project>
