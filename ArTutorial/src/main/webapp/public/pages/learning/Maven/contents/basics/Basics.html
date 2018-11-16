@@ -29,6 +29,58 @@
 </pre>
 	</li>
 </ul>
+<h2>Creating a multi module EAR project</h2>
+<ul>
+	<li>Create a parent maven project.</li>
+	<li>Create child modules under the parent.</li>
+	<li>Make one of the child module as ear by adding &lt;packaging&gt;ear&lt;/packaging&gt;</li>
+	<li>List all the dependent modules as dependencies of the ear project as below:
+		<pre>
+&lt;dependency&gt;
+	&lt;groupId&gt;com.arsoft.projects&lt;/groupId&gt;
+	&lt;artifactId&gt;arshared&lt;/artifactId&gt;
+	&lt;version&gt;${project.version}&lt;/version&gt;
+	&lt;type&gt;jar&lt;/type&gt;
+&lt;/dependency&gt;
+		</pre>
+	</li>
+	<li>Add the ear plug in to the ear pom.xml as below
+<pre>
+&lt;build&gt;
+	&lt;finalName&gt;arear&lt;/finalName&gt;
+	&lt;plugins&gt;
+		&lt;plugin&gt;
+			&lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+			&lt;artifactId&gt;maven-ear-plugin&lt;/artifactId&gt;
+			&lt;version&gt;${maven-ear-plugin.version}&lt;/version&gt;
+			&lt;configuration&gt;
+				&lt;defaultLibBundleDir&gt;lib&lt;/defaultLibBundleDir&gt;
+				&lt;skinnyWars&gt;true&lt;/skinnyWars&gt;
+				&lt;modules&gt;
+					&lt;jarModule&gt;
+						&lt;groupId&gt;com.arsoft.projects&lt;/groupId&gt;
+						&lt;artifactId&gt;arshared&lt;/artifactId&gt;
+						&lt;bundleFileName&gt;arshared.jar&lt;/bundleFileName&gt;
+					&lt;/jarModule&gt;
+					&lt;webModule&gt;
+						&lt;groupId&gt;com.arsoft.projects&lt;/groupId&gt;
+						&lt;artifactId&gt;arbid&lt;/artifactId&gt;
+						&lt;bundleFileName&gt;arbid.war&lt;/bundleFileName&gt;
+					&lt;/webModule&gt;
+				&lt;/modules&gt;
+			&lt;/configuration&gt;
+		&lt;/plugin&gt;
+	&lt;/plugins&gt;
+&lt;/build&gt;
+</pre>	
+	<ul>
+		<li><b>defaultLibBundleDir:</b> sets the location of jar files.</li>
+		<li><b>skinnyWars:</b> makes sure that duplicate files are not present inside ear lib and war lib.</li>
+		<li><b>jarModule:</b> used to add jar module to the ear.</li>
+		<li><b>webModule:</b> used to add war module to the ear.</li>
+	</ul>
+	</li>
+</ul>
 <h1>Examples</h1>
 <p><b></b></p>
 <pre>
