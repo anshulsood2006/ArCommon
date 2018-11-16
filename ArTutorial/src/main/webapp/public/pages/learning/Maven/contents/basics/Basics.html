@@ -92,8 +92,14 @@
 <p>This option is used to execute a maven goal on a single module of a multi-module project</p>
 <p><b>What is -am option in maven?</b></p>
 <p>This option will make sure that all the dependent modules are also built in case of a multi-module project</p>
-<p><b></b></p>
-<p></p>
+<p><b>How to remove the version number from the maven built artifact e.g. getting arcommon.jar instead of arcommon-1.0.jar?</b></p>
+<p>This can be done by setting final name for the artifact in pom.xml file under &lt;build&gt; tag
+<pre>
+&lt;build&gt;
+	&lt;finalName&gt;arcommon&lt;/finalName&gt;
+&lt;/build&gt;
+</pre>
+</p>
 <h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
 </body>
 </html>
