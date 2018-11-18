@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="keywords" content="functional programming">
+<meta name="author" content="Anshul Sood">
+<title>Functional Programming</title>
+</head>
+<body>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>
+<h1>Functional Programming</h1>
+<h1>Features</h1>
+<ul>
+	<li>Everything is a mathematical function.</li>
+	<li>The programs are executed by evaluating expressions inside functions.</li>
+	<li>There is a complete separation between the data of a program, and the behaviors of a program</li>
+	<li>All objects created in functional programming are immutable.</li>
+	<li>Shared state is avoided.</li>
+	<li>Adherence to pure functions.</li>
+</ul>
+<h2>Pure functions</h2>
+A pure function is a function where:
+<ul>
+	<li>The return value only depends on the input. An input value always return the same value.</li>
+	<li>There are no side effects which means there are no network or database calls which could alter the output.</li>
+	<li>The input data is immutable.</li>
+	<li></li>
+</ul>
+<h1>Examples</h1>
+<p><b>Impure functions</b></p>
+<pre>
+	function number(num){
+	  	num * Math.random()
+	}
+	The above function gives different result everytime.
+	
+	function hello(greeting){
+	  	console.log(greeting)
+	}
+	The above function creates a side effect which is console logging.
+	 
+	var totalPeople = 10
+	function totalVotes(votes){
+	 	return votes * totalPeople
+	}
+	The above function depends on a variable outside the function.
+	
+</pre>
+<pre>
+</pre>
+<h1>Frequently Asked Questions</h1>
+<p><b>What is the difference between functional programming and object oriented programming?</b></p>
+<p>
+<table border="1">
+	<tr><th>Functional Programming</th><th>Object Oriented Programming</th></tr>
+	<tr><td>It evaluates expressions and executes statements in any order.</td><td>It executes statements in a particular order.</td></tr>
+	<tr><td>It supports structured programming languages like Lisp, Clojure, Wolfram, Erlang, Haskell, F#, R etc.</td><td>It supports structured programming languages like Java, C++, C#, Python, Ruby, PHP, Perl, Objective-C, Swift, Dart etc</td></tr>
+	<tr><td>Basic elements are variables and functions.</td><td>Basic elements are objects and methods.</td></tr>
+	<tr><td>Functions are referred as first-class citizens</td><td>Objects are referred as first-class citizens</td></tr>
+	<tr>
+		<td>It is based on different concepts as below:
+			<ul>
+				<li>High Order Functions (HOF).</li>
+				<li>Pure functions.</li>
+				<li>Recursion.</li>
+				<li>Strict and Non-strict Evaluation.</li>
+				<li>Type systems.</li>
+				<li>Referential Transparency.</li>
+			</ul>
+		</td>
+		<td>It is based on different concepts as below:
+			<ul>
+				<li>Abstraction</li>
+				<li>Inheritance</li>
+				<li>Polymorphism</li>
+				<li>Encapsulation</li>
+			</ul>
+		</td>
+	</tr>
+	<tr><td>It uses immutable data.</td><td>It uses mutable data.</td></tr>
+	<tr><td>It follows declarative programming model.</td><td>It follows imperative programming model.</td></tr>
+	<tr><td>It supports parallel programming as it uses immutable data.</td><td>It does not support parallel programming as it uses mutable data.</td></tr>
+	<tr><td>It is having a stateless programming model.</td><td>It is having a stateful programming model.</td></tr>
+	<tr><td>The main focus of programming is what are we doing.</td><td>The main focus of programming is how are we doing.</td></tr>
+	<tr><td>It supports abstraction over data and behavior both.</td><td>It supports abstraction over data only.</td></tr>
+	<tr><td>It does not support conditional statements viz. if-else, switch.</td><td>It supports conditional statements viz. if-else, switch.</td></tr>
+	<tr><td>Recursion is used for iterative data.</td><td>Loops are used for iterative data.</td></tr>
+	<tr><td>It is used only when there are few things with more operations.</td><td>It is used when there are many things with few operations.</td></tr>
+	<tr><td>It says that keeping data and behavior in a single location (called an "object") makes it easier to understand a program.</td><td>It says that data and behavior are distinctively different things and should be kept separate for clarity.</td></tr>
+	<tr><td>It prefers to keep data in plain arrays and/or hashes and not "complicate" data by mixing it with behavior.</td><td>It prefers to keep data in structured manner by using objects.</td></tr>
+	<tr><td></td><td></td></tr>
+	<tr><td></td><td></td></tr>
+</table>
+</p>
+<p><b></b></p>
+<p></p>
+<p><b></b></p>
+<p></p>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>
+</body>
+</html>	
