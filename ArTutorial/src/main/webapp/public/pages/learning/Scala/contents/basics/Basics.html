@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<meta name="keywords" content="computer programming">
+<meta name="keywords" content="computer programming,scala,scala identifiers,traits">
 <meta name="author" content="Anshul Sood">
 <title>Scala</title>
 </head>
@@ -11,20 +11,108 @@
 <h1>Scala</h1>
 <h1>Features</h1>
 <ul>
-	<li>Its stands for Scalable Language</li>
-	<li>It is a hybrid language and has the features of both the object oriented and functional programming language.</li>
-	<li>It was created by Martin Odersky</li>
+	<li>Its stands for Scalable Language.</li>
+	<li>It is a hybrid language and has the features of both the object oriented and functional programming language.
+		<ul>
+			<li>Object oriented since every value is an object.</li>
+			<li>Functional since every function is a value.</li>
+		</ul>
+	</li>
+	<li>It was created by Martin Odersky.</li>
+	<li>It boosts development productivity, applications scalability and overall reliability.</li>
+	<li>It provides a lightweight syntax for defining anonymous functions.</li>
+	<li>It supports higher-order functions which are the functions that accept function as arguments and return function as a result.</li>
+	<li>It allows functions to be nested.</li>
+	<li>It supports currying which is lazy evaluation.</li>
+	<li>It is statically typed that is the type of variable is known at the compile time. It does not expect you to provide redundant type information.</li>
+	<li>It is compiled into Java Byte Code which is executed by the Java Virtual Machine (JVM).</li>
+	<li>It allows to write codes in an immutable manner, which makes it easy to apply concurrency and parallelism.</li>
+	<li>It gives an illusion of an interpreted language. But actually it is a compiled language, wherein everything you type gets compiled to the byte code and it runs within the JVM.</li>
+	<li>It is case sensitive.</li>
+	<li>Scala program processing starts from the main() method which is a mandatory part of every Scala Program. The signature of main method is
+	<pre>
+	def main(args: Array[String])
+	</pre></li>
+	<li>It is a line-oriented language where statements may be terminated by semicolons (;) or newlines.</li>
+	<li></li>
 	<li></li>
 </ul>
+<h2>Scala Identifiers</h2>
+<p>The names used for classes, variables and methods are called identifiers. The supported are
+	<ul>
+		<li><b>Alphanumeric Identifiers</b> e.g. name, _price</li>
+		<li><b>Operator Identifiers</b> e.g. + ++ ::: &lt;?&gt; :&gt;</li>
+		<li><b>Mixed Identifiers</b> e.g. unary_+,  myvar_=</li>
+		<li><b>Literal Identifiers</b> e.g. `anshul`</li>
+	</ul>
+	Note: $ is reserved keyword and should not be used.
+</p>
+<h2>Scala Closure</h2>
+<p>It is a function, whose return value depends on the value of one or more variables declared outside this function.</p>
+<h2>Scala Trait</h2>
+<p>It encapsulates method and field definitions, which can then be reused by mixing them into classes.</p>
+<h2>Scala Datatypes</h2>
+<p>
+<table border="1">
+	<tr><th>Datatype</th><th>Description</th></tr>
+	<tr><td>Byte</td><td>8 bit signed value. Range from -128 to 127</td></tr>
+	<tr><td>Short</td><td>16 bit signed value. Range -32768 to 32767</td></tr>
+	<tr><td>Int</td><td>32 bit signed value. Range -2147483648 to 2147483647</td></tr>
+	<tr><td>Long</td><td>64 bit signed value. -9223372036854775808 to 9223372036854775807</td></tr>
+	<tr><td>Float</td><td>32 bit IEEE 754 single-precision float</td></tr>
+	<tr><td>Double</td><td>64 bit IEEE 754 double-precision float</td></tr>
+	<tr><td>Char</td><td>16 bit unsigned Unicode character. Range from U+0000 to U+FFFF</td></tr>
+	<tr><td>String</td><td>A sequence of Chars</td></tr>
+	<tr><td>Boolean</td><td>Either the literal true or the literal false</td></tr>
+	<tr><td>Unit</td><td>Corresponds to no value</td></tr>
+	<tr><td>Null</td><td>null or empty reference</td></tr>
+	<tr><td>Nothing</td><td>The subtype of every other type; includes no values</td></tr>
+	<tr><td>Any</td><td>The supertype of any type; any object is of type Any</td></tr>
+	<tr><td>AnyRef</td><td>The supertype of any reference type</td></tr>
+</table>
+</p>
+<h2>Scala Literals</h2>
+<p>
+	<table border="1">
+		<tr><th>Literal</th><th>Description</th></tr>
+		<tr><td>Integer Literals</td><td>They are of type Int, or of type Long when followed by a L or l e.g. 1, 235, 35L etc.</td></tr>
+		<tr><td>Floating Point Literal</td><td>They are of type Float when followed by a floating point type suffix F or f, and are of type Double otherwise. e.g. 325.8F, 23.5674f, 23.678</td></tr>
+		<tr><td>Boolean Literals</td><td>true or false.</td></tr>
+		<tr><td>Symbol Literals</td><td>They are similar to string literals except they are cached. e.g. Symbol("hi") is used to create a symbol hi. Similarly we can use 'hi as a shorthand for the same.</td></tr>
+		<tr><td>Character Literals</td><td>A single character enclosed in single quote. e.g. 'q', '\u0041', '\n' etc.</td></tr>
+		<tr><td>String Literals</td><td>A sequence of characters in double quotes e.g. "Anshul Sood".</td></tr>
+		<tr><td>Multi-Line String Literals</td><td>A sequence of characters enclosed in triple quotes """ ... """ e.g. <br/>"""the present ,<br/>string spans <br/>three lines."""</td></tr>
+		<tr><td>Escape Charater</td><td>\ is the escape charater e.g. \\ for backslash, \" for double quote.</td></tr>
+		<tr><td>Null Values</td><td>It is a reference value which refers to a special "null" object and is of type scala.Null.</td></tr>
+		<tr><td></td><td></td></tr>
+	</table>
+</
 <h1>Examples</h1>
-<p><b></b></p>
+<p><b>Sample scala program to print Hello World</b></p>
 <pre>
+object HelloWorld {
+   def main(args: Array[String]) {
+      println("Hello, world!")
+   }
+}
 </pre>
+<ul>
+	<li>Save the file with the above content as HelloWorld.scala</li>
+	<li>Compile using <b>scalac HelloWorld.scala</b></li>
+	<li>Run using command <b>scala HelloWorld</b></li>
+</ul>
 <h1>Frequently Asked Questions</h1>
-<p><b></b></p>
-<p></p>
-<p><b></b></p>
-<p></p>
+<p><b>How can we import more than one classes from the same package in scala?</b></p>
+<p>This can be done using below import statement:
+<pre>import scala.collection.immutable.{TreeMap, TreeSet}</pre>
+</p>
+<p><b>What are the biggest syntactical differences between scala and Java?</b></p>
+<p>
+<ul>
+	<li>In scala the line end character i.e. ';' is optional.</li>
+	<li>There are no primitive types in scala like in Java. All the data types are objects and methods can be called on them.</li>
+</ul>
+</p>
 <p><b></b></p>
 <p></p>
 <h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>
