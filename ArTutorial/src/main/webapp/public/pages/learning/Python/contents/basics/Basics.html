@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<meta name="keywords" content="computer programming">
+<meta name="keywords" content="computer programming,python">
 <meta name="author" content="Anshul Sood">
 <title>Python</title>
 </head>
@@ -10,9 +10,107 @@
 <h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>
 <h1>Python</h1>
 <h1>Features</h1>
-<p></p>
+<ul>
+	<li>It is a programming language.</li>
+	<li>It was created in 1991 by Guido van Rossum.</li>
+	<li>It is used for 
+	<ul>
+		<li>software development.</li>
+		<li>web development.</li>
+		<li>mathematics.</li>
+		<li>system scripting.</li>
+	</ul>
+	<li>It can connect to database systems.</li>
+	<li>It can be used to handle big data and perform complex mathematics.</li>
+	<li>It works on different platforms (Windows, Mac, Linux, Raspberry Pi, etc).</li>
+	<li>It has a simple syntax similar to the English language.</li>
+	<li>It is an interpreted language so the code can be executed as soon as it is written.</li>
+	<li>It can be used as an object-orientated language or functional language.</li>
+	<li>It uses new lines to complete a command instead of semicolon viz. ";" used in most of the programming languages.</li>
+	<li>It relies on indentation, using whitespace, to define scope; such as the scope of loops, functions and classes.</li>
+	<li>Its interpreter is easily extended with new functions and data types implemented in C or C++ (or other languages callable from C)</li>
+	<li>It allows to split a program into modules that can be reused in other Python programs.</li>
+	<li>It comes with a large collection of standard module like file I/O, system calls, sockets, and even interfaces to graphical user interface toolkits like Tk.</li>
+	<li>It enables programs to be written compactly and readably. Programs are shorter because:
+		<ul>
+			<li>It has high-level data types to express complex operations in a single statement.</li>
+			<li>The statements are grouped using indentation instead of braces.</li>
+			<li>The variables need not to be declared.</li>
+			<li>They can even change type after they have been set.</li>
+		</ul>
+	</li>
+	
+</ul>
+<h2>Some basic things related to python</h2>
+<ul>
+	<li>After installation, add the installation directory into the path environmental variable to access it from any directory.</li>
+	<li>To check the version of python, use command <b>python --version</b></li>
+	<li>Use <b>ctrl+z</b> or <b>quit()</b> or <b>exit()</b> to exit out of python.</li>
+	<li>If indentation is not given, python gives an <b>IndentationError: expected an indented block</b></li>
+	<li>In case of invalid syntax, python gives an </b>SyntaxError: invalid syntax</li></li>
+	<li>In case we try to add int to string, python gives an error <b>TypeError: can only concatenate str (not "int") to str</b></li>
+	<li>To find the type of a variable use function <b>type</b></li>
+	<li><b>Python Comments</b> start with #</li>
+	<li><b>Python Docstring</b> Python uses triple quotes at the beginning and end of a string to provide documentation.</li>
+	<li><b>Python Variables</b>There is no need to declare a variable. A variable is created when we assign a value to it. Variable names:
+		<ul>
+			<li>must start with a letter or the underscore character</li>
+			<li>cannot start with a number</li>
+			<li>can only contain alpha-numeric characters and underscores</li>
+			<li>is case-sensitive</li>
+		</ul>
+	</li>
+	<li><b>Python Numbers</b> are of 3 types:
+		<ul>
+			<li><b>int</b> e.g. x =2</li>
+			<li><b>float</b> e.g. x =2.67</li>
+			<li><b>complex</b> e.g. x =2j They are written with a "j" as the imaginary part</li>
+		</ul>
+	</li>
+	<li><b>Python Casting</b> It is used to specify the type of a variable using below constructor functions
+		<ul>
+			<li><b>int()</b></li>
+			<li><b>float()</b></li>
+			<li><b>str()</b></li>
+			<li><b>complex()</b></li>
+		</ul>
+	</li>
+	<li><b>Python String</b> It can be created using single or double quotes.
+		<ul>
+			<li>The strings in Python are arrays of bytes representing unicode characters.</li>
+			<li>Python does not have a character data type, a single character is simply a string with a length of 1.</li>
+			<li>str[n] is used to access nth elements of a string str.</li>
+			<li>str[n:m] is used to access elements from index n to m in a string str. Elements at index n and m both are not included.</li>
+			<li><b>str.strip()</b> method is used to remove whitespace from start and end of a string str</li>
+			<li><b>len(str)</b> method is used to return the length of a string str</li>
+			<li><b>str.lower()</b> method is used to return a string str in lowercase.</li>
+			<li><b>str.upper()</b> method is used to return a string str in uppercase.</li>
+			<li><b>str.replace("Z","K")</b> method is used to replace Z in a string str with K.</li>
+			<li><b>str.split(separator)</b> method is used to split a string str using given separator.</li>
+			<li><b>input()</b> method is used for command line input.</li>
+		</ul>
+	</li>
+	<li><b>Python Operators</b>
+		<table border="1">
+			<tr><th>Operator Group</th><th>Example</th></tr>
+			<tr><td><b>Arithmetic</b></td><td></td></tr>
+			<tr><td><b>Assignment</b></td><td></td></tr>
+			<tr><td><b>Comparison</b></td><td></td></tr>
+			<tr><td><b>Logical</b></td><td></td></tr>
+			<tr><td><b>Identity</b></td><td></td></tr>
+			<tr><td><b>Membership</b></td><td></td></tr>
+			<tr><td><b>Bitwise</b></td><td></td></tr>
+		</table>
+	</li>
+</ul>
+
+https://docs.python.org/3.7/tutorial/index.html
 <h1>Examples</h1>
-<p><b></b></p>
+<p><b>Sample python program</b></p>
+<ul>
+	<li>Create a file with name HelloWorld.py and the content as <b>print("Hello, world!")</b></li>
+	<li>Run this file using command <b>python Hellworld.py</b></li>
+</ul>
 <pre>
 </pre>
 <h1>Frequently Asked Questions</h1>
