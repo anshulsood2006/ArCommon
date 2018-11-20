@@ -1,4 +1,20 @@
 #!/usr/bin/python
+def printThis(str):
+	print(str)
+	return
+def myFunction( name="Anshul", age="12"):
+	print("Name", name)
+	print("Age", age)	
+	return
+def varArgs(str, *vartuple):
+	print(str)
+	for x in vartuple:
+		print(x)
+	return
+		   			
+import time
+ticks = time.time()
+print("Number of ticks since 12:00am, January 1, 1970:", ticks)
 print("Hello, World!")
 if 5>2:
 	print("Five is greater than two!")
@@ -68,6 +84,19 @@ for anshul in list1:
 	print(anshul)
 tup1 = ('physics', 'chemistry', 1997, 2000);
 print(tup1)
+thisdict = {"brand":"Ford","model": "Mustang", "year": 1964}
+print(thisdict.get("model"))
+print(thisdict["year"])
+mydict = dict({1: 'One', 2 : 'Two', 3: 'Three'})
+print(mydict)
+mydict = dict([(1, 'One'),(2, 'Two'),(3, 'Three')])
+print(mydict)
+printThis(str = "Print This String")
+myFunction(age="72")
+myFunction(name="This Name")
+varArgs("Anshul")
+varArgs("Anshul","Akhil","Abhishek")
 print("What is your name")
 z=input()
 print(z)
+

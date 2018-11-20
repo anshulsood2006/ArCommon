@@ -290,11 +290,90 @@
 				&nbsp;&nbsp;&nbsp;&nbsp;	statement<br/></li>
 		</ul>	
 	</li>
-	<li><b>Python List</b> It is a modifiable group of objects declared inside square bracket e.g. list1 = ['physics', 'chemistry', 1997, 2000];
+	<li><b>Python List</b> 
+		<ul>
+			<li>It is a modifiable group of objects declared inside <b>square brackets</b> e.g. list1 = ['physics', 'chemistry', 1997, 2000];</li>
+		</ul>
 	</li>
-	<li><b>Python Tuple</b> It is an modifiable group of objects declared inside round bracket e.g. list1 = ('physics', 'chemistry', 1997, 2000);
+	<li><b>Python Tuple</b> 
+		<ul>
+			<li>It is an modifiable group of objects declared inside <b>round brackets</b> e.g. list1 = ('physics', 'chemistry', 1997, 2000);</li>
+		</ul>
 	</li>
 	<li><b>Python Dictionary</b> 
+		<ul>
+			<li>It is a collection of objects which is unordered, changeable and indexed.</li>
+			<li>Objects are declared inside <b>curly brackets</b> e.g. mydict = {"brand":"Ford","model": "Mustang", "year": 1964} where brand, model and year are the keys and Ford, Mustang and 1964 are the values corresponding to these keys.</li>
+			<li>The values can be accessed using <b>mydict.get("key")</b> method or <b>mydict["key"]</b>.</li>
+			<li>It can also be created using dict() method (using curly bracket inside parenthesis)e.g. mydict = dict({1: 'One', 2 : 'Two', 3: 'Three'})</li>
+			<li>It can also be created with each item as pair (using square bracket inside parenthesis) e.g. mydict = dict([(1, 'One'),(2, 'Two'),(3, 'Three')])</li>
+		</ul>
+	</li>
+	<li><b>Python Set</b> 
+		<ul>
+			<li>It is a collection of objects which is unordered and unchangeable but not indexed.</li>
+			<li>An object can be added using method add("object")</li>
+			<li>More than one objects can be added using method update("object1","object2","object3")</li>
+		</ul>
+	</li>
+	<li><b>Python Module</b>
+		<ul>
+			<li>Module in python contains functions.</li>
+			<li>Modules can be added to a python script using import modulename e.g. import time.</li>
+		</ul>
+	</li>
+	<li><b>Python Date Time Module</b>
+		<ul>
+			<li>It provides functions for working with times, and for converting between representations.</li>
+			<li>The floating-point numbers in units of seconds for time interval are indicated by Tick in python.</li>
+			<li>import time;<br/>
+				ticks = time.time()<br/>
+				print("Number of ticks since 12:00am, January 1, 1970:", ticks)
+			</li>
+		</ul>
+	</li>	
+	<li><b>Python Function </b>Simple rules to define a function in Python are
+		<ul>
+			<li>A function starts with def followed name and parentheses()</li>
+			<li>The parameters if any needs to be placed within these parentheses.</li>
+			<li>The first statement is optional docstring.</li>
+			<li>The code block starts with a colon (:) and is indented.</li>
+			<li>It ends with a return [expression].A return statement with no arguments is the same as return None</li>
+			<li>Syntax:<br/>
+			def functionname( parameters ):<br/>
+   			"function_docstring"<br/>
+   			&nbsp;&nbsp;&nbsp;&nbsp;	return [expression]
+			</li>
+			<li>All parameters (arguments) in the Python language are passed by reference. It means if you change what a parameter refers to within a function, the change also reflects back in the calling function.</li>
+			<li>Function can be called in below ways:
+				<ul>
+					<li><b>Required Arguments</b>e.g. print("Anshul")</li>
+					<li><b>Keyword arguments</b>e.g printMe(str = "Anshul")</li>
+					<li><b>Default arguments</b><br/>
+					def myFunction( name="Anshul", age="12"):<br/>
+					&nbsp;&nbsp;&nbsp;&nbsp;	print("Name", name)<br/>
+					&nbsp;&nbsp;&nbsp;&nbsp;	print("Age", age)<br/>	
+		   			&nbsp;&nbsp;&nbsp;&nbsp;	return<br/>
+		   			myFunction(name="This Name")<br/>
+		   			myFunction(age="This Name")<br/>
+					</li>
+					<li><b>Variable Arguments</b><br/>
+					def varArgs(str, *vartuple):<br/>
+					&nbsp;&nbsp;&nbsp;&nbsp;	print(str)<br/>
+					&nbsp;&nbsp;&nbsp;&nbsp;	for x in vartuple:<br/>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		print(x)<br/>
+					&nbsp;&nbsp;&nbsp;&nbsp;	return<br/>
+					varArgs("Anshul")<br/>
+					varArgs("Anshul","Akhil","Abhishek")<br/>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+	<li><b>Python Module</b>
+		<ul>
+			<li></li>
+		</ul>
 	</li>
 </ul>
 
