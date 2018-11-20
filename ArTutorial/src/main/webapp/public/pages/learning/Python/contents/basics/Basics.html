@@ -93,14 +93,208 @@
 	<li><b>Python Operators</b>
 		<table border="1">
 			<tr><th>Operator Group</th><th>Example</th></tr>
-			<tr><td><b>Arithmetic</b></td><td></td></tr>
-			<tr><td><b>Assignment</b></td><td></td></tr>
-			<tr><td><b>Comparison</b></td><td></td></tr>
-			<tr><td><b>Logical</b></td><td></td></tr>
-			<tr><td><b>Identity</b></td><td></td></tr>
-			<tr><td><b>Membership</b></td><td></td></tr>
-			<tr><td><b>Bitwise</b></td><td></td></tr>
+			<tr><td><b>Arithmetic</b></td>
+			    <td>
+					<table border="1">
+						<tr><th>Operator</th><th>Example</th></tr>
+						<tr><td>Addition</td><td>a + b</td></tr>
+						<tr><td>Subtraction</td><td>a - b</td></tr>
+						<tr><td>Multiplication</td><td>a * b</td></tr>
+						<tr><td>Division</td><td>a / b returns quotient when a is divided by b</td></tr>
+						<tr><td>Modulus</td><td>a % b returns remainder when a is divided by b</td></tr>
+						<tr><td>Exponent</td><td>a**b returns a raised to the power b</td></tr>
+						<tr><td>Floor Division</td><td>a // b returns floored result when a is divided by b removing the decimal points</td></tr>
+					</table>
+				</td>
+			</tr>
+			<tr><td><b>Assignment</b></td>
+				<td>
+					<table border="1">
+						<tr><th>Operator</th><th>Example</th></tr>
+						<tr><td>=</td><td>a = b + c assigns the value of b + c to a</td></tr>
+						<tr><td>+=</td><td>c += a is equivalent to c = c + a</td></tr>
+						<tr><td>-=</td><td>c -= a is equivalent to c = c - a</td></tr>
+						<tr><td>*=</td><td>c *= a is equivalent to c = c * a</td></tr>
+						<tr><td>/=</td><td>c /= a is equivalent to c = c / a</td></tr>
+						<tr><td>%=</td><td>c %= a is equivalent to c = c % a</td></tr>
+						<tr><td>**=</td><td>c **= a is equivalent to c = c ** a</td></tr>
+						<tr><td>//=</td><td>c //= a is equivalent to c = c // a</td></tr>
+					</table>				
+				</td>
+			</tr>
+			<tr><td><b>Comparison/Relational</b></td>
+				<td>
+					<table border="1">
+						<tr><th>Operator</th><th>Example</th></tr>
+						<tr><td>==</td><td>a == b returns true if a is equal to b</td></tr>
+						<tr><td>!=</td><td>a != b returns true if a is not equal to b</td></tr>
+						<tr><td>&lt;&gt;</td><td>a &lt;&gt; b returns true if a is not equal to b</td></tr>
+						<tr><td>&lt;</td><td>a &lt; b returns true if a is less than b</td></tr>
+						<tr><td>&gt;</td><td>a &gt; b returns true if a is greater than b</td></tr>
+						<tr><td>&lt;=</td><td>a &lt;= b returns true if a is less than or equal to b</td></tr>
+						<tr><td>&gt;=</td><td>a &gt;= b returns true if a is greater than or equal to b</td></tr>
+					</table>				
+				</td>
+			</tr>
+			<tr><td><b>Logical</b></td>
+				<td>
+					<table border="1">
+						<tr><th>Operator</th><th>Example</th></tr>
+						<tr><td>and</td><td>a and b returns true if both a and b are true</td></tr>
+						<tr><td>or</td><td>a or b returns true if any one of a or b is true</td></tr>
+						<tr><td>not</td><td>not a returns true if a is false</td></tr>
+					</table>				
+				</td>
+			</tr>			
+			<tr><td><b>Identity</b></td>
+				<td>
+					<table border="1">
+						<tr><th>Operator</th><th>Example</th></tr>
+						<tr><td>is</td><td>a is b returns true if a points to b</td></tr>
+						<tr><td>not is</td><td>a is not b returns true if a does not point to b</td></tr>
+					</table>				
+				</td>
+			</tr>			
+			<tr><td><b>Membership</b></td>
+				<td>
+					<table border="1">
+						<tr><th>Operator</th><th>Example</th></tr>
+						<tr><td>in</td><td>a in b returns true if a is in b</td></tr>
+						<tr><td>not in</td><td>a not in b returns true if a is not in b</td></tr>
+					</table>				
+				</td>			
+			<tr><td><b>Bitwise</b></td>
+				<td>
+					<table border="1">
+						<tr><th>Operator</th><th>Example</th></tr>
+						<tr><td>& (AND)</td><td>copies a bit to the result if it exists in both operands<br/>
+						E.g. if a = 0011 1100<br/>
+						and b = 0000 1101<br/>
+						then a&b = 0000 1100</td></tr>
+						<tr><td>| (OR)</td><td>copies a bit to the result if it exists in any of the operand<br/>
+						E.g. if a = 0011 1100<br/>
+						and b = 0000 1101<br/>
+						then a&b = 0011 1101</td></tr>
+						<tr><td>^ (XOR)</td><td>copies the bit if it is set in one operand but not both.<br/>
+						E.g. if a = 0011 1100<br/>
+						and b = 0000 1101<br/>
+						then a&b = 0011 0001</td></tr>
+						<tr><td>~ (One's compliment)</td><td>swap the bits<br/>
+						E.g. if a = 0011 1100<br/>
+						then ~a = 1100 0011</td></tr>
+						<tr><td>&lt;&lt; (Left Shift)</td><td>Shifts the bits by n position toward left<br/>
+						E.g. if a = 0011 1100<br/>
+						then a &lt;&lt; 2 = 1111 0000</td></tr>
+						<tr><td>&gt;&gt; (Right Shift)</td><td>Shifts the bits by n position towards right<br/>
+						E.g. if a = 0011 1100<br/>
+						then a &gt;&gt; 2 = 0000 1111</td></tr>
+					</table>				
+				</td>			
 		</table>
+	</li>
+	<li><b>Python Decision Making</b>
+		<ul>
+			<li>Any non-zero and non-null values is treated as TRUE, and zero or null value is treated as FALSE.</li>
+			<li><b>One Line if</b><br/>
+					if expression : statement</li>
+			<li><b>if</b><br/>
+					if expression: <br/>
+					&nbsp;&nbsp;&nbsp;&nbsp;statement
+			</li>
+			<li><b>if-else</b><br/>
+				if expression:<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;   statement(s)<br/>
+				else:<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;   statement(s)	<br/>
+			</li>
+			<li><b>if-elif</b><br/>
+				if expression1:<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;   statement(s)<br/>
+				elif expression2:<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;   statement(s)<br/>
+				elif expression3:<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;   statement(s)<br/>
+				else:<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;   statement(s)	<br/>
+			</li>
+			<li><b>nested if</b><br/>
+			if expression1: <br/>
+			 &nbsp;&nbsp;&nbsp;&nbsp;   statement(s) <br/>
+			 &nbsp;&nbsp;&nbsp;&nbsp;  if expression2: <br/>
+			 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     statement(s) <br/>
+			 &nbsp;&nbsp;&nbsp;&nbsp;  elif expression3: <br/>
+			 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     statement(s) <br/>
+			 &nbsp;&nbsp;&nbsp;&nbsp;  elif expression4: <br/>
+			 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     statement(s) <br/>
+			 &nbsp;&nbsp;&nbsp;&nbsp;  else: <br/>
+			 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     statement(s) <br/>
+			else: <br/>
+			 &nbsp;&nbsp;&nbsp;&nbsp;  statement(s)	<br/>
+			   </li>			
+		</ul>
+	</li>
+	<li><b>Python Loops</b>
+		<ul>
+			<li><b>while</b></li>
+				while expression: <br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;statement			
+			<li><b>for</b>
+				<br/>for iterating_var in sequence:<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;statements(s)<br/>E.g.<br/>
+				<ul>
+					<li>
+						for letter in 'ANSHUL':<br/>
+						&nbsp;&nbsp;&nbsp;&nbsp;print(letter)<br/>
+					</li>
+					<li>
+						fruits = ['Apple', 'Banana', 'Orange']<br/>
+						for fruit in fruits:<br/>
+						&nbsp;&nbsp;&nbsp;&nbsp;print(fruit)<br/>
+					</li>
+					<li>
+						fruits = ['Apple', 'Banana', 'Orange']<br/>
+						for index in range(len(fruits)):<br/>
+						&nbsp;&nbsp;&nbsp;&nbsp;print(fruits[index])<br/>
+					</li>
+					<li>
+						for num in range(10,20):<br/>
+						&nbsp;&nbsp;&nbsp;&nbsp;print(num)<br/>
+					</li>
+				</ul>
+			</li>
+			<li><b>nested loop</b><br/>
+				while expression:<br/>
+		   		&nbsp;&nbsp;&nbsp;&nbsp;	while expression:<br/>
+		      	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		statement(s)<br/>
+	   			&nbsp;&nbsp;&nbsp;&nbsp;	statement(s)<br/>
+			</li>
+		</ul>
+	</li>
+	<li><b>Python Loop Control</b>
+		<ul>
+			<li><b>break</b><br/>
+				while expression: <br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;	if expression:<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		break<br/>	
+				&nbsp;&nbsp;&nbsp;&nbsp;	statement<br/>
+			</li>
+			<li><b>continue</b><br/>
+				while expression: <br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;	if expression:<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		continue<br/>	
+				&nbsp;&nbsp;&nbsp;&nbsp;	statement<br/></li>
+			<li><b>pass</b><br/>
+				while expression: <br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;	if expression:<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		pass<br/>	
+				&nbsp;&nbsp;&nbsp;&nbsp;	statement<br/></li>
+		</ul>	
+	</li>
+	<li><b>Python List</b> It is a modifiable group of objects declared inside square bracket e.g. list1 = ['physics', 'chemistry', 1997, 2000];
+	</li>
+	<li><b>Python Tuple</b> It is an modifiable group of objects declared inside round bracket e.g. list1 = ('physics', 'chemistry', 1997, 2000);
+	</li>
+	<li><b>Python Dictionary</b> 
 	</li>
 </ul>
 
@@ -114,8 +308,14 @@ https://docs.python.org/3.7/tutorial/index.html
 <pre>
 </pre>
 <h1>Frequently Asked Questions</h1>
-<p><b></b></p>
-<p></p>
+<p><b>What is the difference between a python list and a python tuple?</b></p>
+<p>
+<table border="1">
+	<tr><th>Python List</th><th>Python tuple</th></tr>
+	<tr><td>Declared using square bracket e.g. <br/>list1 = ['physics', 'chemistry', 1997, 2000];</td><td>Declared using round bracket e.g. <br/>list1 = ('physics', 'chemistry', 1997, 2000);</td></tr>
+	<tr><td>It is mutable</td><td>It is immutable</td></tr>
+</table>
+</p>
 <p><b></b></p>
 <p></p>
 <p><b></b></p>

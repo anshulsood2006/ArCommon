@@ -1,3 +1,4 @@
+#!/usr/bin/python
 print("Hello, World!")
 if 5>2:
 	print("Five is greater than two!")
@@ -35,6 +36,38 @@ print(z.lower())
 print(z.upper())
 z="Anshul , Sood,is, A , good"
 print(z.split(","))
+var = 100
+if ( var == 100 ) : print("Value of expression is 100")
+if var: 
+	print("Value of expression is 100")
+var = 200
+if (var == 20): 
+	print("Value of expression is 20")
+else:
+	print("Value of expression is not 20")
+fruits = ['Apple', 'Banana', 'Orange']
+for fruit in fruits:
+	print(fruit)	
+for index in range(len(fruits)):
+	print(fruits[index])
+for num in range(10,20):
+	print(num)
+var = len(fruits) - 1 
+while var > 0:
+	print(fruits[var])
+	if var == 2:
+		break
+	var = var - 1	
+list1 = ('physics', 'chemistry', 1997, 2000)
+for anshul in list1:
+	print(anshul)
+list1 = ['physics', 'chemistry', 1997, 2000]
+list1[3] = 'sood'
+print(list1)
+for anshul in list1:
+	print(anshul)
+tup1 = ('physics', 'chemistry', 1997, 2000);
+print(tup1)
 print("What is your name")
 z=input()
 print(z)
