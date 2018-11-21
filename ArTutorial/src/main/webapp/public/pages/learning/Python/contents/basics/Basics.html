@@ -389,13 +389,51 @@
 	<li><b>Python Package</b>
 		<ul>
 			<li>It is a hierarchical directory structure that defines a single application environment consisting of modules and subpackages and sub-subpackages, and so on.</li>
+			<li>Each directory having python modules is having a module with name __init__.py and containing code to import all the functions<br/>
+				from file11 import func11<br/>
+				from file12 import func12<br/>
+				from file13 import func13<br/>
+			</li>
+			<li>To import a package in another module use <b>dir1.dir2.[dir2].file</b></li>
+			<li>To use a function from a package in another module use<b>dir1.dir2.[dir2].file.funcion()</b> </li>
 		</ul>
 	</li>
-	<li><b>Python Module</b>
+	<li></li>
+	<li><b>Python Exceptions</b>
 		<ul>
-			<li></li>
+			<li>The exceptions are handled using the below <br/>
+				try: <br/>
+	   			&nbsp;&nbsp;&nbsp;&nbsp;	#Statements <br/>
+				except <i>(Exception1[, Exception2[,...ExceptionN]]], Argument)</i>: <br/>
+	   			&nbsp;&nbsp;&nbsp;&nbsp;	#Exception handling statements <br/>
+	   			finally:<br/>
+	   			&nbsp;&nbsp;&nbsp;&nbsp;	#Statements are always executed <br/>
+			</li>
+			<li><b>User Defined Exceptions:</b></li>
 		</ul>
-	</li>		
+	</li>	
+	<li><b>Python Class</b>
+		<ul>
+			<li>A class is created as below<br/><br/>
+				class Employee:<br/><br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;	'Common base class for all employees'<br/>
+	   			&nbsp;&nbsp;&nbsp;&nbsp;	empCount = 0<br/><br/>
+	
+	   			&nbsp;&nbsp;&nbsp;&nbsp;	def __init__(self, name, salary):<br/>
+	      		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	self.name = name<br/>
+	      		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	self.salary = salary<br/>
+	      		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	Employee.empCount += 1<br/><br/>
+	   
+	   			&nbsp;&nbsp;&nbsp;&nbsp;	def displayCount(self):<br/>
+	     		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	print "Total Employee %d" % Employee.empCount<br/><br/>
+	
+	   			&nbsp;&nbsp;&nbsp;&nbsp;	def displayEmployee(self):<br/>
+	      		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	print "Name : ", self.name,  ", Salary: ", self.salary<br/>
+			</li>
+			<li>To create an instance of the above class use <b>emp1 = Employee("Zara", 2000)</b></li>
+			<li>To invoke method of the above class use <b>emp1.displayEmployee()</b></li>
+		</ul>
+	</li>	
 </ul>
 
 https://docs.python.org/3.7/tutorial/index.html
@@ -416,8 +454,13 @@ https://docs.python.org/3.7/tutorial/index.html
 	<tr><td>It is mutable</td><td>It is immutable</td></tr>
 </table>
 </p>
-<p><b></b></p>
-<p></p>
+<p><b>What is the difference between raw_input() and input() functions in python?</b></p>
+<p>
+<table border="1">
+	<tr><th>raw_input()</th><th>input()</th></tr>
+	<tr><td>It displays the same string on the screen.</td><td>It assumes that the input is a valid python expression and returns the evaluated result.</td></tr>
+</table>
+</p>
 <p><b></b></p>
 <p></p>
 <h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>
