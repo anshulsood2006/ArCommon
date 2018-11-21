@@ -1,4 +1,5 @@
 #!/usr/bin/python
+import dir1.dir11.file11, dir1.dir11.file12, dir1.dir11.file13
 def printThis(str):
 	print(str)
 	return
@@ -96,6 +97,9 @@ myFunction(age="72")
 myFunction(name="This Name")
 varArgs("Anshul")
 varArgs("Anshul","Akhil","Abhishek")
+dir1.dir11.file11.func11()
+dir1.dir11.file12.func12()
+dir1.dir11.file13.func13()
 print("What is your name")
 z=input()
 print(z)
