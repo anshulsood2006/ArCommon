@@ -398,24 +398,10 @@
 			<li>To use a function from a package in another module use<b>dir1.dir2.[dir2].file.funcion()</b> </li>
 		</ul>
 	</li>
-	<li></li>
-	<li><b>Python Exceptions</b>
-		<ul>
-			<li>The exceptions are handled using the below <br/>
-				try: <br/>
-	   			&nbsp;&nbsp;&nbsp;&nbsp;	#Statements <br/>
-				except <i>(Exception1[, Exception2[,...ExceptionN]]], Argument)</i>: <br/>
-	   			&nbsp;&nbsp;&nbsp;&nbsp;	#Exception handling statements <br/>
-	   			finally:<br/>
-	   			&nbsp;&nbsp;&nbsp;&nbsp;	#Statements are always executed <br/>
-			</li>
-			<li><b>User Defined Exceptions:</b></li>
-		</ul>
-	</li>	
 	<li><b>Python Class</b>
 		<ul>
 			<li>A class is created as below<br/><br/>
-				class Employee:<br/><br/>
+				class Employee:<br/>
 				&nbsp;&nbsp;&nbsp;&nbsp;	'Common base class for all employees'<br/>
 	   			&nbsp;&nbsp;&nbsp;&nbsp;	empCount = 0<br/><br/>
 	
@@ -432,6 +418,161 @@
 			</li>
 			<li>To create an instance of the above class use <b>emp1 = Employee("Zara", 2000)</b></li>
 			<li>To invoke method of the above class use <b>emp1.displayEmployee()</b></li>
+		</ul>
+	</li>
+	<li><b>Python Exceptions</b>
+		<ul>
+			<li>The exceptions are handled using the below <br/>
+				try: <br/>
+	   			&nbsp;&nbsp;&nbsp;&nbsp;	#Statements <br/>
+				except <i>(Exception1[, Exception2[,...ExceptionN]]], Argument)</i>: <br/>
+	   			&nbsp;&nbsp;&nbsp;&nbsp;	#Exception handling statements <br/>
+	   			finally:<br/>
+	   			&nbsp;&nbsp;&nbsp;&nbsp;	#Statements are always executed <br/>
+			</li>
+			<li>
+				<b>User Defined Exceptions:</b> User Defined Exceptions can be created as below <br/>
+				class NetworkError(RuntimeError): <br/>
+   				&nbsp;&nbsp;&nbsp;&nbsp;	def __init__(self, arg): <br/>
+      			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	self.args = arg <br/> which can then be used as <br/>
+      			try:<br/>
+   				&nbsp;&nbsp;&nbsp;&nbsp;	raise NetworkError("Bad hostname")<br/>
+				except NetworkError,e:<br/>
+   				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	print e.args<br/>
+			</li>
+		</ul>
+	</li>	
+	<li><b>Python Database</b>
+		<ul>
+			<li>Make sure that the corresponding database module is installed e.g. for postgresql and mysql databases run following command from command prompt to install python modules: <b>pip install --user psycopg2 mysql-connector-python</b></li>
+			<li>Import the module as <b>import mysql.connector as mysql</b></li>
+			<li>Create database connection as <b>conn = mysql.connect(database = "{databaseName}", user = "{databaseUserName}", password = "{databasePassword}", host = "{databaseHost}", port = "{databasePort}")</b></li>
+			<li>Get a cursor from the connection as <b>cur = conn.cursor()</b></li>
+			<li>Execute query using cursor as <b>cur.execute(sql)</b></li>
+			<li>Fetch results from the cursor as <b>results = cur.fetchall()</b></li>
+			<li>Commit or roll back the transaction if required using <b>conn.commit()</b> or <b>conn.rollback()</b></li>
+			<li>Close the cursor as <b>cur.close()</b></li>
+			<li>Close the connection as <b>conn.close()</b></li>
+			<li>Example:<br/>
+			<br/>
+			import mysql.connector as mysql<br/>
+			conn = mysql.connect(database = "dbname", user = "root", password = "password, host = "127.0.0.1", port = "3306")<br/>
+			<br/>
+			try:<br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;	cur = conn.cursor()<br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;	print("Opened database connection")<br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;	cur.execute('''CREATE TABLE COMPANY<br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	      (NAME           TEXT    NOT NULL,<br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	      AGE            INT     NOT NULL,<br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	      ADDRESS        CHAR(50),<br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	      SALARY         REAL);''')<br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;	print("Table created successfully")<br/>
+			except Exception as err:<br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;	print("Table already exists")<br/>
+			finally:<br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;	conn.commit()<br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;	conn.close()<br/>
+			<br/>
+			</li>
+		</ul>
+	</li>
+	<li><b>Python Emailing</b>
+		<ul>
+			<li>Simple Mail Transfer Protocol (SMTP) is a protocol, which handles sending e-mail and routing e-mail between mail servers.</li>
+			<li>Python uses smtplib module for sending emails.</li>
+			<li>Import all the required smtp modules in the script. <b><br/>import smtplib<br/>
+from smtplib import SMTPException</b></li>
+			<li>Open smtp session as <b>session = smtplib.SMTP('smtphost',smtpport).</b></li>
+			<li>Use smtp session to send message as <b>session.sendmail(sender, receivers, message).</b></li>
+			<li>Quit smtp session as <b>session.quit()</b></li>
+			<li>Example:<br/>
+			<br/>
+			import smtplib<br/>
+			from smtplib import SMTPException<br/>
+			<br/>
+			sender = 'sender@gmail.com'<br/>
+			receiver = ['receiver@gmail.com']<br/>
+			message = """<br/>
+			Subject: SMTP e-mail test<br/>
+			This is a test e-mail message sent via Python script.<br/>
+			"""<br/>
+			<br/>
+			try:<br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;	smtpObj = smtplib.SMTP('localhost')<br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;	smtpObj.sendmail(sender, receivers, message) <br/>
+	   		&nbsp;&nbsp;&nbsp;&nbsp;	smtpObj.quit()<br/>
+   			except SMTPException as e: <br/>
+   			&nbsp;&nbsp;&nbsp;&nbsp;	print("Error: unable to send email",e)<br/>
+   			<br/>
+			</li>
+		</ul>
+	</li>
+	<li><b>Python Multithreading</b>
+	<ul>
+		<li>Using <b>Thread Module</b>
+			<ul>
+				<li>Import the thread module as <b>import _thread.</b></li>
+				<li>Create a function func(arguments) to be executed inside thread. Make sure that there is a return statement.</li>
+				<li>Create thread as <b>_thread.start_new_thread(func, (arguments)).</b></li>
+				<li>Example:<br/>
+				import _thread<br/>
+				import time<br/>
+				<br/>
+				def threadFunction(param1, param2):<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;	print(param1)<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;	print(param2)<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;	return<br/>
+				<br/>
+				try:<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;	_thread.start_new_thread(threadFunction, ("Anshul","Sood"))<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;	_thread.start_new_thread(threadFunction, ("Karan","Ahuja"))<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;	time.sleep(1)<br/>
+				except Exception as e:<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;	print("Exception in thread received", e)<br/>
+				<br/>
+				</li>
+			</ul>
+		</li>
+		<li>Using <b>Threading Module</b>
+			<ul>
+				<li>Import the threading module as <b>import threading</b></li>
+				<li>Create a subclass of Thread class as <b>class myThreading(threading.Thread):</b></li>
+				<li>Override the <b>__init__(self [,args])</b> method to add additional arguments. Make sure that the first statement inside the __init__ method is <b>threading.Thread.__init__(self)</b></li>
+				<li>Override the <b>run(self [,args])</b> method to implement the logic that thread needs to execute. To get the additional arguments inside run method use <b>self.argument</b></li>
+				<li>Create thread using <b>thread = myThreadig(arguments)</b></li>
+				<li>Start thread using <b>thread.start()</b></li>
+				<li>Example:<br/>
+				import threading<br/>
+				import time<br/><br/>
+
+				class myThreading(threading.Thread):<br/><br/>
+					
+				&nbsp;&nbsp;&nbsp;&nbsp;	def __init__(self, param1, param2):<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		threading.Thread.__init__(self)<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		self.param1 = param1<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		self.param2 = param2<br/><br/>
+					
+				&nbsp;&nbsp;&nbsp;&nbsp;	def run(self):<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		print(self.param1)<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		print(self.param2)<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		return<br/><br/>
+					
+				try:<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;	thread1 = myThreading("Anshul","Sood")<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;	thread2 = myThreading("Karan","Ahuja")<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;	thread1.start()<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;	thread2.start()<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;	time.sleep(1)<br/>
+				except Exception as e:<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;	print("Exception in thread received", e)<br/><br/>
+				</li>
+			</ul>
+		</li>
+	</ul>
+	</li>		
+	<li><b>Python Networking</b>
+		<ul>
+			<li></li>
 		</ul>
 	</li>	
 </ul>
@@ -454,10 +595,10 @@ https://docs.python.org/3.7/tutorial/index.html
 	<tr><td>It is mutable</td><td>It is immutable</td></tr>
 </table>
 </p>
-<p><b>What is the difference between raw_input() and input() functions in python?</b></p>
+<p><b>What is the difference between raw_input() and eval(input()) functions in python?</b></p>
 <p>
 <table border="1">
-	<tr><th>raw_input()</th><th>input()</th></tr>
+	<tr><th>raw_input()</th><th>eval(input())</th></tr>
 	<tr><td>It displays the same string on the screen.</td><td>It assumes that the input is a valid python expression and returns the evaluated result.</td></tr>
 </table>
 </p>

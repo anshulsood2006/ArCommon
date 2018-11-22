@@ -1,19 +1,37 @@
 #!/usr/bin/python
+import time
+
 import dir1.dir11.file11, dir1.dir11.file12, dir1.dir11.file13
+
+#import psycopg2
+import mysql.connector as mysql
+
+import smtplib
+from smtplib import SMTPException
+
+import _thread
+import threading
+
 def printThis(str):
 	print(str)
 	return
+	
 def myFunction( name="Anshul", age="12"):
 	print("Name", name)
 	print("Age", age)	
 	return
+	
 def varArgs(str, *vartuple):
 	print(str)
 	for x in vartuple:
 		print(x)
 	return
-		   			
-import time
+def threadFunction(param1, param2):
+	print("Hello this is ankur")
+	print(param1)
+	print(param2)
+	return
+   			
 ticks = time.time()
 print("Number of ticks since 12:00am, January 1, 1970:", ticks)
 print("Hello, World!")
@@ -101,6 +119,84 @@ dir1.dir11.file11.func11()
 dir1.dir11.file12.func12()
 dir1.dir11.file13.func13()
 print("What is your name")
-z=input()
+#z=eval(input("Hello"))
 print(z)
+#conn = psycopg2.connect(database = "arbid", user = "postgres", password = "thule", host = "127.0.0.1", port = "5432")
+conn = mysql.connect(database = "arbid", user = "root", password = "myfriendwa@123", host = "127.0.0.1", port = "3306")
+try:
+	cur = conn.cursor()
+	print("Opened database connection")
+	cur.execute('''CREATE TABLE COMPANY
+	      (NAME           TEXT    NOT NULL,
+	      AGE            INT     NOT NULL,
+	      ADDRESS        CHAR(50),
+	      SALARY         REAL);''')
+	print("Table created successfully")
+except Exception as err:
+	print("Table already exists")
+finally:
+	conn.commit()
+	conn.close()
+	
+#conn = psycopg2.connect(database = "arbid", user = "postgres", password = "thule", host = "127.0.0.1", port = "5432")
+conn = mysql.connect(database = "arbid", user = "root", password = "myfriendwa@123", host = "127.0.0.1", port = "3306")
+cur = conn.cursor()
+cur.execute("SELECT VERSION()")
+data = cur.fetchone()
+print ("Database version : %s " % data)
+conn.close()
 
+#conn = psycopg2.connect(database = "arbid", user = "postgres", password = "thule", host = "127.0.0.1", port = "5432")
+conn = mysql.connect(database = "arbid", user = "root", password = "myfriendwa@123", host = "127.0.0.1", port = "3306")
+cur = conn.cursor()
+sql = """INSERT INTO COMPANY(NAME,
+	AGE, ADDRESS, SALARY)
+	VALUES ('Anshul', 20, 'Noida', 20000)"""
+cur.execute(sql)
+# Commit your changes in the database
+conn.commit()
+conn.close()
+
+#conn = psycopg2.connect(database = "arbid", user = "postgres", password = "thule", host = "127.0.0.1", port = "5432")
+conn = mysql.connect(database = "arbid", user = "root", password = "myfriendwa@123", host = "127.0.0.1", port = "3306")
+cur = conn.cursor()
+sql = """SELECT * FROM COMPANY LIMIT 5"""
+cur.execute(sql)
+employees = cur.fetchall()
+for employee in employees:
+	print("Name: ", employee[0])
+	print("Age: ", employee[1])
+	print("Address: ", employee[2])
+	print("Salary: ", employee[3])
+	print("**********************")
+conn.close()
+cur.close()
+
+
+'''
+sender = 'sender@gmail.com'
+receiver = ['receiver@gmail.com']
+message = """
+Subject: SMTP e-mail test
+This is a test e-mail message sent via Python script.
+"""
+try:
+   smtpObj = smtplib.SMTP('smtp.gmail.com',587)
+   smtpObj.starttls()
+   smtpObj.ehlo()
+   smtpObj.login(sender,'password')
+   smtpObj.sendmail(sender, receivers, message) 
+   smtpObj.quit()        
+   print("Successfully sent email")
+except SMTPException:
+   print("Error: unable to send email")
+'''
+
+try:
+	_thread.start_new_thread(threadFunction, ("Anshul","Sood"))
+	_thread.start_new_thread(threadFunction, ("Karan","Ahuja"))
+	time.sleep(1)
+	print("Khilona")
+except Exception as e:
+	print("Exception in thread received", e)
+	
