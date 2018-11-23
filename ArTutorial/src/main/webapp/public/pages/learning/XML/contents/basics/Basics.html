@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="keywords" content="computer programming">
+<meta name="author" content="Anshul Sood">
+<title>XML Basics</title>
+</head>
+<body>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>
+<h1>XML</h1>
+<h1>Features</h1>
+<ul>
+	<li>XML viz. Extensible mark up language is a mark up language.</li>
+	<li>Two API's used for XML are
+		<ul>
+			<li><b>SAX (Simple API for XML):</b> This is an event-driven XML parsing where we need to register callbacks for events of interest and then let the parser proceed through the document. This is useful when the documents are large or we have memory limitations, it parses the file as it reads it from disk and the entire file is never stored in memory.</li>
+			<li><b>DOM (Data Object Model):</b> This is a World Wide Web Consortium recommendation wherein the entire file is read into memory and stored in a hierarchical (tree-based) form to represent all the features of an XML document.</li>
+		</ul>
+	</li>
+</ul>
+<h1>Examples</h1>
+<p><b></b></p>
+<pre>
+</pre>
+<h1>Frequently Asked Questions</h1>
+<p><b>What is the different between SAX and DOM XML parsers?</b></p>
+<table border="1">
+	<tr><th>SAX</th><th>DOM</th></tr>
+	<tr><td>It register callbacks for events of interest and then proceed through the document.</td><td>It loads entire file into memory in one go.</td></tr>
+	<tr><td>It is slow in parsing.</td><td>It is faster in parsing.</td></tr>
+	<tr><td>It is useful in case there are a large number of files.</td><td>It can kill resources if used for a large number of files.</td></tr>
+	<tr><td>It is a read only parser.</td><td>It can also be used to update XML</td></tr>
+</table>
+<p><b></b></p>
+<p></p>
+<p><b></b></p>
+<p></p>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>
+</body>
+</html>

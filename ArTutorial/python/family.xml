@@ -1,0 +1,27 @@
+<family name="SoodParivaar">
+<member title="FatherInLaw">
+	<name>Ashok Sood</name>
+	<age>66</age>
+	<gender>M</gender>
+</member>
+<member title="MotherInLaw">
+	<name>Rasma Sood</name>
+	<age>50</age>
+	<gender>F</gender>
+</member>
+<member title="Father">
+	<name>Anshul Sood</name>
+	<age>33</age>
+	<gender>M</gender>
+</member>
+<member title="Mother">
+	<name>Ruchika Jhangta</name>
+	<age>32</age>
+	<gender>F</gender>
+</member>
+<member title="Son">
+	<name>Ruhaan Sood</name>
+	<age>0.2</age>
+	<gender>M</gender>
+</member>
+</family>

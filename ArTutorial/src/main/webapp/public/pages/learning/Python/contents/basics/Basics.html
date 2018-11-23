@@ -569,9 +569,124 @@ from smtplib import SMTPException</b></li>
 			</ul>
 		</li>
 	</ul>
+	</li>	
+	<li><b>Python XML Parsing</b>
+		<ul>
+			<li><b>SAX Parsing</b>
+				<ul>
+					<li>Import the sax parser module as <b>import xml.sax</b></li>
+					<li>Create a content handler class as subclass of <b>xml.sax.ContentHandler</b> class</li>
+					<li>Override the <b>__init__(self)</b> method to initialize all the xml tags content tp empty string "". Also set a variable say current data to "". This will hold the current tag while parsing.</li>
+					<li>Override the <b>startElement(self, tag, attributes)</b> method. This method is called when an element tag is started
+						<ul>
+							<li>Set the current data attribute to tag</li>
+							<li>All the attributes associated with the tag can be retrieved using method <b>attributes["attributeName"]</b></li>
+						</ul>
+					</li>
+					<li>Override the <b>endElement(self, tag)</b> method. This method is called when an element tag ends.
+						<ul>
+							<li></li>
+						</ul>
+					</li>
+					<li>Override the <b>characters(self, content)</b> method. This method is called when a character is read.
+						<ul>
+							<li>Set all the attributes to content as self.attributeName = content based on current data attribute. e.g.
+								<br/>if self.CurrentData == "elementName":<br/>
+         							 &nbsp;&nbsp;&nbsp;&nbsp;	self.type = content
+								<br/>
+							</li>
+						</ul>
+					</li>
+					<li>Create an XML parser as <b>parser = xml.sax.make_parser()</b></li>
+					<li>Turn off the namespaces as <b>parser.setFeature(xml.sax.handler.feature_namespaces, 0)</b></li>
+					<li>Set the content handler as <b>parser.setContentHandler(ContentHandlerClass())</b></li>
+					<li>Parse the given XML using appropriate protocol e.g. file: or http: and using the parser as <b>parser.paser(xmlFile)</b></li>
+					<li>Example:<br/>
+						import xml.sax<br/>
+						import os<br/><br/>
+						
+						class MyContentHandler(xml.sax.ContentHandler):<br/>
+						&nbsp;&nbsp;&nbsp;&nbsp;	def __init__(self):<br/>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		self.CurrentData = ""<br/>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		self.name = ""<br/>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		self.age = 0<br/>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		self.gender = ""<br/>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		return<br/><br/>
+								
+						&nbsp;&nbsp;&nbsp;&nbsp;	def startElement(self, tag, attributes):<br/>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		self.CurrentData = tag<br/>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		if (tag == "member"):<br/>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			print("****Member****")<br/>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		return<br/><br/>
+							
+						&nbsp;&nbsp;&nbsp;&nbsp;	def endElement(self, tag):<br/>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		if (self.CurrentData  == "name"):<br/>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			print("Name = ",self.name)<br/>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		if (self.CurrentData  == "age"):<br/>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			print("Age = ",self.age)<br/>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		if (self.CurrentData  == "gender"):<br/>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			print("Gender = ",self.gender)<br/>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		self.CurrentData = ""<br/>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		return<br/><br/>
+								
+						&nbsp;&nbsp;&nbsp;&nbsp;	def characters(self, content):<br/>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		if (self.CurrentData  == "name"):<br/>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			self.name = content<br/>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		if (self.CurrentData  == "age"):<br/>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			self.age = content<br/>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		if (self.CurrentData  == "gender"):<br/>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			self.gender = content<br/>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		return<br/><br/>
+	
+						parser = xml.sax.make_parser()<br/>
+						parser.setFeature(xml.sax.handler.feature_namespaces, 0)<br/>
+						parser.setContentHandler(MyContentHandler())<br/>
+						path = "file:///"+os.getcwd()+"/family.xml"<br/>
+						parser.parse(path)<br/><br/>
+					</li>
+				</ul>
+			</li>
+			<li><b>DOM Parsing</b>
+				<ul>
+					<li>Import minidom module as <b>import xml.dom.minidom</b></li>
+					<li>Load the dom object as <b>xml.dom.minidom.parse("movies.xml")</b></li>
+					<li>Get the root node as <b>dom.documentElement</b></li>
+					<li>Get the attributes of a node as <b>node.getAttribute("attributeName")</b></li>
+					<li>Get all the nodes of a type as <b>node.getElementsByTagName("type")</b></li>
+					<li>For each node get the element for a type as <b>node.getElementsByTagName("name")[0]</b></li>
+					<li>Get the value of node as <b>node.childNodes[0].data</b></li>
+					<li>Example:<br/><br/>
+					import xml.dom.minidom<br/>
+
+					dom = xml.dom.minidom.parse("family.xml")<br/>
+					root = dom.documentElement<br/>
+					if root.hasAttribute("name"):<br/>
+					&nbsp;&nbsp;&nbsp;&nbsp;	print(root.getAttribute("name"))<br/>
+					members = root.getElementsByTagName("member")<br/>
+					for member in members:<br/>
+					&nbsp;&nbsp;&nbsp;&nbsp;	print(member.getElementsByTagName("name")[0].childNodes[0].data)<br/>
+					&nbsp;&nbsp;&nbsp;&nbsp;	print(member.getElementsByTagName("age")[0].childNodes[0].data)<br/>
+					&nbsp;&nbsp;&nbsp;&nbsp;	print(member.getElementsByTagName("gender")[0].childNodes[0].data)<br/><br/>
+					</li>
+				</ul>			
+			</li>
+		</ul>
 	</li>		
 	<li><b>Python Networking</b>
 		<ul>
+			<li>Python provides two level of access to network services
+				<ul>
+					<li>Operating system level socket to implement clients and servers for both connection-oriented and connection less protocols.</li>
+					<li>Application-level network protocols, such as FTP, HTTP, and so on</li>
+				</ul>
+			</li>
+			<li><b>Sockets</b>
+				<ul>
+					<li>These are the end points of a bidirectional communications channel.</li>
+					<li>They may communicate within a process, between processes on the same machine, or between processes on different continents.</li>
+					<li>They can be implemented over a number of different channel types: Unix domain sockets, TCP, UDP, and so on.</li>
+				</ul>
+			</li>
 			<li></li>
 		</ul>
 	</li>	
