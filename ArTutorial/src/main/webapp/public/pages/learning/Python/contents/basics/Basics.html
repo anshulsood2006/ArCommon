@@ -687,9 +687,65 @@ from smtplib import SMTPException</b></li>
 					<li>They can be implemented over a number of different channel types: Unix domain sockets, TCP, UDP, and so on.</li>
 				</ul>
 			</li>
-			<li></li>
+			<li>To create a server socket
+				<ul>
+					<li>Import the module socket as <b>import socket</b></li>
+					<li>Create socket object as <b>server = socket.socket()</b></li>
+					<li>Get the host as <b>host = socket.gethostname()</b></li>
+					<li>Set some random port as <b>port = 12345</b></li>
+					<li>Bind the server socket object to the host and port as <b>server.bind((host, port))</b>. See there is only one argument inside parenthesis as (host,port)</li>
+					<li>Wait for client connection as <b>server.listen(5)</b></li>
+					<li>Start an infinite loop to listen for infinite requests as <b>while True: server.accept()</b>. This method when receives a message from client returns connection object and IP address of the client machine.</li>
+					<li>To write something back to the client use as <b>connection.send(b'String to send').</b> Send method accepts byte so use b'str'.</li>
+					<li><b>Example</b><br/><br/>
+						import socket<br/><br/>
+
+						serverSocket = socket.socket()<br/>
+						host = socket.gethostname()<br/>
+						port = 12345<br/>
+						serverSocket.bind((host, port))<br/>
+						serverSocket.listen(5)<br/>
+						while True:<br/>
+						&nbsp;&nbsp;&nbsp;&nbsp;	print("Waiting for connection from client")<br/>
+						&nbsp;&nbsp;&nbsp;&nbsp;	connection, addr = serverSocket.accept()<br/>
+						&nbsp;&nbsp;&nbsp;&nbsp;	print("Got Connection from ", addr)<br/>
+						&nbsp;&nbsp;&nbsp;&nbsp;	connection.sendall(b'Thanks for connecting.')<br/>
+						&nbsp;&nbsp;&nbsp;&nbsp;	connection.close()<br/><br/>
+					</li>
+				</ul>
+			</li>
+			<li>To create a client socket
+				<ul>
+					<li>Import the module socket as <b>import socket</b></li>
+					<li>Create client socket object as <b>server = clientSocket.socket()</b></li>
+					<li>Get the host as <b>host = socket.gethostname()</b></li>
+					<li>Connect to the server socket as clientSocket.connect((serverHost, serverPort))<b></b></li>
+					<li>Write to the socket as <b>clientSocket.send(b'str')</b></li>
+					<li>Close the client socket as <b>clientSocket.close()</b></li>
+					<li><b>Example</b><br/><br/>
+						import socket<br/><br/>
+
+						clientSocket = socket.socket()<br/>
+						host = socket.gethostname()<br/>
+						port = 12345 <br/>
+						clientSocket.connect((host, port))<br/>
+						clientSocket.recv(1024)<br/>
+						clientSocket.close()<br/><br/>
+					</li>
+				</ul>
+			</li>
 		</ul>
 	</li>	
+	<li><b>Python Lambda</b>
+		<ul>
+			<li>A lambda function is a small anonymous function.</li>
+			<li>A lambda function can take any number of arguments but can have only one expression.</li>
+			<li>The syntax of lambda function is <b>lambda arguments : expression</b>.</li>
+			<li>The expression is executed and the result is returned.</li>
+			<li>The power of lambda is better shown when used as an anonymous function inside another function.</li>
+			<li></li>
+		</ul>
+	</li>
 </ul>
 
 https://docs.python.org/3.7/tutorial/index.html
@@ -717,8 +773,8 @@ https://docs.python.org/3.7/tutorial/index.html
 	<tr><td>It displays the same string on the screen.</td><td>It assumes that the input is a valid python expression and returns the evaluated result.</td></tr>
 </table>
 </p>
-<p><b></b></p>
-<p></p>
+<p><b>Getting error "TypeError: a bytes-like object is required, not 'str'" while using method socket.send(str)?</b></p>
+<p>This is because socket.send() method takes bytes instead of string as arguments. To convert string to bytes use as <b>b'str'</b></p>
 <h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>
 </body>
 </html>

@@ -31,6 +31,9 @@ def threadFunction(param1, param2):
 	print(param1)
 	print(param2)
 	return
+	
+def myLambdaFunction(n):
+	return lambda a : a * n
    			
 ticks = time.time()
 print("Number of ticks since 12:00am, January 1, 1970:", ticks)
@@ -200,3 +203,11 @@ try:
 except Exception as e:
 	print("Exception in thread received", e)
 	
+l = lambda a, b, c: a + b + c
+print('Lambda l(2, 3, 4) which is lambda a, b, c: a + b + c returns: ',l(2, 3, 4))
+
+
+doubler = myLambdaFunction(2)	
+print(doubler(11))
+tripler = myLambdaFunction(3)
+print(tripler(11))
