@@ -111,6 +111,10 @@ print(thisdict.get("model"))
 print(thisdict["year"])
 mydict = dict({1: 'One', 2 : 'Two', 3: 'Three'})
 print(mydict)
+iterator = iter(mydict)
+print(next(iterator))
+print(next(iterator))
+print(next(iterator))
 mydict = dict([(1, 'One'),(2, 'Two'),(3, 'Three')])
 print(mydict)
 printThis(str = "Print This String")
@@ -211,3 +215,30 @@ doubler = myLambdaFunction(2)
 print(doubler(11))
 tripler = myLambdaFunction(3)
 print(tripler(11))
+
+mydict = dict({1: 'One', 2 : 'Two', 3: 'Three', 4: 'Four'})
+print(mydict)
+iterator = iter(mydict)
+print(next(iterator))
+print(next(iterator))
+print(next(iterator))
+print(next(iterator))
+
+class MyNumbers:
+	def __iter__(self):
+		self.a = 1
+		return self
+	
+	def __next__(self):
+		if self.a <= 5:
+			x = self.a
+			self.a += 1
+			return x
+		else:
+			raise StopIteration
+
+myclass = MyNumbers()
+myiter = iter(myclass)
+
+for x in myiter:
+	print(x)

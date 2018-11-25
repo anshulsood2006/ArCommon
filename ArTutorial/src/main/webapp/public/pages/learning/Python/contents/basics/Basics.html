@@ -316,6 +316,13 @@
 			<li>More than one objects can be added using method update("object1","object2","object3")</li>
 		</ul>
 	</li>
+	<li><b>Python Iterator</b> 
+		<ul>
+			<li>It is used to iterate over iterable objects subjects lists, tuples, dictionaries, and sets.</li>
+			<li>All the iterable objects have a iter() method which is used to get an iterator as iterator = iter(iterable).</li>
+			<li></li>
+		</ul>
+	</li>
 	<li><b>Python Module</b>
 		<ul>
 			<li>Module in python contains functions.</li>
@@ -418,6 +425,32 @@
 			</li>
 			<li>To create an instance of the above class use <b>emp1 = Employee("Zara", 2000)</b></li>
 			<li>To invoke method of the above class use <b>emp1.displayEmployee()</b></li>
+			<li>To create a <b>class as an iterator</b>
+				<ul>
+					<li>implement methods <b>__iter__() and __next__()</b></li>
+					<li>To prevent the iteration to go on forever, we can use the <b>StopIteration</b> statement.</li>
+					<li>Example: <br/><br/>
+						class MyNumbers:<br/><br/>
+						&nbsp;&nbsp;&nbsp;&nbsp;	def __iter__(self):<br/>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		self.a = 1<br/>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		return self<br/><br/>
+						
+						&nbsp;&nbsp;&nbsp;&nbsp;	def __next__(self):<br/>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		if self.a <= 20:<br/>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			x = self.a<br/>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			self.a += 1<br/>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			return x<br/>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		else:<br/>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			raise StopIteration<br/><br/>
+						
+						myclass = MyNumbers()<br/>
+						myiter = iter(myclass)<br/><br/>
+						
+						for x in myiter:<br/>
+						&nbsp;&nbsp;&nbsp;&nbsp;	print(x)<br/><br/>
+					</li>
+				</ul>
+			</li>
 		</ul>
 	</li>
 	<li><b>Python Exceptions</b>
@@ -746,9 +779,23 @@ from smtplib import SMTPException</b></li>
 			<li></li>
 		</ul>
 	</li>
+	<li><b>Python JSON</b>
+		<ul>
+			<li>Import json module as <b>import json</b></li>
+			<li>To convert from json string to python
+				<ul>
+					<li>Load the json string as <b>y = json.load(jsonString)</b></li>
+					<li>Get the python object as <b>y["jsonObjectKey"]</b></li>
+				</ul>
+			</li>
+			<li>To convert from pythong object to json string
+				<ul>
+					<li>Load the json string as <b>y = json.pumps(jsonString)</b></li>
+				</ul>
+			</li>
+		</ul>
+	</li>
 </ul>
-
-https://docs.python.org/3.7/tutorial/index.html
 <h1>Examples</h1>
 <p><b>Sample python program</b></p>
 <ul>
