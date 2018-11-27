@@ -45,6 +45,36 @@
 			<li>Presenting Results</li>
 		</ul>
 	</li>
+	<li>A computer program is said to learn from experience E with respect to some task T and some performance measure P, if its performance on T, as measured by P, improves with experience E.</li>
+	<li>The goal of machine learning is never to make "perfect" guesses, because it deals in domains where there is no such thing. The goal is to make guesses that are good enough to be useful.</li>
+	<li><b>Predictor Function</b>
+		<ul>
+			<li>Mathematically for machine learning, the goal is to devise a mathematical function h(x) called <b>predictor or hypothesis.</b> <b>Learning</b> consists of using sophisticated mathematical algorithms to optimize this function so that, given input data x about a certain domain, it will accurately predict some interesting value h(x). Example:<br/> 
+		<b>h(x) = &theta;<sub>0</sub> +  &theta;<sub>1</sub> * x</b></li>
+			<li>&theta;<sub>0</sub> and &theta;<sub>1</sub> are called coefficients/parameters of the predictor function.</li>
+		</ul>
+	</li>
+	<li><b>Cost Function or Loss Function</b>
+		<ul>
+			<li>The wrongness measure in estimating the almost accurate value of predictor function h(x) is known as the <b>cost function or loss function</b>.Example:<br/>
+			<b>J(&theta;<sub>0</sub>,  &theta;<sub>1</sub>) = 1/2m &Sigma; (h(x<sub>t,i</sub>) - y)<super>2</super></b> where i ranges from 1 to m</li>
+			<li>The ultimate goal of machine learning is to find the coefficients for predictor h(x) such that our cost function J (&theta;<sub>0</sub>,  &theta;<sub>1</sub>) is as small as possible.The power of calculus is used to accomplish this.</li>
+			<li>The cost function when plotted against the values of &theta;<sub>0</sub> and &theta;<sub>1</sub> gives a bowl shaped plot.
+				<ul>
+					<li><img src="../../images/costFunction.jpg" alt="cost function" height="400" width="100%"/></li>
+					<li>Any random point on the bowl plot gives the cost of the current values of the coefficients</li>
+					<li>The bottom of the bowl is the cost of the best set of coefficients, the minimum of the function.</li>
+					<li>The goal is to continue to try different values for the coefficients, evaluate their cost and select new coefficients that have a slightly better (lower) cost. Repeating this process enough times will lead to the bottom of the bowl and you will know the values of the coefficients that result in the minimum cost.</li>
+				</ul>
+			</li> 
+		</ul>
+	</li>
+	<li><b>Gradient Descent</b>
+		<ul>
+			<li>It is an optimization algorithm used to find the values of parameters (coefficients) of a predictor function <b>(h(x))</b> that minimizes the cost function <b>(J (&theta;<sub>0</sub>,  &theta;<sub>1</sub>) )</b>.</li>
+			<li>This is used when the parameters can not be calculated using linear equations.</li>
+		</ul>
+	</li>
 </ul>
 <h2>Python as a Machine learning language</h2>
 <ul>
@@ -83,8 +113,8 @@
 </ul>
 <h2>Categories of machine learning algorithms</h2>
 <ul>
-	<li><b>Supervised learning algorithm</b></li>
-	<li><b>Unsupervised learning algorithm</b></li>
+	<li><b>Supervised learning algorithm</b> The program is "trained" on a pre-defined set of "training examples", which then facilitate its ability to reach an accurate conclusion when given new data.</li>
+	<li><b>Un-supervised learning algorithm</b> The program is given a bunch of data and it itself must find patterns and relationships therein.</li>
 	<li><b>Semi-supervised learning algorithm</b></li>
 	<li><b>Reinforcement learning algorithm</b></li>
 </ul>
