@@ -21,6 +21,7 @@
 </ul>
 <h2>Machine learning</h2>
 <ul>
+	<li>The term "machine learning" was coined in 1959 by Arthur Lee Samuel</li>
 	<li>It is the  field of study that gives computers the ability to learn without being explicitly programmed.</li>
 	<li>It deals with programming the computer systems to make them learn and improve with data and experience.</li>
 	<li>Learning means recognizing and understanding the input data and decisions based on the supplied data.</li>
@@ -75,7 +76,57 @@
 			<li>This is used when the parameters can not be calculated using linear equations.</li>
 		</ul>
 	</li>
-	<li><b>Neural Networks</b>
+	<li><b>Classifier</b>
+		<ul>
+			<li>It is a supervised algorithm which is used in classification of large volume of data to solve problems using machine learning.</li>
+			<li>It maps the input data to a specific category.</li>
+			<li>Few classifiers are:
+				<ul>
+					<li><b>Perceptron</b></li>
+					<li><b>Naive Bayes</b></li>
+					<li><b>Decision Tree</b></li>
+					<li><b>Logistic Regression</b></li>
+					<li><b>K-Nearest Neighbor</b></li>
+					<li><b>Artificial Neural Networks/Deep Learning</b></li>
+					<li><b>Support Vector Machine</b></li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+	<li><b>Confusion Matrix</b>
+		<ul>
+			<li>It is a technique to measure the performance of a classifier algorithm.</li>
+			<li>It gives the count as well as the types of error being made by a classifier algorithm.</li>
+			<li>A table is created with columns as the actual class and rows as the predicted class
+				<table border="1">
+					<tr><th colspan="2" rowspan = "2">Confusion matrix</th><th colspan="2">Predicted Class</th></tr>
+					<tr><td><b>On</b></td><td><b>Off</b></td></tr>
+					<tr><td rowspan = "2"><b>Actual Class</b></td><td><b>On</b></td><td>42</td><td>8</td></tr>
+					<tr><td><b>Off</b></td><td>18</td><td>32</td></tr>
+				</table>
+			</li>
+			<li>The above table says
+				<ul>
+					<li>The classifier correctly identified On as On in 42 cases.</li>
+					<li>The classifier incorrectly identified On as Off in 8 cases.</li>
+					<li>The classifier correctly identified Off as Off in 32 cases</li>
+					<li>The classifier incorrectly identified Off as On in 18 cases</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+	<li><b>Classification Accuracy: </b>
+		<ul>
+			<li>It is the ratio of correct predictions to total predictions. <br/>
+		<b>classification accuracy = correct predictions / total predictions</b></li>
+			<li>Misclassification/error rate: <br/>
+				<b>misclassification rate = (1 - classification accuracy) * 100</b>
+			</li>
+			<li>For the table mentioned in <b>confusion matrix</b> section<br/>
+				<b>classification accuracy = (42 + 32) / (42 + 8 + 32 + 18) = 74/100 = 0.74</b><br/>
+				<b>misclassification/error rate = (1 - 0.74 ) * 100 = 26</b>
+			</li>
+		</ul>
 	</li>
 	<li><b>Sigmoid Function</b>
 		<ul>
@@ -122,20 +173,75 @@
 		</ul>
 	</li>
 </ul>
-<h2>Categories of machine learning algorithms</h2>
+<h2>Categories of Machine Learning Algorithms</h2>
 <ul>
-	<li><b>Supervised learning algorithm</b> The program is "trained" on a pre-defined set of "training examples", which then facilitate its ability to reach an accurate conclusion when given new data.</li>
-	<li><b>Un-supervised learning algorithm</b> The program is given a bunch of data and it itself must find patterns and relationships therein.</li>
-	<li><b>Semi-supervised learning algorithm</b></li>
-	<li><b>Reinforcement learning algorithm</b></li>
+	<li><b>Supervised learning algorithm:</b> The program is "trained" on a pre-defined set of "training examples", which then facilitate its ability to reach an accurate conclusion when given new data. The training data for the algorithms is already labeled. Below are the two types of supervised learning algorithms:
+		<ul>
+			<li><b>Classification Algorithms:</b> 
+				<ul>
+					<li>These algorithms give an output having a discrete label. They are used in case a given problem has a solution within a finite set of possible outcomes. They can be further of below types
+						<ul>
+							<li><b>Binary Classification:</b> In case a problem can have only two possible outcomes e.g. determining whether an email is spam or not, if a candidate in an exam is a male or female.</li>
+							<li><b>Multi-label Classification:</b> In case a problem can have more than two possible outcomes e.g. customer segmentation, audio and image categorization, and text analysis for mining customer sentiment.</li>
+						</ul>
+					</li>
+					<li>Few examples of classification algorithms are Naive Bayes, decision trees, logistic regression, kernel approximation, and K-nearest neighbors.</li>
+				</ul>
+			</li>
+			<li><b>Regression Algorithms:</b>
+				<ul>
+					<li>These algorithms give an output which is unbounded. The outcome to a problem is represented by a quantity that is flexibly determined based on the inputs of the model rather than being confined to a set of possible labels e.g. predicting housing prices, likelihood of customers to churn, or the revenue a customer will generate. </li>
+					<li>Few examples of regression algorithms are linear regression, regression trees and support vector regression.</li> 
+				</ul>
+			</li>
+		</ul>
+	</li>
+	<li><b>Un-supervised learning algorithm:</b> The program is given a bunch of data and it itself must find patterns and relationships therein.</li>
+	<li><b>Semi-supervised learning algorithm:</b></li>
+	<li><b>Reinforcement learning algorithm:</b> 
+		<ul>
+			<li>The algorithm is based on interaction with environment. </li>
+			<li>The program dynamically interacts with the environment and improves its performance on the basis of positive and negative feedback it receives.</li>
+			<li>This invloves the following 
+				<ul>
+					<li><b>Agent: </b>who performs all the tasks.</li>
+					<li><b>Action: </b>Task performed by the agent.</li>
+					<li><b>Environment: </b>Scenario faced by the agent. It is a modeled as a stochastic finite state machine with inputs (actions sent from the agent) and outputs (observations and rewards sent to the agent)</li>
+					<li><b>Reward function: </b>Function used to train the agent how to perform the task.</li>
+					<li><b>Internal state</b> State maintained by the agent to learn about the environment.</li>
+				</ul>
+			</li>
+			<li>Some platforms associated with Reinforcement learning are:
+				<ul>
+					<li><b>Deepmind Lab</b></li>
+					<li><b>OpenAI Gym</b></li>
+					<li><b>OpenAI Universe</b></li>
+					<li><b>Project Malmo</b></li>
+					<li><b>VizDoom</b></li>
+					<li><b>RL-Glue</b></li>
+					<li><b>CommAI</b></li>
+					<li><b>Burlap</b></li>
+					<li><b>rlenvs</b></li>
+				</ul>
+			</li>
+			<li>Few examples of Reinforcement learning are driverless cars, self navigating vaccum cleaners, scheduling of elevators etc.</li>
+		</ul>
+	</li>
 </ul>
 <h1>Examples</h1>
 <p><b></b></p>
 <pre>
 </pre>
 <h1>Frequently Asked Questions</h1>
-<p><b></b></p>
-<p></p>
+<p><b>What are the difference between supervised, unsupervised and Reinforcement machine learning?</b></p>
+<p>
+<table border="1">
+	<tr><th>Supervised</th><th>Unsupervised</th><th>Reinforcement</th></tr>
+	<tr><td>Task Driven</td><td>Data Driven</td><td>Experience Driven</td></tr>
+	<tr><td>There is a mapping between input and output.</td><td>There is no mapping between input and output. <br/>The main task is to find the underlying patterns rather than the mapping.</td><td>There is a mapping between input and output.</td></tr>
+	<tr><td>There is no reward function.</td><td>There is no reward function.</td><td>There is a reward function which acts as a feedback to the agent.</td></tr>
+</table>
+</p>
 <p><b></b></p>
 <p></p>
 <p><b></b></p>
