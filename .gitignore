@@ -5,3 +5,6 @@
 /target/
 /object.ser
 /ArTutorial/python/dir1/dir11/__pycache__/
+/ArTutorial/python/ReinforcementLearning/myenv.egg-info
+/ArTutorial/python/ReinforcementLearning/RLEnvironment/__pycache__
+/ArTutorial/python/ReinforcementLearning/RLEnvironment/envs/__pycache__

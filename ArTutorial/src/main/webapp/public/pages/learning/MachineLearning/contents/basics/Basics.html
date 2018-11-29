@@ -22,7 +22,7 @@
 <h2>Machine learning</h2>
 <ul>
 	<li>The term "machine learning" was coined in 1959 by Arthur Lee Samuel</li>
-	<li>It is the  field of study that gives computers the ability to learn without being explicitly programmed.</li>
+	<li>It is the field of study that gives computers the ability to learn without being explicitly programmed.</li>
 	<li>It deals with programming the computer systems to make them learn and improve with data and experience.</li>
 	<li>Learning means recognizing and understanding the input data and decisions based on the supplied data.</li>
 	<li>It is used in various fields such as:
@@ -161,7 +161,7 @@
 		<ul>
 			<li>
 				Install the required libraries from command prompt using command:<br/>
-				<b>python -m pip install --user numpy scipy matplotlib ipython jupyter pandas sympy nose sklearn scikit-learn preprocessing</b>
+				<b>python -m pip install --user numpy scipy matplotlib ipython jupyter pandas sympy nose sklearn scikit-learn preprocessing gym</b>
 			</li>
 			<li>
 				Added the path of the installed scripts to path environment variable
@@ -198,23 +198,29 @@
 	</li>
 	<li><b>Un-supervised learning algorithm:</b> The program is given a bunch of data and it itself must find patterns and relationships therein.</li>
 	<li><b>Semi-supervised learning algorithm:</b></li>
-	<li><b>Reinforcement learning algorithm:</b> 
+	<li><b>Reinforcement learning (RL) algorithm:</b> 
 		<ul>
 			<li>The algorithm is based on interaction with environment. </li>
 			<li>The program dynamically interacts with the environment and improves its performance on the basis of positive and negative feedback it receives.</li>
-			<li>This invloves the following 
+			<li>This involves the following 
 				<ul>
 					<li><b>Agent: </b>who performs all the tasks.</li>
 					<li><b>Action: </b>Task performed by the agent.</li>
 					<li><b>Environment: </b>Scenario faced by the agent. It is a modeled as a stochastic finite state machine with inputs (actions sent from the agent) and outputs (observations and rewards sent to the agent)</li>
 					<li><b>Reward function: </b>Function used to train the agent how to perform the task.</li>
 					<li><b>Internal state</b> State maintained by the agent to learn about the environment.</li>
+					<li><b>Policy: </b>Strategy of choosing an action given a state in expectation of a better reward.</li>
 				</ul>
 			</li>
 			<li>Some platforms associated with Reinforcement learning are:
 				<ul>
 					<li><b>Deepmind Lab</b></li>
-					<li><b>OpenAI Gym</b></li>
+					<li><b>OpenAI Gym: </b>
+						<ul>
+							<li>It is a toolkit for developing and comparing reinforcement learning algorithms.</li>
+							<li>This is the gym open-source library, which gives you access to a standardized set of environments.</li>
+						</ul>
+					</li>
 					<li><b>OpenAI Universe</b></li>
 					<li><b>Project Malmo</b></li>
 					<li><b>VizDoom</b></li>
@@ -222,6 +228,16 @@
 					<li><b>CommAI</b></li>
 					<li><b>Burlap</b></li>
 					<li><b>rlenvs</b></li>
+				</ul>
+			</li>
+			<li>Steps involved in Reinforcement learning are
+				<ul>
+					<li>Observation of the environment</li>
+					<li>Deciding how to act using some strategy</li>
+					<li>Acting accordingly</li>
+					<li>Receiving a reward or penalty</li>
+					<li>Learning from the experiences and refining the strategy</li>
+					<li>Iterate until an optimal strategy is found</li>
 				</ul>
 			</li>
 			<li>Few examples of Reinforcement learning are driverless cars, self navigating vaccum cleaners, scheduling of elevators etc.</li>
