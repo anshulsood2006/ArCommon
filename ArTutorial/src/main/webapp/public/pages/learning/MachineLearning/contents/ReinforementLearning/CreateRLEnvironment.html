@@ -11,7 +11,7 @@
 <ul>
 	<li><b>Creating an Environment: </b>
 		<ul>
-			<li>An example environment for reinforcement learning can be created using <b>gym</b> module of OpenAI.</li>
+			<li>A custom environment for reinforcement learning can be created using <b>gym</b> module of OpenAI.</li>
 			<li><b>gym</b> module can be installed using <b>pip unstall --user gym</b></li>
 			<li>Create a folder structure as below:
 				<ul>
@@ -73,9 +73,10 @@
 			<li>Using command prompt go to the parent folder <b>ReinforcementLearning</b> and install the above environment using command <b>pip install --user -e .</b></li>
 		</ul>
 	</li>
-	<li><b>Importing an Environment: </b>
+	<li><b>Importing and using an Environment: </b>
 		<ul>
-			<li>The environment can be used inside another module using command <b>import {moduleName}</b></li>
+			<li>The environment can be imported inside another module using command <b>import {moduleName} e.g. import RLEnvironment.envs.myenvironment</b></li>
+			<li>An instance of the environment imported above can be created as <b>env = gym.make('myenv-v0')</b></li>
 		</ul>
 	</li>
 	<li><b>Un-installing an Environment: </b>
@@ -94,7 +95,7 @@
 	<li>Use command <b>pip uninstall {moduleName}.</b></li>
 	<li>Go to the directory where module is created and manually delete the folder with name {moduleName}.egg-info and __pycache__</li>
 </ul>
-<p><b></b></p>
+<p><b>Unable to execute 'make build -C atari_py/ale_interface -j 3'.</b></p>
 <p></p>
 <h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>
 </body>
