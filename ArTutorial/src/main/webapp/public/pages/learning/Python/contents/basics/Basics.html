@@ -311,7 +311,7 @@
 	</li><br/>
 	<li><b>Python Set</b> 
 		<ul>
-			<li>It is a collection of objects which is unordered and unchangeable but not indexed.</li>
+			<li>It is a collection of objects which is unordered and changeable but not indexed.</li>
 			<li>An object can be added using method add("object")</li>
 			<li>More than one objects can be added using method update("object1","object2","object3")</li>
 		</ul>
@@ -617,7 +617,8 @@ from smtplib import SMTPException</b></li>
 					</li>
 					<li>Override the <b>endElement(self, tag)</b> method. This method is called when an element tag ends.
 						<ul>
-							<li></li>
+							<li>Set the current data attribute to ""</li>
+							<li>Get the value of all the tags as <b>self.attributeName</b></li>
 						</ul>
 					</li>
 					<li>Override the <b>characters(self, content)</b> method. This method is called when a character is read.
