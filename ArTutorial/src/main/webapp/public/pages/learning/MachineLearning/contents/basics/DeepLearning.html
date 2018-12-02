@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="keywords" content="computer programming,Deep Learning, Neural Network">
+<meta name="author" content="Anshul Sood">
+<title>Deep Learning Basics</title>
+</head>
+<body>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>
+<h1>Deep Learning</h1>
+<h2>Neural Network</h2>
+<ul>
+	<li>In neural network, the computer learns how to solve a problem using observational data.</li>
+	<li>The techniques used in neural network is called <b>deep learning.</b></li>
+	<li>An example is the problem of teaching a computer to recognize handwritten digits.</li>
+	<li>Two types of artificial neurons are
+		<ul>
+			<li><b>Perceptron: </b>
+				<ul>
+					<li>It was developed by Frank Rosenblatt.</li>
+					<li>It takes several binary inputs, x1,x2,..., and produces a single binary output.</li>
+					<li>Mathematically for a perceptron:<br/><br/>
+						<b>
+							<table>
+								<tr><td rowspan="2"> output &nbsp;&nbsp;&nbsp;&nbsp;   = </td><td>0 if &Sigma; <sub>j</sub> w<sub>j</sub>x<sub>j</sub> &lt;= Threshold</td></tr>
+								<tr><td>1 if &Sigma; <sub>j</sub> w<sub>j</sub>x<sub>j</sub> &gt; Threshold</td></tr>
+								<tr><td colspan="2">where<br/>
+													x represents the input factor and is represented either as 0 or 1.<br/>
+													w represents the weightage for the input factor and can be any real number. The larger value of w indicates that the factor matters a lot.<br/>
+													j represents the number of input factor.<br/>
+													Threshold is the real number and is chosen appropriately as per requirement.</td>
+							</table>
+						</b><br/><br/>
+					</li>
+					<li>The final output/decision making depends on the value of weights and threshold chosen.</li>
+					<li>Multiple layers of perceptrons can be used to mimick human decision making as shown below:<br/>
+						<img src="../../images/perceptron.jpg" alt="Decison Making using perceptron" height="300" width="50%"/>
+						<ul>
+							<li>The first layer of perceptrons is making three very simple decisions, by weighing the input evidences.</li>
+							<li>The second layer of perceptrons is making a decision by weighing up the results from the first layer.</li>
+						</ul>
+					</li>
+					<li>To simplify the above perceptron can also be written as:
+						<b>
+							<table>
+								<tr><td rowspan="2"> output &nbsp;&nbsp;&nbsp;&nbsp;   = </td><td>0 if w * x + b &lt;= 0</td></tr>
+								<tr><td>1 if w * x + b &gt; 0</td></tr>
+								<tr><td colspan="2">where<br/>
+													w * x represents the dot product of w and x.<br/>
+													b = -Threshold is called <b>bias</b>.</td>
+							</table>
+						</b><br/><br/>
+						
+					</li>
+				</ul>
+			</li>
+			<li><b>Sigmoid: </b></li>
+		</ul>
+	</li>
+	<li>The standard learning algorithm for neural networks is <b>stochastic gradient descent</b>.</li>
+</ul>
+http://neuralnetworksanddeeplearning.com/chap1.html
+<h1>Examples</h1>
+<p><b></b></p>
+<pre>
+</pre>
+<h1>Frequently Asked Questions</h1>
+<p><b></b></p>
+<p></p>
+<p><b></b></p>
+<p></p>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>
+</body>
+</html>
