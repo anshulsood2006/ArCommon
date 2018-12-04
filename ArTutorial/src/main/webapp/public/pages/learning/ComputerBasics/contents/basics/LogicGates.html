@@ -154,47 +154,161 @@
 	</li>
 </ul>
 <h2>NAND gate as a universal gate</h2>
-<table border="1">
-	<tr><th>Input A</th><th>Input B</th> <th>NAND Output</th> <th>AND Output</th><th>OR Output</th><th>NOT Output (for Input A)</th></tr>
-	<tr><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
-	<tr><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td><td>1</td></tr>
-	<tr><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td></tr>
-	<tr><td>1</td><td>1</td><td>0</td><td>1</td><td>1</td><td>0</td></tr>
-</table>
 <ul>
-	<li>AND gate using NAND gate
-					
-	</li>
-	<li>OR gate using NAND gate</li>
-	<li>NOT gate using NAND gate
+	<li><b>AND gate using NAND gate</b>
 		<ul>
-			<li>If both the inputs are same in case of NAND gate, it will become a NOT gate
-				<ul>
-					<table border="1">
-						<tr><th>Input A</th><th>Input B</th><th>NAND Output</th><th>NOT Output</th></tr>
-						<tr><td>0</td><td>0</td><td>1</td><td>1</td></tr>
-						<tr><td>1</td><td>1</td><td>0</td><td>1</td></tr>
-					</table>
-				</ul>
+			<li>The output of a NAND gate when given as input to a second NAND gate gives an AND gate. This is because when both the inputs are same in case of the second NAND gate, it will become a NOT gate and the NOT of NAND gate is nothing but AND gate.</li>
+			<li>
+				<table border="1">
+					<tr><th>Input A</th><th>Input B</th><th>NAND Output</th><th>Input C</th><th>NAND Output (AND)</th></tr>
+					<tr><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td></tr>
+					<tr><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td></tr>
+					<tr><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td></tr>
+					<tr><td>0</td><td>1</td><td>1</td><td>1</td><td>0</td></tr>
+					<tr><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td></tr>
+					<tr><td>1</td><td>1</td><td>0</td><td>1</td><td>1</td></tr>
+					<tr><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
+				</table>			
+			</li>
+			<li><br/>
+				<img src="../../images/andusingnand.jpg" alt="AND using NAND gates" height="100" width="50%"/>	
+			</li>
+		</ul>		
+	</li>
+	<li><b>OR gate using NAND gate</b></li>
+		<ul>
+			<li>Take two NAND gates and provide the same inputs to each. This will give a NOT gate
+				<table border="1">
+					<tr><th>Input A</th><th>Input A</th><th>NAND Output (NOT of A)</th></tr>
+					<tr><td>0</td><td>0</td><td>1</td></tr>
+					<tr><td>1</td><td>1</td><td>0</td></tr>
+				</table>	
+				<table border="1">
+					<tr><th>Input B</th><th>Input B</th><th>NAND Output (NOT of B)</th></tr>
+					<tr><td>0</td><td>0</td><td>1</td></tr>
+					<tr><td>1</td><td>1</td><td>0</td></tr>
+				</table>
+			</li>
+			<li>Take the output of both the NAND gates and provide these as inputs to a third NAND gate. This will give an OR gate.
+				<table border="1">
+					<tr><th>NAND A Output</th><th>NAND B Output</th><th>NAND Output (OR)</th></tr>
+					<tr><td>1</td><td>1</td><td>0</td></tr>
+					<tr><td>0</td><td>0</td><td>1</td></tr>
+					<tr><td>1</td><td>0</td><td>1</td></tr>
+					<tr><td>0</td><td>1</td><td>1</td></tr>
+				</table>						
+			</li>
+			<li><br/>
+				<img src="../../images/orusingnand.jpg" alt="OR using NAND gates" height="100" width="50%"/>
+			</li>
+		</ul>
+	<li><b>NOT gate using NAND gate</b>
+		<ul>
+			<li>If both the inputs are same in case of NAND gate, it will become a NOT gate.
+				<table border="1">
+					<tr><th>Input A</th><th>Input B (Same as input A)</th><th>NAND Output (NOT)</th></tr>
+					<tr><td>0</td><td>0</td><td>1</td></tr>
+					<tr><td>1</td><td>1</td><td>0</td></tr>
+				</table>
+			</li>
+			<li><br/>
+				<img src="../../images/notusingnand1.jpg" alt="NOT using NAND gates" height="100" width="50%"/>
 			</li>
 			<li>If one of the input is true(1) in case of NAND gate, it will become a NOT of the other input.
-				<ul>
-					<table border="1">
-						<tr><th>Input A</th><th>Input B</th> <th>NAND Output</th> <th>NOT Output</th></tr>
-						<tr><td>0</td><td>1</td><td>0</td><td>1</td></tr>
-						<tr><td>1</td><td>1</td><td>0</td><td>0</td></tr>
-					</table>
-				</ul>			
+				<table border="1">
+					<tr><th>Input A</th><th>Input 1</th> <th>NAND Output (NOT of A)</th> </tr>
+					<tr><td>0</td><td>1</td><td>1</td></tr>
+					<tr><td>1</td><td>1</td><td>0</td></tr>
+				</table>			
+			</li>
+			<li><br/>
+				<img src="../../images/notusingnand2.jpg" alt="NOT using NAND gates" height="100" width="50%"/>
 			</li>
 		</ul>	
 	</li>
 </ul>
 <h2>NOR gate as a universal gate</h2>
 <ul>
-	<li>AND gate using NOR gate</li>
-	<li>OR gate using NOR gate</li>
-	<li>NOT gate using NOR gate</li>
+	<li><b>AND gate using NOR gate</b>
+		<ul>
+			<li>Take two NOR gates and provide the same inputs to each. This will give a NOT of input
+				<table border="1">
+					<tr><th>Input A</th><th>Input A</th><th>NOR Output (NOT of A)</th></tr>
+					<tr><td>0</td><td>0</td><td>1</td></tr>
+					<tr><td>1</td><td>1</td><td>0</td></tr>
+				</table>	
+				<table border="1">
+					<tr><th>Input B</th><th>Input B</th><th>NOR Output (NOT of B)</th></tr>
+					<tr><td>0</td><td>0</td><td>1</td></tr>
+					<tr><td>1</td><td>1</td><td>0</td></tr>
+				</table>
+			</li>
+			<li>Take the output of both the NOR gates and provide these as inputs to a third NOR gate. This will give an AND gate.
+				<table border="1">
+					<tr><th>NOR A Output</th><th>NOR B Output</th><th>NOR Output (AND)</th></tr>
+					<tr><td>1</td><td>1</td><td>0</td></tr>
+					<tr><td>0</td><td>0</td><td>1</td></tr>
+					<tr><td>1</td><td>0</td><td>1</td></tr>
+					<tr><td>0</td><td>1</td><td>1</td></tr>
+				</table>						
+			</li>			
+			<li><br/>
+				<img src="../../images/andusingnor.jpg" alt="AND using NOR gates" height="100" width="50%"/>
+			</li>
+		</ul>
+	</li>
+	<li><b>OR gate using NOR gate</b>
+		<ul>
+			<li>The output of a NOR gate when given as input to a second NOR gate gives an OR gate. This is because when both the inputs are same in case of the second NOR gate, it will become a NOT gate and the NOT of NOR gate is nothing but an OR gate.</li>
+			<li>
+				<table border="1">
+					<tr><th>Input A</th><th>Input B</th><th>NOR Output</th><th>Input C</th><th>NOR Output (OR)</th></tr>
+					<tr><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td></tr>
+					<tr><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td></tr>
+					<tr><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
+					<tr><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td></tr>
+					<tr><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+					<tr><td>1</td><td>1</td><td>0</td><td>1</td><td>0</td></tr>
+				</table>			
+			</li>
+			<li><br/>
+				<img src="../../images/orusingnor.jpg" alt="OR using NOR gates" height="100" width="50%"/>
+			</li>
+		</ul>	
+	</li>
+	<li><b>NOT gate using NOR gate</b>
+		<ul>
+			<li>If both the inputs are same in case of NOR gate, it will become a NOT gate.
+				<table border="1">
+					<tr><th>Input A</th><th>Input B (Same as input A)</th><th>NOR Output (NOT)</th></tr>
+					<tr><td>0</td><td>0</td><td>1</td></tr>
+					<tr><td>1</td><td>1</td><td>0</td></tr>
+				</table>
+			</li>
+			<li><br/>
+				<img src="../../images/notusingnor1.jpg" alt="NOT using NOR gates" height="100" width="50%"/>
+			</li>
+			<li>If one of the input is false(0) in case of NOR gate, it will become a NOT of the other input.
+				<table border="1">
+					<tr><th>Input A</th><th>Input 0</th> <th>NOR Output (NOT of A)</th> </tr>
+					<tr><td>0</td><td>0</td><td>1</td></tr>
+					<tr><td>1</td><td>0</td><td>0</td></tr>
+				</table>			
+			</li>
+			<li><br/>
+				<img src="../../images/notusingnor2.jpg" alt="NOT using NOR gates" height="100" width="50%"/>
+			</li>
+		</ul>		
+	</li>
 </ul>
+<h2>Equivalent Gates</h2>
+<table border="1">
+	<tr><th>Gate</th><th>Equivalent Gate</th></tr>
+	<tr><td>NAND</td><td>inverted-input OR</td></tr>
+	<tr><td>AND</td><td>inverted-input NOR</td></tr>
+	<tr><td>NOR</td><td>inverted-input AND</td></tr>
+	<tr><td>OR</td><td>inverted-input NAND</td></tr>
+</table>
 <h1>Examples</h1>
 <p><b></b></p>
 <pre>
