@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="keywords" content="computer programming">
+<meta name="author" content="Anshul Sood">
+<title>Digital Adder</title>
+</head>
+<body>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
+<h1>Digital Adder</h1>
+<h1>Features</h1>
+<ul>
+	<li>It is a digital device capable of adding two digital n-bit binary numbers.</li>
+	<li>It adds two binary numbers A and B to produce a sum S and a carry C.</li>
+	<li>It is of below types:
+		<ul>
+			<li><b>Half Adder:</b>
+				<ul>
+					<li>It is used to add two binary bits (0 and 1) and produce a sum S and a carry C.</li>
+					<li>
+						<table border="1">
+							<tr><th>Input A</th><th>Input B</th><th>Sum</th><th>Carry</th></tr>
+							<tr><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+							<tr><td>0</td><td>1</td><td>1</td><td>0</td></tr>
+							<tr><td>1</td><td>0</td><td>1</td><td>0</td></tr>
+							<tr><td>1</td><td>1</td><td>0</td><td>1</td></tr>
+						</table>
+					</li>
+					<li>It can be constructed from AND gate and XOR gate as shown below:<br/>
+						<img src="../../images/halfadder.jpg" alt="Half Adder" height="100" width="25%"/>
+					</li>
+					<li>XOR gate gives the sum bit.</li>
+					<li>AND gate gives the carry bit.</li>
+					<li>Sum is true(1) in case there are odd number of true(1) inputs.</li>
+					<li>Carry is true(1) in case there are even number of true(1) inputs.</li>
+				</ul>
+			</li>
+			<li><b>Full Adder:</b>
+				<ul>
+					<li>It is used to add three binary bits and produce a sum S and a carry C.</li>
+					<li>It has three inputs
+						<ul>
+							<li>The first two inputs are normal bits to add.</li>
+							<li>The third input is a carry input designated as CIN.</li>
+						</ul>
+					</li>
+					<li>
+						<table border="1">
+							<tr><th>Input A</th><th>Input B</th><th>Input C (CIN)</th><th>Sum</th><th>Carry</th></tr>
+							<tr><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+							<tr><td>0</td><td>0</td><td>1</td><td>1</td><td>0</td></tr>
+							<tr><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td></tr>
+							<tr><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td></tr>
+							<tr><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td></tr>
+							<tr><td>1</td><td>0</td><td>1</td><td>0</td><td>1</td></tr>
+							<tr><td>1</td><td>1</td><td>0</td><td>0</td><td>1</td></tr>
+							<tr><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+						</table>	
+					</li>
+					<li>Sum is true(1) in case there are odd number of true(1) inputs.</li>	
+					<li>Carry is true(1) in case there are even number of true(1) inputs.</li>	
+					<li>It can be constructed using two half adders and an OR gate as shown below:<br/>
+						<img src="../../images/fulladder.jpg" alt="Half Adder" height="100" width="25%"/>
+					</li>		
+				</ul>			
+			</li>
+		</ul>
+	</li>
+	<li>The sum bit on adding A and B is denoted as <b>A &#10753; B</b></li>
+	<li>The carry bit on adding A and B is denoted as <b>AB</b></li>
+</ul>
+<h1>Examples</h1>
+<p><b></b></p>
+<pre>
+</pre>
+<h1>Frequently Asked Questions</h1>
+<p><b></b></p>
+<p></p>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
+</body>
+</html>

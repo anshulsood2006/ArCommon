@@ -26,9 +26,9 @@
 								<tr><td rowspan="2"> output &nbsp;&nbsp;&nbsp;&nbsp;   = </td><td>0 if &Sigma; <sub>j</sub> w<sub>j</sub>x<sub>j</sub> &lt;= Threshold</td></tr>
 								<tr><td>1 if &Sigma; <sub>j</sub> w<sub>j</sub>x<sub>j</sub> &gt; Threshold</td></tr>
 								<tr><td colspan="2">where<br/>
-													x represents the input factor and is represented either as 0 or 1.<br/>
 													w represents the weightage for the input factor and can be any real number. The larger value of w indicates that the factor matters a lot.<br/>
-													j represents the number of input factor.<br/>
+													x represents the input factor and is represented either as 0 or 1.<br/>
+													j represents the number of input factors.<br/>
 													Threshold is the real number and is chosen appropriately as per requirement.</td>
 							</table>
 						</b><br/><br/>
@@ -41,7 +41,7 @@
 							<li>The second layer of perceptrons is making a decision by weighing up the results from the first layer.</li>
 						</ul>
 					</li>
-					<li>To simplify the above perceptron can also be written as:
+					<li>To simplify the above equation, a perceptron can also be written as:
 						<b>
 							<table>
 								<tr><td rowspan="2"> output &nbsp;&nbsp;&nbsp;&nbsp;   = </td><td>0 if w * x + b &lt;= 0</td></tr>
@@ -52,13 +52,55 @@
 							</table>
 						</b><br/><br/>
 					</li>
-					<li>For a perceptron with two inputs 0 and 0, each with weight -2, and an overall bias of 3: <br/>
-						(0 * -2) + (0 * -2) + 3 = 3 which will give value -1 for the perceptron.
+					<li>For a perceptron with two inputs A and B, each with weight -2 and an overall bias of 3 the output can be calculated as: <br/>
+						(0 * -2) + (0 * -2) + 3 = 3 > 0 so output is 1 <br/>
+						(0 * -2) + (1 * -2) + 3 = 1 > 0 so output is 1 <br/> 
+						(1 * -2) + (0 * -2) + 3 = 1 > 0 so output is 1 <br/>
+						(1 * -2) + (1 * -2) + 3 = -1 < 0 so output is 0 <br/>
+						The truth table for above perceptron with various inputs is<br/>
+						<table border="1">
+							<tr><th>Input A</th><th>Input B</th><th>Output</th></tr>
+							<tr><td>0</td><td>0</td><td>1</td></tr>
+							<tr><td>0</td><td>1</td><td>1</td></tr>
+							<tr><td>1</td><td>0</td><td>1</td></tr>
+							<tr><td>1</td><td>1</td><td>0</td></tr>
+						</table>
 					</li>
-					<li>The above equations gives that the perceptrons are equivalent to NAND gate. Since NAND is a universal gate, so we can infer that the perceptrons can be used to implement any boolean function.</li>
+					<li>The above truth table confirms that the perceptrons are equivalent to NAND gate. Since NAND is a universal gate, so we can infer that the perceptrons can be used to implement any boolean function.</li>
+					<li>The sum bit on adding A and B is denoted as <b>A &#10753; B</b></li>
+					<li>The carry bit on adding A and B is denoted as <b>AB</b></li>
+					<li>If in a network of perceptrons the output from one perceptron is used twice as input to some other perceptron, in that case the double line can simply be merged into a single line with a weight of 2 * w (weight) instead of two line with each having w (weight).
+						<ul>
+							<li><br/><img src="../../images/doubleline.jpg" alt="Double line perceptron" height="120" width="25%"/></li>
+							<li><br/><img src="../../images/singleline.jpg" alt="Single perceptron" height="120" width="25%"/></li>
+						</ul>
+					</li>
+					<li>A input variables like x1 and x2 can also be notated as a <b>special perceptron</b> with no inputs but the output here would actually be the desired values x1. The above formula  <b> <table>
+								<tr><td rowspan="2"> output &nbsp;&nbsp;&nbsp;&nbsp;   = </td><td>0 if &Sigma; <sub>j</sub> w<sub>j</sub>x<sub>j</sub> &lt;= Threshold</td></tr>
+								<tr><td>1 if &Sigma; <sub>j</sub> w<sub>j</sub>x<sub>j</sub> &gt; Threshold</td></tr></table> does not</b> apply to this perceptron.
+						<ul>
+							<li><br/>
+							<img src="../../images/noinput.jpg" alt="No input perceptron" height="30" width="10%"/>
+							</li>
+						</ul>
+					</li>
+
 				</ul>
 			</li>
-			<li><b>Sigmoid: </b></li>
+			<li><b>Sigmoid: </b>
+				<ul>
+					<li>Using the network of perceptrons like above, we can devise learning algorithms which can automatically tune the weights and biases. For example, the inputs to the network might be the raw pixel data from a scanned, handwritten image of a digit. And we'd like the network to learn weights and biases so that the output from the network correctly classifies the digit.</li>
+					<li>During learning:
+						<ul>
+							<li>The network will adjust the weights and biases so that the output of the network correctly identifies the digit.</li>
+							<li>A small change in the weight during learning should cause only a small corresponding change in the output from the network.</li>
+						</ul>
+						But this can not happens when our network contains perceptrons, because sometimes even a small change in the weights or bias of any single perceptron in the network can cause the output of that perceptron to completely flip, say from 0 to 1 or otherwise.
+					</li>
+					<li>The above problem is solved using an artificial <b>sigmoid neuron</b>.</li>	
+					<li>It takes several inputs, x1,x2,..., which can be any value between 0 and 1 (both inclusive) and produces <b></b>.</li>			
+				</ul>
+			</li>
 		</ul>
 	</li>
 	<li>The standard learning algorithm for neural networks is <b>stochastic gradient descent</b>.</li>
