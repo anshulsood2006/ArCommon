@@ -16,7 +16,7 @@
 	<li>An example is the problem of teaching a computer to recognize handwritten digits.</li>
 	<li>Two types of artificial neurons are
 		<ul>
-			<li><b>Perceptron: </b>
+			<li><b>Perceptron neuron:</b>
 				<ul>
 					<li>It was developed by Frank Rosenblatt.</li>
 					<li>It takes several binary inputs, x1,x2,..., and produces a single binary output.</li>
@@ -87,18 +87,33 @@
 
 				</ul>
 			</li>
-			<li><b>Sigmoid: </b>
+			<li><b>Sigmoid (Logistic) neuron: </b>
 				<ul>
 					<li>Using the network of perceptrons like above, we can devise learning algorithms which can automatically tune the weights and biases. For example, the inputs to the network might be the raw pixel data from a scanned, handwritten image of a digit. And we'd like the network to learn weights and biases so that the output from the network correctly classifies the digit.</li>
 					<li>During learning:
 						<ul>
 							<li>The network will adjust the weights and biases so that the output of the network correctly identifies the digit.</li>
-							<li>A small change in the weight during learning should cause only a small corresponding change in the output from the network.</li>
+							<li>A small change in the weight <b>(w + &Delta; w)</b> during learning should cause only a small corresponding change in the output <b>output + &Delta; output</b> of the network .</li>
 						</ul>
 						But this can not happens when our network contains perceptrons, because sometimes even a small change in the weights or bias of any single perceptron in the network can cause the output of that perceptron to completely flip, say from 0 to 1 or otherwise.
 					</li>
-					<li>The above problem is solved using an artificial <b>sigmoid neuron</b>.</li>	
-					<li>It takes several inputs, x1,x2,..., which can be any value between 0 and 1 (both inclusive) and produces <b></b>.</li>			
+					<li>The above problem is solved using an artificial <b>sigmoid/logistic neuron</b>.</li>	
+					<li>It takes several inputs x1,x2,... which can be any value between 0 and 1 (both inclusive) and produces <b> output = &sigma; (w * x + b)</b> where &sigma; is called <b>sigmoid/logistic function</b> and is defined as <br/>
+						<b>&sigma;(z) = 1 / (1 + e <sup>-z</sup>) </b>
+					</li>
+					<li>So the output of sigmoid function viz. <b> output = &sigma; (w * x + b)</b> can be written as <b>output &sigma; (z) = 1 / (1 + e <sup>-z</sup>)</b> and subsequently as 
+						<b>output &sigma; (w * x + b) = 1 / (1 + e <sup>-(&Sigma;<sub>j</sub> w<sub>j</sub> x<sub>j</sub> - b)</sup>)</b>
+						<ul>
+							<li>If <b>z = (w * x + b)  is very negative</b> then <b>e <sup>-z</sup> ~ &infin;</b> and hence <b>output &sigma; (z) ~ 0</b>.</li>
+							<li>If <b>z = (w * x + b)  is very positive</b> then <b>e <sup>-z</sup> ~ 0</b> and hence <b>output &sigma; (z) ~ 1</b></li>
+							<li>So for very positive and very negative values of z, sigmoid behaves just like a perceptron.</li>
+							<li>For modest values of z, sigmoid behaves differently from a perceptron.</li>
+							<li>As per basic calculas <br/>
+								<b>&Delta; w = &Sigma; <sub>j</sub> (&delta;output/&delta;w<sub>j</sub>) &Delta;w<sub>j</sub> + (&delta;output/&delta;b) &Delta;b</b><br/>
+								where <b>(&delta;output/&delta;w<sub>j</sub>)</b> and <b>(&delta;output/&delta;b)</b> denote partial derivatives of the output with respect to w<sub>j</sub> and b, respectively
+							</li>
+						</ul>
+					</li>			
 				</ul>
 			</li>
 		</ul>
