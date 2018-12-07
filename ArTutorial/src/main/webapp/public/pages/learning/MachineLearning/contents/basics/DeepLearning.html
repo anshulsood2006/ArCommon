@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<meta name="keywords" content="computer programming,Deep Learning, Neural Network">
+<meta name="keywords" content="computer programming,Deep Learning, Neural Network, Sigmoid, Perceptron">
 <meta name="author" content="Anshul Sood">
 <title>Deep Learning Basics</title>
 </head>
@@ -119,6 +119,31 @@
 		</ul>
 	</li>
 	<li>The standard learning algorithm for neural networks is <b>stochastic gradient descent</b>.</li>
+	<li>The left most layer in a neural network is called <b>input layer</b></li>
+	<li>The right most layer in a neural network is called <b>output layer</b></li>
+	<li>The group of inner layers in a neural network is called <b>hidden layer</b></li>
+	<li>All the layers together are called <b>multilayer perceptrons (MLPs)</b> (even if they are made of sigmoid neurons).</li>
+	<li><b>Feed forward neural networks:</b>
+		<ul>
+			<li>The neural networks where the output from one layer is used as input to the next layer.</li>
+			<li>There are no loops in the network.</li>
+			<li>The information is always fed forward, never fed back.</li>
+		</ul>
+	</li>
+	<li><b>Recurrent neural networks:</b>
+		<ul>
+			<li>There are loops in the network.</li>
+			<li>There are some neurons in the network which fires (that means output &asymp; 1) for some limited duration of time, before becoming quiescent. That firing can stimulate other neurons, which may fire a little while later, also for a limited duration. That causes still more neurons to fire, and so over time we get a cascade of neurons firing.</li>
+			<li>They are much closer in spirit to how our brains work than feedforward networks</li>
+		</ul>
+	</li>
+	<li>The learning algorithms for recurrent networks are less powerful as compared to the algorithms for feed forward network.</li>
+	<li><b>Activation Function</b>
+		<ul>
+			<li>It is the output of a node/neuron given an input or set of inputs. </li>
+			<li><b>Activation fires</b> means <b>output of the node/neuron &asymp; 1</b></li>
+		</ul>
+	</li>
 </ul>
 <h1>Examples</h1>
 <p><b></b></p>
