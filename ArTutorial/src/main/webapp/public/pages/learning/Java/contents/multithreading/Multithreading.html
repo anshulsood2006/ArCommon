@@ -5,7 +5,7 @@
 <title>Multithreading in Java</title>
 </head>
 <body>
-<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>
 <h1>Multithreading</h1>
 <h1>Features</h1>
 <p><b>Types of thread: </b> </p>
@@ -56,6 +56,9 @@ Some other synchronization techniques in JAVA are:
 			<li><a href="ReentrantReadWriteLock.html">Re-entrant Read Write Lock</a></li>
 		</ol>
 	</li>
+	<li>
+		<a href="ThreadLocal.html">Thread Local</a>: These variables provide thread safety by providing explicit copy of objects to each thread. Since the objects are different for each thread there is no need to synchronize these objects.
+	</li>
 </ul>
 <p><b>Fairness:</b> It is a boolean property given during creation of a lock object. If this is set as true this will make sure that the longest waiting thread is given the highest priority</p>
 <p><b>ThreadGroup:</b> Grouping multiple threads into a single object so that a single method call cab be used to suspend, resume or interrupt all the threads</p>
@@ -63,7 +66,7 @@ Some other synchronization techniques in JAVA are:
 <p><b>Lock Re-entrance:</b>If a thread already holds the lock on a monitor object, it has access to all blocks synchronized on the same monitor object. This is called re-entrance. The thread can reenter any block of code for which it already holds the lock.</p>
 
 <h2><b><a href="ThreadDump.html">Thread Dumps</a></b></h2> They are used to analyze the threads inside JVM
-<h2><b><a href="ThreadLocal.html">Thread Local</a></b></h2> 
+
 <h1>Examples</h1>
 <p><b>Creating Thread using Thread class</b></p>
 <pre>
@@ -315,6 +318,6 @@ public class MyThreadGroup{
 <p></p>
 <p><b></b></p>
 <p></p>
-<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>
 </body>
 </html>

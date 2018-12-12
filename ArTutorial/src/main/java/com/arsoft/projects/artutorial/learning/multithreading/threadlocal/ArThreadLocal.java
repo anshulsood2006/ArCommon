@@ -1,12 +1,20 @@
 package com.arsoft.projects.artutorial.learning.multithreading.threadlocal;
 
+import java.text.SimpleDateFormat;
+
 public class ArThreadLocal {
     
     int var1 = 23;
     
     static int var2 = 34;
     
-    ThreadLocal<Integer> var3 ;
+    ThreadLocal<SimpleDateFormat> var3 = new ThreadLocal<SimpleDateFormat>() {
+    	@Override
+        protected SimpleDateFormat initialValue()
+        {
+            return new SimpleDateFormat("yyyyMMdd HHmm");
+        }
+    };
     
     private class MyThread implements Runnable{
         String name;
@@ -20,8 +28,6 @@ public class ArThreadLocal {
         @Override
         public void run()
         {
-            var3 = new ThreadLocal<>();
-            var3.set(265);
             System.out.println(this.name + " this.var1: "+this.var1);   
             System.out.println(this.name + " var1: "+var1);  
             System.out.println(this.name + " var2: "+var2);
