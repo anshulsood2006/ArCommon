@@ -148,16 +148,25 @@
 <h2>Neural network to recognize handwritten digits</h2>
 <h3>Design of the network</h3>
 Our network will consist of three layers:
-<ol>
-	<li><b>Input layer </b>consisting of the neurons which encode the values of input pixels from the image. If the size of image is 28 * 28 pixels then the number of input neurons will be 28 * 28 = 784. These neurons will have a value ranging between 0 for white and 1 for black. The intermediate values represent darkening shades of grey.</li>
+<ul>
+	<li><b>Input layer </b>is consisting of the neurons which encode the values of input pixels from the image. If the size of image is 28 * 28 pixels then the number of input neurons will be 28 * 28 = 784. These neurons will have a value ranging between 0 for white and 1 for black. The intermediate values represent darkening shades of grey.</li>
 	<li><b>Hidden layer </b>
 		<ul>
 			<li>This layer is consisting of n number of neurons where n is chosen experimentally. </li>
-			<li>The neurons of this layer weights the inputs from input layer</li>
+			<li>The neurons of this layer weights the inputs from input layer.</li>
+			<li>Large value of weight (w) is given to the input neurons which overlap with the image.</li>
+			<li>The other input neurons are given small weightage.</li>
 		</ul>
 	</li>
-	<li><b>Output layer </b>consisting of 10 neurons. The neuron which fires (i.e. gives an output of 1) will indicate the digit in the inputs image. e.g. if the output of 1st neuron is 1 then the digit recognized will be 0 and similarly if the output of 6th neuron is 1 then the digit recognized will be 7 </li>
-</ol>
+	<li><b>Output layer </b>is consisting of 10 neurons. The neuron which fires (i.e. gives an output of 1) will indicate the digit in the inputs image. e.g. if the output of 1st neuron is 1 then the digit recognized will be 0 and similarly if the output of 6th neuron is 1 then the digit recognized will be 7 </li>
+	<li><br/>
+		<img src="../../images/design.jpg" alt="Design" height="400" width="40%"/>
+	</li>
+</ul>
+<h3>Implementation of the network</h3>
+<ul>
+	<li>We need to have training data to train our neural network.</li>
+</ul>
 <h1>Examples</h1>
 <p><b></b></p>
 <pre>
