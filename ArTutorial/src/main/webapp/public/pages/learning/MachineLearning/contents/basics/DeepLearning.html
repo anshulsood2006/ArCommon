@@ -166,6 +166,27 @@ Our network will consist of three layers:
 <h3>Implementation of the network</h3>
 <ul>
 	<li>We need to have training data to train our neural network.</li>
+	<li>Then we need to have test data different from the above data to test the network. This data is totally different from the training data and thus it will give us more confidence that the the system designed is able to recognize any digit irrespective of whether that has been used during training it or not.</li>
+	<li>Each training input is denoted as x and will be a 28 * 28 dimensional vector.</li>
+	<li>Each entry in the vector represents grey value weight for the pixel</li>
+	<li>The output of training data x is denoted as y = y(x) where y is a 10 dimensional vector.</li>
+	<li>If training data x gives a output 6, this can be represented as y(x) = (0,0,0,0,0,0,1,0,0,0)<sup>T</sup> where T is the transpose operation, turning a row vector into an ordinary (column) vector</li>
+	<li>We need to define a cost function as:<br/>
+	<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;C(w,b) = 1/2n &Sigma; ||y(x) - a||<sup>2</sup></b> where <br/>
+		<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;w is the collection of all weights in the network.<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;b is all the biases in the network.<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;n is the total number of training inputs.<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a is the vector of output from network<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x is the training input.<br/>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;||v||denotes the usual length function for a vector v<br/></b></li>
+	<li>C(w,b) is also called quadratic cost function or mean squared error (MSE)</li>
+	<li>The value of a depends on the values of w, b and x.</li>
+	<li>C(w,b) is always non negative</li>
+	<li>C(w,b) &asymp; 0 when y(x) is approximately equal to the output a for an input x</li>
+	<li>The training algorithm will be accurate if the cost function C(w,b) &asymp; 0</li>
+	<li>That means aim of the training algorithm is to minimize the cost C(w,b) as a function of the weights and biases.</li>
+	<li>The algorithm to do so is called <b>gradient descent</b> which minimizes a function of many variables.</li>
+		
 </ul>
 <h1>Examples</h1>
 <p><b></b></p>
