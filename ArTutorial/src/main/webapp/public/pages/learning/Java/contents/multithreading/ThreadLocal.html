@@ -8,22 +8,111 @@
 <h2><a href="Multithreading.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>
 <h1>Thread Local</h1>
 <ul>
-	https://javarevisited.blogspot.com/2012/05/how-to-use-threadlocal-in-java-benefits.html
 	<li>It is a variable in Java that can be read/written by same thread only. No two threads can see each other's thread local variables.</li>
+	<li>It has thread scope.</li>
 	<li>It is created using ThreadLocal class.</li>
+	<li>It is declared as private static.</li>
 	<li>Methods are
 		<ul>
 			<li><b>public void set(T value)</b></li>
 			<li><b>public Object get()</b></li>
 		</ul>
 	</li>
-	<li>These variables provide thread safety by providing explicit copy of objects to each thread. Since the objects are different for each thread there is no need to synchronize these objects.</li>
+	<li>It provides thread safety by providing explicit copy of objects to each thread. Since the objects are different for each thread there is no need to synchronize these objects.</li>
+	<li>It is global since it can be accessed by the thread from anywhere in the class using {threadLocal}.get().</li>
+	<li>It is local since it can be accessible inside individual thread.</li>
+	<li>To initialize a thread local variable to some value which is visible to all the threads we can use initialValue() method as below
+	<pre><b>
+	ThreadLocal&lt;Employee&gt; var1 = new ThreadLocal&lt;Employee&gt;() {
+	    	@Override
+	        protected Employee initialValue()
+	        {
+	            return new Employee("Anshul", 31);
+	        }
+    	};</b>
+	</pre>
+	</li>
 </ul>
 <h1>Examples</h1>
-<p><b></b></p>
+<p><b>Prove that ThreadLocal variable is different for different threads</b></p>
+<p>
+<pre>
+public class ArThreadLocal {
+    
+    ThreadLocal&lt;Employee&gt; var1 = new ThreadLocal&lt;Employee&gt;() {
+    	@Override
+        protected Employee initialValue()
+        {
+            return new Employee("Anshul", 31);
+        }
+    };
+    Employee var2 = new Employee("Akhil", 29);
+    
+    private class MyThread implements Runnable{
+        String name;
+        MyThread(String name){ 
+             this.name = name;
+        }
+        @Override
+        public void run()
+        {
+            System.out.println(this.name + ": Local Varible: "+var2);
+            System.out.println(this.name + ": Thread Local Variable: "+var1.get());
+        }
+    }
+    
+    private class Employee{
+        String name;
+        int id;
+        public Employee(String name, int id){
+            this.name = name;
+            this.id = id;
+        }
+    }
+    
+    public static void main(String[] args)
+    {
+        ArThreadLocal test = new ArThreadLocal();
+        Thread t1 = new Thread(test.new MyThread("T1"));
+        Thread t2 = new Thread(test.new MyThread("T2"));
+        Thread t3 = new Thread(test.new MyThread("T3"));
+        try
+        {
+            t1.start();
+            t1.join();
+            t2.start();
+            t2.join();
+            t3.join();
+            t3.start();
+        }
+        catch (InterruptedException e)
+        {
+            e.printStackTrace();
+        }
+    } 
+}
+
+Output of the program is:
+
+T1: Local Variable: <b> <font color="blue">com.arsoft.projects.artutorial.learning.multithreading.threadlocal.ArThreadLocal$Employee@707f5cdf</font></b>
+T1: Thread Local Variable: com.arsoft.projects.artutorial.learning.multithreading.threadlocal.ArThreadLocal$Employee@7eb8aca0
+T2: Local Variable: <b> <font color="blue">com.arsoft.projects.artutorial.learning.multithreading.threadlocal.ArThreadLocal$Employee@707f5cdf</font></b>
+T2: Thread Local Variable: com.arsoft.projects.artutorial.learning.multithreading.threadlocal.ArThreadLocal$Employee@36e0f4fd
+T3: Local Variable: <b> <font color="blue">com.arsoft.projects.artutorial.learning.multithreading.threadlocal.ArThreadLocal$Employee@707f5cdf</font></b>
+T3: Thread Local Variable: com.arsoft.projects.artutorial.learning.multithreading.threadlocal.ArThreadLocal$Employee@69af7d60
+
+<b>The local variables in all the three thread are the same objects (in <font color="blue">blue</font> font) where as the thread local variables are different for each thread.</b>
+
+</pre>
+</p>
 <h1>Frequently Asked Questions</h1>
-<p><b></b></p>
-<p></p>
+<p><b>Give a use case where thread local can be used</b></p>
+<p>Suppose there is a Servlet which calls business methods. This servlet is called by multiple users and all the business methods need to have transaction id for logging purpose. This can be done in two ways.
+<ul>
+	<li>We can pass the transaction id to each business method. This solution is redundant.</li>
+	<li>We can set the transaction id in a thread local variable. All the business methods have access to this variable using {threadLocal}.get()</li>
+</ul>
+</p>
 <p><b></b></p>
 <p></p>
 <h2><a href="Multithreading.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>
