@@ -186,7 +186,16 @@ Our network will consist of three layers:
 	<li>The training algorithm will be accurate if the cost function C(w,b) &asymp; 0</li>
 	<li>That means aim of the training algorithm is to minimize the cost C(w,b) as a function of the weights and biases.</li>
 	<li>The algorithm to do so is called <b>gradient descent</b> which minimizes a function of many variables.</li>
-		
+	<li>In real time, a neural network will have cost functions depending on billions of weights and biases which can not minimized using calculas.</li>
+	<li>We can have an example of a ball where we need to roll it down to the bottom of the valley
+		<ul>
+			<li>
+				For a ball to move to a minimum point on the valley, we move the ball a small amount &Delta;v<sub>1</sub> in the v<sub>1</sub> direction, and a small amount &Delta;v<sub>2</sub> in the v<sub>2</sub> direction. Calculus tells us that cost function C changes as follows:<br/>
+				<b>&Delta;C &asymp;  (&delta;C/&delta;v<sub>1</sub>) &Delta;v<sub>1</sub> + (&delta;C/&delta;v<sub>2</sub>)&Delta;v<sub>2</sub></b>
+			</li>
+			<li>Since we need to roll down the ball to the bottom of valley, so we need to choose &Delta;v<sub>1</sub> and &Delta;v<sub>2</sub> in such a way that it makes &Delta;C negative</li>
+		</ul>
+	</li>	
 </ul>
 <h1>Examples</h1>
 <p><b></b></p>
