@@ -193,7 +193,12 @@ Our network will consist of three layers:
 				For a ball to move to a minimum point on the valley, we move the ball a small amount &Delta;v<sub>1</sub> in the v<sub>1</sub> direction, and a small amount &Delta;v<sub>2</sub> in the v<sub>2</sub> direction. Calculus tells us that cost function C changes as follows:<br/>
 				<b>&Delta;C &asymp;  (&delta;C/&delta;v<sub>1</sub>) &Delta;v<sub>1</sub> + (&delta;C/&delta;v<sub>2</sub>)&Delta;v<sub>2</sub></b>
 			</li>
-			<li>Since we need to roll down the ball to the bottom of valley, so we need to choose &Delta;v<sub>1</sub> and &Delta;v<sub>2</sub> in such a way that it makes &Delta;C negative</li>
+			<li>Since we need to roll down the ball to the bottom of valley, so we need to choose &Delta;v<sub>1</sub> and &Delta;v<sub>2</sub> in such a way that it makes &Delta;C negative
+				<ul> Two equations we need here are
+					<li>Vector of Change of i.e. <b>&Delta;v &equiv; (&Delta;v<sub>1</sub>, &Delta;v<sub>2</sub>)<sup>T</sup></b></li>
+					<li>Gradient Vector of Cost Function i.e. <b>&nabla; C &equiv;<b></b></li>
+				</ul>
+			</li>
 		</ul>
 	</li>	
 </ul>
