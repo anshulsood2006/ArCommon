@@ -32,6 +32,25 @@ public class ArScripUtil implements Callable<String>{
 		this.myAsset = myAsset;
 	}
 	
+	public static String getScripDataNew(String scrip, ArBourse arBourse){
+        String url = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol="+arBourse+":"+scrip+"&interval=5min&apikey=9XMKP2BNAJFDZEKF";
+        String output = null;
+        try {
+            output = ArWebServiceUtil.excecute(url, null, null);
+        } catch (ArException e) {
+            output = "0";
+        }
+        int index = -1;
+        for (int i = output.length()-1; i > 0 ; i--){
+            if (String.valueOf(output.charAt(i)).equals("\n")){
+                index = i;
+                break;
+            }
+        }
+        String value = output.substring(index + 1, output.length());
+        return value;
+    }
+	
 	public static String getScripData(String scrip, ArBourse arBourse){
 		String url = "https://finance.google.com/finance/getprices?q="+scrip+"&x="+arBourse+"&p=1&i=1&f=c";
 		String output = null;
