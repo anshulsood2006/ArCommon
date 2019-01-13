@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <project
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
-	xmlns="http://maven.apache.org/POM/4.0.0" 
+	xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
@@ -9,12 +9,12 @@
 		<artifactId>arparent</artifactId>
 		<version>1.0</version>
 	</parent>
-	<artifactId>arbid</artifactId>
+	<artifactId>ardictionary</artifactId>
 	<packaging>war</packaging>
-	<name>ArBid Web-app</name>
+	<name>ArDictionary Web-app</name>
 	<url>http://maven.apache.org</url>
 	<build>
-		<finalName>arbid</finalName>
+		<finalName>ardictionary</finalName>
 	</build>
 	<!-- All the dependencies are declared inside dependencies tag -->
 	<dependencies>

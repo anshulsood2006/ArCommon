@@ -17,6 +17,9 @@
         <dependent-module archiveName="artutorial.war" deploy-path="/" handle="module:/resource/artutorial/artutorial">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="ardictionary.war" deploy-path="/" handle="module:/resource/ardictionary/ardictionary">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <dependent-module archiveName="json-20171018.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/json/json/20171018/json-20171018.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
@@ -143,13 +146,13 @@
         <dependent-module archiveName="spring-context-5.0.3.RELEASE.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/springframework/spring-context/5.0.3.RELEASE/spring-context-5.0.3.RELEASE.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="jackson-databind-2.9.3.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/com/fasterxml/jackson/core/jackson-databind/2.9.3/jackson-databind-2.9.3.jar">
+        <dependent-module archiveName="jackson-databind-2.9.4.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/com/fasterxml/jackson/core/jackson-databind/2.9.4/jackson-databind-2.9.4.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="jackson-annotations-2.9.0.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/com/fasterxml/jackson/core/jackson-annotations/2.9.0/jackson-annotations-2.9.0.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="jackson-core-2.9.3.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/com/fasterxml/jackson/core/jackson-core/2.9.3/jackson-core-2.9.3.jar">
+        <dependent-module archiveName="jackson-core-2.9.4.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/com/fasterxml/jackson/core/jackson-core/2.9.4/jackson-core-2.9.4.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="spring-jdbc-5.0.3.RELEASE.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/springframework/spring-jdbc/5.0.3.RELEASE/spring-jdbc-5.0.3.RELEASE.jar">
@@ -248,7 +251,10 @@
         <dependent-module archiveName="activation-1.1.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/javax/activation/activation/1.1/activation-1.1.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="mysql-connector-java-6.0.6.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/mysql/mysql-connector-java/6.0.6/mysql-connector-java-6.0.6.jar">
+        <dependent-module archiveName="mysql-connector-java-8.0.13.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/mysql/mysql-connector-java/8.0.13/mysql-connector-java-8.0.13.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="protobuf-java-3.6.1.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/com/google/protobuf/protobuf-java/3.6.1/protobuf-java-3.6.1.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="hibernate-core-5.2.13.Final.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/hibernate/hibernate-core/5.2.13.Final/hibernate-core-5.2.13.Final.jar">

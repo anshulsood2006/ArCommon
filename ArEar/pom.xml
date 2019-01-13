@@ -45,6 +45,12 @@
 			<version>${project.version}</version>
 			<type>war</type>
 		</dependency>
+		<dependency>
+			<groupId>com.arsoft.projects</groupId>
+			<artifactId>ardictionary</artifactId>
+			<version>${project.version}</version>
+			<type>war</type>
+		</dependency>
 	</dependencies>
 	<packaging>ear</packaging>
 	<build>
@@ -82,6 +88,11 @@
 							<groupId>com.arsoft.projects</groupId>
 							<artifactId>artutorial</artifactId>
 							<bundleFileName>artutorial.war</bundleFileName>
+						</webModule>
+						<webModule>
+							<groupId>com.arsoft.projects</groupId>
+							<artifactId>ardictionary</artifactId>
+							<bundleFileName>ardictionary.war</bundleFileName>
 						</webModule>
 					</modules>
 				</configuration>
