@@ -14,6 +14,7 @@ import com.arsoft.projects.arenterprise.ardictionary.contract.IArDictionary;
 
 @RunWith(MockitoJUnitRunner.class)
 public class ArDictionaryTest {
+	
 	@Mock
 	IArDictionary arDictionary;
 	
@@ -25,7 +26,7 @@ public class ArDictionaryTest {
 	
 	@Test
 	public void findTest(){
-		Map<String, List<String>> wordPresent = arDictionary.find("Anshul");
+		Map<String, List<String>> wordPresent = arDictionary.search("Anshul");
 	}
 }
 

@@ -1,4 +1,4 @@
-package com.arsoft.projects.common.logging;
+package com.arsoft.projects.arshared.logging;
 
 public class ArLoggingUtil {
 	

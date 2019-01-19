@@ -1,0 +1,383 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="keywords" content="Http, Http Methods, HTTP Headers">
+<meta name="author" content="Anshul Sood">
+<title>HTTP</title>
+</head>
+<body>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>
+<h1>HTTP</h1>
+<h2>HTTP Request</h2>
+<ul>
+	<li>It consists of below four parts
+		<ul>
+			<li><b>Request Line</b>  e.g. <b>GET /news.asp HTTP/1.1</b> It consists of three parts
+				<ul>
+					<li>HTTP method type</li>
+					<li>URI for the requested resource</li>
+					<li>Protocol version</li>
+				</ul>
+			</li>
+			<li><b>Message Headers</b> These are colon separated name-value pairs in clear-text string format and provide information about the request objects being sent in the message body</li>
+			<li><b>Empty Line</b></li>
+			<li><b>Message Body</b> It is used to carry the data associated with the request, including some request-related parameters. </li>
+			<li>Example
+			<pre>
+POST /news.asp HTTP/1.1
+Host: demo.com:80
+Content-Length: 15
+
+[a=1,(b=2,c=3)]
+			</pre>
+			</li>
+		</ul>
+	</li>
+</ul>
+<h2>HTTP Response</h2>
+<ul>
+	<li>It consists of below four parts
+		<ul>
+			<li><b>Status</b> It gives the http status code for the response message</li>
+			<li><b>Message Headers</b> These are colon separated name-value pairs in clear-text string format and provide information about the response objects being sent in the message body</li>
+			<li><b>Empty Line</b></li>
+			<li><b>Message Body</b> It is used to carry the data associated with the response.</li>
+		</ul>
+	</li>
+</ul>
+<h2>HTTP Methods</h2>
+<ul>
+	<li>HTTP request supports the below methods in the request line
+		<ul>
+			<li><b>GET</b> is used to retrieve information from the server.</li>
+			<li><b>HEAD</b>is used to transfer the status line and header section only.</li>
+			<li><b>POST</b> is used to send data to the server.</li>
+			<li><b>PUT</b> is used to update the target resource with the uploaded content. It is idempotent.</li>
+			<li><b>DELETE</b> is used to delete the target resource.</li>
+			<li><b>CONNECT</b> is used to establish a tunnel to the server.</li>
+			<li><b>OPTIONS</b> is used to describes the communication options for the target resource.</li>
+			<li><b>TRACE</b> is used to performs a message loop-back test along the path to the target resource</li>
+		</ul>
+	</li>
+	<li>All the above methods are <b>case sensitive</b>.</li>
+</ul>
+<h2>HTTP Headers</h2>
+<table border="1">
+	<tr><th>Header</th><th>Description</th></tr>
+	<tr><td colspan="2" align="center"><b>General-headers</b>: These are available for both request and response</td></tr>
+	<tr><td><b>cache-control</b></td>
+		<td>It is used to specify parameters for the caching of documents from the cache. Values can be 
+			<ul>
+				<li><b>Request</b>
+					<ul>
+						<li>no-cache</li>
+						<li>no-store</li>
+						<li>max-age = seconds</li>
+						<li>max-stale [ = seconds ]</li>
+						<li>min-fresh = seconds</li>
+						<li>no-transform</li>
+						<li>only-if-cached</li>
+					</ul>
+				</li>
+				<li><b>Response</b>
+					<ul>
+						<li>public</li>
+						<li>private</li>
+						<li>no-cache</li>
+						<li>no-store</li>
+						<li>no-transform</li>
+						<li>must-revalidate</li>
+						<li>proxy-revalidate</li>
+						<li>max-age = seconds</li>
+						<li>s-maxage = seconds</li>
+					</ul>				
+				</li>
+			</ul>
+		</td>
+	</tr>
+	<tr><td><b>pragma</b></td>
+		<td>It is for backwards compatibility with HTTP/1.0 clients where the Cache-Control HTTP/1.1 header is not yet present. Example values are
+			<ul>
+				<li>no-cache</li>
+			</ul>		
+		</td>
+	</tr>
+	<tr><td><b>connection</b></td>
+		<td>It is used to specify options that are desired for that particular connection. Example values are
+			<ul>
+				<li>connection</li>
+				<li>close</li>
+				<li>keep-alive</li>
+			</ul>
+		</td>
+	</tr>
+	<tr><td><b>date</b></td>
+		<td>This is in GMT. Example values are
+			<ul>
+				<li>Sun, 06 Nov 1994 08:49:37 GMT</li>
+				<li>Sunday, 06-Nov-94 08:49:37 GMT</li>
+				<li>Sun Nov 6 08:49:37 1994</li>
+			</ul>
+		</td>
+	</tr>
+	<tr><td colspan="2" align="center"><b>Request specific</b>: These are applicable for requests only</td></tr>
+	<tr><td><b>accept</b></td>
+		<td>It is used to specify the media types which are acceptable. When a q value is given, the media type without q value are highest preferable followed by media type with higher q value (range is between 0 and 1). Example values are
+			<ul>
+				<li>text/plain; q=0.5, text/html, text/x-dvi; q=0.8, text/x-c</li>
+				<li>*</li>
+			</ul>
+		</td>
+	</tr>
+	<tr><td><b>accept-charset</b></td>
+		<td>It is used to specify the character set which are acceptable. When a q value is given, the character set without q value are highest preferable followed by character set with higher q value (range is between 0 and 1). Example values are
+			<ul>
+				<li>iso-8859-5, unicode-1-1; q=0.8</li>
+				<li>*</li>
+			</ul>
+		</td>
+	</tr>
+	<tr><td><b>accept-encoding</b></td>
+		<td>It is used to specify the content-codings which are acceptable. When a q value is given, the content-codings without q value are highest preferable followed by content-codings with higher q value (range is between 0 and 1). Example values are
+			<ul>
+				<li>compress;q=0.5, gzip;q=1.0</li>
+				<li>*</li>
+			</ul>
+		</td>
+	</tr>
+	<tr><td><b>accept-language</b></td>
+		<td>It is used to specify the natural language which are acceptable. When a q value is given, the natural language without q value are highest preferable followed by natural language with higher q value (range is between 0 and 1). Example values are
+			<ul>
+				<li>da, en-gb;q=0.8, en;q=0.7</li>
+				<li>*</li>
+			</ul>
+		</td>
+	</tr>
+	<tr><td><b>authorization</b></td>
+		<td>It consists of authorization parameter is the string of username:password encoded in base 64. Example values are
+			<ul>
+				<li>Z3Vlc3Q6Z3Vlc3QxMjM</li>
+			</ul>		
+		</td>
+	</tr>
+	<tr><td><b>cookie</b></td>
+		<td>It contains a name/value pair of information stored for that URL. Example values are
+			<ul>
+				<li>name1=value1;name2=value2;name3=value3</li>
+			</ul>
+		</td>
+	</tr>
+	<tr><td><b>expect</b></td>
+		<td>It is used to indicate that a particular set of server behaviors is required by the client else it will return 417 response code. Example values are 
+			<ul>
+				<li>expectation-extension</li>
+				<li>100-continue</li>
+			</ul>
+		</td>
+	</tr>
+	<tr><td><b>from</b></td>
+		<td>It is used to indicate the e-mail address for the human user who controls the requesting user agent. Example values are
+			<ul>
+				<li>anshulsood2006@gmail.com</li>
+			</ul>
+		</td>
+	</tr>	
+	<tr><td><b>host</b></td>
+		<td>It is used to specify the Internet host and the port number of the resource being requested. Example values are
+			<ul>
+				<li>10.12.13.25:7654</li>
+				<li>www.myfriendwa.com</li>
+			</ul>
+		</td>
+	</tr>
+	<tr><td><b>if-match</b></td>
+		<td>It is used to perform a precondition match. This header requests the server to perform the requested method only if the given value in this tag matches the given entity tags represented by ETag else it will return 412 response code. Example values are
+			<ul>
+				<li>"xyzzy"</li>
+				<li>*</li>
+			</ul>
+		</td>
+	</tr>
+	<tr><td><b>if-none-match</b></td>
+		<td>It is used to perform a precondition match. This header requests the server to perform the requested method only if the none of the given value in this tag matches the given entity tags represented by ETag. Example values are
+			<ul>
+				<li>"xyzzy"</li>
+				<li>*</li>
+			</ul>
+		</td>
+	</tr>
+	<tr><td><b>if-modified-since</b></td>
+		<td>It is used to return the requested resource only if there is any modification since the specified date else it will return 304 response code. Example values are
+			<ul>
+				<li>Sat, 29 Oct 1994 19:43:31 GMT</li>
+			</ul>
+		</td>
+	</tr>
+	<tr><td><b>if-unmodified-since</b></td>
+		<td>It is used to return the requested resource only if there is no modification since the specified date. Example values are
+			<ul>
+				<li>Sat, 29 Oct 1994 19:43:31 GMT</li>
+			</ul>
+		</td>
+	</tr>
+	<tr><td><b>range</b></td>
+		<td>It is used to specify the range of content requested from the document.Example values are
+			<ul>
+				<li>bytes=0-499 (First 500 bytes)</li>
+				<li>bytes=-500 (Last 500 bytes)</li>
+				<li>bytes=0-0,-1 (First and last byte only)</li>
+			</ul>
+		</td>
+	</tr>
+	<tr><td><b>referer</b></td>
+		<td>It is used to specify the address (URI) of the resource from which the URL has been requested. Example values are
+			<ul>
+				<li>http://www.myfriendwa.com/student.htm</li>
+			</ul>
+		</td>
+	</tr>
+	<tr><td><b>user-agent</b></td>
+		<td>It is used to specify the information about the user agent originating the request. Example values are
+			<ul>
+				<li>Mozilla/4.0 (compatible; MSIE5.01; Windows NT)</li>
+			</ul>
+		</td>
+	</tr>
+	<tr><td colspan="2" align="center"><b>Response specific</b>: These are applicable for response only</td></tr>
+	<tr><td><b>accept-ranges</b></td>
+		<td>It is used to indicate the acceptance of range requests for a resource of a server. Example values are
+			<ul>
+				<li>bytes</li>
+				<li>none</li>
+			</ul>
+		</td>
+	</tr>
+	<tr><td><b>age</b></td>
+		<td>It gives the amount of time since the response was generated at the server. Example values are
+			<ul>
+				<li>1030</li>
+			</ul>
+		</td>
+	</tr>
+	<tr><td><b>etag</b></td>
+		<td>It gives the current value of entity tag for the requested resource. Example values are
+			<ul>
+				<li>W/"xyzzy"</li>
+			</ul>
+		</td>
+	</tr>
+	<tr><td><b>location</b></td>
+		<td>It is used to redirect the recipient to a location other than the Request-URI for completion. Example values are
+			<ul>
+				<li>http://www.myfriendwa.com/index.htm</li>
+			</ul>
+		</td>
+	</tr>
+	<tr><td><b>retry-after</b></td>
+		<td>It is used to indicate how long the service is expected to be unavailable to the requesting client. Example values are
+			<ul>
+				<li>Fri, 31 Dec 1999 23:59:59 GMT</li>
+				<li>120</li>
+			</ul>
+		</td>
+	</tr>
+	<tr><td><b>server</b></td>
+		<td>It is used to give information about the software used by the origin server to handle the request. Example values are
+			<ul>
+				<li>Apache/2.2.14 (Win32)</li>
+			</ul>
+		</td>
+	</tr>
+	<tr><td><b>set-cookie</b></td>
+		<td>It contains a name/value pair of information to retain for this URL. Example values are
+			<ul>
+				<li>name1=value1,name2=value2;comment=comment;domain=www.myfriendwa.com;path=/pages;secure;Expires=Wed, 09 Jun 2021 10:18:14 GMT</li>
+			</ul>
+		</td>
+	</tr>
+	<tr><td><b>allow</b></td>
+		<td>It is used to list the set of methods supported by the resource identified by the Request-URI. Example values are
+			<ul>
+				<li>GET, HEAD, PUT</li>
+			</ul>
+		</td>
+	</tr>
+	<tr><td><b>content-encoding</b></td>
+		<td>It is used as a modifier to the media-type. Example values are
+			<ul>
+				<li>gzip</li>
+			</ul>
+		</td>
+	</tr>
+	<tr><td><b>content-language</b></td>
+		<td>It describes the natural language(s) of the intended audience for the enclosed entity. Example values are
+			<ul>
+				<li>mi, en</li>
+			</ul>
+		</td>
+	</tr>
+	<tr><td><b>content-length</b></td>
+		<td>It is used to indicate the size of the entity-body, in decimal number of OCTETs, sent to the recipient. Example values are
+			<ul>
+				<li>3495</li>
+			</ul>
+		</td>
+	</tr>
+	<tr><td><b>content-location</b></td>
+		<td>It is used to supply the resource location for the entity enclosed in the message when that entity is accessible from a location separate from the requested resource's URI.. Example values are
+			<ul>
+				<li>http://www.myfriendwa.com/index.htm</li>
+			</ul>
+		</td>
+	</tr>
+	<tr><td><b>content-MD5</b></td>
+		<td>It is used to supply an MD5 digest of the entity for checking the integrity of the message upon receipt. Example values are
+			<ul>
+				<li>8c2d46911f3f5a326455f0ed7a8ed3b3</li>
+			</ul>
+		</td>
+	</tr>
+	<tr><td><b>content-range</b></td>
+		<td>It is sent with a partial entity-body to specify where in the full entity-body the partial body should be applied. Example values are
+			<ul>
+				<li>bytes 0-499/1234</li>
+			</ul>
+		</td>
+	</tr>
+	<tr><td><b>content-type</b></td>
+		<td>It is used to indicate the media type of the entity-body sent to the recipient. Example values are
+			<ul>
+				<li>text/html; charset=ISO-8859-4</li>
+			</ul>
+		</td>
+	</tr>
+	<tr><td><b>expires</b></td>
+		<td>It gives the date/time after which the response is considered stale. Example values are
+			<ul>
+				<li>Thu, 01 Dec 1994 16:00:00 GMT</li>
+			</ul>
+		</td>
+	</tr>
+	<tr><td><b>last-modified</b></td>
+		<td>It is used to indicate the date and time at which the origin server believes the variant was last modified. Example values are
+			<ul>
+				<li>Tue, 15 Nov 1994 12:45:26 GMT</li>
+			</ul>
+		</td>
+	</tr>
+</table>
+<h2>HTTP Status Code</h2>
+<table border="1">
+	<tr><th>Code</th><th>Description</th></tr>
+	<tr><td>304</td><td>If there is no modification in the requested resource since the date specified in <b>if-modified-since</b> request header.</td></tr>
+	<tr><td>412</td><td>If the pre-condition specified inside <b>if-match</b> request header fails.</td></tr>
+	<tr><td>415</td><td>If the content-coding of an entity in a request message is not acceptable to the origin server</td></tr>
+	<tr><td>417</td><td>If the server behavior is not as per the <b>expect</b> request header.</td></tr>
+</table>
+<h1>Frequently Asked Questions</h1>
+<p><b></b></p>
+<p></p>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>
+</body>
+</html>

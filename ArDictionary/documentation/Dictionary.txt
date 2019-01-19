@@ -1,0 +1,12 @@
+It provides the below features
+
+Search a word.
+	Based on three options
+		Starts With
+		Ends With
+		Contains
+	Algorithm
+		
+Add a word
+
+	
