@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="keywords" content="udp">
+<meta name="author" content="Anshul Sood">
+<title>Multimediation Manager</title>
+</head>
+<body>
+<h2><a href="Basics.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
+<h1>Multimediation Manager</h1>
+<h1>Configuration</h1>
+<ul>
+	<li>When a manager application starts it reads the web.xml file inside WEB-INF.</li>
+	<li>There are 3 listeners defined for the manager
+		<ul>
+			<li><b>org.springframework.web.context.ContextLoaderListener</b> This listener initializes all the beans defined in the xml files which are referred in the <b>context-param</b> for parameter <b>contextConfigLocation</b>
+				<ul>
+					<li><b>applicationContext.xml</b> Beans are
+						<ul>
+							<li><b>com.ericsson.cm.manager.beanfactory.BeanManager</b></li>
+							<li><b>com.ericsson.cm.manager.filesystem.FileSystemManager</b></li>
+							<li><b>com.ericsson.cm.manager.filesystem.RemoteFileExecutor</b></li>
+							<li><b>com.ericsson.cm.manager.usermanagement.model.UserManagerImpl</b></li>
+							<li><b>com.ericsson.cm.manager.configurationmanager.ConfigManagerImpl</b>
+								<ul>
+									<li>There are some beans which are hibernate Dao objects e.g. HibernateAlarmViaEmailConfigDAO.</li>
+									<li>These Dao objects are using hibernateTemplate instead of session factory which is not recommended.</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li><b>dataManagementContext.xml</b></li>
+					<li><b>applicationContextTracer.xml</b></li>
+					<li><b>FileMediationDataMgmtContext.xml</b></li>
+				</ul>
+			</li>
+			<li><b>org.springframework.web.context.request.RequestContextListener</b></li>
+			<li><b>com.ericsson.cm.manager.sessionmanager.core.model.SessionManagerExecutorServiceListener</b></li>
+		</ul>
+	</li>
+	
+</ul>
+<h1>Examples</h1>
+<ul>
+	<li></li>
+</ul>
+<h1>Frequently Asked Questions</h1>
+<p><b></b></p>
+<ul>
+	<li></li>
+</ul>
+<h2><a href="Basics.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
+</body>
+</html>

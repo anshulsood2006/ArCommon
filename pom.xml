@@ -41,14 +41,14 @@
 		<jboss-as-embedded.version>7.2.0.Final</jboss-as-embedded.version>
 		<wildfly-embedded.version>9.0.2.Final</wildfly-embedded.version>
 		<spring.version>5.0.3.RELEASE</spring.version>
-		<jackson-databind.version>2.9.4</jackson-databind.version>
+		<jackson-databind.version>2.9.8</jackson-databind.version>
 		<bcprov-jdk16.version>1.46</bcprov-jdk16.version>
 		<jstl-api.version>1.2</jstl-api.version>
 		<standard.version>1.1.2</standard.version>
 		<jaxws-rt.version>2.3.0</jaxws-rt.version>
 		<javax.mail.version>1.5.5</javax.mail.version>
 		<mysql-connector-java.version>8.0.13</mysql-connector-java.version>
-		<hibernate-core.version>5.2.13.Final</hibernate-core.version>
+		<hibernate-core.version>5.4.1.Final</hibernate-core.version>
 		<log4j-core.version>2.10.0</log4j-core.version>
 		<mockito-all.version>1.10.19</mockito-all.version>
 		<jersey2.version>2.26</jersey2.version>
@@ -58,6 +58,8 @@
 		<jersey-media-json-jackson.version>2.26</jersey-media-json-jackson.version>
 		<maven-surefire-plugin.version>2.21.0</maven-surefire-plugin.version>
 		<project.version>1.0</project.version>
+		<postgresql.version>9.3-1100-jdbc41</postgresql.version>
+		<commons-dbcp.version>2.2.0</commons-dbcp.version>
 	</properties>
 
 	<dependencies>
@@ -143,8 +145,14 @@
 			<artifactId>spring-jdbc</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+		<!-- Dependencies for Spring Hibernate Framework -->
+		<dependency>
+    		<groupId>org.springframework</groupId>
+    		<artifactId>spring-orm</artifactId>
+    		<version>${spring.version}</version>
+		</dependency>
+		<!-- Dependencies for Spring Hibernate Framework -->
 		<!-- Dependencies for Spring Framework -->
-
 		<!-- Dependencies for Spring Security -->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
@@ -201,7 +209,7 @@
 		</dependency>
 		<!-- Dependencies for Java MySQl Connection -->
 
-		<!-- Dependencies for hibernate -->
+		<!--  --><!-- Dependencies for hibernate -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
@@ -246,6 +254,17 @@
 			<version>${jersey-media-json-jackson.version}</version>
 		</dependency>
 		<!-- Dependencies for jersey rest web-services -->
+		
+		<dependency>
+    		<groupId>org.postgresql</groupId>
+    		<artifactId>postgresql</artifactId>
+    		<version>${postgresql.version}</version>
+		</dependency>
+		<dependency>
+      		<groupId>org.apache.commons</groupId>
+      		<artifactId>commons-dbcp2</artifactId>
+      		<version>${commons-dbcp.version}</version>
+    	</dependency>
 	</dependencies>
 
 	<build>

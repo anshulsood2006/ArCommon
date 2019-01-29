@@ -2,19 +2,28 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<meta name="keywords" content="tcp">
+<meta name="keywords" content="tcp, TCP Handshake, ">
 <meta name="author" content="Anshul Sood">
 <title>Transmission Control Protocol (TCP)</title>
 </head>
 <body>
 <h2><a href="Basics.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>
-<h1>Transmission Control Protocol (TCP)</h1>
 <h1>Features</h1>
+<h2>Transmission Control Protocol (TCP)</h2>
 <ul>
 	<li>It is a connection oriented protocol.</li>
 	<li>It offers reliability, flow-control and error-recovery functions.</li>
 	<li>The packets can be discarded before reaching their targets</li>
 </ul>
+<h2>Three way / TCP Handshake</h2>
+It is used to create a TCP socket connection between a local host/client and server.
+<ul> 
+	<li>A client sends a <b>SYN</b> data packet to the server.</li>
+	<li>The server responds with  <b>SYN/ACK</b> data packet if it is having open port that can accept and initiate new connections.</li>
+	<li>The client then responds with <b>ACK</b> data packet.</li>
+</ul>
+After the above process is complete, a connection is created between client and server for further communication. In case server is not running, RST/ACK data packet is sent in the second step.<br/><br/>
+<img alt="3 way Handshake" src="../../images/TCPHandshake.jpg" width="80%" height="10%">
 <h1>Examples</h1>
 <ul>
 	<li></li>

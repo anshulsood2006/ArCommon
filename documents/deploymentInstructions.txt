@@ -7,3 +7,5 @@ pgrep -d" " -f "wildfly" | xargs kill;
 
 start wild fly:
 ./appservers/wildfly-8x/bin/standalone.sh &
+
+Update jboss logging jar at location wildfly-8.1.0.Final\modules\system\layers\base\org\jboss\logging\main to jboss-logging-3.3.2.Final.jar and update the reference in module.xml file at the same location.

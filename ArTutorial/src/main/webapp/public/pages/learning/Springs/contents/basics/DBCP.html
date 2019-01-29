@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="keywords" content="dbcp, connection pooling in springs">
+<meta name="author" content="Anshul Sood">
+<title>Connection Pooling in Springs</title>
+</head>
+<body>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>
+<h1>Connection Pooling in Springs</h1>
+<h2>DBCP</h2>
+<ul>
+	<li>Creating a new connection for each user can be time consuming and often requires multiple seconds of clock time, in order to perform a database transaction that might take milliseconds.</li>
+	<li>This commons package is used to share a "pool" of open connections between all users of the application.</li>
+	<li>The pool can be defined as a bean in spring context as below
+		<pre>
+&lt;bean name="dataSource"	class="org.apache.commons.dbcp.BasicDataSource"&gt;
+	&lt;property name="driverClassName" value="{driverClassName}" /&gt;
+	&lt;property name="url" value="{connectionUrl}" /&gt;
+	&lt;property name="username" value="{username}" /&gt;
+	&lt;property name="password" value="{password}" /&gt;
+	&lt;property name="initialSize" value="{initialSize}" /&gt;
+	&lt;property name="maxActive" value="{maxActive}" /&gt;
+&lt;/bean&gt;
+		</pre>
+	
+	</li>
+</ul>
+<h1>Examples</h1>
+<p><b></b></p>
+<pre>
+</pre>
+<h1>Frequently Asked Questions</h1>
+<p><b></b></p>
+<p></p>
+<p><b></b></p>
+<p></p>
+<p><b></b></p>
+<p></p>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>
+</body>
+</html>

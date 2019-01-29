@@ -2,22 +2,89 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<meta name="keywords" content="computer programming">
+<meta name="keywords" content="springs">
 <meta name="author" content="Anshul Sood">
 <title>Springs</title>
 </head>
 <body>
 <h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>
 <h1>Springs</h1>
-<h1>Features</h1>
-<p></p>
+<h2>Configuring a spring based application</h2>
+<ul>
+	<li>Add all the required spring libraries to the project</li>
+	<li>Go to the web.xml file inside web-app/WEB-INF and add the entry for spring's dispatcher servlet as
+	<pre>
+<b><font color="blue">&lt;servlet&gt;
+	&lt;servlet-name&gt;SpringServlet&lt;/servlet-name&gt;
+	&lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;
+	&lt;load-on-startup&gt;0&lt;/load-on-startup&gt;
+&lt;/servlet&gt;</font></b>
+	</pre>
+	</li>
+	<li>Beans configuration
+	<ul>
+		<li><b>Application Level Beans</b>
+			<ul>
+				<li>To define the beans which are available for the whole application context, we need to add ContextLoadListener as below
+				<pre>
+<b><font color="blue">&lt;listener&gt;
+	&lt;listener-class&gt;org.springframework.web.context.ContextLoaderListener&lt;/listener-class&gt;
+&lt;/listener&gt;</font></b>				
+				</pre>
+				</li>
+				<li>Then we need to configure the parameter contextConfigLocation as context-param
+				<pre>
+<b><font color="blue">&lt;context-param&gt;
+	&lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+	&lt;param-value&gt;/WEB-INF/springs/custom.xml&lt;/param-value&gt;
+&lt;/context-param&gt;</font></b>
+				</pre>	
+				</li>		
+			</ul>
+		</li>
+		<li><b>Servlet Specific Beans</b>
+			<ul>
+				<li>The servlet specific beans are by default searched inside file with name {DispatcherServletName}<b>-servlet.xml</b> inside folder <b>WEB-INF</b></li>
+				<li>This file is used to define the beans to be used in ServletConfig context i.e. for that particular servlet only.</li>
+				<li>The name of the file as well the location can be changed using the same init-param like below for the servlet
+				<pre>
+&lt;servlet&gt;
+	&lt;servlet-name&gt;SpringServlet&lt;/servlet-name&gt;
+	&lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;
+	<b><font color="blue">&lt;init-param&gt;
+		&lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+		&lt;param-value&gt;/WEB-INF/springs/custom.xml&lt;/param-value&gt;
+	&lt;/init-param&gt;</font></b>
+	&lt;load-on-startup&gt;0&lt;/load-on-startup&gt;
+&lt;/servlet&gt;
+				</pre>
+			</ul>
+		</li>
+	</ul>
+	</li>
+	<li>If we have multiple bean files inside resources folder of the project, they can be added to context-param in web.xml file as below
+				<pre>
+<b><font color="blue">&lt;context-param&gt;
+	&lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
+	&lt;param-value&gt;
+		classpath:file1.xml
+		classpath:file2.xml
+		classpath:file3.xml
+	&lt;/param-value&gt;
+&lt;/context-param&gt;</font></b>
+				</pre>		
+	</li>
+</ul>
 <h1>Examples</h1>
 <p><b></b></p>
 <pre>
 </pre>
 <h1>Frequently Asked Questions</h1>
-<p><b></b></p>
-<p></p>
+<p><b>What is the difference between DTO and DAO?</b></p>
+<ul>
+	<li><b>DTO</b> stands for Data Transfer Objects and are used to transfer data between classes and modules of an application. They do not contain any business logic and contain only variables, getters, setters and constructors.</li>
+	<li><b>DAO</b> stands for Data Access Objects and are used to encapsulated the logic for CRUD operations on data storage.</li>
+</ul>
 <p><b></b></p>
 <p></p>
 <p><b></b></p>

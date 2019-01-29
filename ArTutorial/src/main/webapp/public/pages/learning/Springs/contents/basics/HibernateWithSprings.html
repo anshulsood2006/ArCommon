@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="keywords" content="hibernate dao in springs">
+<meta name="author" content="Anshul Sood">
+<title>Hibernate Dao in Springs</title>
+</head>
+<body>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>
+<h1>Hibernate with Springs</h1>
+<ul>
+	<li>DTO classes are used in spring as beans or simple POJO classes to transfer data between classes. They contain variables corresponding to all the fields of a storage table and the corresponding getter and setter methods.</li>
+	<li>DAO classes are used in spring to perform CRUD operations on the underlying storage.</li>
+	<li>The DAO class is annotated using <b>@Repository</b> annotation. This annotation marks the java class as component so that it can be scanned and integrated into springs.</li>
+	<li><b>@Transactional</b> annotation is used in DAO classes to enable transaction management in the Dao class.</li>
+	<li>An hbm.xml file is created inside the <b>resources</b> folder corresponding to each database table. It contains the mapping between the DTO class and the corresponding database table.
+	<pre><font color="blue">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd"&gt;
+&lt;hibernate-mapping package="{package containing the DTO classes}"&gt;
+	&lt;class lazy="false" name="{DTO class}" table="{database table}"&gt;
+		&lt;id column="{Database table column name for primary key}" name="{DTO class variable corresponding to the database table column}" type="{hibernate datatype}" /&gt;
+		&lt;property column="{Database table column name}" name="{DTO class variable corresponding to the database table column}" type="{hibernate datatype}" /&gt;
+	&lt;/class&gt;
+&lt;/hibernate-mapping&gt;</font></pre>
+	</li>
+	<li>Spring configuration file viz. applicationContext.xml need few configurations 
+	<ul>
+		<li>
+			To make the components available<pre><font color="blue">&lt;context:component-scan base-package="{package containing the classes annotated with spring components}" /&gt;</font></pre>
+		</li>
+		<li>
+			To make variables as mandatory using <b>@Required</b> annotation<pre><font color="blue">&lt;bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/&gt;</font></pre></li>	
+		<li>
+			Below beans needs to be configured the hibernate connection 
+			<ul>
+				<li>
+				Configure <b>datasource</b> bean<pre><font color="blue">&lt;bean name="dataSource"	class="org.apache.commons.dbcp2.BasicDataSource"&gt;
+	&lt;property name="driverClassName" value="org.postgresql.Driver" /&gt;
+	&lt;property name="url" value="jdbc:postgresql://localhost:5432/postgres" /&gt;
+	&lt;property name="username" value="postgres" /&gt;
+	&lt;property name="password" value="{{sood786@}}" /&gt;
+&lt;/bean&gt;</font></pre>
+				</li>
+				<li>Configure <b>sessionFactory</b> bean using above datasource and map the hibernate files created above.<pre><font color="blue">&lt;bean id="sessionFactory"
+  class="org.springframework.orm.hibernate5.LocalSessionFactoryBean"&gt;
+	&lt;property name="dataSource" ref="dataSource"/&gt;
+	&lt;property name="hibernateProperties"&gt;
+		&lt;props&gt;
+			&lt;prop key="hibernate.show_sql"&gt;true&lt;/prop&gt;
+		&lt;/props&gt;
+	&lt;/property&gt;
+	&lt;property name="mappingLocations"&gt;
+		&lt;list&gt;
+			&lt;value&gt;classpath*:{relative path of hibernate file}/*.hbm.xml&lt;/value&gt;
+		&lt;/list&gt;
+	&lt;/property&gt;
+&lt;/bean&gt;</font></pre></li>
+				<li>Configure <b>transactionManager</b> bean using sessionFactory<pre><font color="blue">&lt;bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager"&gt;
+	&lt;property name="sessionFactory" ref="sessionFactory" /&gt;
+&lt;/bean&gt;</font></pre>
+				</li>
+				<li>Configure <b>hibernateTemplate</b> bean using sessionFactory<pre><font color="blue">&lt;bean id="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate" &gt;
+	&lt;property name="sessionFactory" ref="sessionFactory" /&gt;
+&lt;/bean&gt;</font></pre>
+				</li>
+			</ul>
+		</li>
+	</ul>
+	</li>
+</ul>
+<h1>Examples</h1>
+<p><b></b></p>
+<pre>
+</pre>
+<h1>Frequently Asked Questions</h1>
+<p><b></b></p>
+<p></p>
+<p><b></b></p>
+<p></p>
+<p><b></b></p>
+<p></p>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>
+</body>
+</html>

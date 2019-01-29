@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="keywords" content="beans in springs">
+<meta name="author" content="Anshul Sood">
+<title>Beans in Springs</title>
+</head>
+<body>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>
+<h1>Beans in Springs</h1>
+<ul>
+	<li>The beans are the objects that are instantiated, assembled and managed by spring's IOC container.</li>
+	<li>They are configured inside beans definition metadata which include below properties
+		<ul>
+			<li><b>id</b> It is used to set unique name to identify the bean</li>
+			<li><b>name </b> It is used to set unique name to identify the bean</li>
+			<li><b>class </b> It is used to set class whose objects need to be created as beans</li>
+			<li><b>dependency-check </b> It has been deprecated now. However before spring 3, it is used to check if the required properties have been set. It can have below values:
+				<ul>
+					<li><b>none</b> No dependency check will take place.</li>
+					<li><b>simple</b> Dependency check for only primitive and collection types. UnsatisfiedDependencyException will be thrown if the check fails.</li>
+					<li><b>objects</b> Dependency check for only object types. UnsatisfiedDependencyException will be thrown if the check fails.</li>
+					<li><b>all</b> Dependency check for all viz. primitive, collection and object types. UnsatisfiedDependencyException will be thrown if the check fails.</li>
+				</ul>
+				After spring 3, the same thing can now be done using an annotation @Required on the setter method of the variable which is mandatory. Also below bean need to be registered
+				<b>&lt;bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/&gt;</b> to make this annotation work.
+			</li>
+			<li><b>init-method</b> It is used to call a method just after initialization of the bean.</li>
+			<li><b>destroy-method</b> It is used to call a method just after initialization of the bean.</li>
+			<li><b></b></li>
+			<li><b></b></li>
+		</ul>
+	</li>
+</ul>
+<h1>Examples</h1>
+<p><b></b></p>
+<pre>
+</pre>
+<h1>Frequently Asked Questions</h1>
+<p><b></b></p>
+<p></p>
+<p><b></b></p>
+<p></p>
+<p><b></b></p>
+<p></p>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>
+</body>
+</html>

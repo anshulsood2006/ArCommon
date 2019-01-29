@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.arsoft.projects.arenterprise.beans">
+	<class lazy="false" name="ArTestDto" table="TEST">
+		
+		<id column="id" name="id" type="integer" unsaved-value="null" />
+		
+		<property column="name" name="name" type="string" length="255"
+			not-null="true" />
+			
+		<property column="age" name="age" type="integer"
+			not-null="false" />
+			
+		<property column="clazz" name="clazz" type="string"
+			not-null="false" />
+	
+	</class>
+</hibernate-mapping>

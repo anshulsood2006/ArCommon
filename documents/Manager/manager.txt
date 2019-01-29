@@ -1,0 +1,3 @@
+When a manager application starts it reads the web.xml file inside WEB-INF
+1. There are 3 listeners defined there
+ContextLoaderListener
