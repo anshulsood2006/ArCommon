@@ -5,7 +5,7 @@ public class ArTestDto {
 	private int id;
 	private String name;
 	private int age;
-	private String clazz;	
+	//private String clazz;	
 	
 	public int getId() {
 		return id;
@@ -26,15 +26,15 @@ public class ArTestDto {
 		this.age = age;
 	}
 	
-	public String getClazz() {
+	/*public String getClazz() {
 		return clazz;
 	}
 	public void setClazz(String clazz) {
 		this.clazz = clazz;
-	}
+	}*/
 	@Override
 	public String toString() {
-		return "ArTestDto [id=" + id + ", name=" + name + ", age=" + age + ", clazz=" + clazz + "]";
+		return "ArTestDto [id=" + id + ", name=" + name + ", age=" + age + "]";
 	}
 	
 }

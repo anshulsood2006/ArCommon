@@ -59,4 +59,11 @@
 		<property name="ArTestDao" ref="HibernateArTestDao"></property>
 	</bean>
 	    
+	<!-- AOP example -->
+	
+	<aop:aspectj-autoproxy />
+	
+	<bean id="ArTestAspect"	class="com.arsoft.projects.arenterprise.aspect.ArTestAspect" />
+	
+	<!-- AOP example -->
 </beans>

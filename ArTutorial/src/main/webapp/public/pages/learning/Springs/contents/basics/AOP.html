@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="keywords" content="aop in springs">
+<meta name="author" content="Anshul Sood">
+<title>Aspect Oriented Programming (AOP) with Springs</title>
+</head>
+<body>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>
+<h1>Aspect Oriented Programming (AOP) with Springs</h1>
+<h2>Aspect Oriented Programming</h2>
+<ul>
+	<li>The building block of the program is an aspect.</li>
+	<li>An aspect is a cross cutting feature in program that crosses different classes e.g logging, transactions etc</li>
+	<li>In AOP such aspects are taken out from the main program.</li>
+	<li>The main elements of AOP are
+		<ul>
+			<li><b>Aspect</b> 
+				<ul>
+					<li>It is the class that implements the cross cutting concerns like logging, transaction management, security, performance monitoring etc.</li>
+					<li>A class can be created as an aspect by usign annotation <b>@Aspect</b></li>
+				</ul>
+			</li>
+			<li><b>Join Point</b>
+				<ul>
+					<li>It is the execution of the method.</li>
+				</ul>
+			</li>
+			<li><b>Advice</b>
+				<ul>
+					<li>It is the action taken by the aspect at the join point.</li>
+					<li>It is of various types as below
+						<ul>
+							<li><b>Before Advice</b> 
+								<ul>
+									<li>It is executed before the join point.</li>
+									<li>It can be represented by using <b>@Before</b> annotation</li>
+								</ul>
+							</li>
+							<li><b>After (finally) Advice</b> 
+								<ul>
+									<li>It is executed after the join point irrespective of whether an exception is thrown or not.</li>
+									<li>It can be represented by using <b>@After</b> annotation</li>
+								</ul>
+							</li>							
+							<li><b>After Returning Advice</b>
+								<ul>
+									<li>It is executed after the join point only in case no exception is thrown.</li>
+									<li>It can be represented by using <b>@AfterReturning</b> annotation</li>
+								</ul>							
+							</li>
+							<li><b>After Throwing Advice</b>
+								<ul>
+									<li>It is executed after the join point only in case an exception is thrown.</li>
+									<li>It can be represented by using <b>@AfterThrowing</b> annotation</li>
+								</ul>							
+							</li>
+							<li><b>Around Advice</b>
+								<ul>
+									<li>It is the most powerful advice.</li>
+									<li>It can be represented by using <b>@Around</b> annotation</li>
+									<li>It can be used even to choose whether to execute join point or not.</li>
+								</ul>							
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li><b>Point cut</b>
+				<ul>
+					<li>It is the expression that is matched by aspect at the join point to execute the advice.</li>
+				</ul>
+			</li>
+			<li><b>Target object</b>
+				<ul>
+					<li>It is the object on which an aspect executes the advice.</li>
+				</ul>
+			</li>									
+		</ul>
+	</li>
+</ul>
+<h2>Implementing AOP in springs</h2>
+<ul>
+	<li>Add the <b>aspectjrt</b> and <b>aspectjtools</b> dependencies to the project as<font color="blue"><pre>&lt;dependency&gt;
+	&lt;groupId&gt;org.aspectj&lt;/groupId&gt;
+	&lt;artifactId&gt;aspectjrt&lt;/artifactId&gt;
+	&lt;version&gt;${aspectj.version}&lt;/version&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+	&lt;groupId&gt;org.aspectj&lt;/groupId&gt;
+	&lt;artifactId&gt;aspectjtools&lt;/artifactId&gt;
+	&lt;version&gt;${aspectj.version}&lt;/version&gt;
+&lt;/dependency&gt;</pre></font></li>
+	<li>Add the AOP name space viz. <b><font color="blue">xmlns:aop="http://www.springframework.org/schema/aop"</font></b> to the spring beans configuration file.</li>
+	<li>Add the AspectJ element viz. <b><font color="blue">&lt;aop:aspectj-autoproxy /&gt;</font></b> to the spring beans configuration file to enable AspectJ support.</li>
+	<li>Create an <b>aspect</b> class by using <b>@Aspect</b> annotation.</li>
+	<li>Add the aspect class as a bean to the spring beans configuration file.</li>
+	<li>Create an <b>advice</b> inside the aspect class by using appropriate advice annotation. Example: <pre><font color="blue">@Before("execution(public List&lt;ArTestDto&gt; getAllArTestDto())")
+public void beforeAdvice() {
+	System.out.println("Executing before advice");
+}</font></pre>
+	</li>
+	<li>Define the <b>pointcut</b> as an expression inside the annotation e.g. <font color="blue"><b>"execution(public List&lt;ArTestDto&gt; getAllArTestDto())"</b></font> in the example above is a pointcut expression.</li>
+</ul>
+<h1>Examples</h1>
+<p><b></b></p>
+<pre>
+</pre>
+<h1>Frequently Asked Questions</h1>
+<p><b></b></p>
+<p></p>
+<p><b></b></p>
+<p></p>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>
+</body>
+</html>

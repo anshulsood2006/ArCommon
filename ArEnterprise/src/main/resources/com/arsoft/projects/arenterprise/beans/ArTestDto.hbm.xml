@@ -11,9 +11,6 @@
 			
 		<property column="age" name="age" type="integer"
 			not-null="false" />
-			
-		<property column="clazz" name="clazz" type="string"
-			not-null="false" />
 	
 	</class>
 </hibernate-mapping>

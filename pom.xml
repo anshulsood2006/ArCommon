@@ -60,6 +60,7 @@
 		<project.version>1.0</project.version>
 		<postgresql.version>9.3-1100-jdbc41</postgresql.version>
 		<commons-dbcp.version>2.2.0</commons-dbcp.version>
+		<aspectj.version>1.9.2</aspectj.version>
 	</properties>
 
 	<dependencies>
@@ -145,6 +146,7 @@
 			<artifactId>spring-jdbc</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+		
 		<!-- Dependencies for Spring Hibernate Framework -->
 		<dependency>
     		<groupId>org.springframework</groupId>
@@ -152,7 +154,7 @@
     		<version>${spring.version}</version>
 		</dependency>
 		<!-- Dependencies for Spring Hibernate Framework -->
-		<!-- Dependencies for Spring Framework -->
+		
 		<!-- Dependencies for Spring Security -->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
@@ -165,7 +167,22 @@
 			<version>${spring.version}</version>
 		</dependency>
 		<!-- Dependencies for Spring Security -->
-
+		
+		<!-- Dependencies for Spring AOP -->
+		<dependency>
+    		<groupId>org.aspectj</groupId>
+    		<artifactId>aspectjrt</artifactId>
+    		<version>${aspectj.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjtools</artifactId>
+			<version>${aspectj.version}</version>
+		</dependency>
+		<!-- Dependencies for Spring AOP -->
+		
+		<!-- Dependencies for Spring Framework -->
 		<dependency>
 			<groupId>org.bouncycastle</groupId>
 			<artifactId>bcprov-jdk16</artifactId>
