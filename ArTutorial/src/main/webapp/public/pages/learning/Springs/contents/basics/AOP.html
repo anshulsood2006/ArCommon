@@ -24,43 +24,46 @@
 			</li>
 			<li><b>Join Point</b>
 				<ul>
-					<li>It is the execution of the method.</li>
+					<li>It is the method/point on which the advice needs to be executed.</li>
 				</ul>
 			</li>
 			<li><b>Advice</b>
 				<ul>
 					<li>It is the action taken by the aspect at the join point.</li>
+					<li>It is executed only on the beans created using the application context and <b>not</b> executed on the beans created using new operators.</li>
 					<li>It is of various types as below
 						<ul>
 							<li><b>Before Advice</b> 
 								<ul>
 									<li>It is executed before the join point.</li>
-									<li>It can be represented by using <b>@Before</b> annotation</li>
+									<li>It is represented by using <b>@Before</b> annotation</li>
 								</ul>
 							</li>
 							<li><b>After (finally) Advice</b> 
 								<ul>
 									<li>It is executed after the join point irrespective of whether an exception is thrown or not.</li>
-									<li>It can be represented by using <b>@After</b> annotation</li>
+									<li>It is represented by using <b>@After</b> annotation</li>
 								</ul>
 							</li>							
 							<li><b>After Returning Advice</b>
 								<ul>
 									<li>It is executed after the join point only in case no exception is thrown.</li>
-									<li>It can be represented by using <b>@AfterReturning</b> annotation</li>
+									<li>It is represented by using <b>@AfterReturning</b> annotation</li>
 								</ul>							
 							</li>
 							<li><b>After Throwing Advice</b>
 								<ul>
 									<li>It is executed after the join point only in case an exception is thrown.</li>
-									<li>It can be represented by using <b>@AfterThrowing</b> annotation</li>
+									<li>It is represented by using <b>@AfterThrowing</b> annotation</li>
 								</ul>							
 							</li>
 							<li><b>Around Advice</b>
 								<ul>
 									<li>It is the most powerful advice.</li>
-									<li>It can be represented by using <b>@Around</b> annotation</li>
-									<li>It can be used even to choose whether to execute join point or not.</li>
+									<li>It is represented by using <b>@Around</b> annotation</li>
+									<li>It is required to have <b>ProceedingJoinPoint</b> as argument and we should use it's proceed() method to invoke the target object advised method.</li>
+									<li>It has full control over the execution of the join point as the join method will execute only if <b>proceedingJoinPoint.proceed()</b> is called with in the advice.</li>
+									<li>If advised method is returning something, it's advice responsibility to return it to the caller program. For void methods, advice method can return null. </li>
 								</ul>							
 							</li>
 						</ul>
@@ -70,6 +73,9 @@
 			<li><b>Point cut</b>
 				<ul>
 					<li>It is the expression that is matched by aspect at the join point to execute the advice.</li>
+					<li><b>*</b> can be used as a wildcard in pointcut expressions.</li>
+					<li><b>args(DataType1, DataType1)</b> can be used in the pointcut expression to match the join point method</li>
+					<li><b>within</b> can be used in the pointcut expression to apply advice to all the methods of a class.</li>
 				</ul>
 			</li>
 			<li><b>Target object</b>
@@ -82,7 +88,7 @@
 </ul>
 <h2>Implementing AOP in springs</h2>
 <ul>
-	<li>Add the <b>aspectjrt</b> and <b>aspectjtools</b> dependencies to the project as<font color="blue"><pre>&lt;dependency&gt;
+	<li>Add the <b>aspectjrt</b> and <b>aspectjtools</b> dependencies to the project as<pre><font color="blue">&lt;dependency&gt;
 	&lt;groupId&gt;org.aspectj&lt;/groupId&gt;
 	&lt;artifactId&gt;aspectjrt&lt;/artifactId&gt;
 	&lt;version&gt;${aspectj.version}&lt;/version&gt;
@@ -92,7 +98,15 @@
 	&lt;groupId&gt;org.aspectj&lt;/groupId&gt;
 	&lt;artifactId&gt;aspectjtools&lt;/artifactId&gt;
 	&lt;version&gt;${aspectj.version}&lt;/version&gt;
-&lt;/dependency&gt;</pre></font></li>
+&lt;/dependency&gt;</font>
+
+or just add below single dependency of <b>aspectjweaver</b><font color="blue">
+
+&lt;dependency&gt;
+	&lt;groupId&gt;org.aspectj&lt;/groupId&gt;
+	&lt;artifactId&gt;aspectjweaver&lt;/artifactId&gt;
+	&lt;version&gt;${aspectj.version}&lt;/version&gt;
+&lt;/dependency&gt;</font></pre></li>
 	<li>Add the AOP name space viz. <b><font color="blue">xmlns:aop="http://www.springframework.org/schema/aop"</font></b> to the spring beans configuration file.</li>
 	<li>Add the AspectJ element viz. <b><font color="blue">&lt;aop:aspectj-autoproxy /&gt;</font></b> to the spring beans configuration file to enable AspectJ support.</li>
 	<li>Create an <b>aspect</b> class by using <b>@Aspect</b> annotation.</li>
@@ -103,6 +117,77 @@ public void beforeAdvice() {
 }</font></pre>
 	</li>
 	<li>Define the <b>pointcut</b> as an expression inside the annotation e.g. <font color="blue"><b>"execution(public List&lt;ArTestDto&gt; getAllArTestDto())"</b></font> in the example above is a pointcut expression.</li>
+	<li>If same pointcut expression is needed at many points, instead of writing it at multiple places we can create a public void method with <b>@Pointcut({expression})</b> having an empty body. This method name can be used instead of pointcut expression at all the places wherever needed.<pre><font color="blue">@Pointcut("execution(public String getName())")
+public void <b>getNamePointcut()</b>{}
+
+@Before("<b>getNamePointcut()</b>")
+public void loggingAdvice(){
+	System.out.println("Executing loggingAdvice on getName()");
+}
+
+@Before("<b>getNamePointcut()</b>")
+public void transactionAdvice(){
+	System.out.println("Executing transactionAdvice on getName()");
+}</font></pre>
+	</li>
+	<li>* can be used as a wildcard in pointcut expressions.</li>
+	<li>We can use <b>JoinPoint</b> as an argument to the advice method to get the method signature, target objects,arguments etc by invoking appropriate methods on joinpoint object.<pre><font color="blue">@Before("pointCutMethod()")
+public void joinPointAdvice(JoinPoint joinpoint) {
+	System.out.println("JoinPoint Arguments are: "+joinpoint.getArgs()[0]  + joinpoint.getArgs()[1]);
+	System.out.println("JoinPoint Signature is: "+joinpoint.getSignature());
+	System.out.println("JoinPoint Target Object is: "+joinpoint.getTarget());
+}</font></pre></li>
+	<li>We can use <b>args(DataType1, DataType1)</b> in the pointcut expression to match the join point method<pre><font color="blue">@Before("args(String, int)")
+public void argsAdvice() {
+	System.out.println("Executing argsAdvice before getAllArTestDto("Anshul", 1) method is called.");
+}</font></pre></li>
+	<li>We can use <b>within</b> in the pointcut expression to apply advice to all the methods of a class.<pre><font color="blue">@AfterThrowing("within(com.arsoft.projects.arenterprise.beans.ArTestDao)")
+public void logException(JoinPoint joinPoint) {
+	System.out.println("Executing advice @AfterThrowing " + joinPoint.toString());
+}</font></pre>
+	</li>
+	<li>We can use <b>returning</b> argument of @AfterReturning annotation to get the returned object. <pre><font color="blue">@AfterReturning(value="execution(* getAllArTestDto(*,*))", returning = "result")
+public void returnAdvice(JoinPoint joinPoint, Object result) {
+	System.out.println("Executing returnAdvice object returned is: " + result +"  "+joinPoint);
+}</font></pre>
+	</li>
+	<li>We can use <b>proceedingJoinPoint.proceed()</b> with in the advice to execute the join point.<pre><font color="blue">@Around(value="within(com.arsoft.projects.arenterprise.beans.ArTestDao)")
+public Object aroundAdvice(ProceedingJoinPoint proceedingJoinPoint) {
+	Object value = null;
+	System.out.println("Executing aroundAdvice before ");
+	try {
+		value = proceedingJoinPoint.proceed();
+	} catch (Throwable e) {
+		e.printStackTrace();
+	}
+	System.out.println("Executing aroundAdvice after" );
+	return value;
+}</font></pre>
+	</li>
+	<li>We can also use spring bean configuration file to configure aspects as below<pre><font color="blue">&lt;aop:config&gt;
+	&lt;aop:aspect ref="ArTestAspect" id="ArTestAspectId" order="1"&gt;
+		&lt;aop:pointcut expression="execution(* getAllArTestDto(*,*))" id="pointCutMethod"/&gt;
+		&lt;aop:around method="customAnnotationAdvice" pointcut-ref="pointCutMethod" arg-names="proceedingJoinPoint"/&gt;
+	&lt;/aop:aspect&gt;
+&lt;/aop:config&gt;</font></pre>
+	
+	</li>
+</ul>
+<h2>Implementing Advice with custom annotation in springs</h2>
+<ul>
+	<li>Create a custom annotation as <b>@interface</b> type<pre><font color="blue">public @interface ArTestAnnotation {}</font></pre></li>
+	<li>Use the above annotation in pointcut expression of the advice<pre><font color="blue">@Around("@annotation(com.arsoft.projects.arenterprise.annotation.ArTestAnnotation)")
+public Object customAnnotationAdvice(ProceedingJoinPoint proceedingJoinPoint) {
+	Object value = null;
+	System.out.println("Executing customAnnotationAdvice before ");
+	try {
+		value = proceedingJoinPoint.proceed();
+	} catch (Throwable e) {
+		e.printStackTrace();
+	}
+	System.out.println("Executing customAnnotationAdvice after" );
+	return value;
+}</font></pre></li>
 </ul>
 <h1>Examples</h1>
 <p><b></b></p>

@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="keywords" content="ApplicationContextAware in springs">
+<meta name="author" content="Anshul Sood">
+<title>Application Context Aware in Springs</title>
+</head>
+<body>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>
+<h1>ApplicationContextAware in Springs</h1>
+<ul>
+	<li>It is an interface and is used to create a class to get ApplicationContext anywhere in our code</li>
+	<li>The class just need to implement this interface and override the setApplicationContext() method.<pre><font color="blue">public class MyBeanManager implements ApplicationContextAware{
+	
+	private static ApplicationContext applicationContext;
+	
+	public ApplicationContext getApplicationContext() {
+		return applicationContext;
+	}
+	
+	@Override
+	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+		MyBeanManager.applicationContext = applicationContext;		
+	}
+	
+	public static Object getBean(String requiredType){
+		return applicationContext.getBean(requiredType);
+	}
+	
+	static public <T> T getBean(Class<T> clazz) {
+		return applicationContext.getBean(clazz);
+	}
+}</font></pre>
+	</li>
+</ul>
+<h1>Examples</h1>
+<p><b></b></p>
+<pre>
+</pre>
+<h1>Frequently Asked Questions</h1>
+<p><b></b></p>
+<p></p>
+<p><b></b></p>
+<p></p>
+<p><b></b></p>
+<p></p>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>
+</body>
+</html>

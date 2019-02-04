@@ -8,6 +8,8 @@ import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.arsoft.projects.arenterprise.annotation.ArTestAnnotation;
+
 
 @Repository("HibernateArTestDao")
 @Transactional
@@ -21,7 +23,8 @@ public class ArTestDao {
 		this.hibernateTemplate = hibernateTemplate;
 	}
 	
-	public List<ArTestDto> getAllArTestDto(){
+	@ArTestAnnotation
+	public List<ArTestDto> getAllArTestDto(String name, int type){
 		return hibernateTemplate.loadAll(ArTestDto.class);
 	}
 }

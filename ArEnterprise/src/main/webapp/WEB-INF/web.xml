@@ -8,8 +8,10 @@
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
-			classpath:databaseContext.xml
-			classpath:testContext.xml
+			classpath:applicationContext.xml
+			<!-- classpath:testDatabaseContext.xml
+			classpath:testBeanContext.xml
+			classpath:testAopContext.xml -->
 		</param-value>
 	</context-param> 
 	<listener>

@@ -14,7 +14,7 @@ public class ArHandler {
 	}
 	
 	public void init() {
-		List<ArTestDto> arTestDaoList= arTestDao.getAllArTestDto();
+		List<ArTestDto> arTestDaoList= arTestDao.getAllArTestDto("Anshul", 50);
 		System.out.println(arTestDaoList);
 	}
 }

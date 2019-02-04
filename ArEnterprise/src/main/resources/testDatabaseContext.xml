@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:tx="http://www.springframework.org/schema/tx" 
+	xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:aop="http://www.springframework.org/schema/aop"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
@@ -23,16 +23,12 @@
     <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
-    
-    <bean id="arBeanObject" class="com.arsoft.projects.arenterprise.beans.ArBeanObject">
-		<property name="address" value="Noida"/>
-	</bean>
-	
-	<bean id="arBean"
-		class="com.arsoft.projects.arenterprise.beans.ArBean" init-method="init">
-		<property name="name" value="Anshul Sood" />
-		<property name="age" value="33" />
-		<property name="arBeanObject" ref="arBeanObject" />
+	   
+	<bean name="dataSource"	class="org.apache.commons.dbcp2.BasicDataSource">
+		<property name="driverClassName" value="org.postgresql.Driver" />
+		<property name="url" value="jdbc:postgresql://localhost:5432/postgres" />
+		<property name="username" value="postgres" />
+		<property name="password" value="{{sood786@}}" />
 	</bean>
 	
 	<bean id="sessionFactory"
@@ -53,17 +49,14 @@
 	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate" >
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
+
+	<bean id="arBeanJDBCTemplate" class="com.arsoft.projects.arenterprise.dao.ArBeanJDBCTemplate">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
 	
 	<bean id="arHandler"
 		class="com.arsoft.projects.arenterprise.beans.ArHandler" init-method="init">
 		<property name="ArTestDao" ref="HibernateArTestDao"></property>
 	</bean>
-	    
-	<!-- AOP example -->
-	
-	<aop:aspectj-autoproxy />
-	
-	<bean id="ArTestAspect"	class="com.arsoft.projects.arenterprise.aspect.ArTestAspect" />
-	
-	<!-- AOP example -->
+
 </beans>

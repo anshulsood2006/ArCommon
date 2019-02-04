@@ -18,14 +18,21 @@
 				<ul>
 					<li><b>applicationContext.xml</b> Beans are
 						<ul>
-							<li><b>com.ericsson.cm.manager.beanfactory.BeanManager</b></li>
+							<li><b>com.ericsson.cm.manager.beanfactory.BeanManager</b>
+								<ul>
+									<li>This class implements ApplicationContextAware interface and is used to get ApplicationContext to get defined beans anywhere in the manager code</li>
+								</ul>
+							</li>
 							<li><b>com.ericsson.cm.manager.filesystem.FileSystemManager</b></li>
 							<li><b>com.ericsson.cm.manager.filesystem.RemoteFileExecutor</b></li>
 							<li><b>com.ericsson.cm.manager.usermanagement.model.UserManagerImpl</b></li>
 							<li><b>com.ericsson.cm.manager.configurationmanager.ConfigManagerImpl</b>
 								<ul>
 									<li>There are some beans which are hibernate Dao objects e.g. HibernateAlarmViaEmailConfigDAO.</li>
-									<li>These Dao objects are using hibernateTemplate instead of session factory which is not recommended.</li>
+									<li>The DAO classes are using <b>hibernateTemplate</b> bean instead of session factory which is not recommended and are annotated with <b>@Repository</b> annotation having bean name as an argument. This name is directly being referred in the beans configuration files.</li>
+									<li>The DTO classes are classes having table structures defined as class variables.</li>
+									<li>The mapping between the DTO classes and corresponding database tables is done in corresponding hibernate's <b>.hbm.xml</b> files inside resources folder.</li>
+									<li>The path to all hibernate mapping files are given as property <b>mappingLocations</b> of <b>sessionFactory</b> bean.</li>
 								</ul>
 							</li>
 						</ul>
@@ -33,12 +40,21 @@
 					<li><b>dataManagementContext.xml</b></li>
 					<li><b>applicationContextTracer.xml</b></li>
 					<li><b>FileMediationDataMgmtContext.xml</b></li>
+					<li>Beans like datasource, transaction manager, sessionFactory, hibernateTemplate beans all are defined in these xml files only</li>
+					<li>The hibernate mapping files corresponding to Dao classes</li>
 				</ul>
 			</li>
 			<li><b>org.springframework.web.context.request.RequestContextListener</b></li>
 			<li><b>com.ericsson.cm.manager.sessionmanager.core.model.SessionManagerExecutorServiceListener</b></li>
 		</ul>
 	</li>
+	<li>The instances of any bean defined in any of the bean configuration files can be created by calling <b>BeanManager.getBean({"beanName"}) from anywhere in the code.</b>
+		<ul>
+			<li>Bean Manager class is a class extending <b>ApplicationContextAware</b> interface and is used to get the beans from the ApplicationContext anywhere in the code.</li>
+			<li>This class overrides <b>setApplicationContext()</b> method of the interface.</li>
+		</ul>
+	</li>
+	<li></li>
 	
 </ul>
 <h1>Examples</h1>

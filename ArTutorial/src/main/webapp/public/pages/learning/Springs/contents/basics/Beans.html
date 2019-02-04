@@ -28,10 +28,48 @@
 			</li>
 			<li><b>init-method</b> It is used to call a method just after initialization of the bean.</li>
 			<li><b>destroy-method</b> It is used to call a method just after initialization of the bean.</li>
-			<li><b></b></li>
+			<li><b>depends-on</b> It is used to make sure that the bean with given name is created before the creation of this bean.</li>
 			<li><b></b></li>
 		</ul>
 	</li>
+</ul>
+<h1>Dependency Injection in Springs</h1>
+<ul>
+<li>A normal program like below <pre><font color="blue">public class Vehicle {
+   private Engine engine;
+   public Vehicle() {
+      this.engine = new Engine();
+   }
+}</font></pre> can be written using <b>dependency injection or an inversion of control</b> scenario in two different ways.
+<ul>
+	<li><b>Constructor Injection</b><ul><li><pre><font color="blue">public class Vehicle {
+   private Engine engine;
+   public Vehicle(Engine engine) {
+      this.engine = engine;
+   }
+}</font></pre></li>
+	<li>The Engine will be implemented independently and will be provided to the Vehicle at the time of Vehicle instantiation. Here control has been removed from the Vehicle and kept in an XML configuration file and the dependency i.e. class Engine is being injected into the class Vehicle through a Class Constructor.</li>
+	<li>The configuration needs to be done in bean configuration file is <pre><font color="blue">&lt;bean id="engine" class = "com.projects.Engine"&gt;
+&lt;bean id = "vehicle" class = "com.projects.Vehicle"&gt;
+  	&lt;constructor-arg ref = "engine"/&gt;
+&lt;/bean&gt;</font></pre></li>
+	</ul></li>
+	
+	<li><b>Setter Injection</b><ul><li><pre><font color="blue">public class Vehicle {
+   private Engine engine;
+   public void setEngine(Engine engine) {
+      this.engine = engine;
+   }
+}</font></pre></li>
+	<li>The Engine will be implemented independently and will be injected into Vehicle using a setter method.</li>
+	<li>The configuration needs to be done in bean configuration file is <pre><font color="blue">&lt;bean id="engine" class = "com.projects.Engine"&gt;
+&lt;bean id = "vehicle" class = "com.projects.Vehicle"&gt;
+  	&lt;property name = "engine" ref = "engine"/&gt;
+&lt;/bean&gt;</font></pre></li>
+</ul>	
+</ul>
+</li>
+<li>Thus in both the above methods, the flow of control has been "inverted" by Dependency Injection (DI).</li>
 </ul>
 <h1>Examples</h1>
 <p><b></b></p>
