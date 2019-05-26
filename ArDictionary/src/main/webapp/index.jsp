@@ -7,5 +7,6 @@
 </head>
 <body>
 <h2>Welcome to the home page of ArDictionary!</h2>
+<form action=""></form>
 </body>
 </html>

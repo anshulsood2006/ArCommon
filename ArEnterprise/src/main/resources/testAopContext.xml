@@ -17,11 +17,23 @@
         http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">   
 	<!-- AOP example -->
 	
+	<context:component-scan base-package="com.arsoft.projects.arenterprise" />
+	
 	<aop:aspectj-autoproxy />
 	
 	<bean id="ArTestAspect"	class="com.arsoft.projects.arenterprise.aspect.ArTestAspect" />
-	
+		
 	<bean id="ArTestXmlAspect"	class="com.arsoft.projects.arenterprise.aspect.ArTestXmlAspect" />
+	
+	<bean id="exceptionLoggingAspect" class="com.arsoft.projects.arenterprise.aspect.ExceptionLoggingAspect" />
+	
+	<bean id="anshulBean"
+		class= "com.arsoft.projects.arenterprise.beans.MyTestBean" init-method="testMe">
+		<property name="age" value="10" />
+	</bean>
+	
+	<bean id="mindBean"
+		class= "com.arsoft.projects.arenterprise.beans.Mind" />
 	
 	<aop:config>
 		<aop:aspect ref="ArTestXmlAspect" id="ArTestXmlAspectId" order="1">
