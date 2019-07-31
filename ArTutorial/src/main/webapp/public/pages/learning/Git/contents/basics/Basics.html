@@ -9,9 +9,30 @@
 <h1>Git Basics</h1>
 <h1>Features</h1>
 <ul>
-<li><b>Forking</b>: A fork is a copy of a repository. By forking a repository we can experiment with our changes/fixes without affecting the original project.</li>
+	<li><b>Forking</b>: A fork is a copy of a repository. By forking a repository we can experiment with our changes/fixes without affecting the original project.</li>
 </ul>
-<p><b></b></p>
+<ul>
+	<li><b>Adding SSH key on git hub</b>: Run below commands in git bash<br/><br/>
+		<ul>
+			<li><b>git config --global user.name "username"</b></li>
+			<li><b>git config --global user.email "email"</b></li>
+			<li><b>ssh-keygen -t rsa -b 4096 -C "email"</b></li>
+			<li><b>eval $(ssh-agent -s)</b></li>
+			<li><b>ssh-add ~/.ssh/id_rsa</b></li>
+			<li><b>clip &lt; ~/.ssh/id_rsa.pub</b></li>
+			<li><b>Add the above copied text to git hub account settings under SSH and GPG keys</b></li>
+		</ul>
+	</li>
+</ul>
+<ul>
+	<li><b>Amending the author for a commit</b> : Run below commands in git bash<br/><br/>
+		<ul>
+			<li><b>git config --global user.name "new username"</b></li>
+			<li><b>git config --global user.email "new email"</b></li>
+			<li><b>git commit --amend --reset-author</b></li>
+		</ul>
+	</li>
+</ul>
 <pre>
 </pre>
 <h1>Frequently Asked Questions</h1>

@@ -2,30 +2,84 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Git</title>
+<title>Linux Basics</title>
 </head>
 <body>
 <h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>
 <h1>Linux Basics</h1>
 <h1>Features</h1>
 <ul>
-<li>Commands
+<li><b>Commands</b>
 <table border="1">
 	<tr><th>Command</th><th>Meaning</th></tr>
 	<tr><td>cd ~</td><td>Go to home directory.</td></tr>
 	<tr><td>:42</td><td>Go to line number 42 in vi.</td></tr>
 	<tr><td>find /dir -name fileName</td><td>Search for the file with name fileName inside directory /dir.</td></tr>
 	<tr><td>find /dir -iname fileName</td><td>Search for the file with name fileName inside directory /dir without regard for the text case.</td></tr>
+	<tr><td>su</td><td>Change to root user</td></tr>
+	<tr><td>usermod -aG wheel {username}</td><td>Add user to sudoer file</td></tr>
+	<tr><td>sudo yum update</td><td>Install latest updates on red hat</td></tr>
+	<tr><td>sudo yum install java-1.8.0-openjdk-devel</td><td>Install open jdk</td></tr>
+	<tr><td>sudo yum remove java-1.8.0-openjdk-devel</td><td>Uninstall open jdk</td></tr>
+	<tr><td>cat /dev/random</td><td>Produces random device</td></tr>
+	<tr><td>cat /dev/null</td><td>Produces a device that produces no output. We can pipe the output of a command to /dev/null to discard the command.</td></tr>
+	<tr><td>printenv</td><td>Prints all the environment variables</td></tr>
+	<tr><td></td><td></td></tr>
+	<tr><td></td><td></td></tr>
 	<tr><td></td><td></td></tr>
 	<tr><td></td><td></td></tr>
 	<tr><td></td><td></td></tr>
 </table>
 </li>
+<li><b>Directory Structure</b>
+	<ul>
+		<li>/ root directory.</li>
+		<li>/bin, /usr/bin, /sbin contains essential binaries.</li>
+		<li>/boot contains the files needed for system boot.</li>
+		<li>/dev contains devices files.</li>
+		<li>/etc contains the system wide configuration files.</li>
+		<li>/home contains folder for each user.</li>
+		<li>/lib contains the essential libraries needed by essential binaries inside /bin, /usr/bin, /sbin.</li>
+		<li>/lost+found contains the file for recovery after system crash.</li>
+		<li>/media contains the removable media devices.</li>
+		<li>/mnt contains the temporary mount points.</li>
+		<li>/opt contains the optional packages.</li>
+		<li>/proc contains the Kernel & Process Files.</li>
+		<li>/root contains the home directory of root user. Note that this is not located inside /home directory like home directories of other users</li>
+		<li>/run contains the transient files require by applications like sockets and process IDs.</li>
+		<li>/tmp contains the temporary files.</li>
+		<li>/usr contains the applications and files used by users. E.g. /usr/lib/jvm contains Java</li>
+		<li>/var contains the writable data produced by applications inside the /usr.</li>
+	</ul>
+</li>	
+<li><b>Install Java</b>
+	<ul>
+		<li>Download tar file for the Oracle's website .</li>
+		<li>mkdir /usr/lib/jvm</li>
+		<li>cd /usr/lib/jvm</li>
+		<li>tar -xvzf ~/Downloads/{jdk}.tar.gz</li>
+		<li>vi /etc/bashrc and add path as PATH="$PATH:/usr/lib/jvm/{jdk_directory}/bin:/usr/lib/jvm/{jdk_directory}/jre/bin:"</li>
+		<li>vi /etc/bashrc and add JAVA_HOME as JAVA_HOME="/usr/lib/jvm/{jdk_directory}"</li>
+		<li>vi /etc/bashrc and add JRE_HOME as JRE_HOME="/usr/lib/jvm/{jdk_directory}/jre"</li>
+		<li>source /etc/bashrc</li>		
+	</ul>
+</li>
+<li><b>Install Maven</b>
+	<ul>
+		<li>Download tar file from the Apache's website.</li>
+		<li>cd /opt</li>
+		<li>tar -xvzf ~/Downloads{maven}.tar.gz</li>
+		<li>vi /etc/bashrc and add path as PATH="$PATH:/opt/{mvn_directory}/bin:"</li>
+		<li>vi /etc/bashrc and add JAVA_HOME as M2_HOME=/opt/{mvn_directory}"</li>	
+		<li>source /etc/bashrc</li>	
+	</ul>
+</li>
 </ul>
 
+
 <h1>Frequently Asked Questions</h1>
-<p><b></b></p>
-<p></p>
+<p><b>How to change to root user</b></p>
+<p>use command "su"</p>
 <p><b></b></p>
 <p></p>
 <h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>

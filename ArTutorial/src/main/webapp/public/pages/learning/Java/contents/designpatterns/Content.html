@@ -192,6 +192,43 @@ public class WeatherStation {
 	</ul>
 </li>
 </ul>
+<h1>Hexagonal Architecture</h1>
+<ul>
+	<li>It is an architecture for designing software applications.</li>
+	<li>It is also called <b>Ports &amp; Adapters Architecture</b>.</li>
+	<li>In this architecture, we isolate the core business logic of the application from the external concerns like database interactions, api calls, UI etc</li>
+	<li> The architecture can diagrammatically be represented as
+	<br/>
+		<img src="../../images/designpatterns/HexagonalArchitecture.jpg" alt="Hexagonal Architecture" width="60%" height="400"/>
+		<ul>
+			<li>The inner hexagon represents the core business logic.</li>
+			<li>The sides of the hexagon represent the ports which tell how the modules communicate with each other. The port is nothing but an interface defining the methods for communication between the core logic and outer world concerns.</li>
+			<li>The outer hexagon represents the adapters that are classes providing the implementations for the ports interfaces. We can easily switch the adapters when and wherever required.</li>
+			<li>The area outside the hexagons represents the external concerns.</li>
+		</ul>
+	</li>
+	<li>The role of the ports and adapters is to convert requests and responses come from and going to the outside world.</li>
+	<li>The ports allows us to have the adapters with a different implementation.</li>
+	<li>By establishing the isolation layer using the ports, the application does not need to care about the external layers with which it will be interacting.</li>
+	<li><b>Advantages of Hexagonal Architecture</b>
+		<ul>
+			<li>The code is easy to maintain.</li>
+			<li>The code is reusable across multiple applications.</li>
+			<li>The core logic can easily be tested in isolation of external components.</li>
+			<li>The application will still behave correctly even in case any of external layer is removed or changed.</li>
+		</ul>
+	</li>
+	<li><b>Disadvantages of Hexagonal Architecture</b>
+		<ul>
+			<li>The code with multiple layers of abstractions becomes complex eventually.</li>
+			<li>The cost of maintenance becomes high.</li>
+			<li>The code is not that easy to understand by the new developers.</li>
+		</ul>
+	</li>
+	<li><b>Example of Hexagonal Architecture</b>
+		<p>Suppose we have a system that deals in searching the drugs from an external database and 
+	</li>	
+</ul>
 <h1>Examples</h1>
 <p><b></b></p>
 <pre>

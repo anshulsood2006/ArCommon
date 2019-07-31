@@ -20,6 +20,9 @@
         <dependent-module archiveName="ardictionary.war" deploy-path="/" handle="module:/resource/ardictionary/ardictionary">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="archat.war" deploy-path="/" handle="module:/resource/archat/archat">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <dependent-module archiveName="json-20171018.jar" deploy-path="/lib" handle="module:/classpath/var/M2_REPO/org/json/json/20171018/json-20171018.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
