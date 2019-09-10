@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="keywords" content="hadoop">
+<meta name="author" content="Anshul Sood">
+<title>Hadoop</title>
+</head>
+<body>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>
+<h1>Hadoop</h1>
+<h1>Features</h1>
+<ul>
+	<li><b>Hadoop </b>is an open source framework to store, process and analyze huge volume of data.
+		<ul>
+			<li><b>Store:</b> For storage, hadoop uses Hadoop Distributed File System using commodity hardware to create clusters. It works on write once and read many times principle.</li>
+			<li><b>Process:</b> For processing, hadoop uses MapReduce.</li>
+			<li><b>Analyze:</b> For analyzing, hadoop uses hive or pig.</li>
+		</ul>
+	</li>
+	<li>The <b>three V's</b> of Big data are:
+		<ul>
+			<li><b>Velocity</b></li>
+			<li><b>Volume</b></li>
+			<li><b>Variety</b></li>
+		</ul>
+	</li>
+	<li><b>Modules of Hadoop</b>
+		<ul>
+			<li><b>HDFS: </b> Hadoop Distributed File System states that the files will be broken into blocks and stored in nodes over the distributed architecture.</li>
+			<li><b>Yarn: </b> It stands for yet another resource negotiator and is used for job scheduling and managing the hadoop cluster. It sits between HDFS and processing engine in a clustered environment.</li>
+			<li><b>Map Reduce: </b> It is a framework to process huge amount of data in parallel. It is divided into two stages:
+				<ul>
+					<li><b>Map task: </b>It takes input data and converts it into a data set which can be computed in Key value pair. It involves the splitting and mapping of input data.</li>
+					<li><b>Reduce task: </b>It takes the output of map task and combines those data tuples based on the key and accordingly modifies the value of the key.</li>
+				</ul>
+			</li>
+			<li><b>Hadoop Common: </b>It contains java apis to start hadoop and apis used by other hadoop modules.</li>
+		</ul>
+	</li>
+	<li><b>Hadoop Architecture: </b>A hadoop cluster consists of 
+		<ul>
+			<li><b>Master Node:</b></li>
+			<li><b>Slave Node:</b></li>
+		</ul>
+	</li>
+	<li>Hadoop Configuration files
+		<ul>
+			<li><b>core-site.xml</b> contains configuration of NameNode in the cluster</li>
+			<li><b>hdfs-site.xml</b> contains configuration of replication factor, block size, permissions, data directory, name node directory for HDFS.</li>
+			<li><b>mapred-site.xml</b> contains configuration of map reduce alogithms and resource managers for hadoop.</li>
+			<li><b>yarn-site.xml</b> contains configuration of map reduce alogithms and resource managers for hadoop.</li>
+		</ul>
+	</li>
+</ul>
+<h1>Examples</h1>
+<ul>
+	<li></li>
+</ul>
+<pre>
+</pre>
+<h1>Frequently Asked Questions</h1>
+<p><b>What is the difference between NameNode and DataNode in hadoop?</b></p>
+<p>The main difference between NameNode and DataNode in Hadoop is that the NameNode is the master node in HDFS that manages the file system metadata while the DataNode is a slave node in HDFS that stores the actual data as instructed by the NameNode.</p>
+<p></p>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>
+</body>
+</html>

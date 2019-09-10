@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="keywords" content="Kafka">
+<meta name="author" content="Anshul Sood">
+<title>Kafka Basics</title>
+</head>
+<body>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>
+<h1>Kafka</h1>
+<h1>Features</h1>
+<ul>
+	<li><b>Kafka:</b> is a distributed publish-subscribe messaging system that can handle high volume of data.</li>
+	<li><b>Zookeeper: </b>In case of kafka cluster, there are various brokers to maintain load balance. These brokers are managed by zookeeper. In case of failure of any broker, zookeeper notifies the consumer and producer</li>
+</ul>
+<h1>Examples</h1>
+<ul>
+	<li></li>
+	
+</ul>
+<pre>
+</pre>
+<h1>Frequently Asked Questions</h1>
+<ul>
+	<li>How to set up and use Kafka?
+		<ul>
+			<li>Download Kafka</li>
+			<li>Start zookeeper using below command from the installation directory<br/>
+			<b>./bin/zookeeper-server-start.sh config/zookeeper.properties</b></li>
+			<li>Start kafka server using below command from the installation directory<br/>
+			<b>./bin/kafka-server-start.sh config/server.properties</b></li>
+			<li>Create a topic using below command from the installation directory<br/>
+			<b>./bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic Topic</b></li>
+			<li>Get list of all the topics using below command from the installation directory<br/>
+			<b>./bin/kafka-topics.sh --list --zookeeper localhost:2181</b></li>
+			<li>Delete a topic using below command from the installation directory<br/>
+			<b>./bin/kafka-topics.sh --zookeeper localhost:2181 --delete --topic Topic</b></li>
+			<li>Produce a message and add it to the topic using below command from the installation directory<br/>
+			<b>./bin/kafka-console-producer.sh --broker-list localhost:9092 --topic Topic</b></li>
+			<li>Consume a message from the topic using below command from the installation directory<br/>
+			<b>./bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic Topic --from-beginning</b></li>
+		</ul>
+	</li>
+</ul>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>
+</body>
+</html>
