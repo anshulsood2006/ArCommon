@@ -24,7 +24,7 @@
 </pre>
 <ul>
 	<li>They are defined directly under &lt;web-app&gt;.</li>
-	<li>They are also called ServletContext parameters.</li>
+	<li>They are also called <b>ServletContext</b> parameters.</li>
 </ul>
 <p><b>What is the significance of &lt;init-param&gt; tag in web.xml file?</b></p>
 <p>This tag is used to store the servlet specific static parameters in a web application as below</p>
@@ -41,7 +41,7 @@
 </pre>
 <ul>
 	<li>They are defined under &lt;servlet&gt; tag for which the param needs to be defined.</li>
-	<li>They are also called ServletConfig parameters.</li>
+	<li>They are also called <b>ServletConfig</b> parameters.</li>
 </ul>
 <p><b>What is the significance of contextConfigLocation parameter in web.xml</b></p>
 <p>This parameter is used to tell the Spring where to load configuration files from.</p>
@@ -77,8 +77,8 @@ Tags:
 			<li><b>session: </b> Bean is valid for current HTTP session. Only valid in the context of a web-aware Spring ApplicationContext.</li>
 			<li><b>globalSession: </b>Bean is valid for global HTTP session. Typically only valid when used in a portlet context. Only valid in the context of a web-aware Spring ApplicationContext.</li>
 		</ul>
-		<li><b>init-method: </b>Used to declare the method of the bean class which needs to be called on bean destruction.</li>
-		<li><b>destroy-method: </b>Used to declare the method of the bean class which needs to be called on bean creation.</li>
+		<li><b>init-method: </b>Used to declare the method of the bean class which needs to be called on bean creation.</li>
+		<li><b>destroy-method: </b>Used to declare the method of the bean class which needs to be called on bean destruction.</li>
 		<li><b>depends-on: </b> Used to initialize another bean before this bean.</li>
 		<li><b>lazy-init: </b>It tells the IoC container to create a bean instance when it is first requested, rather than at the startup.</li>
 	</ul>

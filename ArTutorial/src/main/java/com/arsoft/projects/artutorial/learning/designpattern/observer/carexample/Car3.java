@@ -1,10 +1,10 @@
 package com.arsoft.projects.artutorial.learning.designpattern.observer.carexample;
 
-public class Car implements Observer{
+public class Car3 implements Observer{
 	
 	private String name;
 	private Engine engine;
-	public Car(String name, Engine engine) {
+	public Car3(String name, Engine engine) {
 		super();
 		this.name = name;
 		this.engine = engine;
