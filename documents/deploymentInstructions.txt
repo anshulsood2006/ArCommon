@@ -1,3 +1,8 @@
+Set up on localmachine
+maven should be installed
+mysql should be installed with the appropriate password for root user
+wildfly-8.1.0.Final should be installed
+
 Go to 
 
 java is at location : SET JAVA_HOME="/usr/java/jdk1.8.0_40"
