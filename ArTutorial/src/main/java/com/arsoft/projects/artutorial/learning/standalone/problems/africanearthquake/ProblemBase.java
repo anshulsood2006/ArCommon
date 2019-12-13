@@ -3,7 +3,7 @@ package com.arsoft.projects.artutorial.learning.standalone.problems.africanearth
 import java.util.Scanner;
 
 /*
- * Problem:
+ * Problem: Reference is https://www.techgig.com/practice/question/Y0Y2NndVR2FYTUFxZElLRkhRYzdPQT09
  * Total Cities = N
  * Affected Cities = K
  * Unaffected Cities = N - K
@@ -62,5 +62,10 @@ public class ProblemBase {
 		}else {
 			System.out.println();
 		}
+	}
+	
+	public boolean validateInput(String inputString) {
+		if (inputString == null ||)
+		return false;
 	}
 }
