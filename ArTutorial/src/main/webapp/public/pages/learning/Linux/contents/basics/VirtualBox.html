@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="keywords" content="udp">
+<meta name="author" content="Anshul Sood">
+<title>Install linux on Virtual Box</title>
+</head>
+<body>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>
+<h1>Install linux on Virtual Box</h1>
+<h1>Steps</h1>
+<ul>
+	<li>Download and install virtal box from Oracle's site</li>
+	<li>Download the DVD iso file of Redhat from Redhat's site</li>
+	<li>Mount the DVD</li>
+	<li>Select workstation > Container management, Development Tools and Graphical Administration Tools under Software</li>
+	<li>Disable KDUMP to save memory</li>
+	<li>Select ethernet under network adapter</li>
+	<li>Create root password and a user</li>
+	<li>Begin the installation</li>
+	<li>Unmount the disc before reboot</li>
+	<li>Agree to the license and get the system registered</li>
+	<li>Update yum repository using <b>sudo yum update</b></li>
+	<li>Reboot the system.</li>
+	<li>sudo yum groupinstall "Development Tools"</li>
+	<li>sudo yum install kernel-devel elfutils-libelf-devel</li>
+	<li>Mount the Guest Additions DVD iso and run it</li>
+</ul>
+<h1>Examples</h1>
+<ul>
+	<li></li>
+</ul>
+<h1>Frequently Asked Questions</h1>
+<p><b></b></p>
+<ul>
+	<li></li>
+</ul>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>
+</body>
+</html>
