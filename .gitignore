@@ -8,3 +8,12 @@
 /ArTutorial/python/ReinforcementLearning/myenv.egg-info
 /ArTutorial/python/ReinforcementLearning/RLEnvironment/__pycache__
 /ArTutorial/python/ReinforcementLearning/RLEnvironment/envs/__pycache__
+.project
+.settings/
+ArBid/.settings/
+ArChat/.settings/
+ArDictionary/.settings/
+ArEnterprise/.settings/
+ArShareMarket/.settings/
+ArShared/.settings/
+ArTutorial/.settings/
