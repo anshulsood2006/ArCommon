@@ -2,6 +2,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="keywords" content="linux">
+<meta name="author" content="Anshul Sood">
 <title>Linux Basics</title>
 </head>
 <body>
@@ -12,6 +14,9 @@
 <li><b>Commands</b>
 <table border="1">
 	<tr><th>Command</th><th>Meaning</th></tr>
+	<tr><td>uname -r</td><td>Get the version of linux installed.</td></tr>
+	<tr><td>yum repolist -v</td><td>List the yum repositories available</td></tr>
+	<tr><td>yum clean packages</td><td>Remove the cached packages</td></tr>
 	<tr><td>cd ~</td><td>Go to home directory.</td></tr>
 	<tr><td>:42</td><td>Go to line number 42 in vi.</td></tr>
 	<tr><td>find /dir -name fileName</td><td>Search for the file with name fileName inside directory /dir.</td></tr>
@@ -70,14 +75,7 @@
 		<li>source /etc/bashrc</li>	
 	</ul>
 </li>
-<li><b>Install MySQL Server</b>
-	<ul>
-		<li>Add the MySQl repository to yum repository using command <b>yum install mysql80-community-release-el8-1.noarch.rpm</b></li>
-		<li>Enable the repository using command <b>yum config-manager --enable mysql80-community</b></li>
-		<li>Disable mysql using command <b>yum module disable mysql</b></li>
-		<li>Install mysql using command <b>yum install mysql-community-server</b></li>
-	</ul>
-</li>
+
 </ul>
 
 
@@ -93,6 +91,8 @@
 </ul></p>
 <p><b>How to fix error locate: can not stat () `/var/lib/mlocate/mlocate.db'</b></p>
 <p>Update the binary database using below command <b>sudo updatedb</b></p>
+<p><b>How to fix error file {file} from install of package {packageName} conflicts with file from package {packageName}</b></p>
+<p>Take an example of error <font color="red">file /usr/share/man/man1/docker-attach.1.gz from install of docker-ce-cli-1:19.03.5-3.el7.x86_64 podman-manpages-1.4.2-6.module+el8.1.0+4830+f49150d7.noarch</font> found during installation of docker of RHEL8. To fix the above error, remove the package on the right hand side of the error message i.e. yum remove podman-manpages.</p>
 <h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>
 </body>
 </html>

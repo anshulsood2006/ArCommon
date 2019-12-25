@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<meta name="keywords" content="computer programming">
+<meta name="keywords" content="docker">
 <meta name="author" content="Anshul Sood">
 <title>Docker Basics</title>
 </head>
@@ -11,6 +11,7 @@
 <h1>Docker</h1>
 <h1>Features</h1>
 <ul>
+	<li>Docker works on the principle of Containerization </li>
 	<li>Docker is a container management service.</li>
 	<li>It lets the developers to easily develop the applications and ship them inside containers which can be deployed anywhere.</li>
 	<li>The docker containers can be deployed anywhere on physical machines or Virtual machines or even on cloud.</li>
@@ -23,9 +24,19 @@
 	<li><b>Docker Hub</b></li>
 	<li><b>Docker Compose</b></li>
 </ul>
-<h2>Installation of Docker (Windows)</h2>
+<h2>Installation of Docker on Windows</h2>
 <ul>
 	<li>Download and run Docker.exe from docker hub.</li>
+</ul>
+<h2>Installation of Docker on RedHat</h2>
+<ul>
+	<li>Add the docker repository to yum repository list using command <b>yum config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo</b>.</li>
+	<li>Get the list of available docker versions using command <b>yum list docker-ce --showduplicates | sort -r</b></li>
+	<li>Install the latest version using command <b>yum install docker-ce --nobest -y</b></li>
+	<li>Get the status of docker service using command <b>service docker status</b></li>
+	<li>Start docker service using command <b>service docker start</b></li>
+	<li>Stop docker service using command <b>service docker stop</b></li>
+	<li>Run a docker image using command <b>docker run {image}</b>. This command first looks for docker image on local system. If image is not found locally, it downloads the same from docker hub.</li>
 </ul>
 <h1>Examples</h1>
 <ul>

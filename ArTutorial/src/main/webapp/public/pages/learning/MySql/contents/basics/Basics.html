@@ -8,20 +8,30 @@
 </head>
 <body>
 <h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>
-<h1>MySql</h1>
+<h1>MySQL</h1>
 <h1>Features</h1>
 <ul>
-	<li>Get the version of MySql service in linux using command <b>mysqld --version</b></li>
-	<li>Get the status of MySql service in linux using command <b>service mysqld status</b></li>
-	<li>Start MySql service in linux using command <b>service mysqld start</b></li>
-	<li>Stop MySql service in linux using command <b>service mysqld stop</b></li>
+	<li><b>Install MySQL Server</b>
+		<ul>
+			<li>Add the MySQL repository to yum repository using command <b>yum install mysql80-community-release-el8-1.noarch.rpm</b></li>
+			<li>Enable the repository using command <b>yum config-manager --enable mysql80-community</b></li>
+			<li>Disable MySQL using command <b>yum module disable mysql</b></li>
+			<li>Install MySQL using command <b>yum install mysql-community-server</b></li>
+		</ul>
+	</li>
+</ul>
+<ul>
+	<li>Get the version of MySQL service in linux using command <b>mysqld --version</b></li>
+	<li>Get the status of MySQL service in linux using command <b>service mysqld status</b></li>
+	<li>Start MySQL service in linux using command <b>service mysqld start</b></li>
+	<li>Stop MySQL service in MySQL using command <b>service mysqld stop</b></li>
 	<li>Change root password of mysql after fresh installation using command below steps 
 		<ul>
 			<li>Get the temporary password using command <b>grep 'temporary password' /var/log/mysqld.log</b></li>
 			<li>Change the password using command <b>mysql_secure_installation</b></li>
 		</ul>
 		</li>
-		<li>Start mysql using command <b>mysql -u root -p</b></li>
+		<li>Start MySQL using command <b>mysql -u root -p</b></li>
 </ul>
 <h1>Examples</h1>
 <ul>
