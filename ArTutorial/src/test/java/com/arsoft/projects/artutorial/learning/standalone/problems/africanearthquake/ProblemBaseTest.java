@@ -4,10 +4,10 @@ import org.junit.Test;
 import org.mockito.Mockito;
 
 public class ProblemBaseTest {
-	ProblemBase problemBase = Mockito.mock(ProblemBase.class);
+	ArEarthquakeProblem problemBase = Mockito.mock(ArEarthquakeProblem.class);
 	@Test
 	public void testValidateInput() {
-		problemBase = new ProblemBase();
+		problemBase = new ArEarthquakeProblem();
 		boolean isValid = problemBase.validateInput(null);
 		assert(!isValid);
 		isValid = problemBase.validateInput("");
