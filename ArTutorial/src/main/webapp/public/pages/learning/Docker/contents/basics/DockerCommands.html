@@ -11,15 +11,25 @@
 <h1>Commands Used in Docker</h1>
 <table border="1">
 	<tr><th>Command</th><th>Task</th></tr>
+	<tr><td>docker version</td><td>Shows the docker version</td></tr>
+	<tr><td>docker info</td><td>Shows the information about the operating system version</td></tr> 
 	<tr><td>docker ps -a</td><td>View all the available docker containers on local</td></tr>
-	<tr><td>docker run {image}</td><td>Run a docker image in a new container</td></tr>
+	<tr><td>docker run {image}</td><td>Run the latest docker image in a new container</td></tr>
+	<tr><td>docker run {image}:{tag}</td><td>Run the docker image with the given tag version in a new container</td></tr>
 	<tr><td>docker start --attach {container name}</td><td>Run a docker image in an existing container</td></tr>
 	<tr><td>docker stop {container name}</td><td>Stop a container.</td></tr>
 	<tr><td>docker rm {container name}</td><td>Remove a container.</td></tr>
+	<tr><td>docker container ls</td><td>Lists all the docker containers on local</td></tr>
 	<tr><td>docker image ls</td><td>Lists all the docker images on local</td></tr>
 	<tr><td>docker images -a</td><td>Lists all the docker images on local</td></tr>
 	<tr><td>docker rmi {image id}</td><td>Remove a docker image from local</td></tr>
 	<tr><td>docker images purge</td><td>Remove all the dangling docker image from local</td></tr>
+	<tr><td>docker search {image name}</td><td>Search the online docker registry for a image named {image name}.</td></tr>
+	<tr><td>docker pull {image name}</td><td>Pull the image from docker hub.</td></tr>
+	<tr><td>docker port {image name}</td><td>Returns the port number on the host machine where image is running provided appropriate mapping is done.</td></tr>
+	<tr><td>docker run -p {HostPort:ContainerPort} {image name}</td><td>Starts the docker image and maps the given host port to the given container port.</td></tr>
+	<tr><td>docker commit {container name} {repositoryName/imageName}</td><td>It is used to commit an image to local</td></tr>
+	<tr><td>docker push {repositoryName/imageName}</td><td>It is used to push an image to docker hub</td></tr>
 	<tr><td></td><td></td></tr>
 </table>
 <h1>Examples</h1>
@@ -29,9 +39,25 @@
 <pre>
 </pre>
 <h1>Frequently Asked Questions</h1>
+<p><b>How to resolve error "Error response from daemon: conflict: unable to remove repository reference "{image name}" (must force) - container {container id} is using its referenced image {image id}"</b></p>
+<p>This occurs when we try to remove an image whose container is running. Steps to remove the error
 <ul>
-	<li></li>
+	<li>Get all the available containers using command <b>docker container ls</b> or <b>docker ps -a</b> and then remove them using command <b>docker container rm {container id}</b></li>
+	<li>Then remove the corresponding image using docker image rm {image id}</li>
 </ul>
+</p>
+<p><b>What is meant by -t and i- flags in docker run -t -i {image name}?</b></p>
+<p>-i means make it interactive where as -t means it accepts the tty input.  TTY stands for "TeleTYpewriter", which were devices that allowed users to connect to early computers.</p>
+<p><b>What is REPOSITORY in docker image?</b></p>
+<p>It is the image name only</p>
+<p><b>What is meant by -d and --name flag in docker run -d --name MyWebServer httpd?</b></p>
+<p>-d means make it to run in detached mode and --name is used to assign the name to the server.</p>
+<p><b>What is meant by -P in docker run -d --name MyWebServer -P httpd?</b></p>
+<p>-P means makes an image run inside container at a random port.</p>
+<p><b>What is meant by -p HostPort:ContainerPort and in docker run -d --name MyWebServer -p 8082:80 httpd?</b></p>
+<p>-P means makes an image run inside container at a random port.</p>
+<p><b>What is meant by --rm in docker run -it --name mycontainer1 --rm ubuntu:latest?</b></p>
+<p>--rm flag means that remove container on termination.</p>
 <h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>
 </body>
 </html>
