@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="keywords" content="Data Volumes in Docker">
+<meta name="author" content="Anshul Sood">
+<title>Data Volumes in Docker</title>
+</head>
+<body>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>
+<h1>Data Volumes in Docker</h1>
+<h2>Features</h2>
+<ul>
+	<li>Data volumes are special directories in docker containers which are initalized when containers are created.</li>
+	<li>A data volume is not deleted when containers are removed.</li>
+	<li>A data volume is never garbage collected.</li>
+	<li>A data volume can be shared across containers.</li>
+	<li>A data volume is created using command "docker run -it  <b>-v /data</b> -name {containerAlias} {imageName}". </li>
+	<li>To remove data volume when container is removed, use command: <b>docker container -rm  {containerName} -v</b>. </li>
+	<li>To map a host machine folder to data volume use command: <b>docker run -it -v {hostFolderPath:containerFolderPath} -name {containerAlias} {imageName}</b></li>
+	<li>To get the data volume mounted on one container inside another container, launch the other container using command: <b>docker run -it --volumes-from {containerAliasWhoseVolumeNeedsToBeShared} -name {containerAlias} {imageName}</b></li>
+</ul>
+
+
+<h1>Examples</h1>
+<ul>
+	<li></li>
+</ul>
+<pre>
+</pre>
+<h1>Frequently Asked Questions</h1>
+<p><b></b></p>
+<p></p>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>
+</body>
+</html>

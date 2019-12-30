@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="keywords" content="private docker registry">
+<meta name="author" content="Anshul Sood">
+<title>Private Docker Registry</title>
+</head>
+<body>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>
+<h1>Set up Private Docker Registry</h1>
+<h1>Steps</h1>
+<ul>
+	<li>Pull the registry image from docker hub using command: <b>docker pull registry</b></li>
+	<li>Run the docker container in detached mode using command: <b>docker run -d -p 5000:5000 --name localregistry registry</b></li>
+	<li>Verify the docker container using command: <b> ps -a</b></li>
+	<li>Download image from private registry using command: <b>docker pull localhost:5000/ubuntu-git</b></li>
+	<li>Tag the image to the tag of local registry using command: <b>docker tag anshulsood2006/ubuntu-git localhost:5000/anshulsood2006/ubuntu-git</b></li>
+	<li>Push the tag to the local registry using command: <b>docker push localhost:5000/anshulsood2006/ubuntu-git</b></li>
+</ul>
+<h1>Examples</h1>
+<ul>
+	<li></li>
+</ul>
+<pre>
+</pre>
+<h1>Frequently Asked Questions</h1>
+<p><b></b></p>
+<p></p>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>
+</body>
+</html>
