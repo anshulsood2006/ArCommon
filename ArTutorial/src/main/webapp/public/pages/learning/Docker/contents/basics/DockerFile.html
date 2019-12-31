@@ -11,15 +11,26 @@
 <h1>Docker File</h1>
 <h2>Features</h2>
 <ul>
-	<li></li>
+	<li>Docker file is used to create user defined docker images.</li>
+	<li>It is a simple text file with name Dockerfile and without any extension.</li>
+	<li>It consists ofa series of layers built on top of each other, starting with a base image.</li>
+	<li>Base image can be an existing docker image or scratch.</li>
+	<li>Once a docker file is created, image can be created using command : <b>docker build -t {imageName:version} {path of Dockerfile}</b></li>
 </ul>
-
-
-<h1>Examples</h1>
+<h2>Structure of docker file</h2>
 <ul>
-	<li></li>
+	<li><b>FROM</b> Used to specify the base image. Should be scratch if no base image needs to be used.</li>
+	<li><b>MAINTAINER</b> Used to specify the creator of image.</li>
+	<li><b>RUN</b> Used to specify the commands to be run during building image.</li>
+	<li><b>CMD</b> Used to specify the commands to be run during running container.</li>
 </ul>
+<h1>Examples</h1>
+<h2>Sample Dockerfile</h2>
 <pre>
+	FROM ubuntu:latest
+	MAINTAINER Anshul Sood &lt;anshulsood2006@gmail.com&gt;
+	RUN apt-get update
+	CMD ["ls"]
 </pre>
 <h1>Frequently Asked Questions</h1>
 <p><b></b></p>

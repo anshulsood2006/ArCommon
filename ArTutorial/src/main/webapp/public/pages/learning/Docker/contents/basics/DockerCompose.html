@@ -19,17 +19,27 @@
 	<li>Docker Compose is a tool used to define and run multi-container Docker applications.</li>
 	<li>All the application services are configured inside a compose file named docker-compose.yml</li>
 	<li>A single command <b>docker-compose up</b> is used to create and start all the services from the configuration.</li> 
+	<Li>The yaml file can be vealidating using command: <b>docker-compose config</b></Li>
+	<li>The services can be started using command: <b>docker-compose up</b></li>
+	<li>The services can be stopped using command: <b>docker-compose down</b></li>
 </ul>
 
 <h1>Examples</h1>
-<ul>
-	<li></li>
-</ul>
+<h2>Sample docker-compose.yml</h2>
+<pre>
+	version: "3"
+	
+	services:
+	  myweb:
+	    image: ubuntu
+	  mydb:
+	    image: redis
+</pre>
 <pre>
 </pre>
 <h1>Frequently Asked Questions</h1>
-<p><b></b></p>
-<p></p>
+<p><b>How to resolve error "mapping values are not allowed here"</b></p>
+<p>Make sure that there are space after the colon in yaml. They are mandatory.</p>
 <h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>
 </body>
 </html>
