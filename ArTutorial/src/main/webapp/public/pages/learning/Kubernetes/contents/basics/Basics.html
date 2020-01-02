@@ -9,9 +9,25 @@
 <body>
 <h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>
 <h1>Kubernetes</h1>
-<h1>Features</h1>
+<h2>Features</h2>
 <ul>
-	<li></li>
+	<li>Kubernetes is a container orchestration platform developed by Google. It is an enhanced version of Borg tool which was used to manage both long running processes and batch jobs.</li>
+	<li>It was donated to Cloud Native Computing Foundation (CNCF) by Google and thus became open source.</li>
+	<li>It deals in automated deployment, scaling, running and monitoring of applications.</li>
+	<li>It acts as a control loop as it compares the desired state to the actual state, and if they aren't the same, takes steps to correct it. </li>
+</ul>
+<h2>Components of Kubernetes</h2>
+<ul>
+<li><b>Master Control Panel:</b> The component that performs orchestration. It has below sub components 
+	<ul>
+		<li><b>Etcd: </b>For storage of configuration information.</li>
+		<li><b>API Server: </b>For communication between the components.</li>
+		<li><b>Schedular: </b>For deciding the nodes where pods should run.</li>
+		<li><b>Controller Manager: </b>For checking current state with desired state.</li>
+	</ul>
+</li>
+<li><b>Pods:</b> The component that hold containers, most of the times a pod has one container. </li>
+<li><b>Nodes:</b> The component where pods get scheduled. The applications actually run on the nodes.</li>
 </ul>
 <h1>Examples</h1>
 <ul>
@@ -20,9 +36,14 @@
 <pre>
 </pre>
 <h1>Frequently Asked Questions</h1>
-<ul>
-	<li></li>
-</ul>
+<p><b>What is the difference between Docker and Kubernetes?</b></p>
+<table border="1">
+	<tr><th>Docker</th><th>Kubernetes</th></tr>
+	<tr><td>It is a containerization tool</td><td>It is a container orchestration tool.</td></tr>
+	<tr><td>It deals in packaging and distribution of an appplication</td><td>It deals in scaling, running and monitoring an application.</td></tr>
+	
+	
+</table>
 <h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>
 </body>
 </html>
