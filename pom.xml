@@ -226,11 +226,11 @@
 		<!-- Dependencies for Java Mailing Service -->
 
 		<!-- Dependencies for Java MySQl Connection -->
-		<dependency>
+		<!--<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>${mysql-connector-java.version}</version>
-		</dependency>
+		</dependency>-->
 		<!-- Dependencies for Java MySQl Connection -->
 
 		<!--  --><!-- Dependencies for hibernate -->

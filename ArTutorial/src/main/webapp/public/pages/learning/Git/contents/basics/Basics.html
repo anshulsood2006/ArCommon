@@ -6,8 +6,8 @@
 </head>
 <body>
 <h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
-<h1>Git Basics</h1>
-<h1>Features</h1>
+<h1>Basics of Git</h1>
+<h2>Features</h2>
 <ul>
 	<li><b>Forking</b>: A fork is a copy of a repository. By forking a repository we can experiment with our changes/fixes without affecting the original project.</li>
 </ul>
@@ -47,8 +47,17 @@
 </ul>
 <p><b>How to install sudo command in git bash</b></p>
 <p>Use command <b>curl -s https://raw.githubusercontent.com/imachug/win-sudo/master/install.sh | sh</b>. Restart the git bash.</p>
-<p><b></b></p>
-<p></p>
+<p><b>How to install git-lfs in RHEL8?</b></p>
+<ul>
+	<li>Add git-lfs repository using command: <b>curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.rpm.sh | sudo bash</b></li>
+	<li>Install git-lfs  using command: <b>yum install git-lfs</b></li>
+</ul>
+<p><b>How to add files larger than 100 Mb size to git?</b></p>
+<ul>
+	<li>Install git lfs using command <b>git lfs install</b></li>
+	<li>Track the large file using command <b>git lfs track {filePath}</b></li>
+	<li>Add the .gitattributes as well as the large file.Create the commit and push as normal</li>
+</ul>
 <h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
 </body>
 </html>
