@@ -1,0 +1,6 @@
+#Ignore everything
+**
+
+# Allow below files and directories
+!jboss/wildfly-8.1.0.Final.tar.gz
+!ArEar/target/arear.ear

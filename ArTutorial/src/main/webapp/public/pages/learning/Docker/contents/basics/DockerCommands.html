@@ -66,6 +66,17 @@
 <p>-P means makes an image run inside container at a random port.</p>
 <p><b>What is meant by --rm in docker run -it --name mycontainer1 --rm ubuntu:latest?</b></p>
 <p>--rm flag means that remove container on termination.</p>
+<p><b>How to ignore all files and include only few during docker build.</b><p>
+<p>This can be done by adding a file with name .dockerignore to the docker context path and adding below lines
+<pre>
+	#Ignore everything
+	**
+	
+	# Allow below files and directories
+	!jboss/wildfly-8.1.0.Final.tar.gz
+</pre></p>
+<p><b>How to run docker build when Dockerfile is not in the context path?</b></p>
+<p>This can be done by providing the path of Dockerfile using -f option e.g. docker build -t {imageName:tagVersion} -f {pathDockerFile} .</p>
 <h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>
 </body>
 </html>
