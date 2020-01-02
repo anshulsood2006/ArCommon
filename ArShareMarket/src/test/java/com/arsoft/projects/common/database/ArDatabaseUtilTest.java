@@ -3,6 +3,7 @@ package com.arsoft.projects.common.database;
 import static org.junit.Assert.assertNotNull;
 
 import org.hibernate.SessionFactory;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -59,6 +60,7 @@ public class ArDatabaseUtilTest {
 		ArDatabaseUtil.getSessionFactory(resource);
 	}
 	
+	@Ignore
 	@Test
 	public void getSessionFactoryValidResource() throws ArException {
 		String resource = "com/arsoft/projects/configuration/dukaan.cfg.xml";
