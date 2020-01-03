@@ -6,6 +6,6 @@ WORKDIR /app
 COPY ./jboss/wildfly-8.1.0.Final.tar.gz /app
 RUN tar -xvf /app/wildfly-8.1.0.Final.tar.gz
 RUN rm -rf /app/wildfly-8.1.0.Final.tar.gz 
-COPY ./ArEar/target/arear.ear /app/wildfly-8.1.0.Final/standalone/deployments
+#COPY ./ArEar/target/arear.ear /app/wildfly-8.1.0.Final/standalone/deployments
 WORKDIR /
-CMD ["./app/wildfly-8.1.0.Final/bin/standalone.sh"]
+CMD ["./app/wildfly-8.1.0.Final/bin/standalone.sh","-b", "0.0.0.0", "-bmanagement", "0.0.0.0"]
