@@ -39,6 +39,7 @@
 	<tr><td>docker container prune</td><td>Remove all the unused containers.</td></tr>
 	<tr><td>docker volume prune</td><td>Remove all the unused volumes.</td></tr>
 	<tr><td>docker system prune</td><td>Remove all the unused images, containers and volumes.</td></tr>
+	<tr><td>docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' {containerId}</td><td>Get the container ip address.</td></tr>
 </table>
 <h1>Examples</h1>
 <ul>
