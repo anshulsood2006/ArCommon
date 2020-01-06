@@ -22,13 +22,22 @@
 	<li>Disable the module "postgresql" from the official appstream distribution using command: <b>yum -qy module disable postgresql</b></li> 
 	<li>Install postgres using command: <b>yum install postgresql12-server postgresql12  postgresql12-contrib</b></li>
 	<li>Initialize database cluster using command: <b>/usr/pgsql-12/bin/postgresql-12-setup initdb</b></li>
-	<li>Enable automatic install using command: <b>systemctl enable --now postgresql-12</b></li>
+	<li>Enable automatic restart on boot using command: <b>systemctl enable --now postgresql-12</b></li>
 	<li>Start the service using command: <b>systemctl status postgresql-12</b></li>
-	<li>Enable database access for external machines edit file /var/lib/pgsql/data/postgresql.conf and add listen_addresses = '*'</li>
-	<li>Restart the database server using command: <b>systemctl restart postgresql</b></li>
+	<li>Enable database access for external machines edit file /var/lib/pgsql/12/data/postgresql.conf and add listen_addresses = '*'</li>
+	<li>Restart the database server using command: <b>systemctl restart postgresql-12</b></li>
 	<li>Confirm the port using command: <b>netstat -antup | grep 5432</b></li>
-	<li>Login as postgres user: <b>su -l postgres</b></li>
-	<li>\password</li>
+	<li>Login as postgres user using command: <b>su -l postgres</b></li>
+	<li>Change default password using command: <b>\password</b></li>
+	<li>To find the location of pg_hba.conf file use command <b>SHOW hba_file;</b></li>
+	<li>To prompt password during each login to database 
+		<ul>
+			<li>Edit postgresql.conf and add md5 to line having content local  all  all md5</li>
+			<li>Reload the configuration using commmand: <b>pg_ctl reload -D /var/lib/pgsql/12/data/</b></li>
+			<li>Restart the database server using command: <b>systemctl restart postgresql-12</b></li>
+			<li>Verify the above using command <b>psql -qAt -c "show hba_file" | xargs grep -v -E '^[[:space:]]*#'</b></li>
+		</ul>
+	</li>
 </ul>
 <p><b></b></p>
 <p></p>

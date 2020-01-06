@@ -1,12 +1,18 @@
 Set up on localmachine
 maven should be installed
-mysql should be installed with the appropriate password for root user
 wildfly-8.1.0.Final should be installed. 
 To fix few errors on server startup Go to $JBOSS_HOME/standalone/configuration/standalone.xml and 
 	remove extension org.jboss.as.weld and the corresponding subsystem
 	remove extension org.jboss.as.logging and the corresponding subsystem
 postgres should be installed with the appropriate password for postgres user
+There should be table TEST with below configuration
 
+	CREATE TABLE TEST(
+	   id INTEGER PRIMARY KEY,
+	   name VARCHAR (256) UNIQUE NOT NULL,
+	   age INTEGER
+	);
+	
 java is at location : SET JAVA_HOME="/usr/java/jdk1.8.0_40"
 
 Kill wildfly:
