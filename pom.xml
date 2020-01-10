@@ -59,7 +59,7 @@
 		<jersey-media-json-jackson.version>2.26</jersey-media-json-jackson.version>
 		<maven-surefire-plugin.version>2.21.0</maven-surefire-plugin.version>
 		<project.version>1.0</project.version>
-		<postgresql.version>9.3-1100-jdbc41</postgresql.version>
+		<!-- <postgresql.version>9.3-1100-jdbc41</postgresql.version> -->
 		<commons-dbcp.version>2.2.0</commons-dbcp.version>
 		<aspectj.version>1.9.2</aspectj.version>
 	</properties>
@@ -226,11 +226,11 @@
 		<!-- Dependencies for Java Mailing Service -->
 
 		<!-- Dependencies for Java MySQl Connection -->
-		<!--<dependency>
+		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>${mysql-connector-java.version}</version>
-		</dependency>-->
+		</dependency>
 		<!-- Dependencies for Java MySQl Connection -->
 
 		<!--  --><!-- Dependencies for hibernate -->
@@ -279,11 +279,11 @@
 		</dependency>
 		<!-- Dependencies for jersey rest web-services -->
 		
-		<dependency>
+		<!-- <dependency>
     		<groupId>org.postgresql</groupId>
     		<artifactId>postgresql</artifactId>
     		<version>${postgresql.version}</version>
-		</dependency>
+		</dependency> -->
 		<dependency>
       		<groupId>org.apache.commons</groupId>
       		<artifactId>commons-dbcp2</artifactId>

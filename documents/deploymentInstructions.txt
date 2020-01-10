@@ -5,6 +5,9 @@ To fix few errors on server startup Go to $JBOSS_HOME/standalone/configuration/s
 	remove extension org.jboss.as.weld and the corresponding subsystem
 	remove extension org.jboss.as.logging and the corresponding subsystem
 postgres should be installed with the appropriate password for postgres user
+pg_hba.conf should have md5 set
+postgresql.conf should have listen_addresses = '*'
+
 There should be table TEST with below configuration
 
 	CREATE TABLE TEST(
@@ -12,6 +15,8 @@ There should be table TEST with below configuration
 	   name VARCHAR (256) UNIQUE NOT NULL,
 	   age INTEGER
 	);
+	
+	insert into TEST values (1, 'Anshul', 50);
 	
 java is at location : SET JAVA_HOME="/usr/java/jdk1.8.0_40"
 

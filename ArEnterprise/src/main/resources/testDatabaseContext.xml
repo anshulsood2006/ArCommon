@@ -24,10 +24,17 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	   
-	<bean name="dataSource"	class="org.apache.commons.dbcp2.BasicDataSource">
+	<!-- <bean name="dataSource"	class="org.apache.commons.dbcp2.BasicDataSource">
 		<property name="driverClassName" value="org.postgresql.Driver" />
-		<property name="url" value="jdbc:postgresql://localhost:5432/postgres" />
-		<property name="username" value="postgres" />
+		<property name="url" value="jdbc:postgresql://localhost:5432/TEST" />
+		<property name="username" value="root" />
+		<property name="password" value="Myfriendwa@123" />
+	</bean> -->
+	
+	<bean name="dataSource"	class="org.apache.commons.dbcp2.BasicDataSource">
+		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/TEST" />
+		<property name="username" value="root" />
 		<property name="password" value="Myfriendwa@123" />
 	</bean>
 	
