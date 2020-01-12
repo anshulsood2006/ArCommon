@@ -10,13 +10,17 @@ postgresql.conf should have listen_addresses = '*'
 
 There should be table TEST with below configuration
 
+	CREATE DATABASE TEST;
+	USE TEST;
 	CREATE TABLE TEST(
 	   id INTEGER PRIMARY KEY,
 	   name VARCHAR (256) UNIQUE NOT NULL,
 	   age INTEGER
 	);
-	
 	insert into TEST values (1, 'Anshul', 50);
+	
+Database exception debug point inside 
+org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(Map configurationValues, ServiceRegistryImplementor registry) jdbcConnectionAccess.obtainConnection();
 	
 java is at location : SET JAVA_HOME="/usr/java/jdk1.8.0_40"
 
