@@ -1,4 +1,4 @@
-Set up on localmachine
+Set up on local machine
 Make sure that hosts is having an entry for armysql and arjboss (C:\Windows\System32\drivers\etc\hosts for windows and /etc/hosts for linux)
 maven should be installed
 wildfly-8.1.0.Final should be installed. 
