@@ -6,6 +6,6 @@ public class JMSConstant {
 	public static final String JMS_CONNECTION_FACTORY ="java:/jms/myjmsTest/MyConnectionFactory";
 	public static final String JMS_USERNAME ="jmsuser";
 	public static final String JMS_PASSWORD ="jmsuser@123";
-	public static final String ACTIVE_MQ_URL="tcp://localhost:61616";
+	public static final String ACTIVE_MQ_URL="tcp://arjboss:61616";
 	public static final String MESSAGE_TO_PUBLISH = "Hello, world published!";;
 }

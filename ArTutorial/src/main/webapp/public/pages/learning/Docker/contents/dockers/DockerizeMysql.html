@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="keywords" content="Docker for Mysql">
+<meta name="author" content="Anshul Sood">
+<title>Docker for Mysql</title>
+</head>
+<body>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>
+<h1>Docker for Mysql</h1>
+<h2>Steps to create MySql container using docker client</h2>
+<ul>
+	<li>To start MySql container with root password mypassword at port 3306 on local machine with name test-mysql use command: <br/><b>docker run --detach --name=test-mysql --env="MYSQL_ROOT_PASSWORD=mypassword" --publish 3306:3306 mysql</b></li>
+	<li>To pass configuration options such as max-connections as flags use command: <br/><b>docker run --detach --name=test-mysql --env="MYSQL_ROOT_PASSWORD=mypassword" --publish 3306:3306 mysql --max-connections=200</b></li>
+	<li>To mount a configuration file from host machine's directory say E:\ext\mysqlconf to a directory inside container say /etc/mysql/conf.d use command: <br/> <b>docker run --detach --name=test-mysql --env="MYSQL_ROOT_PASSWORD=mypassword" --publish 3306:3306 --volume=E:\ext\mysqlconf:/etc/mysql/conf.d mysql</b><br/> This can be verified by inspecting container and this will show 
+<pre>"HostConfig": {
+           "Binds": [
+               "/host_mnt/e/ext/mysqlconf:/etc/mysql/conf.d"
+           ]
+</pre>
+    </li>
+    <li>To mount data directory from host machine's directoy say E:\ext\mysqldata to the default mysql data directory inside a docker container viz. /var/lib/mysql use command: <br/><b>docker run --detach --name=test-mysql --env="MYSQL_ROOT_PASSWORD=mypassword" --publish 3306:3306 --volume=E:\ext\mysqlconf:/etc/mysql/conf.d --volume=E:\ext\mysqldata:/var/lib/mysql mysql</b><br/> This can be verified by inspecting container and this will show
+<pre>"HostConfig": {
+           "Binds": [
+               "/host_mnt/e/ext/mysqldata:/var/lib/mysql",
+               "/host_mnt/e/ext/mysqlconf:/etc/mysql/conf.d"
+           ]
+</pre>    
+    </li>
+	<li>To stop MySql container with name test-mysql use command: <br/><b>docker stop test-mysql</b></li>
+	<li>To remove MySql container with name test-mysql use command: <br/><b>docker rm test-mysql</b></li>
+</ul>
+<h2>Steps to create MySql container using Dockerfile</h2>
+<pre>
+
+</pre>
+
+<h1>Examples</h1>
+<h1>Frequently Asked Questions</h1>
+<p><b></b></p>
+<p></p>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>
+</body>
+</html>

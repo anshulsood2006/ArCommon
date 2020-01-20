@@ -10,7 +10,7 @@ public class PSIRequestSimulator {
 
 	public static void main(String[] args) throws IOException {
 		while (true) {
-			Socket s = new Socket("localhost", 6200);
+			Socket s = new Socket("arjboss", 6200);
 			DataOutputStream dout=new DataOutputStream(s.getOutputStream()); 
 			dout.writeUTF(psiApplyTariffRequest);  
 			dout.flush();  

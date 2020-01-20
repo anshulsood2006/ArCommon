@@ -41,6 +41,9 @@
 	<tr><td>docker volume prune</td><td>Remove all the unused volumes.</td></tr>
 	<tr><td>docker system prune</td><td>Remove all the unused images, containers and volumes.</td></tr>
 	<tr><td>docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' {containerId}</td><td>Get the container ip address.</td></tr>
+	<tr><td>docker network ls</td><td>Lists all the networks on local</td></tr>
+	<tr><td>docker network create {network-name}</td><td>Create a networks with name network-name</td></tr>
+	<tr><td>docker run --network {network-name} {container-name}</td><td>To link a container with name container-name to network with name network-name</td></tr>
 </table>
 <h1>Examples</h1>
 <ul>

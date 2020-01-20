@@ -21,6 +21,6 @@ public class HelloWorldJerseyClient {
 	    System.out.println(target.path("rest").path("helloWorldRest").request().accept(MediaType.TEXT_HTML).get(String.class));  
 	  }  
 	  private static URI getBaseURI() {
-	    return UriBuilder.fromUri("http://localhost:8080/arcommon").build();  
+	    return UriBuilder.fromUri("http://arjboss:8080/arcommon").build();  
 	  }  
 }

@@ -7,7 +7,7 @@ import javax.xml.ws.Service;
 
 public class HelloWorldClient {
 	public static void main(String[] args) throws Exception {  
-		URL url = new URL("http://localhost:7779/hello?wsdl");  
+		URL url = new URL("http://arjboss:7779/hello?wsdl");  
 		//1st argument service URI, refer to wsdl document above  
 		//2nd argument is service name, refer to wsdl document above  
 		QName qname = new QName("http://helloworld.rpc.soap.webservice.common.projects.arsoft.com/", "HelloWorldImplService");  

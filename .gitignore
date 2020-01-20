@@ -9,7 +9,7 @@
 /ArTutorial/python/ReinforcementLearning/RLEnvironment/__pycache__
 /ArTutorial/python/ReinforcementLearning/RLEnvironment/envs/__pycache__
 .project
-.settings/
+.settings
 ArBid/.settings/
 ArChat/.settings/
 ArDictionary/.settings/
@@ -17,5 +17,6 @@ ArEnterprise/.settings/
 ArShareMarket/.settings/
 ArShared/.settings/
 ArTutorial/.settings/
+ArEar/.settings/
 jboss/wildfly-8.1.0.Final/
 *.log

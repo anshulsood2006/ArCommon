@@ -1,0 +1,12 @@
+ Stop and remove any containers if exist already:
+ Make sure armysql is having database TEST with table TEST inside 
+ 
+ docker container stop arjboss
+ docker container rm arjboss
+ docker container stop armysql
+ docker container rm armysql
+ docker network rm arbackend
+ docker ps -a
+ docker network create arbackend
+ docker run --detach --network arbackend --name=armysql --env="MYSQL_ROOT_PASSWORD=Myfriendwa@123" --publish 3306:3306 --volume=E:\ext\mysqlconf:/etc/mysql/conf.d --volume=E:\ext\mysqldata:/var/lib/mysql mysql
+ docker run --name=arjboss --network arbackend --publish 8080:8080 --publish 9990:9990 --volume=E:\ext\ear:/opt/jboss/wildfly/standalone/deployments/ --volume=E:\ext\logs\jboss:/opt/jboss/wildfly/standalone/log/ jboss/wildfly

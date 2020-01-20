@@ -14,7 +14,7 @@ public class ArEnvironmentServiceTest {
 	
 	@BeforeClass
 	public static void init() {
-		RestAssured.baseURI = "http://localhost";
+		RestAssured.baseURI = "http://arjboss";
 		RestAssured.port = 8080;
 	}
 	

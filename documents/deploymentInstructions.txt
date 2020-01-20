@@ -1,4 +1,5 @@
 Set up on localmachine
+Make sure that hosts is having an entry for armysql and arjboss (C:\Windows\System32\drivers\etc\hosts for windows and /etc/hosts for linux)
 maven should be installed
 wildfly-8.1.0.Final should be installed. 
 To fix few errors on server startup Go to $JBOSS_HOME/standalone/configuration/standalone.xml and 
@@ -17,7 +18,12 @@ There should be table TEST with below configuration
 	   name VARCHAR (256) UNIQUE NOT NULL,
 	   age INTEGER
 	);
-	insert into TEST values (1, 'Anshul', 50);
+	insert into TEST values (1, 'User1', 50);
+	insert into TEST values (2, 'User2', 45);
+	insert into TEST values (3, 'User3', 21);
+	insert into TEST values (4, 'User4', 21);
+	insert into TEST values (5, 'User5', 21);
+	insert into TEST values (6, 'User6', 21);
 	
 Database exception debug point inside 
 org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(Map configurationValues, ServiceRegistryImplementor registry) jdbcConnectionAccess.obtainConnection();

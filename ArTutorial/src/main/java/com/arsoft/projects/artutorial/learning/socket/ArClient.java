@@ -17,7 +17,7 @@ public class ArClient {
         ObjectInputStream ois = null;
         for(int i=0; i<5;i++){
             //establish socket connection to server
-            socket = new Socket(InetAddress.getByName("localhost"), 9876, InetAddress.getByName("localhost"), 9888);
+            socket = new Socket(InetAddress.getByName("arjboss"), 9876, InetAddress.getByName("arjboss"), 9888);
             //write to socket using ObjectOutputStream
             oos = new ObjectOutputStream(socket.getOutputStream());
             System.out.println("Sending request to Socket Server");

@@ -5,7 +5,7 @@ import javax.xml.ws.Endpoint;
 public class HelloWordDocumentServer {
 	
 	public static void main(String[] args) {  
-		Endpoint.publish("http://localhost:7778/hello", new HelloWorldDocumentImpl());  
+		Endpoint.publish("http://arjboss:7778/hello", new HelloWorldDocumentImpl());  
 	}
 	
 }
