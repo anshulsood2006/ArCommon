@@ -57,6 +57,12 @@
 			<version>${project.version}</version>
 			<type>war</type>
 		</dependency>
+		<dependency>
+			<groupId>com.arsoft.projects</groupId>
+			<artifactId>arpagebuilder</artifactId>
+			<version>${project.version}</version>
+			<type>war</type>
+		</dependency>		
 	</dependencies>
 	<packaging>ear</packaging>
 	<build>
@@ -104,7 +110,12 @@
 							<groupId>com.arsoft.projects</groupId>
 							<artifactId>archat</artifactId>
 							<bundleFileName>archat.war</bundleFileName>
-						</webModule>						
+						</webModule>
+						<webModule>
+							<groupId>com.arsoft.projects</groupId>
+							<artifactId>arpagebuilder</artifactId>
+							<bundleFileName>arpagebuilder.war</bundleFileName>
+						</webModule>												
 					</modules>
 				</configuration>
 			</plugin>

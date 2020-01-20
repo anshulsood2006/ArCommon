@@ -17,6 +17,7 @@ ArEnterprise/.settings/
 ArShareMarket/.settings/
 ArShared/.settings/
 ArTutorial/.settings/
+ArWebBuilder/.settings/
 ArEar/.settings/
 jboss/wildfly-8.1.0.Final/
 *.log

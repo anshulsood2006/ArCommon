@@ -18,6 +18,7 @@
 		<module>ArEnterprise</module>
 		<module>ArDictionary</module>
 		<module>ArChat</module>
+		<module>ArPageBuilder</module>
 		<module>ArEar</module>
   </modules>
 
