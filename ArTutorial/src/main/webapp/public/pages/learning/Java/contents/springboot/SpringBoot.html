@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="keywords" content="Spring Boot">
+<meta name="author" content="Anshul Sood">
+<title>Spring Boot</title>
+</head>
+<body>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
+<h1>Spring Boot</h1>
+<h2>Features</h2>
+<ul>
+	<li>Spring Boot is used to create stand-alone, production-grade Spring based applications.</li>
+	<li>It embeds Tomcat, Jetty or Undertow server directly so there is no need to deploy a war file.</li>
+	<li>It automatically configures Spring's and other 3rd party dependencies</li>
+	<li>There is no need to XML configurations.</li>
+</ul>
+
+<h1>Examples</h1>
+<h2>Creating a Spring Boot application</h2>
+<ul>
+	<li>A spring boot application is created using Spring Initializr at https://start.spring.io/</li>
+	<li>Provide the required details along with the dependencies and download the zipped file.</li>
+	<li>Import the project into eclipse.</li>
+	<li>Pom.xml of Spring boot application:
+		<ul>
+			<li>The parent is defined as <b>spring-boot-starter-parent</b>
+<pre><font color="blue">
+&lt;parent&gt;
+	&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+	&lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
+	&lt;version&gt;2.2.4.RELEASE&lt;/version&gt;
+	&lt;relativePath/&gt; &lt;!-- lookup parent from repository --&gt;
+&lt;/parent&gt;</font>
+</pre>
+			</li>
+			<li>All the dependencies start with <b>spring-boot-</b></li>
+			<li>Dependency for <b>com.jayway.jsonpath</b> is added as we need Json library to send and receive information in JSON format</li>
+			<li>To use Jetty server instead of default Tomcat modify the pom.xml to 
+				<ul>
+				<li>
+				Exclude Tomcat dependency from <b>spring-boot-starter-web</b> dependency.
+<pre><font color="blue">
+&lt;dependency&gt;
+	&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+	&lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+	&lt;exclusions&gt;
+		&lt;exclusion&gt;
+			&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+			&lt;artifactId&gt;spring-boot-starter-tomcat&lt;/artifactId&gt;
+		&lt;/exclusion&gt;
+	&lt;/exclusions&gt;
+&lt;/dependency&gt;</font>
+</pre>		
+				</li>
+				<li>Add jetty dependency
+<pre><font color="blue">
+&lt;dependency&gt;
+	&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+	&lt;artifactId&gt;spring-boot-starter-jetty&lt;/artifactId&gt;
+&lt;/dependency&gt;</font>
+</pre>				
+				</li>
+				</ul>
+			</li>
+			<li>To change the application port go to application.properties file and add a property <b>server.port=8081</b>.</li>
+			<li>To change the application context path go to application.properties file and add a property <b>server.servlet.context-path=/arservices</b>.</li>
+		</ul>
+	</li>
+	<li>A resource representation class is created e.g. 	
+<pre><font color="blue">
+public class Greeting {
+	private final long id;
+	private final String name;
+	public Greeting(long id, String name) {
+		super();
+		this.id = id;
+		this.name = name;
+	}
+	public long getId() {
+		return id;
+	}
+	public String getName() {
+		return name;
+	}
+}</font>	
+</pre>
+	</li>
+	<li>Create a controller class annotated with <b>@RestController</b> to handle RESTful HTTP requests.
+<pre><font color="blue">
+import java.util.concurrent.atomic.AtomicLong;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class GreetingController {
+	private static final String template = "Hello, %s!";
+	private final AtomicLong counter = new AtomicLong();
+	@GetMapping("/greeting")
+	public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
+		return new Greeting(counter.incrementAndGet(), String.format(template, name));
+	}
+}</font>
+</pre>
+	</li>
+	<li>The method is annotation with <b>@GetMapping</b> to define the uri for the REST service.</li>
+	<li>The method parameters are annotated with <b>@RequestParam</b>.</li>
+	<li>Execute following command to start the application: <b>mvnw spring-boot:run</b></li>
+</ul>
+<h1>Frequently Asked Questions</h1>
+<p><b></b></p>
+<p></p>
+<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
+</body>
+</html>
