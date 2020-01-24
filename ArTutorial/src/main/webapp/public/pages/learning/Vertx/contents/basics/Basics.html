@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="keywords" content="vertx">
+<meta name="author" content="Anshul Sood">
+<title>Basics of Vertx</title>
+</head>
+<body>
+<h2><a href="../../VertxContent.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
+<h1>Features of Vert.x</h1>
+<ul>
+	<li>It is a toolkit or platform for implementing reactive applications on the Java Virtual Machine</li>
+	<li>It deploys and executes the components called <b>verticles</b> which are just alike servlets or EJBs.
+		<ul>
+			<li>A verticle can send or listen to an address.</li>
+			<li>A verticle can subscribe and un-subscribe to an address without the sender knowing. This results in loose coupling.</li>
+			<li>A message sent to an address is received by all the verticles listening on the address.</li>
+			<li>A verticle receives messages asynchronously</li>
+			<li>A message can be sent from one verticle to another verticle 
+				<ul>
+					<li>Such message is first put on an <b>event bus</b>.</li>
+					<li>The control is then returned to the sending verticle.</li>
+					<li>The message is dequeued from event bus and sent to the verticle listening to the destination address.</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+	<li>Vert.x runs on a single thread mode.</li>
+	<li>Vert.x creates one thread per CPU so is capable of using all the CPU cores.</li>
+	<li>It is event driven and run when they receive a message or events. Messages can be simple objects (e.g. Java objects), strings, CSV, JSON, binary data or whatever else.</li>
+	<li>Vert.x supports below services
+		<ul>
+			<li>HTTP Server</li>
+			<li>JDBC Connector</li>
+			<li>MongoDB Connector</li>
+			<li>SMTP Mail</li>
+			<li>Message queue connectors</li>
+		</ul>
+	</li>
+	
+</ul>
+<h1>Reactive Principles</h1>
+<ul>
+	<li>The application should be responsive.</li>
+	<li>It should be scalable and resilient.</li>
+	<li>It should be message driven and asynchronous.</li>
+</ul>
+<h1>Example</h1>
+<h2>Sample Vertex Usage</h2>
+<ul>
+	<li>Create a vertex instance. This Vertex instance performs thread management and creates event bus.
+<pre><font color="blue">
+public class MyVertex {
+	public static void main(String[] args) {
+		<b>Vertx vertx = Vertx.vertx();</b>
+	}
+}</font>
+</pre>
+	</li>
+	<li>Create a verticle which does the main job for the application. The start and stop methods of the verticle are called when verticle is deployed or undeployed respectively on a vertex instance.
+<pre><font color="blue">
+package com.arsoft;
+public class MyVerticle extends AbstractVerticle {
+	@Override
+	public void start(Future&lt;Void&gt; startFuture) {
+		System.out.println("MyVerticle started!");
+	}
+	@Override
+	public void stop(Future&lt;Void&gt; stopFuture) throws Exception {
+		System.out.println("com.arsoft.MyVerticle");
+	}
+}</font>
+</pre>
+	Inside the start method, we can:
+	<ul>
+		<li>Create HTTP or TCP Servers.</li>
+		<li>Register event handlers on event bus</li>
+		<li>Deploy other verticles</li>
+		<li>Perform any task thats is to be done by the verticle.</li>
+	</ul>
+	</li>
+	<li>Deploy the verticle on vertex instance
+<pre><font color="blue">
+public class MyVertex {
+	public static void main(String[] args) {
+		Vertx vertx = Vertx.vertx();
+		<b>vertx.deployVerticle(new MyVerticle());</b>
+		or
+		<b>vertx.deployVerticle("");</b>
+	}
+}</font>
+</pre>
+	The verticle is deployed asynchronously so in order to know when the deployment is complete we can
+	<ul>
+	<li>Provide a handler implementation to deployVerticle() method.
+<pre><font color="blue">
+public class MyVertex {
+	public static void main(String[] args) {
+		Vertx vertx = Vertx.vertx();
+		vertx.deployVerticle(new MyVerticle(), new Handler&lt;AsyncResult&lt;String&gt;&gt;() {
+			@Override
+			public void handle(AsyncResult&lt;String&gt; event) {
+				System.out.println("Deployment is complete for MyVerticle");				
+			}
+		});
+	}
+}</font>
+</pre>
+	</li>
+	<li>Or we can use lambda expression in the deployVerticle() method.
+<pre><font color="blue">
+public class MyVertex {
+	public static void main(String[] args) {
+		Vertx vertx = Vertx.vertx();
+		vertx.deployVerticle(new MyVerticle(), myAysncResult -> {
+	        System.out.println("BasicVerticle deployment complete");
+		});
+	}
+}
+</font></pre>
+	</li>
+</ul>
+	</li>
+	<li>Use event bus to:
+		<ul>
+			<li>
+<pre>Listen to messages
+<font color="blue">
+public class MyVerticle extends AbstractVerticle {
+	@Override
+	public void start(Future&lt;Void&gt; startFuture) {
+		vertx.eventBus().consumer("address", message -> System.out.println("Message consumed."));
+		System.out.println("MyVerticle started!");
+	}
+}
+</font>
+</pre></li>
+			<li>
+<pre>Send messages
+<font color="blue">
+public class MyVerticle extends AbstractVerticle {
+	@Override
+	public void start(Future&lt;Void&gt; startFuture) {
+		vertx.eventBus().send("anAddress", "message");
+		vertx.eventBus().publish("anAddress", "message");
+		System.out.println("MyVerticle started!");
+	}
+}
+</font>
+</pre></li>
+		</ul>
+	</li>
+</ul>
+<pre>
+</pre>
+<h1>Frequently Asked Questions</h1>
+<p><b>What is a reactive web application?</b></p>
+<p>A reactive web applications is an application which is asynchronous, event-driven and require a small number of threads to scale vertically (i.e. within the JVM) rather than horizontally (i.e. through clustering).</p>
+<p><b>What is the difference between message and an event</b></p>
+<p>
+<table border="1">
+	<th><td>Message</td><td>Event</td></th>
+	<tr><td>It is directed.</td><td>It happens.</td></tr>
+	<tr><td>It has a deestination.</td><td>It is being observed by zero or more observers.</td></tr>
+	<tr><td></td><td></td></tr>
+</table>
+</p>
+<p><b></b></p>
+<p></p>
+<h2><a href="../../VertxContent.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
+</body>
+</html>

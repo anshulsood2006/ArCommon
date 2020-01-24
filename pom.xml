@@ -63,6 +63,7 @@
 		<!-- <postgresql.version>9.3-1100-jdbc41</postgresql.version> -->
 		<commons-dbcp.version>2.2.0</commons-dbcp.version>
 		<aspectj.version>1.9.2</aspectj.version>
+		<vertx-core.version>3.8.4</vertx-core.version>
 	</properties>
 
 	<dependencies>
@@ -290,6 +291,13 @@
       		<artifactId>commons-dbcp2</artifactId>
       		<version>${commons-dbcp.version}</version>
     	</dependency>
+    	
+    	<!-- Dependency for Vertx -->
+		<dependency>
+		    <groupId>io.vertx</groupId>
+		    <artifactId>vertx-core</artifactId>
+		    <version>${vertx-core.version}</version>
+		</dependency>
 	</dependencies>
 
 	<build>
