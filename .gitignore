@@ -9,6 +9,7 @@ documents/~$torial - Home.docx
 target/
 object.ser
 .factorypath
+ArShared/.apt_generated_tests
 
 ArTutorial/python/dir1/dir11/__pycache__/
 ArTutorial/python/ReinforcementLearning/myenv.egg-info
