@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.arsoft.projects</groupId>
+	<artifactId>arparent</artifactId>
+	<version>1.0</version>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.2.5.RELEASE</version>
+	</parent>
+
+	<!-- This tag is used to specify that the project is a web project -->
+	<packaging>pom</packaging>
+	<name>ArParent Parent Module</name>
+
+	<modules>
+		<module>ArShared</module>
+		<module>ArShareMarket</module>
+		<module>ArTutorial</module>
+		<module>ArBid</module>
+		<module>ArEnterprise</module>
+		<module>ArDictionary</module>
+		<module>ArChat</module>
+		<module>ArPageBuilder</module>
+		<module>ArEar</module>
+	</modules>
+
+	<!-- All the constants can be declared inside properties tag and can be 
+		used later using ${property_name} -->
+	<properties>
+		<json.version>20171018</json.version>
+		<log4j-api.version>2.10.0</log4j-api.version>
+		<junit.version>4.12</junit.version>
+		<maven-compiler-plugin.version>3.6.1</maven-compiler-plugin.version>
+		<maven-ear-plugin.version>3.0.1</maven-ear-plugin.version>
+		<java.version>1.8</java.version>
+		<maven-war-plugin.version>2.6</maven-war-plugin.version>
+		<maven-dependency-plugin.version>3.0.2</maven-dependency-plugin.version>
+		<tomcat-maven-plugin.version>2.1</tomcat-maven-plugin.version>
+		<application.port>8880</application.port>
+		<application.path>/arcommon</application.path>
+		<javax.servlet-api.version>4.0.0</javax.servlet-api.version>
+		<javax.jms-api.version>2.0.1</javax.jms-api.version>
+		<geronimo-jms_1.1_spec.version>1.1.1</geronimo-jms_1.1_spec.version>
+		<activemq-core.version>5.7.0</activemq-core.version>
+		<jboss-as-embedded.version>7.2.0.Final</jboss-as-embedded.version>
+		<wildfly-embedded.version>9.0.2.Final</wildfly-embedded.version>
+		<spring.version>5.0.16</spring.version>
+		<jackson-databind.version>2.9.10.1</jackson-databind.version>
+		<bcprov-jdk16.version>1.46</bcprov-jdk16.version>
+		<jstl-api.version>1.2</jstl-api.version>
+		<standard.version>1.1.2</standard.version>
+		<jaxws-rt.version>2.3.0</jaxws-rt.version>
+		<javax.mail.version>1.5.5</javax.mail.version>
+		<mysql-connector-java.version>8.0.13</mysql-connector-java.version>
+		<hibernate-core.version>5.4.1.Final</hibernate-core.version>
+		<log4j-core.version>2.10.0</log4j-core.version>
+		<mockito-all.version>1.10.19</mockito-all.version>
+		<jersey2.version>2.26</jersey2.version>
+		<jaxrs.version>2.1</jaxrs.version>
+		<rest-assured.version>3.0.7</rest-assured.version>
+		<jersey-json.version>1.19.4</jersey-json.version>
+		<jersey-media-json-jackson.version>2.26</jersey-media-json-jackson.version>
+		<maven-surefire-plugin.version>2.21.0</maven-surefire-plugin.version>
+		<project.version>1.0</project.version>
+		<!-- <postgresql.version>9.3-1100-jdbc41</postgresql.version> -->
+		<commons-dbcp.version>2.2.0</commons-dbcp.version>
+		<aspectj.version>1.9.2</aspectj.version>
+		<vertx-core.version>3.8.4</vertx-core.version>
+		<javax.ws.rs-api.version>2.1.1</javax.ws.rs-api.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-aop</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.persistence</groupId>
+			<artifactId>javax.persistence-api</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>io.vertx</groupId>
+			<artifactId>vertx-core</artifactId>
+			<version>${vertx-core.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.ws.rs</groupId>
+			<artifactId>javax.ws.rs-api</artifactId>
+			<version>${javax.ws.rs-api.version}</version>
+		</dependency>
+
+
+		<!-- Dependencies for jersey rest web-services -->
+
+		<dependency>
+			<groupId>org.glassfish.jersey.containers</groupId>
+			<artifactId>jersey-container-servlet</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.core</groupId>
+			<artifactId>jersey-server</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.core</groupId>
+			<artifactId>jersey-client</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.inject</groupId>
+			<artifactId>jersey-hk2</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-json</artifactId>
+			<version>${jersey-json.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.media</groupId>
+			<artifactId>jersey-media-json-jackson</artifactId>
+		</dependency>
+		<!-- Dependencies for jersey rest web-services -->
+
+		<dependency>
+			<groupId>com.sun.mail</groupId>
+			<artifactId>javax.mail</artifactId>
+			<version>${javax.mail.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcprov-jdk16</artifactId>
+			<version>${bcprov-jdk16.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>rest-assured</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.xml.ws</groupId>
+			<artifactId>jaxws-api</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.jws</groupId>
+			<artifactId>javax.jws-api</artifactId>
+			<version>1.1</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<finalName>arparent</finalName>
+		<!-- Below two directories are necessary for web project. Otherwise there 
+			will be compilation issues -->
+		<sourceDirectory>src/main/java</sourceDirectory>
+		<testSourceDirectory>src/test/java</testSourceDirectory>
+
+
+
+		<plugins>
+
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<excludes>
+						<exclude>**/com/arsoft/projects/common/jms/*.java</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+
+			<!-- This plug-in is used to create war file. Called using command 'maven 
+				clean install' -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<packagingExcludes>src/main/java/com/arsoft/projects/common/jms/</packagingExcludes>
+				</configuration>
+			</plugin>
+
+			<!-- This plug-in is used to verify if all the dependencies are correct. 
+				Called using command 'maven verify' -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>analyze</id>
+						<goals>
+							<goal>analyze-only</goal>
+						</goals>
+						<configuration>
+							<failOnWarning>false</failOnWarning>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- This plug-in is used to deploy embedded tomcat -->
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>${tomcat-maven-plugin.version}</version>
+				<configuration>
+					<port>${application.port}</port>
+					<path>${application.path}</path>
+				</configuration>
+			</plugin>
+
+			<!-- This plug-in is used to deploy embedded jboss -->
+			<plugin>
+				<groupId>org.jboss.as</groupId>
+				<artifactId>jboss-as-embedded</artifactId>
+				<version>${jboss-as-embedded.version}</version>
+			</plugin>
+
+			<!-- This plug-in is used to deploy embedded wildfly server -->
+			<plugin>
+				<groupId>org.wildfly</groupId>
+				<artifactId>wildfly-embedded</artifactId>
+				<version>${wildfly-embedded.version}</version>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>com.arsoft.projects.common.webservice.rest.environment.ArEnvironmentServiceTest.java</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+		</plugins>
+
+	</build>
+</project>

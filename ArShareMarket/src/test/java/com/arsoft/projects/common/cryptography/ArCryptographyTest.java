@@ -12,12 +12,14 @@ import java.util.List;
 
 import javax.crypto.SecretKey;
 
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import com.arsoft.projects.arshared.exception.ArException;
 
+@Ignore
 public class ArCryptographyTest {
 	
 	@Rule

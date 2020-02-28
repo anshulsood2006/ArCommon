@@ -1,15 +1,20 @@
 /bin/
-/.gradle/
-/documents/~$Home.xlsx
-/documents/~$torial - Home.docx
-/target/
-/object.ser
-/ArTutorial/python/dir1/dir11/__pycache__/
-/ArTutorial/python/ReinforcementLearning/myenv.egg-info
-/ArTutorial/python/ReinforcementLearning/RLEnvironment/__pycache__
-/ArTutorial/python/ReinforcementLearning/RLEnvironment/envs/__pycache__
+.gradle/
+.settings/
+*.log
+.classpath
 .project
-.settings
+documents/~$Home.xlsx
+documents/~$torial - Home.docx
+target/
+object.ser
+.factorypath
+
+ArTutorial/python/dir1/dir11/__pycache__/
+ArTutorial/python/ReinforcementLearning/myenv.egg-info
+ArTutorial/python/ReinforcementLearning/RLEnvironment/__pycache__
+ArTutorial/python/ReinforcementLearning/RLEnvironment/envs/__pycache__
+
 ArBid/.settings/
 ArChat/.settings/
 ArDictionary/.settings/
@@ -19,8 +24,7 @@ ArShared/.settings/
 ArTutorial/.settings/
 ArWebBuilder/.settings/
 ArEar/.settings/
-*.log
-.classpath
+
 ArBid/.classpath
 ArChat/.classpath
 ArDictionary/.classpath
@@ -30,7 +34,7 @@ ArShared/.classpath
 ArTutorial/.classpath
 ArPageBuilder/.classpath
 ArEar/.classpath
-.factorypath
+
 ArBid/.factorypath
 ArChat/.factorypath
 ArDictionary/.factorypath
