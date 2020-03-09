@@ -27,14 +27,26 @@
 		<li>N for number</li>
 	</ul>
 </li>
+<li><b>PECS</b>
+	<ul>
+		<li>PECS stands for "Producer Extends, Consumer Super" which means if you want a list to produce T values, use &lt;? extends T&gt;, whereas if you want a list to consume T values, use &lt;? super T&gt;</li>
+		<li>&lt;? extends T&gt; means that the reference variable can hold any value from a family of type T. So we can retrieve back an item of type T from this list but when we try to add an item of type T to the list, we get a compilation error since the compiler won't be able to identify what type of list this reference variable is pointing to. We can add null though.</li>
+		<li>&lt;? super T&gt; means that we can not retrieve back an item of type T from this list because when we try to do that compiler won't be able to determine what type of list the reference variable is pointing to. But we can get value of type Object. When we add a value of type T, this can be done without any compilation issue. </li>
+	</ul>
+</li>
+<li><b>Get and Put Principle.</b>
+	<ul>
+		<li>Use an extends wildcard when you only get values out of a structure.</li>
+		<li>Use a super wildcard when you only put values into a structure.</li>
+		<li>And don't use a wildcard when you both get and put.</li>
+	</ul>
+</li>
 </ul>
 <h1>Examples</h1>
 <p><b></b></p>
 <pre>
 </pre>
 <h1>Frequently Asked Questions</h1>
-<p><b></b></p>
-<p></p>
 <p><b></b></p>
 <p></p>
 <p><b></b></p>
