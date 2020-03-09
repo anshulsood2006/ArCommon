@@ -43,7 +43,7 @@
 		<jboss-as-embedded.version>7.2.0.Final</jboss-as-embedded.version>
 		<wildfly-embedded.version>9.0.2.Final</wildfly-embedded.version>
 		<spring.version>5.0.3.RELEASE</spring.version>
-		<jackson-databind.version>2.9.10.1</jackson-databind.version>
+		<jackson-databind.version>2.9.10.3</jackson-databind.version>
 		<bcprov-jdk16.version>1.46</bcprov-jdk16.version>
 		<jstl-api.version>1.2</jstl-api.version>
 		<standard.version>1.1.2</standard.version>
