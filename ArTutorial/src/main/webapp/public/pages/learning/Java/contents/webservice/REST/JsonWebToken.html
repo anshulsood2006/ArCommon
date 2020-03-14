@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="keywords" content="jwt">
+<meta name="author" content="Anshul Sood">
+<title>Json Web Tokens</title>
+</head>
+<body>
+<h2><a href="REST.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../../Content.html">Home</a></h2>
+<h1>Basics of Json Web Tokens</h1>
+<ul>
+	<li>Json Web Tokens (JWT) are JSON objects used to send information between server and client applications in a compact and secure manner.</li>
+	<li>They are used for following purpose
+		<ul>
+			<li>authentication</li>
+			<li>url-safe encoding</li>
+			<li>securely sharing private data</li>
+			<li> interoperability</li>
+			<li>data expiration</li>
+		</ul>
+	</li>
+	<li>JWTs are used to store state-dependent user data for a web session. Because the JWT is passed back and forth between the client application and the server, it means that state data does not have to be stored in a database somewhere (and subsequently retrieved on every request); because of this, it scales well.</li>
+	<li>JWT has three base64 encoded parts: (e.g. <b>eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9</b>.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWUsImp0aSI6IjdlZGY5ZGRkLTRiZjUtNGI2Yi1hN<br/>zI3LTJkZjZjYmJhMjQzMiIsImlhdCI6MTU4NDE2NjA4MSwiZXhwIjoxNTg0MTY5NjgxfQ.<b>guT9Y0xXNPXNAPB7pA_RhKEHGaEjh55RKlKHzaOuMK8</b>)
+		<ul>
+			<li><b>Header:</b> It is a json string that contains the information about the algorithm of encryption. It has two fields: {"typ":"JWT", "alg":"HS256"}. It is base64 encoded</li>
+			<li><b>Body (Claims):</b> It is the payload that needs to be included in the JWT. It is also base64 encoded and should not be containing any sensitive information as anybody can decode it and read it.</li>
+			<li><b>Signature:</b> It is an encrypted string and is not publicly readable unless the secret key is available. Whatever algorithm is present in the header part, the first two parts of JWT viz. base64(header) + '.' + base64(payload) needs to be encrypted with that algorithm.</li>
+		</ul>
+	</li>
+	<li>JWT is created with a secret key. When a JWT is received from client, it is verified against a secret key and verification fails if there is any modification to JWT.</li>
+</ul>
+<h1>Examples</h1>
+<b>Creating, Verifying and Decoding JWT Tokens in Java</b>
+<pre>
+public class ArJwt{
+
+	public String createJwtToken(String id, String issuer, String subject, long ttlMillis,
+			SignatureAlgorithm signatureAlgorithm, final String secretKey) {
+		long nowMillis = System.currentTimeMillis();
+		Date now = new Date(nowMillis);
+		byte[] apiKeySecretBytes = DatatypeConverter.parseBase64Binary(secretKey);
+		Key signingKey = new SecretKeySpec(apiKeySecretBytes, signatureAlgorithm.getJcaName());
+		JwtBuilder builder = Jwts.builder().setId(id).setIssuedAt(now).setSubject(subject).setIssuer(issuer)
+				.signWith(signatureAlgorithm, signingKey);
+		if (ttlMillis > 0) {
+			long expMillis = nowMillis + ttlMillis;
+			Date exp = new Date(expMillis);
+			builder.setExpiration(exp);
+		}
+		return builder.compact();
+	}
+
+	public boolean isValidJwtToken(String jwtToken, final String secretKey) {
+		try {
+			Jwts.parser().setSigningKey(DatatypeConverter.parseBase64Binary(secretKey)).parseClaimsJws(jwtToken);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	public Jws&lt;Claims&gt; decodeJwtToken(String jwtToken, final String secretKey) {
+		if (!this.isValidJwtToken(jwtToken, secretKey)) {
+			return null;
+		}
+		Jws&lt;Claims&gt; claims = Jwts.parser().setSigningKey(DatatypeConverter.parseBase64Binary(secretKey))
+				.parseClaimsJws(jwtToken);
+		return claims;
+	}
+
+}
+
+</pre>
+
+<h2><a href="REST.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../../Content.html">Home</a></h2>
+</body>
+</html>

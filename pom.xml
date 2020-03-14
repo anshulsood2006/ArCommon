@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.arsoft.projects</groupId>
@@ -12,15 +14,16 @@
 
 	<modules>
 		<module>ArShared</module>
-		<module>ArShareMarket</module>
+		<module>ArServices</module>
 		<module>ArTutorial</module>
+		<module>ArShareMarket</module>
 		<module>ArBid</module>
 		<module>ArEnterprise</module>
 		<module>ArDictionary</module>
 		<module>ArChat</module>
 		<module>ArPageBuilder</module>
 		<module>ArEar</module>
-  </modules>
+	</modules>
 
 	<!-- All the constants can be declared inside properties tag and can be 
 		used later using ${property_name} -->
@@ -64,6 +67,7 @@
 		<commons-dbcp.version>2.2.0</commons-dbcp.version>
 		<aspectj.version>1.9.2</aspectj.version>
 		<vertx-core.version>3.8.4</vertx-core.version>
+		<jjwt.version>0.9.1</jjwt.version>
 	</properties>
 
 	<dependencies>
@@ -149,15 +153,15 @@
 			<artifactId>spring-jdbc</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-		
+
 		<!-- Dependencies for Spring Hibernate Framework -->
 		<dependency>
-    		<groupId>org.springframework</groupId>
-    		<artifactId>spring-orm</artifactId>
-    		<version>${spring.version}</version>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${spring.version}</version>
 		</dependency>
 		<!-- Dependencies for Spring Hibernate Framework -->
-		
+
 		<!-- Dependencies for Spring Security -->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
@@ -170,27 +174,20 @@
 			<version>${spring.version}</version>
 		</dependency>
 		<!-- Dependencies for Spring Security -->
-		
+
 		<!-- Dependencies for Spring AOP -->
-		<!-- <dependency>
-    		<groupId>org.aspectj</groupId>
-    		<artifactId>aspectjrt</artifactId>
-    		<version>${aspectj.version}</version>
-		</dependency>
-		
-		<dependency>
-			<groupId>org.aspectj</groupId>
-			<artifactId>aspectjtools</artifactId>
-			<version>${aspectj.version}</version>
-		</dependency> -->
-		
+		<!-- <dependency> <groupId>org.aspectj</groupId> <artifactId>aspectjrt</artifactId> 
+			<version>${aspectj.version}</version> </dependency> <dependency> <groupId>org.aspectj</groupId> 
+			<artifactId>aspectjtools</artifactId> <version>${aspectj.version}</version> 
+			</dependency> -->
+
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjweaver</artifactId>
 			<version>${aspectj.version}</version>
 		</dependency>
 		<!-- Dependencies for Spring AOP -->
-		
+
 		<!-- Dependencies for Spring Framework -->
 		<dependency>
 			<groupId>org.bouncycastle</groupId>
@@ -235,7 +232,7 @@
 		</dependency>
 		<!-- Dependencies for Java MySQl Connection -->
 
-		<!--  --><!-- Dependencies for hibernate -->
+		<!-- --><!-- Dependencies for hibernate -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
@@ -280,25 +277,34 @@
 			<version>${jersey-media-json-jackson.version}</version>
 		</dependency>
 		<!-- Dependencies for jersey rest web-services -->
-		
-		<!-- <dependency>
-    		<groupId>org.postgresql</groupId>
-    		<artifactId>postgresql</artifactId>
-    		<version>${postgresql.version}</version>
-		</dependency> -->
+
+		<!-- <dependency> <groupId>org.postgresql</groupId> <artifactId>postgresql</artifactId> 
+			<version>${postgresql.version}</version> </dependency> -->
 		<dependency>
-      		<groupId>org.apache.commons</groupId>
-      		<artifactId>commons-dbcp2</artifactId>
-      		<version>${commons-dbcp.version}</version>
-    	</dependency>
-    	
-    	<!-- Dependency for Vertx -->
-		<dependency>
-		    <groupId>io.vertx</groupId>
-		    <artifactId>vertx-core</artifactId>
-		    <version>${vertx-core.version}</version>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-dbcp2</artifactId>
+			<version>${commons-dbcp.version}</version>
 		</dependency>
+
+		<!-- Dependency for Vertx -->
+		<dependency>
+			<groupId>io.vertx</groupId>
+			<artifactId>vertx-core</artifactId>
+			<version>${vertx-core.version}</version>
+		</dependency>
+		<!-- Dependency for Vertx -->
+
+		<!-- Dependency for Java JWT -->
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>${jjwt.version}</version>
+		</dependency>
+		<!-- Dependency for Java JWT -->
+
 	</dependencies>
+
+
 
 	<build>
 		<finalName>arparent</finalName>

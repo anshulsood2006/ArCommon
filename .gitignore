@@ -25,6 +25,7 @@ ArShared/.settings/
 ArTutorial/.settings/
 ArWebBuilder/.settings/
 ArEar/.settings/
+ArServices/.settings/
 
 ArBid/.classpath
 ArChat/.classpath
@@ -35,6 +36,7 @@ ArShared/.classpath
 ArTutorial/.classpath
 ArPageBuilder/.classpath
 ArEar/.classpath
+ArServices/.classpath
 
 ArBid/.factorypath
 ArChat/.factorypath
@@ -45,3 +47,4 @@ ArShared/.factorypath
 ArTutorial/.factorypath
 ArPageBuilder/.factorypath
 ArEar/.factorypath
+ArServices/.factorypath

@@ -5,7 +5,7 @@
 <title>Webapps</title>
 </head>
 <body>
-<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
+<h2><a href="../../JavaContent.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>
 <h1>Webapps</h1>
 <h1>Features</h1>
 <p></p>
@@ -191,8 +191,11 @@ public void doFilter(ServletRequest request, ServletResponse response, FilterCha
 <p>This listener is used to load more than one configuration files in case of spring based web application.</p>
 <p><b>What is the significance of ApplicationContextAware interface?</b></p>
 <p>This interface is used in spring based web application to get application context anywhere in the code by overriding the setApplicationContext(ApplicationContext context) method.</p>
-<p><b></b></p>
-<p></p>
+<p><b>What is the difference between filters and interceptors in Java?</b></p>
+<ul>
+	<li>Filters can be used in web context where as the interceptors can be used outside web context only. e.g. to authenticate a web page we need filter where as to implement security stuff in business logic we need interceptors.</li>
+	<li>Filters only apply to the urls for which they are defined, whereas interceptors apply to all the requests.</li>
+</ul>
 <p><b></b></p>
 <p></p>
 <p><b></b></p>
@@ -206,6 +209,6 @@ public void doFilter(ServletRequest request, ServletResponse response, FilterCha
 <p><b></b></p>
 <p></p>
 
-<h2><a href="../../Content.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../Content.html">Home</a></h2>
+<h2><a href="../../JavaContent.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>
 </body>
 </html>
