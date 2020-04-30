@@ -33,6 +33,12 @@
 	<tr><td>tar -xvf {tarfile}.tar</td><td>Untar a tar file.</td></tr>
 	<tr><td>yum list installed</td><td>Get the list of installed packages in RHEL8</td></tr>
 	<tr><td>sed -ibak 's/^\([^#]*\){ExistingString}/\1{RequiredString}/g' /path of the file</td><td>Replace an existing string with required string in a file</td></tr>
+	<tr><td>firewall-cmd --zone=public --add-port=1044/tcp --permanent</td><td>Enable a port on linux.</td></tr>
+	<tr><td>firewall-cmd --zone=public --remove-port=1044/tcp --permanent</td><td>Remove a port on linux.</td></tr>
+	<tr><td>firewall-cmd --reload</td><td>Reload firewall configuratio after enabling/disablings port.</td></tr>
+	<tr><td>firewall-cmd --zone=public --query-port=1044/tcp</td><td>Find whether a port is enabled or not in linux.</td></tr>
+	<tr><td>firewall-cmd --list-all</td><td>List all the ports enabled in linux.</td></tr>
+	<tr><td>firewall-cmd --get-default-zone</td><td>Get default zone enabled in linux.</td></tr>
 </table>
 </li>
 <li><b>Directory Structure</b>
