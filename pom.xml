@@ -54,7 +54,7 @@
 		<javax.mail.version>1.5.5</javax.mail.version>
 		<mysql-connector-java.version>8.0.13</mysql-connector-java.version>
 		<hibernate-core.version>5.4.1.Final</hibernate-core.version>
-		<log4j-core.version>2.10.0</log4j-core.version>
+		<log4j-core.version>2.13.2</log4j-core.version>
 		<mockito-all.version>1.10.19</mockito-all.version>
 		<jersey2.version>2.26</jersey2.version>
 		<jaxrs.version>2.1</jaxrs.version>
