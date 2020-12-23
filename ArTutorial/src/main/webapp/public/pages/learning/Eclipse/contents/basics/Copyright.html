@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="keywords" content="Eclipse, Java Code Copyright">
+<meta name="author" content="Anshul Sood">
+<title>Add Copyright to Java Code</title>
+</head>
+<body>
+<h2><a href="../../EclipseContent.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>
+<h1>Add Copyright to Java Code</h1>
+<h2>Features</h2>
+<ul>
+	<li>Create a file License.txt with the copyright text and place it inside the base directory of the project.</li>
+	<li>Add the below plugin dependencies to the project
+<pre>
+&lt;plugin&gt;
+	&lt;groupId&gt;com.mycila.maven-license-plugin&lt;/groupId&gt;
+	&lt;artifactId&gt;maven-license-plugin&lt;/artifactId&gt;
+	&lt;version&gt;${maven-license-plugin.version}&lt;/version&gt;
+	&lt;configuration&gt;
+		&lt;header&gt;${license.dir}/license.txt&lt;/header&gt;
+		&lt;properties&gt;
+			&lt;project&gt;${project.name}&lt;/project&gt;
+			&lt;founder&gt;${project.organization.name}&lt;/founder&gt;
+			&lt;year&gt;${project.inceptionYear}&lt;/year&gt;
+			&lt;website&gt;${founder-website}&lt;/website&gt;
+		&lt;/properties&gt;
+		&lt;includes&gt;
+			&lt;include&gt;src/main/java/**&lt;/include&gt;
+			&lt;include&gt;src/test/java/**&lt;/include&gt;
+		&lt;/includes&gt;
+	&lt;/configuration&gt;
+	&lt;executions&gt;
+		&lt;execution&gt;
+			&lt;goals&gt;
+				&lt;goal&gt;format&lt;/goal&gt;
+			&lt;/goals&gt;
+			&lt;phase&gt;process-sources&lt;/phase&gt;
+		&lt;/execution&gt;
+	&lt;/executions&gt;
+&lt;/plugin&gt;
+</pre>
+	</li>
+	<li>Run maven command "mvn license:format"</li>
+</ul>
+<h1>Examples</h1>
+<ul>
+	<li></li>
+</ul>
+<pre>
+</pre>
+<h1>Frequently Asked Questions</h1>
+<p><b></b></p>
+<p></p>
+<h2><a href="../../EclipseContent.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>
+</body>
+</html>

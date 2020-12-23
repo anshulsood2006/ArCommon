@@ -69,6 +69,18 @@
 			<version>${project.version}</version>
 			<type>war</type>
 		</dependency>	
+		<dependency>
+			<groupId>com.arsoft.projects</groupId>
+			<artifactId>ararchitect</artifactId>
+			<version>${project.version}</version>
+			<type>war</type>
+		</dependency>
+		<dependency>
+			<groupId>com.arsoft.projects</groupId>
+			<artifactId>arspiderweb</artifactId>
+			<version>${project.version}</version>
+			<type>war</type>
+		</dependency>
 	</dependencies>
 	<packaging>ear</packaging>
 	<build>
@@ -126,7 +138,17 @@
 							<groupId>com.arsoft.projects</groupId>
 							<artifactId>arservices</artifactId>
 							<bundleFileName>arservices.war</bundleFileName>
-						</webModule>																		
+						</webModule>
+						<webModule>
+							<groupId>com.arsoft.projects</groupId>
+							<artifactId>ararchitect</artifactId>
+							<bundleFileName>ararchitect.war</bundleFileName>
+						</webModule>	
+						<webModule>
+							<groupId>com.arsoft.projects</groupId>
+							<artifactId>arspiderweb</artifactId>
+							<bundleFileName>arspiderweb.war</bundleFileName>
+						</webModule>																	
 					</modules>
 				</configuration>
 			</plugin>

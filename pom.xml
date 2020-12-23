@@ -4,10 +4,16 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.4.1</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
 	<groupId>com.arsoft.projects</groupId>
 	<artifactId>arparent</artifactId>
 	<version>1.0</version>
-
+	
 	<!-- This tag is used to specify that the project is a web project -->
 	<packaging>pom</packaging>
 	<name>ArParent Parent Module</name>
@@ -22,6 +28,8 @@
 		<module>ArDictionary</module>
 		<module>ArChat</module>
 		<module>ArPageBuilder</module>
+		<module>ArArchitect</module>
+		<module>ArSpiderweb</module>
 		<module>ArEar</module>
 	</modules>
 
@@ -33,9 +41,9 @@
 		<junit.version>4.12</junit.version>
 		<maven-compiler-plugin.version>3.6.1</maven-compiler-plugin.version>
 		<maven-ear-plugin.version>3.0.1</maven-ear-plugin.version>
-		<java.version>1.8</java.version>
+		<java.version>11</java.version>
 		<maven-war-plugin.version>2.6</maven-war-plugin.version>
-		<maven-dependency-plugin.version>3.0.2</maven-dependency-plugin.version>
+		<maven-dependency-plugin.version>3.1.2</maven-dependency-plugin.version>
 		<tomcat-maven-plugin.version>2.1</tomcat-maven-plugin.version>
 		<application.port>8880</application.port>
 		<application.path>/arcommon</application.path>
@@ -79,17 +87,14 @@
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-api</artifactId>
-			<version>${log4j-api.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>${junit.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>io.rest-assured</groupId>
 			<artifactId>rest-assured</artifactId>
-			<version>${rest-assured.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.mockito</groupId>
