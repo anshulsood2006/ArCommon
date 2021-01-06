@@ -38,7 +38,7 @@
 	<properties>
 		<json.version>20171018</json.version>
 		<log4j-api.version>2.10.0</log4j-api.version>
-		<junit.version>4.12</junit.version>
+		<junit.version>4.13.1</junit.version>
 		<maven-compiler-plugin.version>3.6.1</maven-compiler-plugin.version>
 		<maven-ear-plugin.version>3.0.1</maven-ear-plugin.version>
 		<java.version>11</java.version>
@@ -54,15 +54,15 @@
 		<jboss-as-embedded.version>7.2.0.Final</jboss-as-embedded.version>
 		<wildfly-embedded.version>9.0.2.Final</wildfly-embedded.version>
 		<spring.version>5.0.3.RELEASE</spring.version>
-		<jackson-databind.version>2.9.10.3</jackson-databind.version>
+		<jackson-databind.version>2.10.0.pr1</jackson-databind.version>
 		<bcprov-jdk16.version>1.46</bcprov-jdk16.version>
 		<jstl-api.version>1.2</jstl-api.version>
 		<standard.version>1.1.2</standard.version>
 		<jaxws-rt.version>2.3.0</jaxws-rt.version>
 		<javax.mail.version>1.5.5</javax.mail.version>
-		<mysql-connector-java.version>8.0.13</mysql-connector-java.version>
+		<mysql-connector-java.version>8.0.16</mysql-connector-java.version>
 		<hibernate-core.version>5.4.1.Final</hibernate-core.version>
-		<log4j-core.version>2.10.0</log4j-core.version>
+		<log4j-core.version>2.13.2</log4j-core.version>
 		<mockito-all.version>1.10.19</mockito-all.version>
 		<jersey2.version>2.26</jersey2.version>
 		<jaxrs.version>2.1</jaxrs.version>
