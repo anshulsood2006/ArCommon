@@ -1,9 +1,9 @@
 package com.arsoft.projects.arenterprise.ardictionary;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,13 +20,15 @@ public class ArDictionaryTest {
 	
 	@Test
 	public void addTest(){
-		boolean added = arDictionary.add("Anshul", "Sun");
+		List<String> meaningList = new ArrayList<>();
+		meaningList.add("Sun");
+		boolean added = arDictionary.add("Anshul", meaningList);
 		assertEquals(added, false);
 	}
 	
 	@Test
 	public void findTest(){
-		Map<String, List<String>> wordPresent = arDictionary.search("Anshul");
+		List<String> wordPresent = arDictionary.search("Anshul");
 	}
 }
 

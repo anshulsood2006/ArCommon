@@ -1,10 +1,15 @@
 package com.arsoft.projects.arshared.logging;
 
-public class ArLogger implements ArLogger_IF{
+public class ArLogger implements ArLogger_IF {
 	
 	public ArLogger() {
+		super();
+	}
+
+	public ArLogger(Class<?> clazz) {
 		
 	}
+
 	@Override
 	public void logInfo(String message) {
 		

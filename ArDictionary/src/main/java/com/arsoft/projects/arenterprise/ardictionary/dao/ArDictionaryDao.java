@@ -1,17 +1,16 @@
 package com.arsoft.projects.arenterprise.ardictionary.dao;
 
 import java.util.List;
-import java.util.Map;
 
 public class ArDictionaryDao implements IArDictionaryDao {
 
 	@Override
-	public boolean add(String word, String meaning) {
+	public boolean add(String word, List<String> meaningList) {
 		return false;
 	}
 
 	@Override
-	public boolean edit(String word, String meaning) {
+	public boolean edit(String word, List<String> meaningList) {
 		return false;
 	}
 
@@ -21,7 +20,7 @@ public class ArDictionaryDao implements IArDictionaryDao {
 	}
 
 	@Override
-	public Map<String, List<String>> search(String word) {
+	public List<String> search(String word) {
 		return null;
 	}
 

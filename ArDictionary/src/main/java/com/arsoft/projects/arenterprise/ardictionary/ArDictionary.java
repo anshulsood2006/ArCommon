@@ -1,7 +1,6 @@
 package com.arsoft.projects.arenterprise.ardictionary;
 
 import java.util.List;
-import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -14,17 +13,17 @@ public class ArDictionary implements IArDictionary{
 	}
 
 	@Override
-	public boolean add(String word, String meaning) {
+	public boolean add(String word, List<String> meaningList) {
 		boolean added = false;
-		Map<String, List<String>> wordPresent = search(word);
-		if(wordPresent == null){
+		List<String> wordPresent = search(word);
+		if (wordPresent == null || wordPresent.isEmpty()) {
 			
 		}
 		return added;
 	}
 	
 	@Override
-	public boolean edit(String word, String meaning) {
+	public boolean edit(String word, List<String> meaningList) {
 		return false;
 	}
 
@@ -34,7 +33,7 @@ public class ArDictionary implements IArDictionary{
 	}
 
 	@Override
-	public Map<String, List<String>> search(String word) {
+	public List<String> search(String word) {
 		if (StringUtils.isEmpty(word)){
 			return null;
 		}else{
