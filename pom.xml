@@ -78,6 +78,8 @@
 		<jjwt.version>0.9.1</jjwt.version>
 		<pdfbox.version>2.0.22</pdfbox.version>
 		<itextpdf.version>5.5.13.2</itextpdf.version>
+		<poi.version>4.1.2</poi.version>
+		<poi-ooxml.version>${poi.version}</poi-ooxml.version>
 	</properties>
 
 	<dependencies>
@@ -295,10 +297,23 @@
 			<artifactId>itextpdf</artifactId>
 			<version>${itextpdf.version}</version>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.apache.pdfbox</groupId>
 			<artifactId>pdfbox</artifactId>
 			<version>${pdfbox.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>${poi.version}</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.apache.poi</groupId>
+		    <artifactId>poi-ooxml</artifactId>
+		    <version>${poi-ooxml.version}</version>
 		</dependency>
 
 	</dependencies>
