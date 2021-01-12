@@ -7,824 +7,1091 @@
 <title>Python</title>
 </head>
 <body>
-<h2><a href="../../PythonContent.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>
-<h1>Python</h1>
-<h1>Features</h1>
-<ul>
-	<li>It is a programming language.</li>
-	<li>It was created in 1991 by Guido van Rossum.</li>
-	<li>It is used for 
+	<h2>
+		<a href="../../PythonContent.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+			href="../../../Content.html">Home</a>
+	</h2>
+	<h1>Python</h1>
+	<h1>Features</h1>
 	<ul>
-		<li>software development.</li>
-		<li>web development.</li>
-		<li>mathematics.</li>
-		<li>system scripting.</li>
-	</ul>
-	<li>It can connect to database systems.</li>
-	<li>It can be used to handle big data and perform complex mathematics.</li>
-	<li>It works on different platforms (Windows, Mac, Linux, Raspberry Pi, etc).</li>
-	<li>It has a simple syntax similar to the English language.</li>
-	<li>It is an interpreted language so the code can be executed as soon as it is written.</li>
-	<li>It can be used as an object-orientated language or functional language.</li>
-	<li>It uses new lines to complete a command instead of semicolon viz. ";" used in most of the programming languages.</li>
-	<li>It relies on indentation, using whitespace, to define scope; such as the scope of loops, functions and classes.</li>
-	<li>Its interpreter is easily extended with new functions and data types implemented in C or C++ (or other languages callable from C)</li>
-	<li>It allows to split a program into modules that can be reused in other Python programs.</li>
-	<li>It comes with a large collection of standard module like file I/O, system calls, sockets, and even interfaces to graphical user interface toolkits like Tk.</li>
-	<li>It enables programs to be written compactly and readably. Programs are shorter because:
-		<ul>
-			<li>It has high-level data types to express complex operations in a single statement.</li>
-			<li>The statements are grouped using indentation instead of braces.</li>
-			<li>The variables need not to be declared.</li>
-			<li>They can even change type after they have been set.</li>
-		</ul>
-	</li>
-	
-</ul>
-<h2>Some basic things related to python</h2>
-<ul>
-	<li>After installation, add the installation directory into the path environmental variable to access it from any directory.</li>
-	<li>To check the version of python, use command <b>python --version</b></li>
-	<li>Use <b>ctrl+z</b> or <b>quit()</b> or <b>exit()</b> to exit out of python.</li>
-	<li>If indentation is not given, python gives an <b>IndentationError: expected an indented block</b></li>
-	<li>In case of invalid syntax, python gives an </b>SyntaxError: invalid syntax</li></li>
-	<li>In case we try to add int to string, python gives an error <b>TypeError: can only concatenate str (not "int") to str</b></li>
-	<li>To find the type of a variable use function <b>type</b></li><br/>
-	<li><b>Python Comments</b> start with #</li><br/>
-	<li><b>Python Docstring</b> Python uses triple quotes at the beginning and end of a string to provide documentation. e.g. """This will be a multi-line comment or a docstring"""</li><br/>
-	<li><b>Python Variables</b> There is no need to declare a variable. A variable is created when we assign a value to it. Variable names:
-		<ul>
-			<li>must start with a letter or the underscore character</li>
-			<li>cannot start with a number</li>
-			<li>can only contain alpha-numeric characters and underscores</li>
-			<li>is case-sensitive</li>
-		</ul>
-	</li><br/>
-	<li><b>Python Numbers</b> are of 3 types:
-		<ul>
-			<li><b>int</b> e.g. x =2</li>
-			<li><b>float</b> e.g. x =2.67</li>
-			<li><b>complex</b> e.g. x =2j They are written with a "j" as the imaginary part</li>
-		</ul>
-	</li><br/>
-	<li><b>Python Casting</b> It is used to specify the type of a variable using below constructor functions
-		<ul>
-			<li><b>int()</b></li>
-			<li><b>float()</b></li>
-			<li><b>str()</b></li>
-			<li><b>complex()</b></li>
-		</ul>
-	</li><br/>
-	<li><b>Python String</b> It can be created using single or double quotes.
-		<ul>
-			<li>The strings in Python are arrays of bytes representing unicode characters.</li>
-			<li>Python does not have a character data type, a single character is simply a string with a length of 1.</li>
-			<li>str[n] is used to access nth elements of a string str.</li>
-			<li>str[n:m] is used to access elements from index n to m in a string str. Elements at index n and m both are not included.</li>
-			<li><b>str.strip()</b> method is used to remove whitespace from start and end of a string str</li>
-			<li><b>len(str)</b> method is used to return the length of a string str</li>
-			<li><b>str.lower()</b> method is used to return a string str in lowercase.</li>
-			<li><b>str.upper()</b> method is used to return a string str in uppercase.</li>
-			<li><b>str.replace("Z","K")</b> method is used to replace Z in a string str with K.</li>
-			<li><b>str.split(separator)</b> method is used to split a string str using given separator.</li>
-			<li><b>input()</b> method is used for command line input.</li>
-		</ul>
-	</li><br/>
-	<li><b>Python Operators</b>
-		<table border="1">
-			<tr><th>Operator Group</th><th>Example</th></tr>
-			<tr><td><b>Arithmetic</b></td>
-			    <td>
-					<table border="1">
-						<tr><th>Operator</th><th>Example</th></tr>
-						<tr><td>Addition</td><td>a + b</td></tr>
-						<tr><td>Subtraction</td><td>a - b</td></tr>
-						<tr><td>Multiplication</td><td>a * b</td></tr>
-						<tr><td>Division</td><td>a / b returns quotient when a is divided by b</td></tr>
-						<tr><td>Modulus</td><td>a % b returns remainder when a is divided by b</td></tr>
-						<tr><td>Exponent</td><td>a**b returns a raised to the power b</td></tr>
-						<tr><td>Floor Division</td><td>a // b returns floored result when a is divided by b removing the decimal points</td></tr>
-					</table>
-				</td>
-			</tr>
-			<tr><td><b>Assignment</b></td>
-				<td>
-					<table border="1">
-						<tr><th>Operator</th><th>Example</th></tr>
-						<tr><td>=</td><td>a = b + c assigns the value of b + c to a</td></tr>
-						<tr><td>+=</td><td>c += a is equivalent to c = c + a</td></tr>
-						<tr><td>-=</td><td>c -= a is equivalent to c = c - a</td></tr>
-						<tr><td>*=</td><td>c *= a is equivalent to c = c * a</td></tr>
-						<tr><td>/=</td><td>c /= a is equivalent to c = c / a</td></tr>
-						<tr><td>%=</td><td>c %= a is equivalent to c = c % a</td></tr>
-						<tr><td>**=</td><td>c **= a is equivalent to c = c ** a</td></tr>
-						<tr><td>//=</td><td>c //= a is equivalent to c = c // a</td></tr>
-					</table>				
-				</td>
-			</tr>
-			<tr><td><b>Comparison/Relational</b></td>
-				<td>
-					<table border="1">
-						<tr><th>Operator</th><th>Example</th></tr>
-						<tr><td>==</td><td>a == b returns true if a is equal to b</td></tr>
-						<tr><td>!=</td><td>a != b returns true if a is not equal to b</td></tr>
-						<tr><td>&lt;&gt;</td><td>a &lt;&gt; b returns true if a is not equal to b</td></tr>
-						<tr><td>&lt;</td><td>a &lt; b returns true if a is less than b</td></tr>
-						<tr><td>&gt;</td><td>a &gt; b returns true if a is greater than b</td></tr>
-						<tr><td>&lt;=</td><td>a &lt;= b returns true if a is less than or equal to b</td></tr>
-						<tr><td>&gt;=</td><td>a &gt;= b returns true if a is greater than or equal to b</td></tr>
-					</table>				
-				</td>
-			</tr>
-			<tr><td><b>Logical</b></td>
-				<td>
-					<table border="1">
-						<tr><th>Operator</th><th>Example</th></tr>
-						<tr><td>and</td><td>a and b returns true if both a and b are true</td></tr>
-						<tr><td>or</td><td>a or b returns true if any one of a or b is true</td></tr>
-						<tr><td>not</td><td>not a returns true if a is false</td></tr>
-					</table>				
-				</td>
-			</tr>			
-			<tr><td><b>Identity</b></td>
-				<td>
-					<table border="1">
-						<tr><th>Operator</th><th>Example</th></tr>
-						<tr><td>is</td><td>a is b returns true if a points to b</td></tr>
-						<tr><td>not is</td><td>a is not b returns true if a does not point to b</td></tr>
-					</table>				
-				</td>
-			</tr>			
-			<tr><td><b>Membership</b></td>
-				<td>
-					<table border="1">
-						<tr><th>Operator</th><th>Example</th></tr>
-						<tr><td>in</td><td>a in b returns true if a is in b</td></tr>
-						<tr><td>not in</td><td>a not in b returns true if a is not in b</td></tr>
-					</table>				
-				</td>			
-			<tr><td><b>Bitwise</b></td>
-				<td>
-					<table border="1">
-						<tr><th>Operator</th><th>Example</th></tr>
-						<tr><td>& (AND)</td><td>copies a bit to the result if it exists in both operands<br/>
-						E.g. if a = 0011 1100<br/>
-						and b = 0000 1101<br/>
-						then a&b = 0000 1100</td></tr>
-						<tr><td>| (OR)</td><td>copies a bit to the result if it exists in any of the operand<br/>
-						E.g. if a = 0011 1100<br/>
-						and b = 0000 1101<br/>
-						then a&b = 0011 1101</td></tr>
-						<tr><td>^ (XOR)</td><td>copies the bit if it is set in one operand but not both.<br/>
-						E.g. if a = 0011 1100<br/>
-						and b = 0000 1101<br/>
-						then a&b = 0011 0001</td></tr>
-						<tr><td>~ (One's compliment)</td><td>swap the bits<br/>
-						E.g. if a = 0011 1100<br/>
-						then ~a = 1100 0011</td></tr>
-						<tr><td>&lt;&lt; (Left Shift)</td><td>Shifts the bits by n position toward left<br/>
-						E.g. if a = 0011 1100<br/>
-						then a &lt;&lt; 2 = 1111 0000</td></tr>
-						<tr><td>&gt;&gt; (Right Shift)</td><td>Shifts the bits by n position towards right<br/>
-						E.g. if a = 0011 1100<br/>
-						then a &gt;&gt; 2 = 0000 1111</td></tr>
-					</table>				
-				</td>			
-		</table>
-	</li><br/>
-	<li><b>Python Decision Making</b>
-		<ul>
-			<li>Any non-zero and non-null values is treated as TRUE, and zero or null value is treated as FALSE.</li>
-			<li><b>One Line if</b><br/>
-					if expression : statement</li>
-			<li><b>if</b><br/>
-					if expression: <br/>
-					&nbsp;&nbsp;&nbsp;&nbsp;statement
-			</li>
-			<li><b>if-else</b><br/>
-				if expression:<br/>
-				&nbsp;&nbsp;&nbsp;&nbsp;   statement(s)<br/>
-				else:<br/>
-				&nbsp;&nbsp;&nbsp;&nbsp;   statement(s)	<br/>
-			</li>
-			<li><b>if-elif</b><br/>
-				if expression1:<br/>
-				&nbsp;&nbsp;&nbsp;&nbsp;   statement(s)<br/>
-				elif expression2:<br/>
-				&nbsp;&nbsp;&nbsp;&nbsp;   statement(s)<br/>
-				elif expression3:<br/>
-				&nbsp;&nbsp;&nbsp;&nbsp;   statement(s)<br/>
-				else:<br/>
-				&nbsp;&nbsp;&nbsp;&nbsp;   statement(s)	<br/>
-			</li>
-			<li><b>nested if</b><br/>
-			if expression1: <br/>
-			 &nbsp;&nbsp;&nbsp;&nbsp;   statement(s) <br/>
-			 &nbsp;&nbsp;&nbsp;&nbsp;  if expression2: <br/>
-			 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     statement(s) <br/>
-			 &nbsp;&nbsp;&nbsp;&nbsp;  elif expression3: <br/>
-			 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     statement(s) <br/>
-			 &nbsp;&nbsp;&nbsp;&nbsp;  elif expression4: <br/>
-			 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     statement(s) <br/>
-			 &nbsp;&nbsp;&nbsp;&nbsp;  else: <br/>
-			 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;     statement(s) <br/>
-			else: <br/>
-			 &nbsp;&nbsp;&nbsp;&nbsp;  statement(s)	<br/>
-			   </li>			
-		</ul>
-	</li><br/>
-	<li><b>Python Loops</b>
-		<ul>
-			<li><b>while</b></li>
-				while expression: <br/>
-				&nbsp;&nbsp;&nbsp;&nbsp;statement			
-			<li><b>for</b>
-				<br/>for iterating_var in sequence:<br/>
-				&nbsp;&nbsp;&nbsp;&nbsp;statements(s)<br/>E.g.<br/>
-				<ul>
-					<li>
-						for letter in 'ANSHUL':<br/>
-						&nbsp;&nbsp;&nbsp;&nbsp;print(letter)<br/>
-					</li>
-					<li>
-						fruits = ['Apple', 'Banana', 'Orange']<br/>
-						for fruit in fruits:<br/>
-						&nbsp;&nbsp;&nbsp;&nbsp;print(fruit)<br/>
-					</li>
-					<li>
-						fruits = ['Apple', 'Banana', 'Orange']<br/>
-						for index in range(len(fruits)):<br/>
-						&nbsp;&nbsp;&nbsp;&nbsp;print(fruits[index])<br/>
-					</li>
-					<li>
-						for num in range(10,20):<br/>
-						&nbsp;&nbsp;&nbsp;&nbsp;print(num)<br/>
-					</li>
-				</ul>
-			</li>
-			<li><b>nested loop</b><br/>
-				while expression:<br/>
-		   		&nbsp;&nbsp;&nbsp;&nbsp;	while expression:<br/>
-		      	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		statement(s)<br/>
-	   			&nbsp;&nbsp;&nbsp;&nbsp;	statement(s)<br/>
-			</li>
-		</ul>
-	</li><br/>
-	<li><b>Python Loop Control</b>
-		<ul>
-			<li><b>break</b><br/>
-				while expression: <br/>
-				&nbsp;&nbsp;&nbsp;&nbsp;	if expression:<br/>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		break<br/>	
-				&nbsp;&nbsp;&nbsp;&nbsp;	statement<br/>
-			</li>
-			<li><b>continue</b><br/>
-				while expression: <br/>
-				&nbsp;&nbsp;&nbsp;&nbsp;	if expression:<br/>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		continue<br/>	
-				&nbsp;&nbsp;&nbsp;&nbsp;	statement<br/></li>
-			<li><b>pass</b><br/>
-				while expression: <br/>
-				&nbsp;&nbsp;&nbsp;&nbsp;	if expression:<br/>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		pass<br/>	
-				&nbsp;&nbsp;&nbsp;&nbsp;	statement<br/></li>
-		</ul>	
-	</li><br/>
-	<li><b>Python List</b> 
-		<ul>
-			<li>It is a modifiable group of objects declared inside <b>square brackets</b> e.g. list1 = ['physics', 'chemistry', 1997, 2000];</li>
-		</ul>
-	</li><br/>
-	<li><b>Python Tuple</b> 
-		<ul>
-			<li>It is an modifiable group of objects declared inside <b>round brackets</b> e.g. list1 = ('physics', 'chemistry', 1997, 2000);</li>
-		</ul>
-	</li><br/>
-	<li><b>Python Dictionary</b> 
-		<ul>
-			<li>It is a collection of objects which is unordered, changeable and indexed.</li>
-			<li>Objects are declared inside <b>curly brackets</b> e.g. mydict = {"brand":"Ford","model": "Mustang", "year": 1964} where brand, model and year are the keys and Ford, Mustang and 1964 are the values corresponding to these keys.</li>
-			<li>The values can be accessed using <b>mydict.get("key")</b> method or <b>mydict["key"]</b>.</li>
-			<li>It can also be created using dict() method (using curly bracket inside parenthesis)e.g. mydict = dict({1: 'One', 2 : 'Two', 3: 'Three'})</li>
-			<li>It can also be created with each item as pair (using square bracket inside parenthesis) e.g. mydict = dict([(1, 'One'),(2, 'Two'),(3, 'Three')])</li>
-		</ul>
-	</li><br/>
-	<li><b>Python Set</b> 
-		<ul>
-			<li>It is a collection of objects which is unordered and changeable but not indexed.</li>
-			<li>An object can be added using method add("object")</li>
-			<li>More than one objects can be added using method update("object1","object2","object3")</li>
-		</ul>
-	</li><br/>
-	<li><b>Python Iterator</b> 
-		<ul>
-			<li>It is used to iterate over iterable objects subjects lists, tuples, dictionaries, and sets.</li>
-			<li>All the iterable objects have a iter() method which is used to get an iterator as iterator = iter(iterable).</li>
-		</ul>
-	</li><br/>
-	<li><b>Python Module</b>
-		<ul>
-			<li>Module in python contains functions.</li>
-			<li>Modules can be added to a python script using import modulename e.g. import time.</li>
-		</ul>
-	</li><br/>
-	<li><b>Python Date Time Module</b>
-		<ul>
-			<li>It provides functions for working with times, and for converting between representations.</li>
-			<li>The floating-point numbers in units of seconds for time interval are indicated by Tick in python.</li>
-			<li>import time;<br/>
-				ticks = time.time()<br/>
-				print("Number of ticks since 12:00am, January 1, 1970:", ticks)
-			</li>
-		</ul>
-	</li><br/>	
-	<li><b>Python Function </b>Simple rules to define a function in Python are
-		<ul>
-			<li>A function starts with def followed name and parentheses()</li>
-			<li>The parameters if any needs to be placed within these parentheses.</li>
-			<li>The first statement is optional docstring.</li>
-			<li>The code block starts with a colon (:) and is indented.</li>
-			<li>It ends with a return [expression].A return statement with no arguments is the same as return None</li>
-			<li>Syntax:<br/>
-			def functionname( parameters ):<br/>
-   			"function_docstring"<br/>
-   			&nbsp;&nbsp;&nbsp;&nbsp;	return [expression]
-			</li>
-			<li>All parameters (arguments) in the Python language are passed by reference. It means if you change what a parameter refers to within a function, the change also reflects back in the calling function.</li>
-			<li>Function can be called in below ways:
-				<ul>
-					<li><b>Required Arguments</b>e.g. print("Anshul")</li>
-					<li><b>Keyword arguments</b>e.g printMe(str = "Anshul")</li>
-					<li><b>Default arguments</b><br/>
-					def myFunction( name="Anshul", age="12"):<br/>
-					&nbsp;&nbsp;&nbsp;&nbsp;	print("Name", name)<br/>
-					&nbsp;&nbsp;&nbsp;&nbsp;	print("Age", age)<br/>	
-		   			&nbsp;&nbsp;&nbsp;&nbsp;	return<br/>
-		   			myFunction(name="This Name")<br/>
-		   			myFunction(age="This Name")<br/>
-					</li>
-					<li><b>Variable Arguments</b><br/>
-					def varArgs(str, *vartuple):<br/>
-					&nbsp;&nbsp;&nbsp;&nbsp;	print(str)<br/>
-					&nbsp;&nbsp;&nbsp;&nbsp;	for x in vartuple:<br/>
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		print(x)<br/>
-					&nbsp;&nbsp;&nbsp;&nbsp;	return<br/>
-					varArgs("Anshul")<br/>
-					varArgs("Anshul","Akhil","Abhishek")<br/>
-					</li>
-				</ul>
-			</li>
-		</ul>
-	</li><br/>
-	<li><b>Python Module</b>
-		<ul>
-			<li>A module is a file containing python code.</li>
-			<li>It consists of functions, classes and variables.</li>
-			<li>The module name will be the name of the file</li>
-			<li>Complete module can be imported inside another module using <b>import module1[, module2[,... moduleN]</b></li>
-			<li>Specific module attributes/functions can be imported inside another module using <b>from module import name1[, name2[, ... nameN]]</b></li>
-			<li>Modules are searched inside below location in the given sequence
-				<ul>
-					<li>Current Directory</li>
-					<li>Each directory in the variable PYTHONPATH</li>
-					<li>Python's default path</li>
-				</ul>
-			</li>
-		</ul>
-	</li><br/>
-	<li><b>Python Package</b>
-		<ul>
-			<li>It is a hierarchical directory structure that defines a single application environment consisting of modules and subpackages and sub-subpackages, and so on.</li>
-			<li>Each directory having python modules is having a module with name __init__.py and containing code to import all the functions<br/>
-				from file11 import func11<br/>
-				from file12 import func12<br/>
-				from file13 import func13<br/>
-			</li>
-			<li>To import a package in another module use <b>dir1.dir2.[dir2].file</b></li>
-			<li>To use a function from a package in another module use<b>dir1.dir2.[dir2].file.funcion()</b> </li>
-		</ul>
-	</li><br/>
-	<li><b>Python Class</b>
-		<ul>
-			<li>A class is created as below<br/><br/>
-				class Employee:<br/>
-				&nbsp;&nbsp;&nbsp;&nbsp;	'Common base class for all employees'<br/>
-	   			&nbsp;&nbsp;&nbsp;&nbsp;	empCount = 0<br/><br/>
-	
-	   			&nbsp;&nbsp;&nbsp;&nbsp;	def __init__(self, name, salary):<br/>
-	      		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	self.name = name<br/>
-	      		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	self.salary = salary<br/>
-	      		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	Employee.empCount += 1<br/><br/>
-	   
-	   			&nbsp;&nbsp;&nbsp;&nbsp;	def displayCount(self):<br/>
-	     		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	print "Total Employee %d" % Employee.empCount<br/><br/>
-	
-	   			&nbsp;&nbsp;&nbsp;&nbsp;	def displayEmployee(self):<br/>
-	      		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	print "Name : ", self.name,  ", Salary: ", self.salary<br/>
-			</li>
-			<li>To create an instance of the above class use <b>emp1 = Employee("Zara", 2000)</b></li>
-			<li>To invoke method of the above class use <b>emp1.displayEmployee()</b></li>
-			<li>To create a <b>class as an iterator</b>
-				<ul>
-					<li>implement methods <b>__iter__() and __next__()</b></li>
-					<li>To prevent the iteration to go on forever, we can use the <b>StopIteration</b> statement.</li>
-					<li>Example: <br/><br/>
-						class MyNumbers:<br/><br/>
-						&nbsp;&nbsp;&nbsp;&nbsp;	def __iter__(self):<br/>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		self.a = 1<br/>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		return self<br/><br/>
-						
-						&nbsp;&nbsp;&nbsp;&nbsp;	def __next__(self):<br/>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		if self.a <= 20:<br/>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			x = self.a<br/>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			self.a += 1<br/>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			return x<br/>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		else:<br/>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			raise StopIteration<br/><br/>
-						
-						myclass = MyNumbers()<br/>
-						myiter = iter(myclass)<br/><br/>
-						
-						for x in myiter:<br/>
-						&nbsp;&nbsp;&nbsp;&nbsp;	print(x)<br/><br/>
-					</li>
-				</ul>
-			</li>
-		</ul>
-	</li><br/>
-	<li><b>Python Exceptions</b>
-		<ul>
-			<li>The exceptions are handled using the below <br/>
-				try: <br/>
-	   			&nbsp;&nbsp;&nbsp;&nbsp;	#Statements <br/>
-				except <i>(Exception1[, Exception2[,...ExceptionN]]], Argument)</i>: <br/>
-	   			&nbsp;&nbsp;&nbsp;&nbsp;	#Exception handling statements <br/>
-	   			finally:<br/>
-	   			&nbsp;&nbsp;&nbsp;&nbsp;	#Statements are always executed <br/>
-			</li>
-			<li>
-				<b>User Defined Exceptions:</b> User Defined Exceptions can be created as below <br/>
-				class NetworkError(RuntimeError): <br/>
-   				&nbsp;&nbsp;&nbsp;&nbsp;	def __init__(self, arg): <br/>
-      			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	self.args = arg <br/> which can then be used as <br/>
-      			try:<br/>
-   				&nbsp;&nbsp;&nbsp;&nbsp;	raise NetworkError("Bad hostname")<br/>
-				except NetworkError,e:<br/>
-   				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	print e.args<br/>
-			</li>
-		</ul>
-	</li><br/>	
-	<li><b>Python Database</b>
-		<ul>
-			<li>Make sure that the corresponding database module is installed e.g. for postgresql and mysql databases run following command from command prompt to install python modules: <b>pip install --user psycopg2 mysql-connector-python</b></li>
-			<li>Import the module as <b>import mysql.connector as mysql</b></li>
-			<li>Create database connection as <b>conn = mysql.connect(database = "{databaseName}", user = "{databaseUserName}", password = "{databasePassword}", host = "{databaseHost}", port = "{databasePort}")</b></li>
-			<li>Get a cursor from the connection as <b>cur = conn.cursor()</b></li>
-			<li>Execute query using cursor as <b>cur.execute(sql)</b></li>
-			<li>Fetch results from the cursor as <b>results = cur.fetchall()</b></li>
-			<li>Commit or roll back the transaction if required using <b>conn.commit()</b> or <b>conn.rollback()</b></li>
-			<li>Close the cursor as <b>cur.close()</b></li>
-			<li>Close the connection as <b>conn.close()</b></li>
-			<li>Example:<br/>
-			<br/>
-			import mysql.connector as mysql<br/>
-			conn = mysql.connect(database = "dbname", user = "root", password = "password, host = "127.0.0.1", port = "3306")<br/>
-			<br/>
-			try:<br/>
-			&nbsp;&nbsp;&nbsp;&nbsp;	cur = conn.cursor()<br/>
-			&nbsp;&nbsp;&nbsp;&nbsp;	print("Opened database connection")<br/>
-			&nbsp;&nbsp;&nbsp;&nbsp;	cur.execute('''CREATE TABLE COMPANY<br/>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	      (NAME           TEXT    NOT NULL,<br/>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	      AGE            INT     NOT NULL,<br/>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	      ADDRESS        CHAR(50),<br/>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	      SALARY         REAL);''')<br/>
-			&nbsp;&nbsp;&nbsp;&nbsp;	print("Table created successfully")<br/>
-			except Exception as err:<br/>
-			&nbsp;&nbsp;&nbsp;&nbsp;	print("Table already exists")<br/>
-			finally:<br/>
-			&nbsp;&nbsp;&nbsp;&nbsp;	conn.commit()<br/>
-			&nbsp;&nbsp;&nbsp;&nbsp;	conn.close()<br/>
-			<br/>
-			</li>
-		</ul>
-	</li>
-	<li><b>Python Emailing</b>
-		<ul>
-			<li>Simple Mail Transfer Protocol (SMTP) is a protocol, which handles sending e-mail and routing e-mail between mail servers.</li>
-			<li>Python uses smtplib module for sending emails.</li>
-			<li>Import all the required smtp modules in the script. <b><br/>import smtplib<br/>
-from smtplib import SMTPException</b></li>
-			<li>Open smtp session as <b>session = smtplib.SMTP('smtphost',smtpport).</b></li>
-			<li>Use smtp session to send message as <b>session.sendmail(sender, receivers, message).</b></li>
-			<li>Quit smtp session as <b>session.quit()</b></li>
-			<li>Example:<br/>
-			<br/>
-			import smtplib<br/>
-			from smtplib import SMTPException<br/>
-			<br/>
-			sender = 'sender@gmail.com'<br/>
-			receiver = ['receiver@gmail.com']<br/>
-			message = """<br/>
-			Subject: SMTP e-mail test<br/>
-			This is a test e-mail message sent via Python script.<br/>
-			"""<br/>
-			<br/>
-			try:<br/>
-			&nbsp;&nbsp;&nbsp;&nbsp;	smtpObj = smtplib.SMTP('localhost')<br/>
-			&nbsp;&nbsp;&nbsp;&nbsp;	smtpObj.sendmail(sender, receivers, message) <br/>
-	   		&nbsp;&nbsp;&nbsp;&nbsp;	smtpObj.quit()<br/>
-   			except SMTPException as e: <br/>
-   			&nbsp;&nbsp;&nbsp;&nbsp;	print("Error: unable to send email",e)<br/>
-   			<br/>
-			</li>
-		</ul>
-	</li>
-	<li><b>Python Multithreading</b>
-	<ul>
-		<li>Using <b>Thread Module</b>
+		<li>It is a programming language.</li>
+		<li>It was created in 1991 by Guido van Rossum.</li>
+		<li>It is used for
 			<ul>
-				<li>Import the thread module as <b>import _thread.</b></li>
-				<li>Create a function func(arguments) to be executed inside thread. Make sure that there is a return statement.</li>
-				<li>Create thread as <b>_thread.start_new_thread(func, (arguments)).</b></li>
-				<li>Example:<br/>
-				import _thread<br/>
-				import time<br/>
-				<br/>
-				def threadFunction(param1, param2):<br/>
-				&nbsp;&nbsp;&nbsp;&nbsp;	print(param1)<br/>
-				&nbsp;&nbsp;&nbsp;&nbsp;	print(param2)<br/>
-				&nbsp;&nbsp;&nbsp;&nbsp;	return<br/>
-				<br/>
-				try:<br/>
-				&nbsp;&nbsp;&nbsp;&nbsp;	_thread.start_new_thread(threadFunction, ("Anshul","Sood"))<br/>
-				&nbsp;&nbsp;&nbsp;&nbsp;	_thread.start_new_thread(threadFunction, ("Karan","Ahuja"))<br/>
-				&nbsp;&nbsp;&nbsp;&nbsp;	time.sleep(1)<br/>
-				except Exception as e:<br/>
-				&nbsp;&nbsp;&nbsp;&nbsp;	print("Exception in thread received", e)<br/>
-				<br/>
-				</li>
+				<li>software development.</li>
+				<li>web development.</li>
+				<li>mathematics.</li>
+				<li>system scripting.</li>
+			</ul>
+		<li>It can connect to database systems.</li>
+		<li>It can be used to handle big data and perform complex
+			mathematics.</li>
+		<li>It works on different platforms (Windows, Mac, Linux,
+			Raspberry Pi, etc).</li>
+		<li>It has a simple syntax similar to the English language.</li>
+		<li>It is an interpreted language so the code can be executed as
+			soon as it is written.</li>
+		<li>It can be used as an object-orientated language or functional
+			language.</li>
+		<li>It uses new lines to complete a command instead of semicolon
+			viz. ";" used in most of the programming languages.</li>
+		<li>It relies on indentation, using whitespace, to define scope;
+			such as the scope of loops, functions and classes.</li>
+		<li>Its interpreter is easily extended with new functions and
+			data types implemented in C or C++ (or other languages callable from
+			C)</li>
+		<li>It allows to split a program into modules that can be reused
+			in other Python programs.</li>
+		<li>It comes with a large collection of standard module like file
+			I/O, system calls, sockets, and even interfaces to graphical user
+			interface toolkits like Tk.</li>
+		<li>It enables programs to be written compactly and readably.
+			Programs are shorter because:
+			<ul>
+				<li>It has high-level data types to express complex operations
+					in a single statement.</li>
+				<li>The statements are grouped using indentation instead of
+					braces.</li>
+				<li>The variables need not to be declared.</li>
+				<li>They can even change type after they have been set.</li>
 			</ul>
 		</li>
-		<li>Using <b>Threading Module</b>
-			<ul>
-				<li>Import the threading module as <b>import threading</b></li>
-				<li>Create a subclass of Thread class as <b>class myThreading(threading.Thread):</b></li>
-				<li>Override the <b>__init__(self [,args])</b> method to add additional arguments. Make sure that the first statement inside the __init__ method is <b>threading.Thread.__init__(self)</b></li>
-				<li>Override the <b>run(self [,args])</b> method to implement the logic that thread needs to execute. To get the additional arguments inside run method use <b>self.argument</b></li>
-				<li>Create thread using <b>thread = myThreadig(arguments)</b></li>
-				<li>Start thread using <b>thread.start()</b></li>
-				<li>Example:<br/>
-				import threading<br/>
-				import time<br/><br/>
 
-				class myThreading(threading.Thread):<br/><br/>
-					
-				&nbsp;&nbsp;&nbsp;&nbsp;	def __init__(self, param1, param2):<br/>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		threading.Thread.__init__(self)<br/>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		self.param1 = param1<br/>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		self.param2 = param2<br/><br/>
-					
-				&nbsp;&nbsp;&nbsp;&nbsp;	def run(self):<br/>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		print(self.param1)<br/>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		print(self.param2)<br/>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		return<br/><br/>
-					
-				try:<br/>
-				&nbsp;&nbsp;&nbsp;&nbsp;	thread1 = myThreading("Anshul","Sood")<br/>
-				&nbsp;&nbsp;&nbsp;&nbsp;	thread2 = myThreading("Karan","Ahuja")<br/>
-				&nbsp;&nbsp;&nbsp;&nbsp;	thread1.start()<br/>
-				&nbsp;&nbsp;&nbsp;&nbsp;	thread2.start()<br/>
-				&nbsp;&nbsp;&nbsp;&nbsp;	time.sleep(1)<br/>
-				except Exception as e:<br/>
-				&nbsp;&nbsp;&nbsp;&nbsp;	print("Exception in thread received", e)<br/><br/>
-				</li>
-			</ul>
-		</li>
 	</ul>
-	</li>	
-	<li><b>Python XML Parsing</b>
-		<ul>
-			<li><b>SAX Parsing</b>
-				<ul>
-					<li>Import the sax parser module as <b>import xml.sax</b></li>
-					<li>Create a content handler class as subclass of <b>xml.sax.ContentHandler</b> class</li>
-					<li>Override the <b>__init__(self)</b> method to initialize all the xml tags content tp empty string "". Also set a variable say current data to "". This will hold the current tag while parsing.</li>
-					<li>Override the <b>startElement(self, tag, attributes)</b> method. This method is called when an element tag is started
-						<ul>
-							<li>Set the current data attribute to tag</li>
-							<li>All the attributes associated with the tag can be retrieved using method <b>attributes["attributeName"]</b></li>
-						</ul>
-					</li>
-					<li>Override the <b>endElement(self, tag)</b> method. This method is called when an element tag ends.
-						<ul>
-							<li>Set the current data attribute to ""</li>
-							<li>Get the value of all the tags as <b>self.attributeName</b></li>
-						</ul>
-					</li>
-					<li>Override the <b>characters(self, content)</b> method. This method is called when a character is read.
-						<ul>
-							<li>Set all the attributes to content as self.attributeName = content based on current data attribute. e.g.
-								<br/>if self.CurrentData == "elementName":<br/>
-         							 &nbsp;&nbsp;&nbsp;&nbsp;	self.type = content
-								<br/>
-							</li>
-						</ul>
-					</li>
-					<li>Create an XML parser as <b>parser = xml.sax.make_parser()</b></li>
-					<li>Turn off the namespaces as <b>parser.setFeature(xml.sax.handler.feature_namespaces, 0)</b></li>
-					<li>Set the content handler as <b>parser.setContentHandler(ContentHandlerClass())</b></li>
-					<li>Parse the given XML using appropriate protocol e.g. file: or http: and using the parser as <b>parser.paser(xmlFile)</b></li>
-					<li>Example:<br/>
-						import xml.sax<br/>
-						import os<br/><br/>
-						
-						class MyContentHandler(xml.sax.ContentHandler):<br/>
-						&nbsp;&nbsp;&nbsp;&nbsp;	def __init__(self):<br/>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		self.CurrentData = ""<br/>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		self.name = ""<br/>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		self.age = 0<br/>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		self.gender = ""<br/>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		return<br/><br/>
-								
-						&nbsp;&nbsp;&nbsp;&nbsp;	def startElement(self, tag, attributes):<br/>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		self.CurrentData = tag<br/>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		if (tag == "member"):<br/>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			print("****Member****")<br/>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		return<br/><br/>
-							
-						&nbsp;&nbsp;&nbsp;&nbsp;	def endElement(self, tag):<br/>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		if (self.CurrentData  == "name"):<br/>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			print("Name = ",self.name)<br/>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		if (self.CurrentData  == "age"):<br/>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			print("Age = ",self.age)<br/>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		if (self.CurrentData  == "gender"):<br/>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			print("Gender = ",self.gender)<br/>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		self.CurrentData = ""<br/>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		return<br/><br/>
-								
-						&nbsp;&nbsp;&nbsp;&nbsp;	def characters(self, content):<br/>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		if (self.CurrentData  == "name"):<br/>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			self.name = content<br/>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		if (self.CurrentData  == "age"):<br/>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			self.age = content<br/>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		if (self.CurrentData  == "gender"):<br/>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			self.gender = content<br/>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		return<br/><br/>
-	
-						parser = xml.sax.make_parser()<br/>
-						parser.setFeature(xml.sax.handler.feature_namespaces, 0)<br/>
-						parser.setContentHandler(MyContentHandler())<br/>
-						path = "file:///"+os.getcwd()+"/family.xml"<br/>
-						parser.parse(path)<br/><br/>
-					</li>
-				</ul>
-			</li>
-			<li><b>DOM Parsing</b>
-				<ul>
-					<li>Import minidom module as <b>import xml.dom.minidom</b></li>
-					<li>Load the dom object as <b>xml.dom.minidom.parse("movies.xml")</b></li>
-					<li>Get the root node as <b>dom.documentElement</b></li>
-					<li>Get the attributes of a node as <b>node.getAttribute("attributeName")</b></li>
-					<li>Get all the nodes of a type as <b>node.getElementsByTagName("type")</b></li>
-					<li>For each node get the element for a type as <b>node.getElementsByTagName("name")[0]</b></li>
-					<li>Get the value of node as <b>node.childNodes[0].data</b></li>
-					<li>Example:<br/><br/>
-					import xml.dom.minidom<br/>
-
-					dom = xml.dom.minidom.parse("family.xml")<br/>
-					root = dom.documentElement<br/>
-					if root.hasAttribute("name"):<br/>
-					&nbsp;&nbsp;&nbsp;&nbsp;	print(root.getAttribute("name"))<br/>
-					members = root.getElementsByTagName("member")<br/>
-					for member in members:<br/>
-					&nbsp;&nbsp;&nbsp;&nbsp;	print(member.getElementsByTagName("name")[0].childNodes[0].data)<br/>
-					&nbsp;&nbsp;&nbsp;&nbsp;	print(member.getElementsByTagName("age")[0].childNodes[0].data)<br/>
-					&nbsp;&nbsp;&nbsp;&nbsp;	print(member.getElementsByTagName("gender")[0].childNodes[0].data)<br/><br/>
-					</li>
-				</ul>			
-			</li>
-		</ul>
-	</li>		
-	<li><b>Python Networking</b>
-		<ul>
-			<li>Python provides two level of access to network services
-				<ul>
-					<li>Operating system level socket to implement clients and servers for both connection-oriented and connection less protocols.</li>
-					<li>Application-level network protocols, such as FTP, HTTP, and so on</li>
-				</ul>
-			</li>
-			<li><b>Sockets</b>
-				<ul>
-					<li>These are the end points of a bidirectional communications channel.</li>
-					<li>They may communicate within a process, between processes on the same machine, or between processes on different continents.</li>
-					<li>They can be implemented over a number of different channel types: Unix domain sockets, TCP, UDP, and so on.</li>
-				</ul>
-			</li>
-			<li>To create a server socket
-				<ul>
-					<li>Import the module socket as <b>import socket</b></li>
-					<li>Create socket object as <b>server = socket.socket()</b></li>
-					<li>Get the host as <b>host = socket.gethostname()</b></li>
-					<li>Set some random port as <b>port = 12345</b></li>
-					<li>Bind the server socket object to the host and port as <b>server.bind((host, port))</b>. See there is only one argument inside parenthesis as (host,port)</li>
-					<li>Wait for client connection as <b>server.listen(5)</b></li>
-					<li>Start an infinite loop to listen for infinite requests as <b>while True: server.accept()</b>. This method when receives a message from client returns connection object and IP address of the client machine.</li>
-					<li>To write something back to the client use as <b>connection.send(b'String to send').</b> Send method accepts byte so use b'str'.</li>
-					<li><b>Example</b><br/><br/>
-						import socket<br/><br/>
-
-						serverSocket = socket.socket()<br/>
-						host = socket.gethostname()<br/>
-						port = 12345<br/>
-						serverSocket.bind((host, port))<br/>
-						serverSocket.listen(5)<br/>
-						while True:<br/>
-						&nbsp;&nbsp;&nbsp;&nbsp;	print("Waiting for connection from client")<br/>
-						&nbsp;&nbsp;&nbsp;&nbsp;	connection, addr = serverSocket.accept()<br/>
-						&nbsp;&nbsp;&nbsp;&nbsp;	print("Got Connection from ", addr)<br/>
-						&nbsp;&nbsp;&nbsp;&nbsp;	connection.sendall(b'Thanks for connecting.')<br/>
-						&nbsp;&nbsp;&nbsp;&nbsp;	connection.close()<br/><br/>
-					</li>
-				</ul>
-			</li>
-			<li>To create a client socket
-				<ul>
-					<li>Import the module socket as <b>import socket</b></li>
-					<li>Create client socket object as <b>server = clientSocket.socket()</b></li>
-					<li>Get the host as <b>host = socket.gethostname()</b></li>
-					<li>Connect to the server socket as clientSocket.connect((serverHost, serverPort))<b></b></li>
-					<li>Write to the socket as <b>clientSocket.send(b'str')</b></li>
-					<li>Close the client socket as <b>clientSocket.close()</b></li>
-					<li><b>Example</b><br/><br/>
-						import socket<br/><br/>
-
-						clientSocket = socket.socket()<br/>
-						host = socket.gethostname()<br/>
-						port = 12345 <br/>
-						clientSocket.connect((host, port))<br/>
-						clientSocket.recv(1024)<br/>
-						clientSocket.close()<br/><br/>
-					</li>
-				</ul>
-			</li>
-		</ul>
-	</li>	
-	<li><b>Python Lambda</b>
-		<ul>
-			<li>A lambda function is a small anonymous function.</li>
-			<li>A lambda function can take any number of arguments but can have only one expression.</li>
-			<li>The syntax of lambda function is <b>lambda arguments : expression</b>.</li>
-			<li>The expression is executed and the result is returned.</li>
-			<li>The power of lambda is better shown when used as an anonymous function inside another function.</li>
-			<li>Example:<br/>
-			myLambda = lambda a, b, c: a + b + c<br/>
-			print(myLambda(2, 3, 4))<br/><br/>
-			</li>
-		</ul>
-	</li>
-	<li><b>Python JSON</b>
-		<ul>
-			<li>Import json module as <b>import json</b></li>
-			<li>To convert from json string to python
-				<ul>
-					<li>Load the json string as <b>pythonObject = json.load(jsonString)</b></li>
-					<li>Get the python object as <b>pythonObject["jsonObjectKey"]</b></li>
-				</ul>
-			</li>
-			<li>To convert from pythong object to json string
-				<ul>
-					<li>Load the json string as <b>jsonString = json.dumps(pythonObject)</b></li>
-				</ul>
-			</li>
-		</ul>
-	</li>
-</ul>
-<h1>Examples</h1>
-<p><b>Sample python program</b></p>
-<ul>
-	<li>Create a file with name HelloWorld.py and the content as <b>print("Hello, world!")</b></li>
-	<li>Run this file using command <b>python Hellworld.py</b></li>
-</ul>
-<pre>
+	<h2>Some basic things related to python</h2>
+	<ul>
+		<li>After installation, add the installation directory into the
+			path environmental variable to access it from any directory.</li>
+		<li>To check the version of python, use command <b>python
+				--version</b></li>
+		<li>Use <b>ctrl+z</b> or <b>quit()</b> or <b>exit()</b> to exit
+			out of python.
+		</li>
+		<li>If indentation is not given, python gives an <b>IndentationError:
+				expected an indented block</b></li>
+		<li>In case of invalid syntax, python gives an </b>SyntaxError:
+			invalid syntax
+		</li>
+		</li>
+		<li>In case we try to add int to string, python gives an error <b>TypeError:
+				can only concatenate str (not "int") to str</b></li>
+		<li>To find the type of a variable use function <b>type</b></li>
+		<br />
+		<li><b>Python Comments</b> start with #</li>
+		<br />
+		<li><b>Python Docstring</b> Python uses triple quotes at the
+			beginning and end of a string to provide documentation. e.g. """This
+			will be a multi-line comment or a docstring"""</li>
+		<br />
+		<li><b>Python Variables</b> There is no need to declare a
+			variable. A variable is created when we assign a value to it.
+			Variable names:
+			<ul>
+				<li>must start with a letter or the underscore character</li>
+				<li>cannot start with a number</li>
+				<li>can only contain alpha-numeric characters and underscores</li>
+				<li>is case-sensitive</li>
+			</ul></li>
+		<br />
+		<li><b>Python Numbers</b> are of 3 types:
+			<ul>
+				<li><b>int</b> e.g. x =2</li>
+				<li><b>float</b> e.g. x =2.67</li>
+				<li><b>complex</b> e.g. x =2j They are written with a "j" as
+					the imaginary part</li>
+			</ul></li>
+		<br />
+		<li><b>Python Casting</b> It is used to specify the type of a
+			variable using below constructor functions
+			<ul>
+				<li><b>int()</b></li>
+				<li><b>float()</b></li>
+				<li><b>str()</b></li>
+				<li><b>complex()</b></li>
+			</ul></li>
+		<br />
+		<li><b>Python String</b> It can be created using single or double
+			quotes.
+			<ul>
+				<li>The strings in Python are arrays of bytes representing
+					unicode characters.</li>
+				<li>Python does not have a character data type, a single
+					character is simply a string with a length of 1.</li>
+				<li>str[n] is used to access nth elements of a string str.</li>
+				<li>str[n:m] is used to access elements from index n to m in a
+					string str. Elements at index n and m both are not included.</li>
+				<li><b>str.strip()</b> method is used to remove whitespace from
+					start and end of a string str</li>
+				<li><b>len(str)</b> method is used to return the length of a
+					string str</li>
+				<li><b>str.lower()</b> method is used to return a string str in
+					lowercase.</li>
+				<li><b>str.upper()</b> method is used to return a string str in
+					uppercase.</li>
+				<li><b>str.replace("Z","K")</b> method is used to replace Z in
+					a string str with K.</li>
+				<li><b>str.split(separator)</b> method is used to split a
+					string str using given separator.</li>
+				<li><b>input()</b> method is used for command line input.</li>
+			</ul></li>
+		<br />
+		<li><b>Python Operators</b>
+			<table border="1">
+				<tr>
+					<th>Operator Group</th>
+					<th>Example</th>
+				</tr>
+				<tr>
+					<td><b>Arithmetic</b></td>
+					<td>
+						<table border="1">
+							<tr>
+								<th>Operator</th>
+								<th>Example</th>
+							</tr>
+							<tr>
+								<td>Addition</td>
+								<td>a + b</td>
+							</tr>
+							<tr>
+								<td>Subtraction</td>
+								<td>a - b</td>
+							</tr>
+							<tr>
+								<td>Multiplication</td>
+								<td>a * b</td>
+							</tr>
+							<tr>
+								<td>Division</td>
+								<td>a / b returns quotient when a is divided by b</td>
+							</tr>
+							<tr>
+								<td>Modulus</td>
+								<td>a % b returns remainder when a is divided by b</td>
+							</tr>
+							<tr>
+								<td>Exponent</td>
+								<td>a**b returns a raised to the power b</td>
+							</tr>
+							<tr>
+								<td>Floor Division</td>
+								<td>a // b returns floored result when a is divided by b
+									removing the decimal points</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td><b>Assignment</b></td>
+					<td>
+						<table border="1">
+							<tr>
+								<th>Operator</th>
+								<th>Example</th>
+							</tr>
+							<tr>
+								<td>=</td>
+								<td>a = b + c assigns the value of b + c to a</td>
+							</tr>
+							<tr>
+								<td>+=</td>
+								<td>c += a is equivalent to c = c + a</td>
+							</tr>
+							<tr>
+								<td>-=</td>
+								<td>c -= a is equivalent to c = c - a</td>
+							</tr>
+							<tr>
+								<td>*=</td>
+								<td>c *= a is equivalent to c = c * a</td>
+							</tr>
+							<tr>
+								<td>/=</td>
+								<td>c /= a is equivalent to c = c / a</td>
+							</tr>
+							<tr>
+								<td>%=</td>
+								<td>c %= a is equivalent to c = c % a</td>
+							</tr>
+							<tr>
+								<td>**=</td>
+								<td>c **= a is equivalent to c = c ** a</td>
+							</tr>
+							<tr>
+								<td>//=</td>
+								<td>c //= a is equivalent to c = c // a</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td><b>Comparison/Relational</b></td>
+					<td>
+						<table border="1">
+							<tr>
+								<th>Operator</th>
+								<th>Example</th>
+							</tr>
+							<tr>
+								<td>==</td>
+								<td>a == b returns true if a is equal to b</td>
+							</tr>
+							<tr>
+								<td>!=</td>
+								<td>a != b returns true if a is not equal to b</td>
+							</tr>
+							<tr>
+								<td>&lt;&gt;</td>
+								<td>a &lt;&gt; b returns true if a is not equal to b</td>
+							</tr>
+							<tr>
+								<td>&lt;</td>
+								<td>a &lt; b returns true if a is less than b</td>
+							</tr>
+							<tr>
+								<td>&gt;</td>
+								<td>a &gt; b returns true if a is greater than b</td>
+							</tr>
+							<tr>
+								<td>&lt;=</td>
+								<td>a &lt;= b returns true if a is less than or equal to b</td>
+							</tr>
+							<tr>
+								<td>&gt;=</td>
+								<td>a &gt;= b returns true if a is greater than or equal to
+									b</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td><b>Logical</b></td>
+					<td>
+						<table border="1">
+							<tr>
+								<th>Operator</th>
+								<th>Example</th>
+							</tr>
+							<tr>
+								<td>and</td>
+								<td>a and b returns true if both a and b are true</td>
+							</tr>
+							<tr>
+								<td>or</td>
+								<td>a or b returns true if any one of a or b is true</td>
+							</tr>
+							<tr>
+								<td>not</td>
+								<td>not a returns true if a is false</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td><b>Identity</b></td>
+					<td>
+						<table border="1">
+							<tr>
+								<th>Operator</th>
+								<th>Example</th>
+							</tr>
+							<tr>
+								<td>is</td>
+								<td>a is b returns true if a points to b</td>
+							</tr>
+							<tr>
+								<td>not is</td>
+								<td>a is not b returns true if a does not point to b</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td><b>Membership</b></td>
+					<td>
+						<table border="1">
+							<tr>
+								<th>Operator</th>
+								<th>Example</th>
+							</tr>
+							<tr>
+								<td>in</td>
+								<td>a in b returns true if a is in b</td>
+							</tr>
+							<tr>
+								<td>not in</td>
+								<td>a not in b returns true if a is not in b</td>
+							</tr>
+						</table>
+					</td>
+				<tr>
+					<td><b>Bitwise</b></td>
+					<td>
+						<table border="1">
+							<tr>
+								<th>Operator</th>
+								<th>Example</th>
+							</tr>
+							<tr>
+								<td>& (AND)</td>
+								<td>copies a bit to the result if it exists in both
+									operands<br /> E.g. if a = 0011 1100<br /> and b = 0000 1101<br />
+									then a&b = 0000 1100
+								</td>
+							</tr>
+							<tr>
+								<td>| (OR)</td>
+								<td>copies a bit to the result if it exists in any of the
+									operand<br /> E.g. if a = 0011 1100<br /> and b = 0000 1101<br />
+									then a&b = 0011 1101
+								</td>
+							</tr>
+							<tr>
+								<td>^ (XOR)</td>
+								<td>copies the bit if it is set in one operand but not
+									both.<br /> E.g. if a = 0011 1100<br /> and b = 0000 1101<br />
+									then a&b = 0011 0001
+								</td>
+							</tr>
+							<tr>
+								<td>~ (One's compliment)</td>
+								<td>swap the bits<br /> E.g. if a = 0011 1100<br /> then
+									~a = 1100 0011
+								</td>
+							</tr>
+							<tr>
+								<td>&lt;&lt; (Left Shift)</td>
+								<td>Shifts the bits by n position toward left<br /> E.g.
+									if a = 0011 1100<br /> then a &lt;&lt; 2 = 1111 0000
+								</td>
+							</tr>
+							<tr>
+								<td>&gt;&gt; (Right Shift)</td>
+								<td>Shifts the bits by n position towards right<br /> E.g.
+									if a = 0011 1100<br /> then a &gt;&gt; 2 = 0000 1111
+								</td>
+							</tr>
+						</table>
+					</td>
+			</table></li>
+		<br />
+		<li><b>Python Decision Making</b>
+			<ul>
+				<li>Any non-zero and non-null values is treated as TRUE, and
+					zero or null value is treated as FALSE.</li>
+				<li><b>One Line if</b><br /> if expression : statement</li>
+				<li><b>if</b><br /> if expression: <br />
+					&nbsp;&nbsp;&nbsp;&nbsp;statement</li>
+				<li><b>if-else</b><br /> if expression:<br />
+					&nbsp;&nbsp;&nbsp;&nbsp; statement(s)<br /> else:<br />
+					&nbsp;&nbsp;&nbsp;&nbsp; statement(s) <br /></li>
+				<li><b>if-elif</b><br /> if expression1:<br />
+					&nbsp;&nbsp;&nbsp;&nbsp; statement(s)<br /> elif expression2:<br />
+					&nbsp;&nbsp;&nbsp;&nbsp; statement(s)<br /> elif expression3:<br />
+					&nbsp;&nbsp;&nbsp;&nbsp; statement(s)<br /> else:<br />
+					&nbsp;&nbsp;&nbsp;&nbsp; statement(s) <br /></li>
+				<li><b>nested if</b><br /> if expression1: <br />
+					&nbsp;&nbsp;&nbsp;&nbsp; statement(s) <br />
+					&nbsp;&nbsp;&nbsp;&nbsp; if expression2: <br />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; statement(s) <br />
+					&nbsp;&nbsp;&nbsp;&nbsp; elif expression3: <br />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; statement(s) <br />
+					&nbsp;&nbsp;&nbsp;&nbsp; elif expression4: <br />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; statement(s) <br />
+					&nbsp;&nbsp;&nbsp;&nbsp; else: <br />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; statement(s) <br />
+					else: <br /> &nbsp;&nbsp;&nbsp;&nbsp; statement(s) <br /></li>
+			</ul></li>
+		<br />
+		<li><b>Python Loops</b>
+			<ul>
+				<li><b>while</b></li> while expression:
+				<br /> &nbsp;&nbsp;&nbsp;&nbsp;statement
+				<li><b>for</b> <br />for iterating_var in sequence:<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;statements(s)<br />E.g.<br />
+					<ul>
+						<li>for letter in 'ANSHUL':<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;print(letter)<br />
+						</li>
+						<li>fruits = ['Apple', 'Banana', 'Orange']<br /> for fruit
+							in fruits:<br /> &nbsp;&nbsp;&nbsp;&nbsp;print(fruit)<br />
+						</li>
+						<li>fruits = ['Apple', 'Banana', 'Orange']<br /> for index
+							in range(len(fruits)):<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;print(fruits[index])<br />
+						</li>
+						<li>for num in range(10,20):<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;print(num)<br />
+						</li>
+					</ul></li>
+				<li><b>nested loop</b><br /> while expression:<br />
+					&nbsp;&nbsp;&nbsp;&nbsp; while expression:<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; statement(s)<br />
+					&nbsp;&nbsp;&nbsp;&nbsp; statement(s)<br /></li>
+			</ul></li>
+		<br />
+		<li><b>Python Loop Control</b>
+			<ul>
+				<li><b>break</b><br /> while expression: <br />
+					&nbsp;&nbsp;&nbsp;&nbsp; if expression:<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; break<br />
+					&nbsp;&nbsp;&nbsp;&nbsp; statement<br /></li>
+				<li><b>continue</b><br /> while expression: <br />
+					&nbsp;&nbsp;&nbsp;&nbsp; if expression:<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; continue<br />
+					&nbsp;&nbsp;&nbsp;&nbsp; statement<br /></li>
+				<li><b>pass</b><br /> while expression: <br />
+					&nbsp;&nbsp;&nbsp;&nbsp; if expression:<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; pass<br />
+					&nbsp;&nbsp;&nbsp;&nbsp; statement<br /></li>
+			</ul></li>
+		<br />
+		<li><b>Python List</b>
+			<ul>
+				<li>It is a modifiable group of objects declared inside <b>square
+						brackets</b> e.g. list1 = ['physics', 'chemistry', 1997, 2000];
+				</li>
+			</ul></li>
+		<br />
+		<li><b>Python Tuple</b>
+			<ul>
+				<li>It is an modifiable group of objects declared inside <b>round
+						brackets</b> e.g. list1 = ('physics', 'chemistry', 1997, 2000);
+				</li>
+			</ul></li>
+		<br />
+		<li><b>Python Dictionary</b>
+			<ul>
+				<li>It is a collection of objects which is unordered,
+					changeable and indexed.</li>
+				<li>Objects are declared inside <b>curly brackets</b> e.g.
+					mydict = {"brand":"Ford","model": "Mustang", "year": 1964} where
+					brand, model and year are the keys and Ford, Mustang and 1964 are
+					the values corresponding to these keys.
+				</li>
+				<li>The values can be accessed using <b>mydict.get("key")</b>
+					method or <b>mydict["key"]</b>.
+				</li>
+				<li>It can also be created using dict() method (using curly
+					bracket inside parenthesis)e.g. mydict = dict({1: 'One', 2 : 'Two',
+					3: 'Three'})</li>
+				<li>It can also be created with each item as pair (using square
+					bracket inside parenthesis) e.g. mydict = dict([(1, 'One'),(2,
+					'Two'),(3, 'Three')])</li>
+			</ul></li>
+		<br />
+		<li><b>Python Set</b>
+			<ul>
+				<li>It is a collection of objects which is unordered and
+					changeable but not indexed.</li>
+				<li>An object can be added using method add("object")</li>
+				<li>More than one objects can be added using method
+					update("object1","object2","object3")</li>
+			</ul></li>
+		<br />
+		<li><b>Python Iterator</b>
+			<ul>
+				<li>It is used to iterate over iterable objects subjects lists,
+					tuples, dictionaries, and sets.</li>
+				<li>All the iterable objects have a iter() method which is used
+					to get an iterator as iterator = iter(iterable).</li>
+			</ul></li>
+		<br />
+		<li><b>Python Module</b>
+			<ul>
+				<li>Module in python contains functions.</li>
+				<li>Modules can be added to a python script using import
+					modulename e.g. import time.</li>
+			</ul></li>
+		<br />
+		<li><b>Python Date Time Module</b>
+			<ul>
+				<li>It provides functions for working with times, and for
+					converting between representations.</li>
+				<li>The floating-point numbers in units of seconds for time
+					interval are indicated by Tick in python.</li>
+				<li>import time;<br /> ticks = time.time()<br />
+					print("Number of ticks since 12:00am, January 1, 1970:", ticks)
+				</li>
+			</ul></li>
+		<br />
+		<li><b>Python Function </b>Simple rules to define a function in
+			Python are
+			<ul>
+				<li>A function starts with def followed name and parentheses()</li>
+				<li>The parameters if any needs to be placed within these
+					parentheses.</li>
+				<li>The first statement is optional docstring.</li>
+				<li>The code block starts with a colon (:) and is indented.</li>
+				<li>It ends with a return [expression].A return statement with
+					no arguments is the same as return None</li>
+				<li>Syntax:<br /> def functionname( parameters ):<br />
+					"function_docstring"<br /> &nbsp;&nbsp;&nbsp;&nbsp; return
+					[expression]
+				</li>
+				<li>All parameters (arguments) in the Python language are
+					passed by reference. It means if you change what a parameter refers
+					to within a function, the change also reflects back in the calling
+					function.</li>
+				<li>Function can be called in below ways:
+					<ul>
+						<li><b>Required Arguments</b>e.g. print("Anshul")</li>
+						<li><b>Keyword arguments</b>e.g printMe(str = "Anshul")</li>
+						<li><b>Default arguments</b><br /> def myFunction(
+							name="Anshul", age="12"):<br /> &nbsp;&nbsp;&nbsp;&nbsp;
+							print("Name", name)<br /> &nbsp;&nbsp;&nbsp;&nbsp; print("Age",
+							age)<br /> &nbsp;&nbsp;&nbsp;&nbsp; return<br />
+							myFunction(name="This Name")<br /> myFunction(age="This Name")<br />
+						</li>
+						<li><b>Variable Arguments</b><br /> def varArgs(str,
+							*vartuple):<br /> &nbsp;&nbsp;&nbsp;&nbsp; print(str)<br />
+							&nbsp;&nbsp;&nbsp;&nbsp; for x in vartuple:<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; print(x)<br />
+							&nbsp;&nbsp;&nbsp;&nbsp; return<br /> varArgs("Anshul")<br />
+							varArgs("Anshul","Akhil","Abhishek")<br /></li>
+					</ul>
+				</li>
+			</ul></li>
+		<br />
+		<li><b>Python Module</b>
+			<ul>
+				<li>A module is a file containing python code.</li>
+				<li>It consists of functions, classes and variables.</li>
+				<li>The module name will be the name of the file</li>
+				<li>Complete module can be imported inside another module using
+					<b>import module1[, module2[,... moduleN]</b>
+				</li>
+				<li>Specific module attributes/functions can be imported inside
+					another module using <b>from module import name1[, name2[, ...
+						nameN]]</b>
+				</li>
+				<li>Modules are searched inside below location in the given
+					sequence
+					<ul>
+						<li>Current Directory</li>
+						<li>Each directory in the variable PYTHONPATH</li>
+						<li>Python's default path</li>
+					</ul>
+				</li>
+			</ul></li>
+		<br />
+		<li><b>Python Package</b>
+			<ul>
+				<li>It is a hierarchical directory structure that defines a
+					single application environment consisting of modules and
+					subpackages and sub-subpackages, and so on.</li>
+				<li>Each directory having python modules is having a module
+					with name __init__.py and containing code to import all the
+					functions<br /> from file11 import func11<br /> from file12
+					import func12<br /> from file13 import func13<br />
+				</li>
+				<li>To import a package in another module use <b>dir1.dir2.[dir2].file</b></li>
+				<li>To use a function from a package in another module use<b>dir1.dir2.[dir2].file.funcion()</b>
+				</li>
+			</ul></li>
+		<br />
+		<li><b>Python Class</b>
+			<ul>
+				<li>A class is created as below<br /> <br /> class Employee:<br />
+					&nbsp;&nbsp;&nbsp;&nbsp; 'Common base class for all employees'<br />
+					&nbsp;&nbsp;&nbsp;&nbsp; empCount = 0<br /> <br />
+					&nbsp;&nbsp;&nbsp;&nbsp; def __init__(self, name, salary):<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; self.name = name<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; self.salary =
+					salary<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					Employee.empCount += 1<br /> <br /> &nbsp;&nbsp;&nbsp;&nbsp; def
+					displayCount(self):<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; print "Total
+					Employee %d" % Employee.empCount<br /> <br />
+					&nbsp;&nbsp;&nbsp;&nbsp; def displayEmployee(self):<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; print "Name : ",
+					self.name, ", Salary: ", self.salary<br />
+				</li>
+				<li>To create an instance of the above class use <b>emp1 =
+						Employee("Zara", 2000)</b></li>
+				<li>To invoke method of the above class use <b>emp1.displayEmployee()</b></li>
+				<li>To create a <b>class as an iterator</b>
+					<ul>
+						<li>implement methods <b>__iter__() and __next__()</b></li>
+						<li>To prevent the iteration to go on forever, we can use the
+							<b>StopIteration</b> statement.
+						</li>
+						<li>Example: <br /> <br /> class MyNumbers:<br /> <br />
+							&nbsp;&nbsp;&nbsp;&nbsp; def __iter__(self):<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; self.a = 1<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return self<br />
+							<br /> &nbsp;&nbsp;&nbsp;&nbsp; def __next__(self):<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if self.a <= 20:<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							x = self.a<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							self.a += 1<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							return x<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							else:<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							raise StopIteration<br /> <br /> myclass = MyNumbers()<br />
+							myiter = iter(myclass)<br /> <br /> for x in myiter:<br />
+							&nbsp;&nbsp;&nbsp;&nbsp; print(x)<br /> <br />
+						</li>
+					</ul>
+				</li>
+			</ul></li>
+		<br />
+		<li><b>Python Exceptions</b>
+			<ul>
+				<li>The exceptions are handled using the below <br /> try: <br />
+					&nbsp;&nbsp;&nbsp;&nbsp; #Statements <br /> except <i>(Exception1[,
+						Exception2[,...ExceptionN]]], Argument)</i>: <br />
+					&nbsp;&nbsp;&nbsp;&nbsp; #Exception handling statements <br />
+					finally:<br /> &nbsp;&nbsp;&nbsp;&nbsp; #Statements are always
+					executed <br />
+				</li>
+				<li><b>User Defined Exceptions:</b> User Defined Exceptions can
+					be created as below <br /> class NetworkError(RuntimeError): <br />
+					&nbsp;&nbsp;&nbsp;&nbsp; def __init__(self, arg): <br />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; self.args = arg <br />
+					which can then be used as <br /> try:<br />
+					&nbsp;&nbsp;&nbsp;&nbsp; raise NetworkError("Bad hostname")<br />
+					except NetworkError,e:<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; print e.args<br />
+				</li>
+			</ul></li>
+		<br />
+		<li><b>Python Database</b>
+			<ul>
+				<li>Make sure that the corresponding database module is
+					installed e.g. for postgresql and mysql databases run following
+					command from command prompt to install python modules: <b>pip
+						install --user psycopg2 mysql-connector-python</b>
+				</li>
+				<li>Import the module as <b>import mysql.connector as mysql</b></li>
+				<li>Create database connection as <b>conn =
+						mysql.connect(database = "{databaseName}", user =
+						"{databaseUserName}", password = "{databasePassword}", host =
+						"{databaseHost}", port = "{databasePort}")</b></li>
+				<li>Get a cursor from the connection as <b>cur =
+						conn.cursor()</b></li>
+				<li>Execute query using cursor as <b>cur.execute(sql)</b></li>
+				<li>Fetch results from the cursor as <b>results =
+						cur.fetchall()</b></li>
+				<li>Commit or roll back the transaction if required using <b>conn.commit()</b>
+					or <b>conn.rollback()</b></li>
+				<li>Close the cursor as <b>cur.close()</b></li>
+				<li>Close the connection as <b>conn.close()</b></li>
+				<li>Example:<br /> <br /> import mysql.connector as mysql<br />
+					conn = mysql.connect(database = "dbname", user = "root", password =
+					"password, host = "127.0.0.1", port = "3306")<br /> <br /> try:<br />
+					&nbsp;&nbsp;&nbsp;&nbsp; cur = conn.cursor()<br />
+					&nbsp;&nbsp;&nbsp;&nbsp; print("Opened database connection")<br />
+					&nbsp;&nbsp;&nbsp;&nbsp; cur.execute('''CREATE TABLE COMPANY<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (NAME TEXT NOT
+					NULL,<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AGE
+					INT NOT NULL,<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ADDRESS CHAR(50),<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; SALARY REAL);''')<br />
+					&nbsp;&nbsp;&nbsp;&nbsp; print("Table created successfully")<br />
+					except Exception as err:<br /> &nbsp;&nbsp;&nbsp;&nbsp;
+					print("Table already exists")<br /> finally:<br />
+					&nbsp;&nbsp;&nbsp;&nbsp; conn.commit()<br />
+					&nbsp;&nbsp;&nbsp;&nbsp; conn.close()<br /> <br />
+				</li>
+			</ul></li>
+		<li><b>Python Emailing</b>
+			<ul>
+				<li>Simple Mail Transfer Protocol (SMTP) is a protocol, which
+					handles sending e-mail and routing e-mail between mail servers.</li>
+				<li>Python uses smtplib module for sending emails.</li>
+				<li>Import all the required smtp modules in the script. <b><br />import
+						smtplib<br /> from smtplib import SMTPException</b></li>
+				<li>Open smtp session as <b>session =
+						smtplib.SMTP('smtphost',smtpport).</b></li>
+				<li>Use smtp session to send message as <b>session.sendmail(sender,
+						receivers, message).</b></li>
+				<li>Quit smtp session as <b>session.quit()</b></li>
+				<li>Example:<br /> <br /> import smtplib<br /> from smtplib
+					import SMTPException<br /> <br /> sender = 'sender@gmail.com'<br />
+					receiver = ['receiver@gmail.com']<br /> message = """<br />
+					Subject: SMTP e-mail test<br /> This is a test e-mail message sent
+					via Python script.<br /> """<br /> <br /> try:<br />
+					&nbsp;&nbsp;&nbsp;&nbsp; smtpObj = smtplib.SMTP('localhost')<br />
+					&nbsp;&nbsp;&nbsp;&nbsp; smtpObj.sendmail(sender, receivers,
+					message) <br /> &nbsp;&nbsp;&nbsp;&nbsp; smtpObj.quit()<br />
+					except SMTPException as e: <br /> &nbsp;&nbsp;&nbsp;&nbsp;
+					print("Error: unable to send email",e)<br /> <br />
+				</li>
+			</ul></li>
+		<li><b>Python Multithreading</b>
+			<ul>
+				<li>Using <b>Thread Module</b>
+					<ul>
+						<li>Import the thread module as <b>import _thread.</b></li>
+						<li>Create a function func(arguments) to be executed inside
+							thread. Make sure that there is a return statement.</li>
+						<li>Create thread as <b>_thread.start_new_thread(func,
+								(arguments)).</b></li>
+						<li>Example:<br /> import _thread<br /> import time<br />
+							<br /> def threadFunction(param1, param2):<br />
+							&nbsp;&nbsp;&nbsp;&nbsp; print(param1)<br />
+							&nbsp;&nbsp;&nbsp;&nbsp; print(param2)<br />
+							&nbsp;&nbsp;&nbsp;&nbsp; return<br /> <br /> try:<br />
+							&nbsp;&nbsp;&nbsp;&nbsp; _thread.start_new_thread(threadFunction,
+							("Anshul","Sood"))<br /> &nbsp;&nbsp;&nbsp;&nbsp;
+							_thread.start_new_thread(threadFunction, ("Karan","Ahuja"))<br />
+							&nbsp;&nbsp;&nbsp;&nbsp; time.sleep(1)<br /> except Exception as
+							e:<br /> &nbsp;&nbsp;&nbsp;&nbsp; print("Exception in thread
+							received", e)<br /> <br />
+						</li>
+					</ul>
+				</li>
+				<li>Using <b>Threading Module</b>
+					<ul>
+						<li>Import the threading module as <b>import threading</b></li>
+						<li>Create a subclass of Thread class as <b>class
+								myThreading(threading.Thread):</b></li>
+						<li>Override the <b>__init__(self [,args])</b> method to add
+							additional arguments. Make sure that the first statement inside
+							the __init__ method is <b>threading.Thread.__init__(self)</b></li>
+						<li>Override the <b>run(self [,args])</b> method to implement
+							the logic that thread needs to execute. To get the additional
+							arguments inside run method use <b>self.argument</b></li>
+						<li>Create thread using <b>thread = myThreadig(arguments)</b></li>
+						<li>Start thread using <b>thread.start()</b></li>
+						<li>Example:<br /> import threading<br /> import time<br />
+							<br /> class myThreading(threading.Thread):<br /> <br />
+							&nbsp;&nbsp;&nbsp;&nbsp; def __init__(self, param1, param2):<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							threading.Thread.__init__(self)<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; self.param1 =
+							param1<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							self.param2 = param2<br /> <br /> &nbsp;&nbsp;&nbsp;&nbsp; def
+							run(self):<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							print(self.param1)<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							print(self.param2)<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return<br /> <br />
+							try:<br /> &nbsp;&nbsp;&nbsp;&nbsp; thread1 =
+							myThreading("Anshul","Sood")<br /> &nbsp;&nbsp;&nbsp;&nbsp;
+							thread2 = myThreading("Karan","Ahuja")<br />
+							&nbsp;&nbsp;&nbsp;&nbsp; thread1.start()<br />
+							&nbsp;&nbsp;&nbsp;&nbsp; thread2.start()<br />
+							&nbsp;&nbsp;&nbsp;&nbsp; time.sleep(1)<br /> except Exception as
+							e:<br /> &nbsp;&nbsp;&nbsp;&nbsp; print("Exception in thread
+							received", e)<br /> <br />
+						</li>
+					</ul>
+				</li>
+			</ul></li>
+		<li><b>Python XML Parsing</b>
+			<ul>
+				<li><b>SAX Parsing</b>
+					<ul>
+						<li>Import the sax parser module as <b>import xml.sax</b></li>
+						<li>Create a content handler class as subclass of <b>xml.sax.ContentHandler</b>
+							class
+						</li>
+						<li>Override the <b>__init__(self)</b> method to initialize
+							all the xml tags content tp empty string "". Also set a variable
+							say current data to "". This will hold the current tag while
+							parsing.
+						</li>
+						<li>Override the <b>startElement(self, tag, attributes)</b>
+							method. This method is called when an element tag is started
+							<ul>
+								<li>Set the current data attribute to tag</li>
+								<li>All the attributes associated with the tag can be
+									retrieved using method <b>attributes["attributeName"]</b>
+								</li>
+							</ul>
+						</li>
+						<li>Override the <b>endElement(self, tag)</b> method. This
+							method is called when an element tag ends.
+							<ul>
+								<li>Set the current data attribute to ""</li>
+								<li>Get the value of all the tags as <b>self.attributeName</b></li>
+							</ul>
+						</li>
+						<li>Override the <b>characters(self, content)</b> method.
+							This method is called when a character is read.
+							<ul>
+								<li>Set all the attributes to content as self.attributeName
+									= content based on current data attribute. e.g. <br />if
+									self.CurrentData == "elementName":<br />
+									&nbsp;&nbsp;&nbsp;&nbsp; self.type = content <br />
+								</li>
+							</ul>
+						</li>
+						<li>Create an XML parser as <b>parser =
+								xml.sax.make_parser()</b></li>
+						<li>Turn off the namespaces as <b>parser.setFeature(xml.sax.handler.feature_namespaces,
+								0)</b></li>
+						<li>Set the content handler as <b>parser.setContentHandler(ContentHandlerClass())</b></li>
+						<li>Parse the given XML using appropriate protocol e.g. file:
+							or http: and using the parser as <b>parser.paser(xmlFile)</b>
+						</li>
+						<li>Example:<br /> import xml.sax<br /> import os<br /> <br />
+							class MyContentHandler(xml.sax.ContentHandler):<br />
+							&nbsp;&nbsp;&nbsp;&nbsp; def __init__(self):<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; self.CurrentData
+							= ""<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							self.name = ""<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; self.age = 0<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; self.gender = ""<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return<br /> <br />
+							&nbsp;&nbsp;&nbsp;&nbsp; def startElement(self, tag, attributes):<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; self.CurrentData
+							= tag<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if
+							(tag == "member"):<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							print("****Member****")<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return<br /> <br />
+							&nbsp;&nbsp;&nbsp;&nbsp; def endElement(self, tag):<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if
+							(self.CurrentData == "name"):<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							print("Name = ",self.name)<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if
+							(self.CurrentData == "age"):<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							print("Age = ",self.age)<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if
+							(self.CurrentData == "gender"):<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							print("Gender = ",self.gender)<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; self.CurrentData
+							= ""<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							return<br /> <br /> &nbsp;&nbsp;&nbsp;&nbsp; def
+							characters(self, content):<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if
+							(self.CurrentData == "name"):<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							self.name = content<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if
+							(self.CurrentData == "age"):<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							self.age = content<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if
+							(self.CurrentData == "gender"):<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							self.gender = content<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return<br /> <br />
+							parser = xml.sax.make_parser()<br />
+							parser.setFeature(xml.sax.handler.feature_namespaces, 0)<br />
+							parser.setContentHandler(MyContentHandler())<br /> path =
+							"file:///"+os.getcwd()+"/family.xml"<br /> parser.parse(path)<br />
+							<br />
+						</li>
+					</ul></li>
+				<li><b>DOM Parsing</b>
+					<ul>
+						<li>Import minidom module as <b>import xml.dom.minidom</b></li>
+						<li>Load the dom object as <b>xml.dom.minidom.parse("movies.xml")</b></li>
+						<li>Get the root node as <b>dom.documentElement</b></li>
+						<li>Get the attributes of a node as <b>node.getAttribute("attributeName")</b></li>
+						<li>Get all the nodes of a type as <b>node.getElementsByTagName("type")</b></li>
+						<li>For each node get the element for a type as <b>node.getElementsByTagName("name")[0]</b></li>
+						<li>Get the value of node as <b>node.childNodes[0].data</b></li>
+						<li>Example:<br /> <br /> import xml.dom.minidom<br /> dom
+							= xml.dom.minidom.parse("family.xml")<br /> root =
+							dom.documentElement<br /> if root.hasAttribute("name"):<br />
+							&nbsp;&nbsp;&nbsp;&nbsp; print(root.getAttribute("name"))<br />
+							members = root.getElementsByTagName("member")<br /> for member
+							in members:<br /> &nbsp;&nbsp;&nbsp;&nbsp;
+							print(member.getElementsByTagName("name")[0].childNodes[0].data)<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;
+							print(member.getElementsByTagName("age")[0].childNodes[0].data)<br />
+							&nbsp;&nbsp;&nbsp;&nbsp;
+							print(member.getElementsByTagName("gender")[0].childNodes[0].data)<br />
+							<br />
+						</li>
+					</ul></li>
+			</ul></li>
+		<li><b>Python Networking</b>
+			<ul>
+				<li>Python provides two level of access to network services
+					<ul>
+						<li>Operating system level socket to implement clients and
+							servers for both connection-oriented and connection less
+							protocols.</li>
+						<li>Application-level network protocols, such as FTP, HTTP,
+							and so on</li>
+					</ul>
+				</li>
+				<li><b>Sockets</b>
+					<ul>
+						<li>These are the end points of a bidirectional
+							communications channel.</li>
+						<li>They may communicate within a process, between processes
+							on the same machine, or between processes on different
+							continents.</li>
+						<li>They can be implemented over a number of different
+							channel types: Unix domain sockets, TCP, UDP, and so on.</li>
+					</ul></li>
+				<li>To create a server socket
+					<ul>
+						<li>Import the module socket as <b>import socket</b></li>
+						<li>Create socket object as <b>server = socket.socket()</b></li>
+						<li>Get the host as <b>host = socket.gethostname()</b></li>
+						<li>Set some random port as <b>port = 12345</b></li>
+						<li>Bind the server socket object to the host and port as <b>server.bind((host,
+								port))</b>. See there is only one argument inside parenthesis as
+							(host,port)
+						</li>
+						<li>Wait for client connection as <b>server.listen(5)</b></li>
+						<li>Start an infinite loop to listen for infinite requests as
+							<b>while True: server.accept()</b>. This method when receives a
+							message from client returns connection object and IP address of
+							the client machine.
+						</li>
+						<li>To write something back to the client use as <b>connection.send(b'String
+								to send').</b> Send method accepts byte so use b'str'.
+						</li>
+						<li><b>Example</b><br /> <br /> import socket<br /> <br />
+							serverSocket = socket.socket()<br /> host = socket.gethostname()<br />
+							port = 12345<br /> serverSocket.bind((host, port))<br />
+							serverSocket.listen(5)<br /> while True:<br />
+							&nbsp;&nbsp;&nbsp;&nbsp; print("Waiting for connection from
+							client")<br /> &nbsp;&nbsp;&nbsp;&nbsp; connection, addr =
+							serverSocket.accept()<br /> &nbsp;&nbsp;&nbsp;&nbsp; print("Got
+							Connection from ", addr)<br /> &nbsp;&nbsp;&nbsp;&nbsp;
+							connection.sendall(b'Thanks for connecting.')<br />
+							&nbsp;&nbsp;&nbsp;&nbsp; connection.close()<br /> <br /></li>
+					</ul>
+				</li>
+				<li>To create a client socket
+					<ul>
+						<li>Import the module socket as <b>import socket</b></li>
+						<li>Create client socket object as <b>server =
+								clientSocket.socket()</b></li>
+						<li>Get the host as <b>host = socket.gethostname()</b></li>
+						<li>Connect to the server socket as
+							clientSocket.connect((serverHost, serverPort))<b></b>
+						</li>
+						<li>Write to the socket as <b>clientSocket.send(b'str')</b></li>
+						<li>Close the client socket as <b>clientSocket.close()</b></li>
+						<li><b>Example</b><br /> <br /> import socket<br /> <br />
+							clientSocket = socket.socket()<br /> host = socket.gethostname()<br />
+							port = 12345 <br /> clientSocket.connect((host, port))<br />
+							clientSocket.recv(1024)<br /> clientSocket.close()<br /> <br /></li>
+					</ul>
+				</li>
+			</ul></li>
+		<li><b>Python Lambda</b>
+			<ul>
+				<li>A lambda function is a small anonymous function.</li>
+				<li>A lambda function can take any number of arguments but can
+					have only one expression.</li>
+				<li>The syntax of lambda function is <b>lambda arguments :
+						expression</b>.
+				</li>
+				<li>The expression is executed and the result is returned.</li>
+				<li>The power of lambda is better shown when used as an
+					anonymous function inside another function.</li>
+				<li>Example:<br /> myLambda = lambda a, b, c: a + b + c<br />
+					print(myLambda(2, 3, 4))<br /> <br />
+				</li>
+			</ul></li>
+		<li><b>Python JSON</b>
+			<ul>
+				<li>Import json module as <b>import json</b></li>
+				<li>To convert from json string to python
+					<ul>
+						<li>Load the json string as <b>pythonObject =
+								json.load(jsonString)</b></li>
+						<li>Get the python object as <b>pythonObject["jsonObjectKey"]</b></li>
+					</ul>
+				</li>
+				<li>To convert from pythong object to json string
+					<ul>
+						<li>Load the json string as <b>jsonString =
+								json.dumps(pythonObject)</b></li>
+					</ul>
+				</li>
+			</ul></li>
+	</ul>
+	<h1>Examples</h1>
+	<p>
+		<b>Sample python program</b>
+	</p>
+	<ul>
+		<li>Create a file with name HelloWorld.py and the content as <b>print("Hello,
+				world!")</b></li>
+		<li>Run this file using command <b>python Hellworld.py</b></li>
+	</ul>
+	<pre>
 </pre>
-<h1>Frequently Asked Questions</h1>
-<p><b>What is the difference between a python list and a python tuple?</b></p>
-<p>
-<table border="1">
-	<tr><th>Python List</th><th>Python tuple</th></tr>
-	<tr><td>Declared using square bracket e.g. <br/>list1 = ['physics', 'chemistry', 1997, 2000];</td><td>Declared using round bracket e.g. <br/>list1 = ('physics', 'chemistry', 1997, 2000);</td></tr>
-	<tr><td>It is mutable</td><td>It is immutable</td></tr>
-</table>
-</p>
-<p><b>What is the difference between raw_input() and eval(input()) functions in python?</b></p>
-<p>
-<table border="1">
-	<tr><th>raw_input()</th><th>eval(input())</th></tr>
-	<tr><td>It displays the same string on the screen.</td><td>It assumes that the input is a valid python expression and returns the evaluated result.</td></tr>
-</table>
-</p>
-<p><b>Getting error "TypeError: a bytes-like object is required, not 'str'" while using method socket.send(str)?</b></p>
-<p>This is because socket.send() method takes bytes instead of string as arguments. To convert string to bytes use as <b>b'str'</b></p>
-<h2><a href="../../PythonContent.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="../../../Content.html">Home</a></h2>
+	<h1>Frequently Asked Questions</h1>
+	<p>
+		<b>What is the difference between a python list and a python
+			tuple?</b>
+	</p>
+	<p>
+	<table border="1">
+		<tr>
+			<th>Python List</th>
+			<th>Python tuple</th>
+		</tr>
+		<tr>
+			<td>Declared using square bracket e.g. <br />list1 =
+				['physics', 'chemistry', 1997, 2000];
+			</td>
+			<td>Declared using round bracket e.g. <br />list1 = ('physics',
+				'chemistry', 1997, 2000);
+			</td>
+		</tr>
+		<tr>
+			<td>It is mutable</td>
+			<td>It is immutable</td>
+		</tr>
+	</table>
+	<p>
+		<b>What is the difference between raw_input() and eval(input())
+			functions in python?</b>
+	</p>
+	<p>
+	<table border="1">
+		<tr>
+			<th>raw_input()</th>
+			<th>eval(input())</th>
+		</tr>
+		<tr>
+			<td>It displays the same string on the screen.</td>
+			<td>It assumes that the input is a valid python expression and
+				returns the evaluated result.</td>
+		</tr>
+	</table>
+	<p>
+		<b>What is the difference between panda and pandas in ML?</b>
+	</p>
+	<p>
+		<b>Panda</b> is a cloud-based platform that provides video and audio
+		encoding infrastructure whereas <b>pandas</b> is high-performance,
+		easy-to-use data structures and data analysis tools for the Python
+		programming language
+	</p>
+	<p>
+		<b>Where do we find the packages in python?</b>
+	</p>
+	<p>Packages are installed at location
+		%PYTHON_HOME%\Lib\site-packages</p>
+	<p>
+		<b>How to find if a package is installed or not?</b>
+	</p>
+	<p>
+		Use command <b>pip list | find "{package name}"</b>
+	</p>
+	<p>
+		<b>Getting error "TypeError: a bytes-like object is required, not
+			'str'" while using method socket.send(str)?</b>
+	</p>
+	<p>
+		This is because socket.send() method takes bytes instead of string as
+		arguments. To convert string to bytes use as <b>b'str'</b>
+	</p>
+	<h2>
+		<a href="../../PythonContent.html">Back</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+			href="../../../Content.html">Home</a>
+	</h2>
 </body>
 </html>
