@@ -1,0 +1,3 @@
+ESB - enterprise service bus is a software architecture that enables communication among various applications. Instead of having to make each of your applications communicate directly with each other in all their various formats, each application simply communicates with the ESB, which handles transforming and routing the messages to their appropriate destinations.
+
+WS02 - Stands for Web Services oxygenated

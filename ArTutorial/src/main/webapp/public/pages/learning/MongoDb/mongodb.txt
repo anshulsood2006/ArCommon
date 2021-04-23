@@ -1,0 +1,89 @@
+UTF stands for Unicode Transformation Format 
+Database -> Collection (Tables) -> Documents (Data with key value pairs)
+Document has unique id which is a 12 bytes hexadecimal number. 4 (timetamp) + 3 (machine id)+ 2 (mongodb server process id) + 3 (incremental numbers)
+No relationships exists.
+You can select the data and log directory during mongodb installation.
+C:\Program Files\MongoDB\Server\4.4\bin
+Add the bin path from installation directory to path variable to launch mondodb using just command "mongo.exe"
+net stop MongoDB
+net start MongoDB
+mongo.exe
+db.help();
+db.stats();
+use ardictionary - create/use database.
+db - show current database
+show dbs - shows list of all dbs
+To list your db in "show dbs" response, there should be at least one document inside it
+db.dropDatabase() - drops current db currently in use.
+show collections - shows list of all tables inside db currently in use.
+db.createCollection("words") - creates a table words inside db currently in use.
+db.words.insert({"anshul":"sood"}) or db.words.insertOne({"ruhaan":"jhangta"})- inserts a given document in json format inside collection words inside db currently in use.
+db.words.save({"_id":"12","anshul":"sood"}) - inserts/updates a given document for given id in json format inside collection words inside db currently in use.
+db.words.find() - shows all the data in json format inside collection words inside db currently in use.
+db.words.find({"english": "anshul"}) - finds all the rows in json format inside collection words inside db currently in use where english = anshul.
+db.words.drop() - delete collection words inside db currently in use.
+db.words.find()
+db.words.find({"english": "word3"})
+db.words.find({$and: [{"english": "word3"}, {"hindi": "word3meaning1"}]})
+db.words.find({$or: [{"english": "word3"}, {"hindi": "word1meaning1"}]})
+db.words.remove({}) = truncate collection words
+
+
+SAMPLE
+db.dropDatabase()
+db.dropDatabase
+use ardictionary
+db.createCollection("words")
+db.words.insert({
+	"english": "word1",
+	"hindi": [
+		"word1meaning1",
+		"word1meaning2"
+	]
+});
+db.words.insert({
+	"english": "word2",
+	"hindi": [
+		"word2meaning1",
+		"word2meaning2"
+	]
+});
+db.words.save({"_id":"12","english": "word3",
+	"hindi": [
+		"word3meaning1",
+		"word3meaning2"
+	]});
+db.words.find().pretty();
+db.words.find({"english":"word3"}).pretty();
+db.words.find({"hindi":"word2meaning1"}).pretty();
+db.words.find({$and: [{"english": "word3"}, {"hindi": "word3meaning1"}]}).pretty();
+db.words.find({$or: [{"english": "word3"}, {"hindi": "word1meaning1"}]}).pretty();
+db.words.remove({'english':'word3'})
+db.words.find({"english":"word3"}).pretty();
+db.words.find().pretty();
+db.words.remove({})
+db.words.find({"english":"word3"}).pretty();
+db.words.find().pretty();
+db.words.insert({
+	"english": "word1",
+	"hindi": [
+		"word1meaning1",
+		"word1meaning2"
+	]
+})
+db.words.insert({
+	"english": "word2",
+	"hindi": [
+		"word2meaning1",
+		"word2meaning2"
+	]
+})
+db.words.save({"_id":"12","english": "word3",
+	"hindi": [
+		"word3meaning1",
+		"word3meaning2"
+	]});
+db.words.find({}, {"hindi":1,"_id":0}).pretty();	
+db.words.find({}, {"hindi":1,"_id":0}).limit(2).pretty();
+db.words.find({}, {"hindi":1,"_id":0}).sort({"hindi":-1}).pretty();
+db.words.find({}, {"hindi":1,"_id":0}).sort({"hindi":1}).pretty();

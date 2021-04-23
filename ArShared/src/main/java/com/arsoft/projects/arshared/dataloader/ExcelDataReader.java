@@ -2,7 +2,9 @@ package com.arsoft.projects.arshared.dataloader;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -21,6 +23,14 @@ public class ExcelDataReader implements DataReader {
 	private String filePath;
 	private String fileName;
 	private String sheetName;
+	private List<ExcelSheet> excelSheets;
+
+	public ExcelDataReader(String filePath, String fileName) throws ArException {
+		this.filePath = filePath;
+		this.fileName = fileName;
+		this.init();
+	}
+
 	@Override
 	public void setFilePath(String filePath) {
 		this.filePath = filePath;
@@ -52,7 +62,7 @@ public class ExcelDataReader implements DataReader {
 	}
 
 	@Override
-	public void read() throws ArException {
+	public void readSheet(String sheetName) throws ArException {
 		try {
 			logger.debug(
 					"Going to read data of sheet: " + sheetName + " from file: " + fileName + " at path: " + filePath);
@@ -76,7 +86,59 @@ public class ExcelDataReader implements DataReader {
 		} catch (Exception exception) {
 			throw new ArException(exception.getMessage(), logger);
 		}
-		
+	}
+
+	public void init() throws ArException {
+		try {
+			logger.debug("Going to read data from file: " + fileName + " at path: " + filePath);
+			FileInputStream fis = new FileInputStream(new File(filePath + File.separator + fileName));
+			XSSFWorkbook wb = new XSSFWorkbook(fis);
+			int totalSheets = wb.getNumberOfSheets();
+			for (int index = 0; index < totalSheets; index++) {
+				ExcelSheet excelSheet = new ExcelSheet();
+				if (this.excelSheets == null) {
+					this.excelSheets = new ArrayList<>();
+				}
+				XSSFSheet sheet = wb.getSheetAt(index);
+				excelSheet.setSheet(sheet);
+				this.excelSheets.add(excelSheet);
+				Row excelRow = sheet.getRow(0);
+				if (excelRow == null) {
+					continue;
+				} else {
+					List<String> headers = excelSheet.getHeaders();
+					Iterator<Cell> cellIterator = excelRow.cellIterator();
+					while (cellIterator.hasNext()) {
+						Cell cell = cellIterator.next();
+						if (headers == null) {
+							headers = new ArrayList<>();
+						}
+						headers.add(cell.getStringCellValue());
+					}
+					excelSheet.setHeaders(headers);
+					excelSheet.setNumberOfColumns(headers.size());
+					int lastRowIndex = sheet.getLastRowNum();
+					excelSheet.setNumberOfRows(lastRowIndex + 1);
+				}
+			}
+			System.out.println(this);
+		} catch (Exception exception) {
+			throw new ArException(exception.getMessage(), logger);
+		}
+	}
+
+	public List<ExcelSheet> getExcelSheets() {
+		return excelSheets;
+	}
+
+	public void setExcelSheets(List<ExcelSheet> excelSheets) {
+		this.excelSheets = excelSheets;
+	}
+
+	@Override
+	public String toString() {
+		return "ExcelDataReader [logger=" + logger + ", filePath=" + filePath + ", fileName=" + fileName
+				+ ", sheetName=" + sheetName + ", excelSheets=" + excelSheets + "]";
 	}
 
 }

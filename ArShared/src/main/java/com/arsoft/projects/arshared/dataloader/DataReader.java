@@ -19,5 +19,5 @@ public interface DataReader {
 	
 	public void setSheetName(String sheetName);
 
-	public void read() throws ArException;
+	public void readSheet(String sheetName) throws ArException;
 }

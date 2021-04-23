@@ -1,0 +1,10 @@
+Install npx/react using command 
+	npm install -g create-react-app
+Create and go inside folder where application needs to be created and run command
+	npx create-react-app {application_name}
+Go inside the {application_name} directory and run this command to start the application
+	npm start
+To change the port
+	Go to package.json and specify the port under "scripts" as
+	"scripts": {
+    "start": "PORT=3001 react-scripts start"

@@ -1,0 +1,30 @@
+BundleActivator is an interface provided by OSGi that has to be implemented by classes that are entry points for a bundle.
+
+The start() method is invoked by the OSGi platform when the bundle containing this class is started. On the other hand stop() is invoked before just before the bundle is stopped.
+
+To create a bundle set <packaging>bundle</packaging> in pom.xml
+
+
+Go to karaf/bin folder and execute below commands
+1. karaf start
+2. bundle:install mvn:{groupId}/{artifactId}/{version} 
+e.g. bundle:install mvn:com.arsoft.projects/test/1.0.0
+This will give bundle id
+3. bundle:start {bundleId} to start bundle
+4. list command to get list of installed bundles
+5. install -s mvn:org.json/json/20180813 installs and starts a bundle
+6. bundle:stop {bundleId}  to stop bundle
+Error executing command: Error installing bundles:
+        Unable to install bundle mvn:com.arsoft.projects/test/1.0.0: org.osgi.framework.BundleException: Unable to cache bundle: mvn:com.arsoft.projects/test/1.0.0
+        
+Make sure code is compiled successfully and command is having mvn:{groupId}/{artifactId}/{version}
+
+Error executing command: Error installing bundles:
+        Unable to install bundle mvn:com.arsoft.projects/test/1.0.0: org.osgi.framework.BundleException: OSGi R3 bundle not supported
+        
+Make sure packaging is set to bundle and maven-bundle-plugin is used inside build in pom.xml
+
+Error executing command: Error executing command on bundles:
+        Error starting bundle 62: Unable to resolve com.arsoft.projects.test [62](R 62.0): missing requirement [com.arsoft.projects.test [62](R 62.0)] osgi.ee; (osgi.ee=UNKNOWN) Unresolved requirements: [[com.arsoft.projects.test [62](R 62.0)] osgi.ee; (osgi.ee=UNKNOWN)]
+        
+Make sure you are using the latest version of Maven Bundle Plugin in pom.xml file

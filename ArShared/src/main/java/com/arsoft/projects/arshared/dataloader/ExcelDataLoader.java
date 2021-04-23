@@ -50,7 +50,7 @@ public class ExcelDataLoader implements DataLoader {
 	@Override
 	public void load() throws ArException {
 		try {
-			dataReader.read();
+			dataReader.readSheet("Hindi");
 		} catch (Exception exception) {
 			throw new ArException(exception.getMessage(), logger);
 		}

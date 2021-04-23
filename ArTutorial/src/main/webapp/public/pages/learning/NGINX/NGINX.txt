@@ -1,0 +1,14 @@
+Start nginx on windows:
+	start nginx
+Stop nginx on windows:
+	nginx -s quit
+Kill nginx process on windows
+	taskkill /f /IM nginx.exe
+Change root directory nginx on windows
+	Go to conf/nginx.conf
+	and update server section 
+	location / {
+		alias  D:/Odigo/Source/admin-referential-ui/ui/dist/ui/;
+		index  index.html index.htm;
+    }
+	Make sure that trailing / is present

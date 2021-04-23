@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 
 import com.arsoft.projects.arshared.dataloader.ExcelDataLoader;
 import com.arsoft.projects.arshared.dataloader.ExcelDataReader;
+import com.arsoft.projects.arshared.exception.ArException;
 
 @Configuration
 public class ArSharedConfiguration {
@@ -14,8 +15,8 @@ public class ArSharedConfiguration {
 	}
 
 	@Bean
-	public ExcelDataReader getExcelDataReader() {
-		return new ExcelDataReader();
+	public ExcelDataReader getExcelDataReader(String filePath, String fileName) throws ArException {
+		return new ExcelDataReader(filePath, fileName);
 	}
 
 }

@@ -1,0 +1,7 @@
+Dependencies Scopes:
+	compile - needed to build, test, and run the project.
+	provided - needed just to build and test the project. It will be provided during run time by runtime environment.
+	runtime - needed just to test and run the project. 
+	test - needed just to test the project.
+	system - needed to refer jars from system path
+	import - needed just for dependency of type pom
